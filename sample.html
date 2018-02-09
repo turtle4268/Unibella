@@ -6,11 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Unibella</title>
     <style>
+    /*
+        blue:#1F5572
+        yellow:#F8CF4E
+        black: #4d4d4d
+        logo-font:Nyala
+    */
         *{
             margin: 0 ;
             padding: 0 ;
             list-style-type: none ;
             text-decoration-line: none ;
+            font-family: "微軟正黑體" ;
+            font-weight: normal ;
+            letter-spacing: 3px ;
         }
         section{
             width: 100% ;
@@ -24,6 +33,14 @@
             display: flex ;
             justify-content: space-between ;
             color: #FFF ;
+            padding: 60px ;
+            box-sizing: border-box ;
+        }
+        header h1{
+            font-family: "Nyala" ;
+            font-size: 36px ;
+            position: relative ;
+            left: 40px ;
         }
         .h_ul li{
             display: inline-block ;
@@ -43,18 +60,30 @@
             justify-content: center ;
             align-items: center ;
             border-right: 1px solid #FFF ;
+            flex: 1 ;
         }
-
-        .border_none{
+        .f_quarter h2{
+            font-family: "Nyala" ;
+            font-size: 32px ;
+        }
+        .f_quarter.between{
+            justify-content: space-around ;
+        }
+        .f_quarter.border_none{
             border: none ;
+            flex: 1.5 ;
         }
         .f_quarter a{
+            display: block ;
             color: #FFF ;
+            padding: 9px 0px ;
         }
         .foot{
             text-align: center ;
+            font-size: 12px ;
             background-color: #999 ;
-            padding: 10px ;
+            padding: 12px ;
+            border-top: 1px solid #FFF ;
         }
     /*Nav--------------------------------------------------------------*/
         nav{
@@ -65,7 +94,19 @@
             right: 0 ;
             text-align: center ;
             background-color: #ffffffcc ;
+            transition: 1s ;
+        }
+        nav.navhide{
+            right: -20% ;
             
+        }
+        nav .close{
+            width: 50px ;
+            height: 50px ;
+            background-color: #333 ;
+            position: absolute ;
+            top: 40px ;
+            right: 40px ;
         }
         .n_ul{
             width: 100% ;
@@ -76,13 +117,14 @@
         .n_ul li{
             display: flex ;
             align-content: center ;
-            
+            margin: 8px 0 ; 
         }
         .n_ul li a{
             display: block ;
             width: 100% ;
-            padding: 15px ;
-            color: #000000 ;
+            padding: 12px ;
+            color: #666 ;
+            font-size: 20px ;
         }
         .n_ul li a:hover{
             background-color: #CCC;
@@ -93,12 +135,12 @@
     <header>
         <h1>Unibella</h1>
         <ul class="h_ul">
-            <li><a href="">memder</a></li>
-            <li><a href="">cart</a></li>
-            <li><a href="">hamburger</a></li>
+            <li><a >memder</a></li>
+            <li><a >cart</a></li>
+            <li><a class="hamburger">hamburger</a></li>
         </ul>
     </header>
-    <nav>
+    <nav class="navhide">
         <div class="close"></div>
         <ul class="n_ul">
             <li><a href="">品牌介紹</a></li>
@@ -124,7 +166,7 @@
     <footer>
         <div class="f_content">
             <div class="f_quarter"><h2>Unibella</h2></div>
-            <div class="f_quarter">
+            <div class="f_quarter between">
                 <ul>
                     <li><a href="">品牌介紹</a></li>
                     <li><a href="">產品</a></li>
@@ -141,7 +183,19 @@
             <div class="f_quarter"><p>社群</p></div>
             <div class="f_quarter border_none"><p>取得最新消息</p></div>
         </div>
-        <div class="foot">COPYRIGHT &COPY; Unibella ALL RIGHT RESERVED</div>
+        <div class="foot">COPYRIGHT &COPY; Unibella ALL RIGHTS RESERVED</div>
     </footer>
+
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script>
+        $(".hamburger").click(function(){
+            $("nav").removeClass("navhide");
+        });
+        $(".close").click(function(){
+            $("nav").addClass("navhide");
+        });
+    </script>
 </body>
 </html>
