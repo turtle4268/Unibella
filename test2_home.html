@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Unibella</title>
+    <style>
+        *{
+            margin: 0 ;
+            padding: 0 ;
+            font-family: "微軟正黑體" ;
+        }
+        section{
+            width: 100vw ;
+            height: 100vh ;
+            text-align: center ;
+        }
+        section h1{
+            font-size: 72px ;
+        }
+        .rain{
+            background-color: #1F5572 ;
+            
+            color: #000;
+            
+        }
+        .sun{
+            background-color: #F8CF4E ;
+            
+            color: #000;
+        }
+        .half{
+            width: 50% ;
+            height: 100% ;
+            overflow: hidden ;
+            float: left ;
+        }
+        .s{
+            background-color: aquamarine ;
+        }
+        .sunfadeout.sun{
+            transform: translateX(100%);
+            
+        }
+        .rainfadeout.rain{
+            transform: translateX(-100%);
+            
+        }
+        .back_l{
+            width: 25%;
+            height: 40% ;
+            background-color: #FFF ;
+            color: #000 ;
+            text-align: center ;
+            padding-top: 10px ;
+            box-sizing: border-box ;
+            position: fixed ;
+            
+            transform: rotateZ(60deg) ;
+            transform-origin: right top ;
+            bottom: -45% ;
+            left: -15%;
+            cursor: pointer ;
+        }
+        .back_r{
+            width: 25%;
+            height: 40% ;
+            background-color: #FFF ;
+            color: #000 ;
+            text-align: center ;
+            padding-top: 10px ;
+            box-sizing: border-box ;
+            position: fixed ;
+            
+            transform: rotateZ(-60deg) ;
+            transform-origin: left top ;
+            bottom: -45% ;
+            right: -15%;
+            cursor: pointer ;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+
+        </nav>
+    </header>
+
+    <div id="container">
+        
+        <section>
+            
+        </section>
+        <div class="half">
+            <section class="sun">
+                <h1>1</h1>
+            </section>
+        </div>
+        <div class="half">
+            <section class="rain">
+                <h1>2</h1>
+            </section>
+        </div>
+        
+        
+
+        <section></section>
+
+    </div>
+    <footer></footer>
+
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script>
+
+    </script>
+</body>
+</html>

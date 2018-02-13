@@ -22,7 +22,7 @@
             width: 100% ;
             height: 100vh ;
             position: absolute ;
-            z-index: 10;
+            z-index: 5;
             overflow: hidden ;
         }
         .half{
@@ -51,7 +51,7 @@
             background-color: #F8CF4E ;
             position: absolute ;
             top: 0 ;
-            z-index: -1;
+            
         }
         .s{
             background-color: aquamarine ;
@@ -73,6 +73,7 @@
             padding-top: 10px ;
             box-sizing: border-box ;
             position: fixed ;
+            
             transform: rotateZ(60deg) ;
             transform-origin: right top ;
             bottom: -45% ;
@@ -88,6 +89,7 @@
             padding-top: 10px ;
             box-sizing: border-box ;
             position: fixed ;
+            
             transform: rotateZ(-60deg) ;
             transform-origin: left top ;
             bottom: -45% ;
@@ -116,11 +118,11 @@
         <section class="s"></section>
         <!--rain-->
         <section id="index_rain">
-            <div class="back_r back"></div>
+            <div class="back_r back">BACK</div>
         </section>
         <!--sun-->
         <section id="index_sun">
-            <div class="back_l back"></div>
+            <div class="back_l back">BACK</div>
         </section>
     </div>
     <footer></footer>
@@ -133,22 +135,20 @@
         $bgRain=$("#bg_rain");
 
         $bgRain.click(function(){
-            $("#bg_sun").addClass("sunfadeout");
+            $bgSun.addClass("sunfadeout");
             $("#index_rain").css("z-index",2);
-            $("#bg_rain").css("z-index",0);
+            $bgRain.css("z-index",0);
         });
         $("#bg_sun").click(function(){
-            $("#bg_rain").addClass("rainfadeout");
+            $bgRain.addClass("rainfadeout");
             $("#index_sun").css("z-index",2);
-            $("#bg_sun").css("z-index",0);
+            $bgSun.css("z-index",0);
         });
         $(".back").click(function(){
-            $("#bg_sun").removeClass("sunfadeout rainfadeout");
-            $("#bg_rain").removeClass("sunfadeout rainfadeout");
+            $bgSun.removeClass("sunfadeout rainfadeout").css("z-index",2);
+            $bgRain.removeClass("sunfadeout rainfadeout").css("z-index",2);
             $("#index_rain").css("z-index",0);
             $("#index_sun").css("z-index",0);
-            $("#bg_rain").css("z-index",2);
-            $("#bg_sun").css("z-index",2);
         });
 
         var BGfadeout=function(){
