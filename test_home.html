@@ -28,42 +28,43 @@
         .half{
             width: 50% ;
             height: 100% ;
+            transition: 1s ;
+            transform: translateX(0);
         }
         #bg_rain{
             background-color: #1F5572 ;
             float: left ;
-            transition: 1s ;
+            
             
         }
         #bg_sun{
             background-color: #F8CF4E ;
-            float: right ;
-            transition: 1s ;
+            float: left ;
+            
         }
         #index_rain{
             background-color: #1F5572 ;
             position: absolute ;
             top: 0 ;
-            display: none ;
         }
         #index_sun{
             background-color: #F8CF4E ;
             position: absolute ;
             top: 0 ;
-            display: none ;
+            z-index: -1;
         }
         .s{
             background-color: aquamarine ;
         }
-        .sunfadeout{
+        .sunfadeout.sun{
             transform: translateX(100%);
             
         }
-        .rainfadeout{
+        .rainfadeout.rain{
             transform: translateX(-100%);
             
         }
-        .back{
+        .back_l{
             width: 25%;
             height: 40% ;
             background-color: #FFF ;
@@ -72,11 +73,26 @@
             padding-top: 10px ;
             box-sizing: border-box ;
             position: fixed ;
-            z-index: 15;
             transform: rotateZ(60deg) ;
             transform-origin: right top ;
             bottom: -45% ;
             left: -15%;
+            cursor: pointer ;
+        }
+        .back_r{
+            width: 25%;
+            height: 40% ;
+            background-color: #FFF ;
+            color: #000 ;
+            text-align: center ;
+            padding-top: 10px ;
+            box-sizing: border-box ;
+            position: fixed ;
+            transform: rotateZ(-60deg) ;
+            transform-origin: left top ;
+            bottom: -45% ;
+            right: -15%;
+            cursor: pointer ;
         }
     </style>
 </head>
@@ -86,11 +102,11 @@
 
         </nav>
     </header>
-    <div class="back">BACK</div>
+    <!--<div class="back">BACK</div>-->
     <div id="container">
         <div id="bg">
-            <div id="bg_rain" class="half"></div>
-            <div id="bg_sun" class="half"></div>
+            <div id="bg_rain" class="half rain"></div>
+            <div id="bg_sun" class="half sun"></div>
         </div>
         <!--main-->
         <section id="index">
@@ -100,11 +116,11 @@
         <section class="s"></section>
         <!--rain-->
         <section id="index_rain">
-            
+            <div class="back_r back"></div>
         </section>
         <!--sun-->
         <section id="index_sun">
-            <div class="back"></div>
+            <div class="back_l back"></div>
         </section>
     </div>
     <footer></footer>
@@ -113,20 +129,34 @@
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
     <script>
-        $("#bg_rain").click(function(){
+        $bgSun=$("#bg_sun");
+        $bgRain=$("#bg_rain");
+
+        $bgRain.click(function(){
             $("#bg_sun").addClass("sunfadeout");
-            $("#index_rain").show();
+            $("#index_rain").css("z-index",2);
+            $("#bg_rain").css("z-index",0);
         });
         $("#bg_sun").click(function(){
             $("#bg_rain").addClass("rainfadeout");
-            $("#index_sun").show();
+            $("#index_sun").css("z-index",2);
+            $("#bg_sun").css("z-index",0);
         });
         $(".back").click(function(){
-            $("#bg_sun").removeClass("sunfadeout");
-            $("#bg_rain").removeClass("rainfadeout");
-            $("#index_rain").hide();
-            $("#index_sun").hide();
+            $("#bg_sun").removeClass("sunfadeout rainfadeout");
+            $("#bg_rain").removeClass("sunfadeout rainfadeout");
+            $("#index_rain").css("z-index",0);
+            $("#index_sun").css("z-index",0);
+            $("#bg_rain").css("z-index",2);
+            $("#bg_sun").css("z-index",2);
         });
+
+        var BGfadeout=function(){
+
+        };
+        // $(".half").click(function(){
+        //     $(this).siblings().addClass("sunfadeout rainfadeout");
+        // });
     </script>
 </body>
 </html>
