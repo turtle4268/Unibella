@@ -10,7 +10,7 @@
     /*
         blue:#1F5572
         yellow:#F8CF4E
-        black: #4d4d4d
+        black: #666
         logo-font:Nyala
     */
         *{
@@ -21,15 +21,22 @@
             font-family: "微軟正黑體" ;
             font-weight: normal ;
             letter-spacing: 3px ;
+            box-sizing: border-box ;
         }
         section{
             width: 100vw ;
             max-width: 100% ;
             height: 100vh ;
             text-align: center ;
+            overflow: hidden ;
+            color: #FFF ;
+            padding-top: 100px ;
         }
         h1{
             font-size: 72px ;
+        }
+        h3{
+            font-size: 36px ;
         }
      /*Header--------------------------------------------------------*/
         header{
@@ -40,7 +47,7 @@
             justify-content: space-between ;
             color: #FFF ;
             padding: 0 40px ;
-            padding-top: 50px ;
+            padding-top: 28px ;
             box-sizing: border-box ;
         }
         header h1{
@@ -55,10 +62,10 @@
         }
         .h_ul li a{
             display: block ;
-            width: 35px ;
-            height: 35px ;
+            width: 25px ;
+            height: 25px ;
             cursor: pointer ;
-            background-color: #FFF ;
+            background-color: #666 ;
             -webkit-mask-repeat: no-repeat ;
             -webkit-mask-position: center ;
         }
@@ -173,13 +180,13 @@
             right: -20% ;
         }
         nav .close{
-            width: 50px ;
-            height: 50px ;
-            background-color: #333 ;
+            width: 25px ;
+            height: 25px ;
             position: absolute ;
-            top: 40px ;
+            top: 28px ;
             right: 40px ;
             cursor: pointer ;
+            background: url(images/X.svg) center center no-repeat ;
         }
         .n_ul{
             width: 100% ;
@@ -220,6 +227,9 @@
         }
         /*Container-------------------------------------------------------------------*/
         /*Top-------------------------*/
+        #top{
+            padding-top: 0 ;
+        }
         .full{
             width: 100vw ;
             height: 100vh ;
@@ -235,14 +245,15 @@
             float: right ;
             right: -17px ;
         }
-        .umbrella{
+        .full .umbrella{
             width: 800px ;
             height: 800px ;
             margin: 0 auto ;
             position: relative ;
-            bottom: -38% ;
+            bottom: -200px ;
             left: -7px ;
             background-size: cover ;
+            filter: drop-shadow(0 0 16px #0000004d) ;
         }
         .rain .umbrella{
             background-image: url(images/home_umbrella_y.png) ;
@@ -251,9 +262,12 @@
             background-image: url(images/home_umbrella_b.png) ;
         }
         .full h2{
+            max-width: 800px ;
+            margin: 0 auto ;
             font-size: 36px ;
             letter-spacing: 6px ;
             position: relative ;
+            top: -165px ;
             z-index: 3 ;
             transition: 0.4s 0.5s ;
             cursor: default ;
@@ -306,17 +320,122 @@
             cursor: pointer ;
             right: -15%;
         }
-        /*Position----------------------*/
+        /*Location----------------------*/
         #location{
             background-image: url(images/home_locatoin.jpg) ;
             background-size: cover ;
+            position: relative ;
+        }
+        #location .phone{
+            width: 340px ;
+            height: 624px ;
+            background-image: url(images/home_phone.svg) ;
+            background-size: cover ;
+            position: absolute ;
+            bottom: -6% ;
+            right: 9% ;
+        }
+        #location .umbrella{
+            background-image: url(images/home_umbrella_y.png) ;
+            background-size: cover ;
+            width: 550px ;
+            height: 550px ;
+            transform: rotateZ(-25deg) ;
+            position: absolute ;
+            top: 25% ;
+            left: 5% ;
+        }
+        .content{
+            width: 290px ;
+            text-align: left ;
+            margin: 0 auto ;
+            line-height: 32px ;
+        }
+        .content h3{
+            margin-bottom: 50px ;
+        }
+        #location .content{
+            position: relative ;
+            left: 2% ;
+            top: 30% ;
         }
         /*Light-------------------------*/
         #light{
             background-image: url(images/home_light.jpg) ;
             background-size: cover ;
+            position: relative ;
+        }
+        #light .scale{
+            background-image: url(images/home_scale.svg) ;
+            background-size: cover ;
+            width: 507px ;
+            height: 380px ;
+            position: absolute ;
+            bottom: -1% ;
+            right: 9% ;
+        }
+        #light .umbrella{
+            background-image: url(images/home_umbrella_light.png) ;
+            background-size: cover ;
+            width: 550px ;
+            height: 550px ;
+            transform: rotateZ(32deg) ;
+            position: absolute ;
+            top: 12% ;
+            right: 10% ;
+        }
+        #light .content{
+            position: relative ;
+            left: -20% ;
+            top: 30% ;
         }
         /*Popular-----------------------*/
+        #popular h4{
+            font-size: 24px ;
+            color: #666 ;
+            padding-bottom: 20px ;
+        }
+        #popular .card{
+            width: 400px ;
+            height: 50% ;
+            display: inline-block ;
+            margin: 20px ;
+            transform-style : preserve-3d;
+            color: #000 ;
+        }
+        .card .product{
+            width: 95% ;
+            padding-bottom: 95% ;
+            background-image: url(images/home_umbrella_b.png) ;
+            background-size: cover ;
+            transform: rotate(-20deg) translateZ(1px);
+            position: relative ;
+            z-index: 2 ;
+            transform-style : preserve-3d;
+        }
+        .product:before{
+            position: absolute ;
+            top: 5% ;
+            left: 15% ;
+            transform: translateZ(-2px);
+            content: "" ;
+            width: 70% ;
+            height: 70% ;
+            border-radius: 50% ;
+            background: #F8CF4E ;
+            z-index: -1 ;
+        }
+        .card .name{
+            color: #808080 ;
+            border-bottom: 1px solid #808080 ;
+            width: 76px ;
+            margin: 0 auto 20px ;
+            line-height: 24px ;
+        }
+        .card .price{
+            font-size: 18px ;
+            font-weight: bold ;
+        }
     </style>
 </head>
 <body>
@@ -371,13 +490,40 @@
             </div>
         </section>
         <section class="clear" id="location">
+            <div>
+                <div class="umbrella"></div>
+            </div>
             <div class="phone"></div>
+            <div class="content">
+                <h3>定位系統</h3>
+                <p>青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今江東逝水，白髮漁樵江渚上，古今</p>
+            </div>
         </section>
         <section class="" id="light">
-
+            <div class="scale"></div>
+            <div class="umbrella"></div>
+            <div class="content">
+                <h3>極輕</h3>
+                <p>青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今江東逝水，白髮漁樵江渚上，古今</p>
+            </div>
         </section>
         <section id="popular">
-
+            <h4>人氣商品</h4>
+            <div class="card">
+                <div class="product"></div>
+                <p class="name">夏日風情</p>
+                <p class="price">NT. 1980</p>
+            </div>
+            <div class="card">
+                <div class="product"></div>
+                <p class="name">夏日風情</p>
+                <p class="price">NT. 1980</p>
+            </div>
+            <div class="card">
+                <div class="product"></div>
+                <p class="name">夏日風情</p>
+                <p class="price">NT. 1980</p>
+            </div>
         </section>
     </div>
     <footer>
