@@ -21,6 +21,7 @@
             font-family: "微軟正黑體" ;
             font-weight: normal ;
             letter-spacing: 3px ;
+            box-sizing: border-box ;
         }
         section{
             width: 100vw ;
@@ -29,6 +30,7 @@
             text-align: center ;
             overflow: hidden ;
             color: #FFF ;
+            padding-top: 100px ;
         }
         h1{
             font-size: 72px ;
@@ -63,7 +65,7 @@
             width: 35px ;
             height: 35px ;
             cursor: pointer ;
-            background-color: #FFF ;
+            background-color: #666 ;
             -webkit-mask-repeat: no-repeat ;
             -webkit-mask-position: center ;
         }
@@ -225,6 +227,9 @@
         }
         /*Container-------------------------------------------------------------------*/
         /*Top-------------------------*/
+        #top{
+            padding-top: 0 ;
+        }
         .full{
             width: 100vw ;
             height: 100vh ;
@@ -337,7 +342,7 @@
             height: 550px ;
             transform: rotateZ(-25deg) ;
             position: absolute ;
-            top: 20% ;
+            top: 25% ;
             left: 5% ;
         }
         .content{
@@ -352,7 +357,7 @@
         #location .content{
             position: relative ;
             left: 2% ;
-            top: 35% ;
+            top: 30% ;
         }
         /*Light-------------------------*/
         #light{
@@ -376,15 +381,61 @@
             height: 550px ;
             transform: rotateZ(32deg) ;
             position: absolute ;
-            top: 11% ;
+            top: 12% ;
             right: 10% ;
         }
         #light .content{
             position: relative ;
             left: -20% ;
-            top: 35% ;
+            top: 30% ;
         }
         /*Popular-----------------------*/
+        #popular h4{
+            font-size: 24px ;
+            color: #666 ;
+            padding-bottom: 20px ;
+        }
+        #popular .card{
+            width: 400px ;
+            height: 50% ;
+            display: inline-block ;
+            margin: 20px ;
+            transform-style : preserve-3d;
+            color: #000 ;
+        }
+        .card .product{
+            width: 95% ;
+            padding-bottom: 95% ;
+            background-image: url(images/home_umbrella_b.png) ;
+            background-size: cover ;
+            transform: rotate(-20deg) translateZ(1px);
+            position: relative ;
+            z-index: 2 ;
+            transform-style : preserve-3d;
+        }
+        .product:before{
+            position: absolute ;
+            top: 5% ;
+            left: 15% ;
+            transform: translateZ(-2px);
+            content: "" ;
+            width: 70% ;
+            height: 70% ;
+            border-radius: 50% ;
+            background: #F8CF4E ;
+            z-index: -1 ;
+        }
+        .card .name{
+            color: #808080 ;
+            border-bottom: 1px solid #808080 ;
+            width: 76px ;
+            margin: 0 auto 20px ;
+            line-height: 24px ;
+        }
+        .card .price{
+            font-size: 18px ;
+            font-weight: bold ;
+        }
     </style>
 </head>
 <body>
@@ -457,7 +508,22 @@
             </div>
         </section>
         <section id="popular">
-
+            <h4>人氣商品</h4>
+            <div class="card">
+                <div class="product"></div>
+                <p class="name">夏日風情</p>
+                <p class="price">NT. 1980</p>
+            </div>
+            <div class="card">
+                <div class="product"></div>
+                <p class="name">夏日風情</p>
+                <p class="price">NT. 1980</p>
+            </div>
+            <div class="card">
+                <div class="product"></div>
+                <p class="name">夏日風情</p>
+                <p class="price">NT. 1980</p>
+            </div>
         </section>
     </div>
     <footer>
