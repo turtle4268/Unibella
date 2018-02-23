@@ -219,21 +219,53 @@
             opacity: 0.5 ;
         }
         /*Container-------------------------------------------------------------------*/
+        /*Top-------------------------*/
         .full{
             width: 100vw ;
             height: 100vh ;
             text-align: center ;
             position: relative ;
+            color: #FFF ;
         }
         .rain{
             background-color: #1F5572 ;
-            color: #000;
         }
         .sun{
             background-color: #F8CF4E ;
-            color: #000;
             float: right ;
             right: -17px ;
+        }
+        .umbrella{
+            width: 800px ;
+            height: 800px ;
+            margin: 0 auto ;
+            position: relative ;
+            bottom: -38% ;
+            left: -7px ;
+            background-size: cover ;
+        }
+        .rain .umbrella{
+            background-image: url(images/home_umbrella_y.png) ;
+        }
+        .sun .umbrella{
+            background-image: url(images/home_umbrella_b.png) ;
+        }
+        .full h2{
+            font-size: 36px ;
+            letter-spacing: 6px ;
+            position: relative ;
+            z-index: 3 ;
+            transition: 0.4s 0.5s ;
+            cursor: default ;
+        }
+        .full.rain h2{
+            color: #F8CF4E ;
+        }
+        .full.sun h2{
+            color: #1F5572 ;
+        }
+        .full h2.fadeOut{
+            opacity: 0 ;
         }
         .half{
             width: 50% ;
@@ -274,6 +306,17 @@
             cursor: pointer ;
             right: -15%;
         }
+        /*Position----------------------*/
+        #location{
+            background-image: url(images/home_locatoin.jpg) ;
+            background-size: cover ;
+        }
+        /*Light-------------------------*/
+        #light{
+            background-image: url(images/home_light.jpg) ;
+            background-size: cover ;
+        }
+        /*Popular-----------------------*/
     </style>
 </head>
 <body>
@@ -311,27 +354,29 @@
         </ul>
     </aside>
     <div id="container">
-        <section>
+        <section id="top">
             <div class="half">
                 <div class="rain full">
-                    
+                    <div class="umbrella"><!-- <img src="images/home_umbrella_y.png" alt=""> --></div>
+                    <h2>Be Your Unique Unbrella.</h2>
                     <div class="back_r back">BACK</div>
                 </div>
             </div>
             <div class="half">
                 <div class="sun full">
-                    
+                    <div class="umbrella"><!-- <img src="images/home_umbrella_b.png" alt=""> --></div>
+                    <h2>Be Your Unique Unbrella.</h2>
                     <div class="back_l back">BACK</div>
                 </div>
             </div>
         </section>
-        <section class="clear position">
+        <section class="clear" id="location">
+            <div class="phone"></div>
+        </section>
+        <section class="" id="light">
 
         </section>
-        <section class="">
-
-        </section>
-        <section>
+        <section id="popular">
 
         </section>
     </div>
@@ -378,19 +423,21 @@
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
     <script>
-        
+        /*Hamburger*/
         $(".hamburger").click(function(){
             $("nav").removeClass("navhide");
         });
         $(".close").click(function(){
             $("nav").addClass("navhide");
         });
-
+        /*Top*/
         $(".half").click(function(){
             $(this).addClass("halfTofull").siblings().addClass("halfTonull");
+            $(".half h2").addClass("fadeOut");
         });
         $(".back").click(function(e){
             $(this).closest(".half").removeClass("halfTofull").siblings().removeClass("halfTonull");
+            $(".half h2").removeClass("fadeOut");
             e.stopPropagation();    //不讓父元素動作(阻止事件冒泡)
         });
     </script>
