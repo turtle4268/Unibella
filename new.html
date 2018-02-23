@@ -17,32 +17,51 @@
         }
     /*Header--------------------------------------------------------*/
         header{
-            position: relative;
+            position: fixed ;
+            z-index: 5 ;
             width: 100% ;
             display: flex ;
             justify-content: space-between ;
             color: #6f7d80 ;
+            padding: 0 40px ;
+            padding-top: 50px ;
             box-sizing: border-box ;
         }
         header h1{
             font-family: "Nyala" ;
             font-size: 36px ;
             position: relative ;
-            padding: 50px ;
             left: 30px ;
         }
         .h_ul li{
             display: inline-block ;
-            position: relative;
-            padding-top: 60px; 
-            padding-right: 10px; 
+            padding: 0 15px ;
         }
+        .h_ul li a{
+            display: block ;
+            width: 35px ;
+            height: 35px ;
+            cursor: pointer ;
+            background-color: #6f7d80 ;
+            -webkit-mask-repeat: no-repeat ;
+            -webkit-mask-position: center ;
+        }
+        .member{
+            -webkit-mask-image: url(images/icon_MEMBER_gray.svg) ;
+        }
+        .cart{
+            -webkit-mask-image: url(images/icon_CART_gray.svg) ;
+        }
+        .hamburger{
+            -webkit-mask-image: url(images/icon_MENU_gray.svg) ;
+        }
+
         .headerBg_a {
             width: 100%;
             overflow: hidden;
-            position: absolute;
-            top: 0;
-            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .headerBg_a img {
             width: 100%;
@@ -52,33 +71,32 @@
 
         }
         .headerBg_a p {
-            width: 50%;
-            font-size: 36pt;
+            width: 100%;
+            font-size: 36px;
             font-weight: bold;
             color: #fff;
             position: absolute;
-            top: 50%;
-            margin-top: -1.5%;
-            left: 50%;
-            margin-left: -20%;
+            text-align: center;
         }
         .headerBg_a p:hover{
             color: #3b6ae9;
         }
-        .hamburger {
-            padding-right:40px;
+        .hideHeader {
+            opacity: 0;
         }
+        
+
+
     /*Sec1 active-------------------------------------------------------------*/
         .sec1_a{
-            width: 100%;  
-            padding-top:30%;  
+            width: 100%;    
         }
         .sec1_a h1 {
             text-align: center;
             font-size: 24pt;
         }
         .active_a {
-            width:80%;
+            width:70%;
             margin: 0 auto;
             padding-top: 50px;
         }
@@ -88,16 +106,30 @@
             justify-content: center;   
         }
         .active_a ul li {
-            width: 360px;
-            height: 360px;
+            width: 300px;
+            height: 300px;
             margin-right: 15px;
             margin-bottom: 15px;
-        }
-        .active_a ul li a {
-            display: block;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+            transition: all 1s ease-in-out; 
         }
         .square_a {
+            background: #000000;
+        }
+        .active_a ul li a {
+            width: 300px;
+            height: 300px;
+            display: block;
+            z-index: 2;
+            
+        }
+        .active_a ul .square_a img {
+            max-width: 100%;
             position: relative;
+            opacity: 0.4;
+            transition: all .5s ease-in-out; 
         }
         .square_a p {
             font-size: 24px;
@@ -106,6 +138,8 @@
             left: 50%;
             text-align: center;
             color: #fff;
+            transition: all .5s ease-in-out; 
+
         }
         .square_a .p2 {
             margin-top:-32px;
@@ -119,6 +153,40 @@
             margin-top:-16px;
             margin-left:-81px;
         }
+        .active_a ul .square_a:before {
+            width: 145%;
+            height: 145%;
+            top: 0;
+            left: 0;
+            content: '';
+            background: #161414;
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+            transform: rotate(110deg) translateY(-31%) translateX(-3.3%);
+        }
+        /* .active_a ul .square_a.red {
+            background: #581a14;
+        } */
+        .active_a ul .square_a:hover:before,
+        .active_a ul .square_a.hover:before {
+            transform: rotate(110deg) translateY(-150%);
+        }
+        .active_a ul .square_a:hover img{
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .active_a ul .square_a:hover p,
+        .active_a ul .square_a.hover p {
+            transform:translate(-160%,0);
+        }
+        .active_a ul .blue {
+            background: #b1aeae;
+        }
+        .active_a ul .orange {
+            background:#e0a340;
+        }
+
     /*Sec2 new-------------------------------------------------------------*/
         .sec2_a {
             width: 100%;
@@ -239,6 +307,7 @@
             display: flex ;
             width: 20% ;
             height: 100vh ;
+            top:0;
             right: 0 ;
             text-align: center ;
             background-color: #ffffffcc ;
@@ -261,8 +330,6 @@
             width: 100% ;
             margin: 0 auto ;
             align-self: center ;
-            padding: 50px ;
-            
         }
         .n_ul li{
             display: flex ;
@@ -284,19 +351,17 @@
 </head>
 <body>
     <header>
-        <div class="headerBg_a">
-            <img src="images/banner_NEWS.jpg" alt="">
-            <p>Be Your Unique Unbrella</p>
-        </div>
         <h1>Unibella</h1>
         <ul class="h_ul">
-            <li><a >memder</a></li>
-            <li><a >cart</a></li>
-            <li><a class="hamburger">hamburger</a></li>
+            <li><a class="member"></a></li>
+            <li><a class="cart" ></a></li>
+            <li><a class="hamburger"></a></li>
         </ul>
-
     </header>
-    
+    <div class="headerBg_a">
+        <img src="images/banner_NEWS.jpg" alt="">
+        <p>Be Your Unique Unbrella</p>
+    </div>
     <nav class="navhide">
         <div class="close"></div>
         <ul class="n_ul">
@@ -317,24 +382,24 @@
             <div class="active_a">
                 <ul>
                     <li><img src="images/news_squre1.jpg" alt=""></li>
-                    <li class="square_a"><a href="">
-                            <img src="images/news_squre2.jpg" alt="">
+                    <li class="square_a blue" >
+                            <img class="images" src="images/news_squre2_light.jpg" alt="">
                             <p class="p2">梅雨季<br>全館雨傘88折</p>
-                        </a>
+                            <a href=""></a>   
                     </li>
                     <li><img src="images/news_squre3.jpg" alt=""></li>
-                    <li class="square_a">
-                        <a href="">
-                            <img src="images/news_squre4.jpg" alt="">
+                    <li class="square_a orange">
+                        
+                            <img class="images" src="images/news_squre4_light.jpg" alt="">
                             <p class="p4">自動傘新品上架</p>
-                        </a>
+                            <a href=""></a>
                     </li>
                     <li><img src="images/news_squre5.jpg" alt=""></li>
-                    <li class="square_a">
-                        <a href="">
-                            <img src="images/news_squre6.jpg" alt="">
+                    <li class="square_a orange">
+                        
+                            <img class="images" src="images/news_squre6_light.jpg" alt="">
                             <p class="p6">陽傘新色上架</p>
-                        </a>
+                            <a href=""></a>
                     </li>
                 </ul>
             </div>
@@ -378,6 +443,34 @@
             <div class="f_quarter border_none"><p>取得最新消息</p></div>
         </div>
         <div class="foot">COPYRIGHT &COPY; Unibella ALL RIGHTS RESERVED</div>
-    </footer>  
+    </footer> 
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script>
+        $(".hamburger").click(function(){
+            $("nav").removeClass("navhide");
+        });
+        $(".close").click(function(){
+            $("nav").addClass("navhide");
+        });
+        /*nav滑下消失*/
+        var scrollLast;
+        $(window).scroll(function(){
+        var scrollNow=$(this).scrollTop();
+        // console.log(scrollNow);
+            if(scrollNow<=240){
+            $("header").removeClass("hideHeader");
+            }else{
+            if(scrollNow>scrollLast){
+                $("header").addClass("hideHeader");
+
+            }else{
+                $("header").removeClass("hideHeader");
+            };
+            };            
+            scrollLast=scrollNow;
+        });
+    </script> 
 </body>
 </html>
