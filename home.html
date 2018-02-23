@@ -10,7 +10,7 @@
     /*
         blue:#1F5572
         yellow:#F8CF4E
-        black: #4d4d4d
+        black: #666
         logo-font:Nyala
     */
         *{
@@ -27,9 +27,14 @@
             max-width: 100% ;
             height: 100vh ;
             text-align: center ;
+            overflow: hidden ;
+            color: #FFF ;
         }
         h1{
             font-size: 72px ;
+        }
+        h3{
+            font-size: 36px ;
         }
      /*Header--------------------------------------------------------*/
         header{
@@ -173,13 +178,13 @@
             right: -20% ;
         }
         nav .close{
-            width: 50px ;
-            height: 50px ;
-            background-color: #333 ;
+            width: 30px ;
+            height: 30px ;
             position: absolute ;
             top: 40px ;
             right: 40px ;
             cursor: pointer ;
+            background: url(images/X.svg) center center no-repeat ;
         }
         .n_ul{
             width: 100% ;
@@ -235,14 +240,15 @@
             float: right ;
             right: -17px ;
         }
-        .umbrella{
+        .full .umbrella{
             width: 800px ;
             height: 800px ;
             margin: 0 auto ;
             position: relative ;
-            bottom: -38% ;
+            bottom: -200px ;
             left: -7px ;
             background-size: cover ;
+            filter: drop-shadow(0 0 16px #0000004d) ;
         }
         .rain .umbrella{
             background-image: url(images/home_umbrella_y.png) ;
@@ -251,9 +257,12 @@
             background-image: url(images/home_umbrella_b.png) ;
         }
         .full h2{
+            max-width: 800px ;
+            margin: 0 auto ;
             font-size: 36px ;
             letter-spacing: 6px ;
             position: relative ;
+            top: -165px ;
             z-index: 3 ;
             transition: 0.4s 0.5s ;
             cursor: default ;
@@ -306,15 +315,74 @@
             cursor: pointer ;
             right: -15%;
         }
-        /*Position----------------------*/
+        /*Location----------------------*/
         #location{
             background-image: url(images/home_locatoin.jpg) ;
             background-size: cover ;
+            position: relative ;
+        }
+        #location .phone{
+            width: 340px ;
+            height: 624px ;
+            background-image: url(images/home_phone.svg) ;
+            background-size: cover ;
+            position: absolute ;
+            bottom: -6% ;
+            right: 9% ;
+        }
+        #location .umbrella{
+            background-image: url(images/home_umbrella_y.png) ;
+            background-size: cover ;
+            width: 550px ;
+            height: 550px ;
+            transform: rotateZ(-25deg) ;
+            position: absolute ;
+            top: 20% ;
+            left: 5% ;
+        }
+        .content{
+            width: 290px ;
+            text-align: left ;
+            margin: 0 auto ;
+            line-height: 32px ;
+        }
+        .content h3{
+            margin-bottom: 50px ;
+        }
+        #location .content{
+            position: relative ;
+            left: 2% ;
+            top: 35% ;
         }
         /*Light-------------------------*/
         #light{
             background-image: url(images/home_light.jpg) ;
             background-size: cover ;
+            position: relative ;
+        }
+        #light .scale{
+            background-image: url(images/home_scale.svg) ;
+            background-size: cover ;
+            width: 507px ;
+            height: 380px ;
+            position: absolute ;
+            bottom: -1% ;
+            right: 9% ;
+        }
+        #light .umbrella{
+            background-image: url(images/home_umbrella_light.png) ;
+            background-size: cover ;
+            width: 550px ;
+            height: 550px ;
+            transform: rotateZ(32deg) ;
+            position: absolute ;
+            top: 11% ;
+            right: 10% ;
+        }
+        #light .content{
+            position: relative ;
+            left: -20% ;
+            top: 35% ;
         }
         /*Popular-----------------------*/
     </style>
@@ -371,10 +439,22 @@
             </div>
         </section>
         <section class="clear" id="location">
+            <div>
+                <div class="umbrella"></div>
+            </div>
             <div class="phone"></div>
+            <div class="content">
+                <h3>定位系統</h3>
+                <p>青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今江東逝水，白髮漁樵江渚上，古今</p>
+            </div>
         </section>
         <section class="" id="light">
-
+            <div class="scale"></div>
+            <div class="umbrella"></div>
+            <div class="content">
+                <h3>極輕</h3>
+                <p>青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今江東逝水，白髮漁樵江渚上，古今</p>
+            </div>
         </section>
         <section id="popular">
 
