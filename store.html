@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="fontawesome/css/fontawesome-all.css" rel="stylesheet">
     <title>Unibella</title>
     <style>
     /*
@@ -23,17 +24,20 @@
         }
         section{
             width: 100% ;
+            max-width: 100% ;
             height: 100vh ;
             background-color: #fff ;/*y改*/
         }
      /*Header--------------------------------------------------------*/
         header{
             position: fixed ;
+            z-index: 5;
             width: 100% ;
             display: flex ;
             justify-content: space-between ;
             color: #666666 ; /*y改*/
-            padding: 50px ;
+            padding: 0 40px ;
+            padding-top: 28px ;
             box-sizing: border-box ;
         }
         header h1{
@@ -42,8 +46,27 @@
             position: relative ;
             left: 30px ;
         }
-        .h_ul li{
+         .h_ul li{
             display: inline-block ;
+            padding: 0 15px ;
+        }
+        .h_ul li a{
+            display: block ;
+            width: 25px ;
+            height: 25px ;
+            cursor: pointer ;
+            background-color: #666 ;
+            -webkit-mask-repeat: no-repeat ;
+            -webkit-mask-position: center ;
+        }
+        .member{
+            -webkit-mask-image: url(images/icon_MEMBER.svg) ;
+        }
+        .cart{
+            -webkit-mask-image: url(images/icon_CART.svg) ;
+        }
+        .hamburger{
+            -webkit-mask-image: url(images/icon_MENU.svg) ;
         }
     /*Footer-------------------------------------------------------------*/
         footer{
@@ -73,11 +96,55 @@
         .f_quarter.border_none{
             border: none ;
             flex: 1.5 ;
+            flex-wrap: wrap ;
+        }
+        .f_quarter.border_none .mail{
+            width: 265px ;
+            height: 30px ;
+            border: 2px solid #FFF ;
+            border-radius: 28px ;
+            margin: 16px 0 ;
+            display: flex ;
+            justify-content: center ;
+            align-items: center ;
+        }
+        .mail .einput{
+            width: 210px ;
+            height: 24px ;
+            margin-left: 5px ;
+            font-size: 16px ;
+            letter-spacing: normal ;
+            border: none ;
+            background: #CCC ;
+        }
+        .mail .einput:focus{
+            color: #FFF ;
+            outline: none ;
+        }
+        .mail .eput{
+            display: inline-block ;
+            padding: 0 5px ;
+        }
+        .mail .eput i{
+            font-size: 26px ;
         }
         .f_quarter a{
             display: block ;
             color: #FFF ;
             padding: 9px 0px ;
+        }
+        .f_quarter a.aicon{
+            display: inline-block ;
+            margin: 20px ;
+        }
+        .f_quarter a.aicon i{
+            font-size: 28px ;
+        }
+        .f_quarter a.fb{
+            margin-left: 0 ;
+        }
+        .f_quarter a.fb i{
+            font-size: 24px ;
         }
         .foot{
             text-align: center ;
@@ -86,13 +153,14 @@
             padding: 12px ;
             border-top: 1px solid #FFF ;
         }
-    /*Nav--------------------------------------------------------------*/
+   /*Nav--------------------------------------------------------------*/
         nav{
             position: fixed ;
+            z-index: 10 ;
             display: flex ;
             width: 20% ;
             height: 100vh ;
-            top:0;  /*y改*/
+            top: 0 ;
             right: 0 ;
             text-align: center ;
             background-color: #ffffffcc ;
@@ -100,21 +168,20 @@
         }
         nav.navhide{
             right: -20% ;
-            
         }
         nav .close{
-            width: 50px ;
-            height: 50px ;
-            background-color: #333 ;
+            width: 25px ;
+            height: 25px ;
             position: absolute ;
             top: 40px ;
             right: 40px ;
+            cursor: pointer ;
+            background: url(images/X.svg) center center no-repeat ;
         }
         .n_ul{
             width: 100% ;
             margin: 0 auto ;
             align-self: center ;
-           
         }
         .n_ul li{
             display: flex ;
@@ -250,9 +317,11 @@
     <header>
         <h1>Unibella</h1>
         <ul class="h_ul">
-            <li><a >memder</a></li>
-            <li><a >cart</a></li>
-            <li><a class="hamburger">hamburger</a></li>
+            <ul class="h_ul">
+                <li><a class="member"></a></li>
+                <li><a class="cart"></a></li>
+                <li><a class="hamburger"></a></li>
+            </ul>
         </ul>
     </header>
     <div class="banner_y">                       
@@ -322,11 +391,28 @@
                     <li><a href="">Q&amp;A</a></li>
                 </ul>
             </div>
-            <div class="f_quarter"><p>社群</p></div>
-            <div class="f_quarter border_none"><p>取得最新消息</p></div>
+            <div class="f_quarter">
+                <div>
+                    <p>社群</p>
+                    <a href="" class="aicon fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="" class="aicon"><i class="fab fa-instagram"></i></a>
+                    <a href="" class="aicon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="f_quarter border_none">
+                <div>
+                    <p>取得最新消息</p>
+                    <div class="mail">
+                        <input type="text" name="" class="einput">
+                        <a href="" class="eput"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+            </div>
         </div>
         <div class="foot">COPYRIGHT &COPY; Unibella ALL RIGHTS RESERVED</div>
     </footer>
+
 
     <script src="http://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="

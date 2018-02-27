@@ -30,13 +30,17 @@
             text-align: center ;
             overflow: hidden ;
             color: #FFF ;
-            padding-top: 100px ;
+            padding-top: 5% ;
         }
         h1{
             font-size: 72px ;
         }
         h3{
             font-size: 36px ;
+        }
+        img{
+            width: 100% ;
+            height: 100% ;
         }
      /*Header--------------------------------------------------------*/
         header{
@@ -204,9 +208,101 @@
             padding: 12px ;
             color: #666 ;
             font-size: 18px ;
+            transition: 0.4s ;
         }
         .n_ul li a:hover{
             background-color: #CCC;
+        }
+        /*Left aside--------------------------------------------------------------------*/
+        .l_aside{
+            position: fixed ;
+            justify-content: center ;
+            top: 28% ;
+            left: -2% ;
+            width: 10% ;
+            /* height: 50% ; */
+            z-index: 5 ;
+            color: #FFF ;
+        }
+        .scroll{
+            position: relative ;
+        }
+        .scroll_f{
+            display: flex;
+            transform: rotate(-90deg) translateX(-55px);
+            align-items: center;
+            height: 134px ;
+        }
+        .scroll_f h4{
+            font-size: 12px;
+            animation: scroll_word 1s linear infinite;
+        }
+        .scroll_f .line_f{
+            height: 1px;
+            width: 70px;
+            background-color: #FFF ;
+            margin-right:20px;
+        }
+        .so_f{
+            position: relative;
+            left: 56%;
+            transform: translateY(-65px)
+        }
+        .so_f .s_f{
+            width: 8px;
+            height: 8px;
+            margin: 5px;
+            animation: scroll_so .5s linear infinite;
+            animation-direction: alternate;
+        }.so_f .s_1_f{
+            -webkit-mask-image: url(images/icon_scroll.svg) ;
+            background-color:#FFF;  
+            animation-delay: .1s;
+        }
+        .so_f .s_2_f{
+            -webkit-mask-image: url(images/icon_scroll.svg) ;
+            background-color: #FFF; 
+            animation-delay: .2s;  
+        }
+        .so_f .s_3_f{
+            -webkit-mask-image: url(images/icon_scroll.svg) ;
+            background-color: #FFF;
+            animation-delay: .3s;
+        }
+        .l_aside .item{
+            margin-bottom: 15px ;
+        }
+        .l_aside .left_a{
+            position: relative ;
+            top: 30px ;
+        }
+        .l_aside a{
+            display: block ;
+            color: #FFF ;
+            margin: 20px 0 ;
+        }
+        .l_aside a i{
+            font-size: 18px ;
+            width: 100% ;
+            text-align: center ;
+        }
+       @keyframes scroll_word{
+            0% {
+                opacity: 1;
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+            }
+
+            100% {
+                opacity: .3;
+                -webkit-transform: translateX(-6px);
+                transform: translateX(-6px);
+                }
+       }
+       @keyframes scroll_so {
+            0%   { opacity: .2; }
+            50%  { opacity: .5; }
+            100% { opacity: 1; }
         }
         /*Right aside-------------------------------------------------------------------*/
         .r_aside{
@@ -226,6 +322,9 @@
             opacity: 0.5 ;
         }
         /*Container-------------------------------------------------------------------*/
+        .fadeOut{
+            opacity: 0 ;
+        }
         /*Top-------------------------*/
         #top{
             padding-top: 0 ;
@@ -246,8 +345,10 @@
             right: -17px ;
         }
         .full .umbrella{
-            width: 800px ;
-            height: 800px ;
+            width: 80% ;
+            padding-bottom: 80% ;
+            max-width: 800px ;
+            max-height: 800px ;
             margin: 0 auto ;
             position: relative ;
             bottom: -200px ;
@@ -255,19 +356,14 @@
             background-size: cover ;
             filter: drop-shadow(0 0 16px #0000004d) ;
         }
-        .rain .umbrella{
-            background-image: url(images/home_umbrella_y.png) ;
-        }
-        .sun .umbrella{
-            background-image: url(images/home_umbrella_b.png) ;
-        }
-        .full h2{
+        .full .umbrella h2{
+            width: 100% ;
             max-width: 800px ;
             margin: 0 auto ;
             font-size: 36px ;
             letter-spacing: 6px ;
-            position: relative ;
-            top: -165px ;
+            position: absolute ;
+            top: 36% ; ;
             z-index: 3 ;
             transition: 0.4s 0.5s ;
             cursor: default ;
@@ -277,9 +373,6 @@
         }
         .full.sun h2{
             color: #1F5572 ;
-        }
-        .full h2.fadeOut{
-            opacity: 0 ;
         }
         .half{
             width: 50% ;
@@ -293,6 +386,31 @@
         }
         .halfTonull{
             width: 0% ;
+        }
+        .intro{
+            width: 354px ;
+            height: 354px ;
+            border-radius: 50% ;
+            background-color: #999 ;
+            position: absolute ;
+            top: 15% ;
+            display: flex ;
+            align-items: center ;
+            transition: 0.5s 0.4s ;
+        }
+        .intro p{
+            width: 65% ;
+            height: max-content ;
+            margin: 0 auto ;
+            line-height: 32px ;
+        }
+        .intro_r{
+            left: 8% ;
+            background-color: #1D7FB5 ;
+        }
+        .intro_l{
+            right: 8% ;
+            background-color: #E5BD17 ;
         }
         .back{
             width: 26%;
@@ -327,26 +445,28 @@
             position: relative ;
         }
         #location .phone{
-            width: 340px ;
-            height: 624px ;
+            width: 22% ;
+            padding-top: 40% ;
             background-image: url(images/home_phone.svg) ;
             background-size: cover ;
             position: absolute ;
-            bottom: -6% ;
+            bottom: -30px ;
             right: 9% ;
         }
         #location .umbrella{
-            background-image: url(images/home_umbrella_y.png) ;
             background-size: cover ;
-            width: 550px ;
-            height: 550px ;
-            transform: rotateZ(-25deg) ;
+            width: 36% ;
+            padding-bottom: 36% ;
+            max-width: 550px ;
             position: absolute ;
-            top: 25% ;
+            top: 15% ;
             left: 5% ;
         }
+        #location .umbrella img{
+            transform: rotateZ(-25deg) ;
+        }
         .content{
-            width: 290px ;
+            max-width: 290px ;
             text-align: left ;
             margin: 0 auto ;
             line-height: 32px ;
@@ -368,59 +488,70 @@
         #light .scale{
             background-image: url(images/home_scale.svg) ;
             background-size: cover ;
-            width: 507px ;
-            height: 380px ;
+            width: 38% ;
+            padding-bottom: 28% ;
             position: absolute ;
-            bottom: -1% ;
+            bottom: -30px ;
             right: 9% ;
         }
         #light .umbrella{
-            background-image: url(images/home_umbrella_light.png) ;
             background-size: cover ;
-            width: 550px ;
-            height: 550px ;
-            transform: rotateZ(32deg) ;
+            width: 100% ;
+            padding-bottom: 100% ;
+            max-width: 550px ;
             position: absolute ;
-            top: 12% ;
-            right: 10% ;
+            top: -70% ;
+            right: 7% ;
+        }
+        #light .umbrella img{
+            transform: rotateZ(32deg) ;
         }
         #light .content{
             position: relative ;
             left: -20% ;
-            top: 30% ;
+            top: 25% ;
         }
         /*Popular-----------------------*/
+        #popular{
+            display: flex ;
+            flex-wrap: wrap ;
+            justify-content: center ;
+        }
         #popular h4{
             font-size: 24px ;
             color: #666 ;
-            padding-bottom: 20px ;
+            align-self: baseline ;
+        }
+        .cards{
+            display: flex ;
+            justify-content: center ;
+            min-width: 100% ;
+            margin-top: 10px ;
         }
         #popular .card{
-            width: 400px ;
-            height: 50% ;
+            max-width: 400px ;
+            height: auto ;
             display: inline-block ;
-            margin: 20px ;
-            transform-style : preserve-3d;
+            margin: 0 2% ;
             color: #000 ;
         }
         .card .product{
             width: 95% ;
-            padding-bottom: 95% ;
-            background-image: url(images/home_umbrella_b.png) ;
+            /* padding-bottom: 95% ; */
             background-size: cover ;
-            transform: rotate(-20deg) translateZ(1px);
             position: relative ;
             z-index: 2 ;
-            transform-style : preserve-3d;
+        }
+        .product img{
+            transform: rotate(-20deg) ;
         }
         .product:before{
             position: absolute ;
             top: 5% ;
-            left: 15% ;
-            transform: translateZ(-2px);
+            left: 11% ;
             content: "" ;
-            width: 70% ;
-            height: 70% ;
+            width: 75% ;
+            padding-bottom: 75% ;
             border-radius: 50% ;
             background: #F8CF4E ;
             z-index: -1 ;
@@ -429,7 +560,7 @@
             color: #808080 ;
             border-bottom: 1px solid #808080 ;
             width: 76px ;
-            margin: 0 auto 20px ;
+            margin: 20px auto ;
             line-height: 24px ;
         }
         .card .price{
@@ -462,7 +593,23 @@
         </ul>
     </nav>
     <aside class="l_aside">
-
+        <div class="scroll item">
+            <div class="scroll_f">
+                <div class="line_f"></div>
+                <h4>Scroll</h4>
+            </div>
+            <div class="so_f">
+                <div class="s_f s_1_f"></div>
+                <div class="s_f s_2_f"></div>
+                <div class="s_f s_3_f"></div>
+            </div>
+        </div>
+        <div class="item left_a">
+            <a href=""><i class="fab fa-facebook-f"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-youtube"></i></a>
+        </div>
+        
     </aside>
     <aside class="r_aside">
         <ul>
@@ -476,22 +623,36 @@
         <section id="top">
             <div class="half">
                 <div class="rain full">
-                    <div class="umbrella"><!-- <img src="images/home_umbrella_y.png" alt=""> --></div>
-                    <h2>Be Your Unique Unbrella.</h2>
+                    <div class="umbrella">
+                        <img src="images/home_umbrella_y.png" alt="">
+                        <h2>Be Your Unique Unbrella.</h2>
+                    </div>
+                    <div class="intro intro_r fadeOut">
+                        <p>青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝
+                        相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝</p>
+                    </div>
                     <div class="back_r back">BACK</div>
                 </div>
             </div>
             <div class="half">
                 <div class="sun full">
-                    <div class="umbrella"><!-- <img src="images/home_umbrella_b.png" alt=""> --></div>
-                    <h2>Be Your Unique Unbrella.</h2>
+                    <div class="umbrella">
+                        <img src="images/home_umbrella_b.png" alt="">
+                        <h2>Be Your Unique Unbrella.</h2>
+                    </div>
+                    <div class="intro intro_l fadeOut">
+                        <p>青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝
+                        相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝</p>
+                    </div>
                     <div class="back_l back">BACK</div>
                 </div>
             </div>
         </section>
         <section class="clear" id="location">
             <div>
-                <div class="umbrella"></div>
+                <div class="umbrella">
+                    <img src="images/home_umbrella_y.png" alt="">
+                </div>
             </div>
             <div class="phone"></div>
             <div class="content">
@@ -500,8 +661,12 @@
             </div>
         </section>
         <section class="" id="light">
-            <div class="scale"></div>
-            <div class="umbrella"></div>
+               <div class="scale">
+                    <div class="umbrella">
+                <img src="images/home_umbrella_light.png" alt="">
+            </div>
+               </div>
+             
             <div class="content">
                 <h3>極輕</h3>
                 <p>青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今江東逝水，白髮漁樵江渚上，古今</p>
@@ -509,21 +674,30 @@
         </section>
         <section id="popular">
             <h4>人氣商品</h4>
-            <div class="card">
-                <div class="product"></div>
-                <p class="name">夏日風情</p>
-                <p class="price">NT. 1980</p>
+            <div class="cards">
+               <div class="card">
+                    <div class="product">
+                        <img src="images/home_umbrella_b.png" alt="">
+                    </div>
+                    <p class="name">夏日風情</p>
+                    <p class="price">NT. 1980</p>
+                </div>
+                <div class="card">
+                    <div class="product">
+                        <img src="images/home_umbrella_b.png" alt="">
+                    </div>
+                    <p class="name">夏日風情</p>
+                    <p class="price">NT. 1980</p>
+                </div>
+                <div class="card">
+                    <div class="product">
+                        <img src="images/home_umbrella_b.png" alt="">
+                    </div>
+                    <p class="name">夏日風情</p>
+                    <p class="price">NT. 1980</p>
+                </div> 
             </div>
-            <div class="card">
-                <div class="product"></div>
-                <p class="name">夏日風情</p>
-                <p class="price">NT. 1980</p>
-            </div>
-            <div class="card">
-                <div class="product"></div>
-                <p class="name">夏日風情</p>
-                <p class="price">NT. 1980</p>
-            </div>
+            
         </section>
     </div>
     <footer>
@@ -580,10 +754,12 @@
         $(".half").click(function(){
             $(this).addClass("halfTofull").siblings().addClass("halfTonull");
             $(".half h2").addClass("fadeOut");
+            $(this).find(".intro").removeClass("fadeOut");
         });
         $(".back").click(function(e){
             $(this).closest(".half").removeClass("halfTofull").siblings().removeClass("halfTonull");
             $(".half h2").removeClass("fadeOut");
+            $(this).closest(".half").find(".intro").addClass("fadeOut");
             e.stopPropagation();    //不讓父元素動作(阻止事件冒泡)
         });
     </script>

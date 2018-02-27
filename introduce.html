@@ -23,6 +23,9 @@
             font-weight: normal ;
             letter-spacing: 3px ;
         }
+            body{
+                background-color: black;
+            }
      /*Header--------------------------------------------------------*/
      header{
         position: fixed ;
@@ -88,6 +91,9 @@
         .word1_f{
             width: 890px;
             margin: 0 auto;
+            transform: translateY(350px);
+            opacity: 0;
+            transition: all 1.5s;
         }
         .word1_f h3{
             text-align: center;
@@ -99,14 +105,21 @@
             line-height: 36px;
             padding: 50px 0 100px;
         }
+        .scroll_all_f{
+            position: absolute;
+            top: 85vh;
+
+        }
         .scroll_f{
             display: flex;
             position: absolute;
             bottom: 80px;
             transform: rotate(-90deg);
             align-items: center;
+            z-index: 10;
+            left: -65px;
         }
-        .pic1_f h4{
+        .scroll_f h4{
             font-size: 16px;
             animation: scroll_word 1s linear infinite;
         }
@@ -115,6 +128,7 @@
             width: 70px;
             background-color: #666;
             margin-right:20px;
+            
         }
         .so_f{
             position: absolute;
@@ -160,7 +174,104 @@
             50%  { opacity: .5; }
             100% { opacity: 1; }
         }
+        .word1_hide_f{
+            transform: translateY(0px);
+            opacity: 1;
+			transition: all 1.2s;
+        }
+        /* .word1_hide2_f{
+            transform: translateY(200px);
+            opacity: 0;
+			transition: all .5s;
+        } */
+   
+    /*section1-parallax-cloud--------------------------------------------*/
+        .clouds1_f{
+            position: absolute;
+            left: 50%;
+            width: 100%;
+            margin-left: -50%;
+            top:80vh;
+        }
+        .parallax_f{
+            position: fixed;
+            width: 100%;
+        }
+        #parallax1_f{
+            z-index: 5;
+        }
+        #parallax2_f{
+            z-index:2
+        }
+        #parallax3_f{
+            z-index: 1;
+        }
+        #parallax4_f{
+            z-index: 3;
+        }
+        #parallax5_f{
+            z-index: 4;
+        }
+        #parallax6_f{
+            z-index: 6;
+        }
+        .cloud_f{
+            position: absolute;
+            display: block;
+            width: 450px;
+            height: 300px;
+        }
+        .cloud1_f{
+            background: url(images/cloud1.png) no-repeat;
+            left: -100px; 
+        }
+        .cloud1-2_f{
+            left:600px;
+        }
+        .cloud2_f{
+            background: url(images/cloud2.png) no-repeat;
+            left: 200px;
+        }
+        .cloud2-2_f{
+            left:900px;
+        }
+       .cloud3_f{
+            background: url(images/cloud3.png) no-repeat;
+            left: 500px;
+        }
+        .cloud3-2_f{
+            left: 1200px;
+        }
+        .cloud4_f{
+            background: url(images/cloud4.png) no-repeat;
+            left: 700px;
+        }
+        .cloud4-2_f{
+            left: 1400px;
+        }
+        .cloud5_f{
+            background: url(images/cloud5.png) no-repeat;
+            left: 1000px;
+        }
+        .cloud5-2_f{
+            left: 20px;
+        }
+        .cloud6_f{
+            background: url(images/cloud6.png) no-repeat;
+            left: 1300px;
+        }
+        .cloud6-2_f{
+            left: 320px;
+        }
 
+    /*section2_cloud_top-------------------------------------------------*/
+       .clouds2_f{
+            position: absolute;
+            left: 50%;
+            width: 100%;
+            margin-left: -50%;
+            top: 140vh;
+       }
     /*section2-----------------------------------------------------------*/
         .pic2_f{
             width: 100% ; 
@@ -169,7 +280,15 @@
             object-fit: fill;
         }
         .pic2_f img{
+            display: block;
             width: 100%;
+            transition: all 1.2s;
+        }
+        .pic2_img_active_f{
+            opacity: 0;
+            transform: translateY(600px);
+            overflow: hidden;
+            transition:all 1.5s; 
         }
         .pic2_f p{
             color: white;
@@ -177,7 +296,13 @@
             font-size: 36px;
             position: absolute;
             margin-left: 150px;
+            transition: all 1.5s;
             }
+       .pic2_p_active_f{
+            opacity: 0;
+            transform: translateY(-300px);
+            transition: all 1.5s;
+        }
         .word2_f{
             width: 1115px;
             margin: 0 auto ;
@@ -187,7 +312,6 @@
         }
         .word2_f p{
             padding-top: 50px;
-
         }
         .word2_f ul{
             line-height: 36px;
@@ -353,12 +477,12 @@
             
         }
         nav .close{
-            width: 50px ;
-            height: 50px ;
-            background-color: #333 ;
+            width: 25px ;
+            height: 25px ;
             position: absolute ;
-            top: 40px ;
+            top: 28px ;
             right: 40px ;
+            background: url(images/X.svg) center center no-repeat ;
         }
         .n_ul{
             width: 100% ;
@@ -416,15 +540,44 @@
         <section class="pic1_f">
             <img src="images/intro_big1.jpg" alt="">
             <p>Be Your Unique Umbrella.</p>
-            <div class="scroll_f">
-                <div class="line_f"></div>
-                <h4>Scroll</h4>
+            <div class="scroll_all_f">
+                <div class="scroll_f">
+                    <div class="line_f"></div>
+                    <h4>Scroll</h4>
+                </div>
+                <div class="so_f">
+                    <div class="s_f s_1_f"></div>
+                    <div class="s_f s_2_f"></div>
+                    <div class="s_f s_3_f"></div>
+                </div>
             </div>
-            <div class="so_f">
-                <div class="s_f s_1_f"></div>
-                <div class="s_f s_2_f"></div>
-                <div class="s_f s_3_f"></div>
-            </div> 
+            <div class="clouds1_f">
+                <div id="parallax1_f" class="parallax_f">
+                    <div class="cloud1_f cloud_f"></div>
+                    <div class="cloud1_f cloud1-2_f cloud_f"></div>
+                </div> 
+                <div id="parallax2_f" class="parallax_f">
+                    <div class="cloud2_f cloud_f"></div>
+                    <div class="cloud2_f cloud2-2_f cloud_f"></div>
+                </div>
+                <div id="parallax3_f" class="parallax_f">
+                    <div class="cloud3_f cloud_f"></div>
+                    <div class="cloud3_f cloud3-2_f cloud_f"></div>
+                </div>
+                <div id="parallax4_f" class="parallax_f">
+                    <div class="cloud4_f cloud_f"></div>
+                    <div class="cloud4_f cloud4-2_f cloud_f"></div>
+                </div>
+                <div id="parallax5_f" class="parallax_f">
+                    <div class="cloud5_f cloud_f"></div>
+                    <div class="cloud5_f cloud5-2_f cloud_f"></div>
+                </div>
+                <div id="parallax6_f" class="parallax_f">
+                    <div class="cloud6_f cloud_f"></div>
+                    <div class="cloud6_f cloud6-2_f cloud_f"></div>
+                </div>
+            </div>
+            
         </section>
         <section class="word1_f">
             <h3>品牌故事</h3>
@@ -444,8 +597,35 @@
 
         </section>
         <section class="pic2_f">
-            <img src="images/intro_big2.jpg" alt="">
-            <p>Be Your Unique Umbrella.</p>
+                <img src="images/intro_big2.jpg" alt="">
+                <p>Be Your Unique Umbrella.</p>
+
+            <div class="clouds2_f">
+                <div id="parallax1_f" class="parallax_f">
+                    <div class="cloud1_f cloud_f"></div>
+                    <div class="cloud1_f cloud1-2_f cloud_f"></div>
+                </div> 
+                <div id="parallax2_f" class="parallax_f">
+                    <div class="cloud2_f cloud_f"></div>
+                    <div class="cloud2_f cloud2-2_f cloud_f"></div>
+                </div>
+                <div id="parallax3_f" class="parallax_f">
+                    <div class="cloud3_f cloud_f"></div>
+                    <div class="cloud3_f cloud3-2_f cloud_f"></div>
+                </div>
+                <div id="parallax4_f" class="parallax_f">
+                    <div class="cloud4_f cloud_f"></div>
+                    <div class="cloud4_f cloud4-2_f cloud_f"></div>
+                </div>
+                <div id="parallax5_f" class="parallax_f">
+                    <div class="cloud5_f cloud_f"></div>
+                    <div class="cloud5_f cloud5-2_f cloud_f"></div>
+                </div>
+                <div id="parallax6_f" class="parallax_f">
+                    <div class="cloud6_f cloud_f"></div>
+                    <div class="cloud6_f cloud6-2_f cloud_f"></div>
+                </div>
+            </div> 
         </section>
         <section class="word2_f">
             <div>
@@ -560,6 +740,67 @@
         });
         $(".close").click(function(){
             $("nav").addClass("navhide");
+        });
+
+        $(window).scroll(function(){
+            //第一層雲
+            var scrolled = $(window).scrollTop(); 
+            $(".clouds1_f #parallax1_f").css('top', (85-(scrolled*.45))+'vh');//5
+            $(".clouds1_f #parallax2_f").css('top', (85-(scrolled*.35))+'vh');//3
+            $(".clouds1_f #parallax3_f").css('top', (85-(scrolled*.3))+'vh');//2
+            $(".clouds1_f #parallax4_f").css('top', (85-(scrolled*.25))+'vh');//1 0.05
+            $(".clouds1_f #parallax5_f").css('top', (85-(scrolled*.5))+'vh');//6
+            $(".clouds1_f #parallax6_f").css('top', (85-(scrolled*.4))+'vh');//4
+            
+            //scroll icon
+            var scrolliconNow = $(this).scrollTop();
+            if(scrolliconNow>60){
+                $(".scroll_f, .so_f").fadeOut(400);
+                $(".scroll_all_f").css('top', (85-scrolliconNow*.3)+'vh');
+            }else{
+                $(".scroll_f, .so_f").fadeIn(400);
+                $(".scroll_all_f").css('top', (85-scrolliconNow*.3)+'vh');
+            };
+
+            //品牌介紹文字
+            var scrollWord1Now = $(this).scrollTop(); 
+            if(scrollWord1Now>350){
+                $(".word1_f").addClass("word1_hide_f");
+            }else{
+                $(".word1_f").removeClass("word1_hide_f");
+            };
+
+            //水滴圖片
+            var scrollPic2=$(this).scrollTop();
+            if(scrollPic2<700){
+                $(".pic2_f img").addClass("pic2_img_active_f");
+                $(".pic2_f p").addClass("pic2_p_active_f");
+            }else{
+                $(".pic2_f img").removeClass("pic2_img_active_f");
+                setTimeout(function(){
+                    $(".pic2_f p").removeClass("pic2_p_active_f");
+                }, 600);
+            };
+
+            //第二層雲
+            var scrolled2 = $(window).scrollTop(); 
+            var mi=scrolled2-1000;
+            if(scrolled2>1000){
+                $(".clouds2_f #parallax1_f").css('top', (140-mi*.29)+'vh');//4
+                $(".clouds2_f #parallax2_f").css('top', (140-mi*.26)+'vh');//3
+                $(".clouds2_f #parallax3_f").css('top', (140-mi*.23)+'vh');//2 0.05
+                $(".clouds2_f #parallax4_f").css('top', (140-mi*.2)+'vh');//1 0.007
+                $(".clouds2_f #parallax5_f").css('top', (140-mi*.35)+'vh');//6
+                $(".clouds2_f #parallax6_f").css('top', (140-mi*.32)+'vh');//5
+            }else{
+                $("clouds2_f").css('top', 140+'vh');
+            };
+
+            //第三層雲
+            var scrolled3 = $(window).scrollTop();
+            var mi2=scrolled3-2100;
+                
+            console.log(scrolled2);
         });
     </script>
 </body>
