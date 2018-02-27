@@ -90,7 +90,7 @@
 /*Sec1-------------------------------------------------------------*/
     .sec1_a {
         width: 100%;  
-        height: 100vh;   
+        height: 130vh;   
     }
     .sec1_a h1 {
         text-align: center;
@@ -105,85 +105,128 @@
         
     }
     .formP_a {
-        width: 30%; 
+        width: 32%; 
+        height: 75%;
         position: relative;
     }
     .usCotent_a {
         border:3px solid #f8cf4e;
-        width: 40%;
-        height: 60%;
+        width: 35%;
+        height: 90%;
         overflow: hidden;
-        position: relative;
-        
+        position: relative;  
+        transition: all .5s linear; 
     }
     .usCotent_a p {
-        width:95%; 
+        width:75%; 
         margin:0 auto;
         padding-top: 40px;
         color:#666666;
         transition: all .5s linear;
     }
+    .usCotent_a p iframe {
+        height: 180px;
+    }
     .usForm_a {
         border:3px solid #1f5572;
         width: 100%;
+        height: 100%;
         position: absolute;
-        top:15%;
+        top:28%;
         left: -5%;
-        height: 50%;
         
     }
     .usFormCon_a {
-        width: 70%;
+        width: 73%;
         margin:0 auto;
-        padding-top: 40px;
+        padding-top: 70px;
         color:#666666;
     }
     .usFormCon_a h3 {
+        width: 100%;
         text-align: center;
         font-size: 24pt;
     }
-    .usFormCon_a textarea {
-        margin-left: 25%;
+    .usFormCon_a select {
+        width: 67%;
+        height: 30px;
+        color:#666666;
+        border:none;
+        border-bottom: 1px solid #666;
     }
-    .usFormCon_a select, textarea {
+    .usFormCon_a textarea {
+        margin-left: 23%;
         width: 67%;
         color:#666666;
     }
+    
     .usFormCon_a input {
         width: 66%;
+        height: 30px;
+        border:none;
+        border-bottom: 1px solid #666;
     }
     button {
-        width: 20%;
+        width: 25%;
         height: 30px;
-        border: 1px solid #666;
-
+        font-size: 1rem;
+        background-color: transparent;
+        border: 2px solid #302f3a;
+        color: #302f3a;
+        position: relative;
     }
-    .usCotent_a::after {
+    button::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: -.5rem;
+        top: -.5rem;
+        z-index: -1;
+        background-color: #5b8095;
+        transition: all 200ms ease-out;
+    }
+    button:hover::before {
+        top: 0;
+        left: 0;
+    }
+    button:hover:active {
+        transform: translateY(3px);
+    }
+    .usFormCon_a .btn {
+        width: 100%;
+        text-align: center;
+        padding-top: 20px;
+    }
+    /* .usCotent_a::after {
         content: '';
         position: absolute;
         transition: top .5s ease-in .5s, width .5s ease-out, height .5s ease-out;
-        left: 50%;;
+        left: 0;
         top: -50%;
         transform: translate(-50%, -50%);
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
         border-radius: 50%;
         background-color: #f8cf4e;
-    }
+    } */
     
     .usCotent_a:hover p {
-        color: #04080f;
-        transition: color .5s linear .5s;
+        color: #040a14;
+        transition: color .4s linear .4s;
         -webkit-transition: color .5s linear .5s;
         position: relative;
         z-index: 1;
     }
-    .usCotent_a:hover::after {
+    .usCotent_a:hover {
+        border:3px solid #f3d573; 
+    }
+    /* .usCotent_a:hover::after {
         transition: top .5s ease-in, width .5s ease-out .5s, height .5s ease-out .5s;
         top: 50%;
-        width:142%; 
-        height:142% 
-    }
+        width:240%; 
+        height:240% 
+    } */
 
 /*Footer-------------------------------------------------------------*/
     footer{
@@ -324,14 +367,18 @@
                 <br>       
                 <br>如有任何問題也可洽門市服務人員
                 <br>       
-                <br>門市地址:台北市</p>
+                <br>門市地址:台北市
+                <br>
+                <br>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3614.7793272233334!2d121.54095541492293!3d25.041561894142443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z5b-g5a2d5b6p6IiI!5e0!3m2!1szh-TW!2stw!4v1519710831739" 
+                width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </p>
             </div>
             
             <div class="formP_a">
                 <form action="" class="usForm_a">
                     <div class="usFormCon_a">
                         <h3>我想發問</h3>
-                        <br>
                         <br>
                         <label for="">電子郵件</label>
                         <input type="text">
@@ -350,7 +397,7 @@
                         <textarea name="" id="" cols="30" rows="10"></textarea>
                         <br>
                         <br>
-                        <button>送出</button>
+                        <div class="btn"><button>送出</button></div>
                     </div>
                 </form>
             </div>
