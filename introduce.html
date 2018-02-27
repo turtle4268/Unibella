@@ -23,9 +23,9 @@
             font-weight: normal ;
             letter-spacing: 3px ;
         }
-            body{
+            /* body{
                 background-color: black;
-            }
+            } */
      /*Header--------------------------------------------------------*/
      header{
         position: fixed ;
@@ -287,7 +287,6 @@
         .pic2_img_active_f{
             opacity: 0;
             transform: translateY(600px);
-            overflow: hidden;
             transition:all 1.5s; 
         }
         .pic2_f p{
@@ -321,9 +320,30 @@
         .word2_f li{
             list-style: disc;
         }
+        .word2_in_f{
+            opacity: 0;
+            transform: translateY(350px);
+            transition: all 1.5s;
+        }        
+        .word2_in_active_f{
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 1.5s;
+        }
         .small_pic_f{
             position: relative;
             top: -30px;
+            
+        }
+        .small_pic_f img{
+            opacity: 0;
+            transform: translateY(150px);
+            transition: all 1.5s;
+        }
+        .small_pic_active_f{
+            opacity: 1 !important;
+            transform: translateY(0px) !important;
+            transition: all 1.5s !important;
         }
         .yellow_f{
             width: 183px;
@@ -332,6 +352,17 @@
             position: absolute;
             bottom: -50px;
             left: -100px;
+            z-index: 2;
+            opacity: 0;
+            transform: scaleY(2.5);
+            transform-origin: bottom;
+            transition: all 1.5s;
+        }
+        .yellow_active_f{
+            opacity: 1;
+            transform: scaleY(1);
+            transform-origin: bottom;
+            transition: all 1.5s;
         }
     /*section3-----------------------------------------------------------*/
         .pic3_f{
@@ -343,6 +374,13 @@
         }
         .pic3_f img{
             width: 100%;
+            display: block;
+            transition: all 1.2s;
+        }
+        .pic3_img_active_f{
+            opacity: 0;
+            transform: translateY(600px);
+            transition:all 1.5s; 
         }
         .pic3_f p{
             color: #666;
@@ -350,17 +388,51 @@
             font-size: 36px;
             position: absolute;
             padding-right: 200px;
+            transition: all 1.5s;
+            overflow: hidden;
+            
         }
+        .pic3_p_active_f{
+            opacity: 0;
+            transform: translateY(-200px);
+            transition: all 1.5s;
+        }
+        /*Clouds3---------------------------------------*/
+        
+       .clouds3_f{
+            position: absolute;
+            left: 50%;
+            width: 100%;
+            margin-left: -50%;
+            top: 140vh;
+       }
+        /*word3--------------------------------------------*/
         .word3_f{
             width: 900px;
             margin: 0 auto;
             padding: 100px 0;
         }
+        .word3_f h6{
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
         .location_f, .light_f, .wind_f, .uv_f{
             display: flex;
             justify-content: space-between;
             padding: 50px 0 30px;
+            opacity: 0;
+            transition: transform 1.5s, opacity 3.5s;
+            transform: translateY(100px); 
         }
+        .location_active_f, .light_active_f, .wind_active_f, .uv_active_f{
+            opacity: 1;
+            transform: translateY(0);
+            transition: transform 1.5s, opacity 3.5s;
+        }
+        
         .word3_f img{
             width: 225px;
             height: 225px;
@@ -628,7 +700,7 @@
             </div> 
         </section>
         <section class="word2_f">
-            <div>
+            <div class="word2_in_f">
                  <p>U N I B E L L A 指導原則：</p>
                  <ul>
                     <li>應用最高的標準，不妥協的品質，耐用性和可靠性。</li>
@@ -640,14 +712,41 @@
             </div>
             <div class="small_pic_f">
                 <div class="yellow_f"></div>
-                <img src="images/intro_small_pic.png" alt="">
+                <img src="images/intro_small_pic.png" alt="" class="">
             </div>
         </section>
         <section class="pic3_f">
             <img src="images/intro_big3.jpg" alt="">
             <p>Be Your Unique Umbrella.</p>
+            <div class="clouds3_f">
+                <div id="parallax1_f" class="parallax_f">
+                    <div class="cloud1_f cloud_f"></div>
+                    <div class="cloud1_f cloud1-2_f cloud_f"></div>
+                </div> 
+                <div id="parallax2_f" class="parallax_f">
+                    <div class="cloud2_f cloud_f"></div>
+                    <div class="cloud2_f cloud2-2_f cloud_f"></div>
+                </div>
+                <div id="parallax3_f" class="parallax_f">
+                    <div class="cloud3_f cloud_f"></div>
+                    <div class="cloud3_f cloud3-2_f cloud_f"></div>
+                </div>
+                <div id="parallax4_f" class="parallax_f">
+                    <div class="cloud4_f cloud_f"></div>
+                    <div class="cloud4_f cloud4-2_f cloud_f"></div>
+                </div>
+                <div id="parallax5_f" class="parallax_f">
+                    <div class="cloud5_f cloud_f"></div>
+                    <div class="cloud5_f cloud5-2_f cloud_f"></div>
+                </div>
+                <div id="parallax6_f" class="parallax_f">
+                    <div class="cloud6_f cloud_f"></div>
+                    <div class="cloud6_f cloud6-2_f cloud_f"></div>
+                </div>
+            </div> 
         </section>
         <section class="word3_f">
+            <h6>專業技術</h6>
             <div class="location_f">
                 <img src="images/icon_location.svg" alt="">
                 <div class="article_f">
@@ -662,8 +761,8 @@
             <div class="light_f">
                 <div class="article_f">
                      <h5>極輕</h5>
-                     <p>青山依舊在，幾度夕陽紅。慣看秋月春風。<br> 
-                            一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空， 
+                     <p>使用FRP玻璃纖維骨架，<br> 
+                           具高韌性， 
                             滾滾長江東逝水，白髮漁樵江渚上，古今多少事，
                      </p>
                 </div>
@@ -673,9 +772,8 @@
                 <img src="images/icon_wind.svg" alt="">
                 <div class="article_f">
                     <h5>超強抗風</h5>
-                    <p>青山依舊在，幾度夕陽紅。慣看秋月春風。<br> 
-                        一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，
-                        滾滾長江東逝水，白髮漁樵江渚上，古今多少事，
+                    <p>使用FRP玻璃纖維骨架，具高韌性彈力佳、不易折斷抗風性佳、回覆性佳。
+                       (雨傘工業裡最常見廣泛運用的素材，其中以白色玻璃纖維品質最穩定、耐用性最高)
                     </p>
                 </div>
             </div>
@@ -744,27 +842,27 @@
 
         $(window).scroll(function(){
             //第一層雲
-            var scrolled = $(window).scrollTop(); 
-            $(".clouds1_f #parallax1_f").css('top', (85-(scrolled*.45))+'vh');//5
-            $(".clouds1_f #parallax2_f").css('top', (85-(scrolled*.35))+'vh');//3
-            $(".clouds1_f #parallax3_f").css('top', (85-(scrolled*.3))+'vh');//2
-            $(".clouds1_f #parallax4_f").css('top', (85-(scrolled*.25))+'vh');//1 0.05
-            $(".clouds1_f #parallax5_f").css('top', (85-(scrolled*.5))+'vh');//6
-            $(".clouds1_f #parallax6_f").css('top', (85-(scrolled*.4))+'vh');//4
+            var scrollC1 = $(window).scrollTop(); 
+            $(".clouds1_f #parallax1_f").css('top', (85-(scrollC1*.45))+'vh');//5
+            $(".clouds1_f #parallax2_f").css('top', (85-(scrollC1*.35))+'vh');//3
+            $(".clouds1_f #parallax3_f").css('top', (85-(scrollC1*.3))+'vh');//2
+            $(".clouds1_f #parallax4_f").css('top', (85-(scrollC1*.25))+'vh');//1 0.05
+            $(".clouds1_f #parallax5_f").css('top', (85-(scrollC1*.5))+'vh');//6
+            $(".clouds1_f #parallax6_f").css('top', (85-(scrollC1*.4))+'vh');//4
             
             //scroll icon
-            var scrolliconNow = $(this).scrollTop();
-            if(scrolliconNow>60){
+            var scrollicon = $(this).scrollTop();
+            if(scrollicon>60){
                 $(".scroll_f, .so_f").fadeOut(400);
-                $(".scroll_all_f").css('top', (85-scrolliconNow*.3)+'vh');
+                $(".scroll_all_f").css('top', (85-scrollicon*.3)+'vh');
             }else{
                 $(".scroll_f, .so_f").fadeIn(400);
-                $(".scroll_all_f").css('top', (85-scrolliconNow*.3)+'vh');
+                $(".scroll_all_f").css('top', (85-scrollicon*.3)+'vh');
             };
 
             //品牌介紹文字
-            var scrollWord1Now = $(this).scrollTop(); 
-            if(scrollWord1Now>350){
+            var scrollWord1 = $(this).scrollTop(); 
+            if(scrollWord1>350){
                 $(".word1_f").addClass("word1_hide_f");
             }else{
                 $(".word1_f").removeClass("word1_hide_f");
@@ -783,9 +881,9 @@
             };
 
             //第二層雲
-            var scrolled2 = $(window).scrollTop(); 
-            var mi=scrolled2-1000;
-            if(scrolled2>1000){
+            var scrollC2 = $(window).scrollTop(); 
+            var mi=scrollC2-1000;
+            if(scrollC2>1000){
                 $(".clouds2_f #parallax1_f").css('top', (140-mi*.29)+'vh');//4
                 $(".clouds2_f #parallax2_f").css('top', (140-mi*.26)+'vh');//3
                 $(".clouds2_f #parallax3_f").css('top', (140-mi*.23)+'vh');//2 0.05
@@ -795,12 +893,68 @@
             }else{
                 $("clouds2_f").css('top', 140+'vh');
             };
+            //unibella指導原則
+            var scrollWord2=$(this).scrollTop();
+            if(scrollWord2>1400){
+                $(".word2_in_f").addClass("word2_in_active_f");
+                $(".small_pic_f img").addClass("small_pic_active_f");
+                $(".yellow_f").addClass("yellow_active_f");
+            }else{
+                $(".word2_in_f").removeClass("word2_in_active_f");
+                $(".small_pic_f img").removeClass("small_pic_active_f");
+                $(".yellow_f").removeClass("yellow_active_f");
+            };
+
+            //漣漪圖片
+            var scrollPic3=$(this).scrollTop();
+            if(scrollPic3<1900){
+                $(".pic3_f img").addClass("pic3_img_active_f");
+                
+                    $(".pic3_f p").addClass("pic3_p_active_f");
+                
+            }else{
+                $(".pic3_f img").removeClass("pic3_img_active_f");
+                $(".pic3_f p").removeClass("pic3_p_active_f");
+            };
 
             //第三層雲
-            var scrolled3 = $(window).scrollTop();
-            var mi2=scrolled3-2100;
-                
-            console.log(scrolled2);
+            var scrollC3 = $(window).scrollTop();
+            var mi2=scrollC3-2100;
+            if(scrollC3>1000){
+                $(".clouds3_f #parallax1_f").css('top', (140-mi2*.29)+'vh');//4
+                $(".clouds3_f #parallax2_f").css('top', (140-mi2*.26)+'vh');//3
+                $(".clouds3_f #parallax3_f").css('top', (140-mi2*.23)+'vh');//2 0.05
+                $(".clouds3_f #parallax4_f").css('top', (140-mi2*.2)+'vh');//1 0.007
+                $(".clouds3_f #parallax5_f").css('top', (140-mi2*.35)+'vh');//6
+                $(".clouds3_f #parallax6_f").css('top', (140-mi2*.32)+'vh');//5
+            }else{
+                $("clouds3_f").css('top', 140+'vh');
+            };
+            //icon們
+            var scrollcricle =$(this).scrollTop();
+            if(scrollcricle>2400){
+                $(".location_f").addClass("location_active_f");
+                $(".word3_f h6").fadeIn(1500);
+            }else{
+                $(".location_f").removeClass("location_active_f");
+                $(".word3_f h6").fadeOut(1000);
+            };
+            if(scrollcricle>2800){
+                $(".light_f").addClass("light_active_f");
+            }else{
+                $(".light_f").removeClass("light_active_f");
+            };
+            if(scrollcricle>3100){
+                $(".wind_f").addClass("wind_active_f");
+            }else{
+                $(".wind_f").removeClass("wind_active_f");
+            };
+            if(scrollcricle>3400){
+                $(".uv_f").addClass("uv_active_f");
+            }else{
+                $(".uv_f").removeClass("uv_active_f");
+            };
+                console.log(scrollC2);
         });
     </script>
 </body>
