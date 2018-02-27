@@ -54,6 +54,7 @@
             padding-top: 28px ;
             box-sizing: border-box ;
             transition: 0.5s ;
+            filter: drop-shadow(0 0 1px #0000004d) ;
         }
         header h1{
             font-family: "Nyala" ;
@@ -233,6 +234,10 @@
             z-index: 5 ;
             color: #FFF ;
             transition: 0.5s ;
+            filter: drop-shadow(0 0 1px #0000004d) ;
+        }
+        .l_aside.hide{
+            left: -7% ;
         }
         .scroll{
             position: relative ;
@@ -327,11 +332,12 @@
         /*Right aside-------------------------------------------------------------------*/
         .r_aside{
             position: fixed ;
-            z-index: 2 ;
+            z-index: 3 ;
             display: flex ;
             top: 45% ;
             right: 0 ;
             padding-right: 20px ; 
+            filter: drop-shadow(0 0 1px #0000004d) ;
         }
         .r_aside ul li{
             width: 14px ;
@@ -558,7 +564,10 @@
         }
         /*Light-------------------------*/
         @keyframes float {
-            50%{
+            0%{
+                transform: translateY(0px) ;
+            }
+            100%{
                 transform: translateY(-20px) ;
             }
         }
@@ -584,7 +593,8 @@
             position: absolute ;
             top: -70% ;
             right: 7% ;
-            animation: float 4s infinite ;
+            animation: float 2s linear infinite ;
+            animation-direction: alternate;
         }
         #light .umbrella img{
             transform: rotateZ(32deg) ;
@@ -620,7 +630,7 @@
         }
         .card .product{
             width: 95% ;
-            /* padding-bottom: 95% ; */
+            margin: 0 auto ;
             background-size: cover ;
             position: relative ;
             z-index: 2 ;
@@ -650,6 +660,34 @@
             font-size: 18px ;
             font-weight: bold ;
         }
+        .toTop{
+            color: #1F5572 ;
+            position: relative ;
+            top: 15px ;
+            cursor: pointer ;
+        }
+        .toTop .tr{
+            width: 20px;
+            height: 20px;
+            margin: 5px auto;
+            position: relative ;
+            left: -2px ;
+            transform: rotate(180deg) ;
+            -webkit-mask-image: url(images/icon_scroll.svg) ;
+            background-color:#1F5572;
+            animation: scroll_top .5s linear infinite;
+            animation-direction: alternate;
+            animation-delay: .1s;
+        }
+        .toTop h5{
+            font-size: 16px ;
+            color: #1F5572 ;
+        }
+        @keyframes scroll_top {
+            0%   { opacity: .2; top: 2px; }
+            50%  { opacity: .5; }
+            100% { opacity: 1; top: -4px ;}
+        }
     </style>
 </head>
 <body>
@@ -665,7 +703,6 @@
         <div class="close"></div>
         <ul class="n_ul">
             <li><a href="">品牌介紹</a></li>
-            <li><a href="">專利技術</a></li>
             <li><a href="">產品</a></li>
             <li><a href="">最新消息</a></li>
             <li><a href="">顧客服務</a></li>
@@ -807,7 +844,10 @@
                     <p class="price">NT. 1980</p>
                 </div> 
             </div>
-            
+            <div class="toTop">
+                <div class="tr"></div>
+                <h5>TOP</h5>
+            </div>
         </section>
     </div>
     <footer>
@@ -860,49 +900,44 @@
             Tfooter=$("footer").offset().top ,
             full=$("body").height();
         var nowscrollTop=$(window).scrollTop();
-        console.log(Ttop,Tlocation,Tlight,Tpopular,Tfooter,full) ;
+        //console.log(Ttop,Tlocation,Tlight,Tpopular,Tfooter,full) ;
         var position=[Ttop,Tlocation,Tlight,Tpopular,Tpopular+(full-Tfooter)];
         var nowPosition=0;
         var log;
+        var ifact=false ;
+        function addBlack(){
+            $("header").addClass("black");
+            $(".l_aside").addClass("black");
+            $(".r_aside").addClass("black");
+        }
+        function removeBlack(){
+            $("header").removeClass("black");
+            $(".l_aside").removeClass("black");
+            $(".r_aside").removeClass("black");
+        }
+        function rightAct(now){
+            $(".r_aside ul li").eq(now).addClass("act").siblings().removeClass("act");
+        }
         function fullpageScroll(now){
             $("html,body").animate({
                     scrollTop:position[nowPosition]
                 },1000,function(){
                     ifact=false;
                     if(now>=3){
-                        $("header").addClass("black");
-                        $(".l_aside").addClass("black");
-                        $(".r_aside").addClass("black");
+                        addBlack();
                     }else{
-                        $("header").removeClass("black");
-                        $(".l_aside").removeClass("black");
-                        $(".r_aside").removeClass("black");
+                        removeBlack();
                     }
                     if(now>3){
-
+                        $(".l_aside").addClass("hide");
+                    }else{
+                        $(".l_aside").removeClass("hide");
                     }
             });
-            $(".r_aside ul li").eq(now).addClass("act").siblings().removeClass("act");
+            rightAct(now);
         }
-        var ifact=false ;
-        $(document).ready(function(){ //目前位置
-            switch (nowscrollTop) {
-                case Ttop:
-                    nowPosition=0;
-                    break;
-                case Tlocation:
-                    nowPosition=1;
-                    break;
-                case Tlight:
-                    nowPosition=2;
-                    break;
-                case Tpopular:
-                    nowPosition=3;
-                    break;
-                default:
-                    nowPosition=4;
-                    break;
-            }
+        /*滾輪事件*/
+        $(document).ready(function(){ 
             $(document).on('DOMMouseScroll mousewheel',function(e){
                 //火狐以外 => mousewheel
                 //火狐 => DOMMouseScroll
@@ -930,6 +965,32 @@
                     }
                 }
             });
+            /*目前位置*/
+            switch (nowscrollTop) {
+                case Ttop:
+                    nowPosition=0;
+                    rightAct(nowPosition);
+                    break;
+                case Tlocation:
+                    nowPosition=1;
+                    rightAct(nowPosition);
+                    break;
+                case Tlight:
+                    nowPosition=2;
+                    rightAct(nowPosition);
+                    break;
+                case Tpopular:
+                    nowPosition=3;
+                    rightAct(nowPosition);
+                    addBlack();
+                    break;
+                default:
+                    nowPosition=4;
+                    rightAct(nowPosition);
+                    addBlack();
+                    $(".l_aside").addClass("hide");
+                    break;
+            }
         });
         /*Hamburger*/
         $(".hamburger").click(function(){
@@ -950,8 +1011,16 @@
             $(this).closest(".half").find(".intro").addClass("fadeOut");
             e.stopPropagation();    //不讓父元素動作(阻止事件冒泡)
         });
-
-        
+        /*right aside*/
+        $(".r_aside ul").on("click","li",function(){
+            nowPosition=$(this).index();
+            fullpageScroll(nowPosition);
+        });
+        /*to top*/
+        $(".toTop").click(function(){
+            nowPosition=0 ;
+            fullpageScroll(nowPosition);
+        });
     </script>
 </body>
 </html>
