@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="fontawesome/css/fontawesome-all.css" rel="stylesheet">
+    <title>cartPatShip</title>
+    <style>
+    *{
+        margin: 0 ;
+        padding: 0 ;
+        list-style-type: none ;
+        text-decoration-line: none ;
+        font-family: "微軟正黑體" ;
+        font-weight: normal ;
+        letter-spacing: 3px ;
+    }
+/*Header--------------------------------------------------------*/
+    header{
+        position: fixed ;
+        z-index: 5 ;
+        width: 100% ;
+        display: flex ;
+        justify-content: space-between ;
+        color: #FFF ;
+        padding: 0 40px ;
+        padding-top: 28px ;
+        box-sizing: border-box ;
+    }
+    header h1{
+        font-family: "Nyala" ;
+        font-size: 36px ;
+        position: relative ;
+        left: 30px ;
+    }
+    .h_ul li{
+        display: inline-block ;
+        padding: 0 15px ;
+    }
+    .h_ul li a{
+        display: block ;
+        width: 25px ;
+        height: 25px ;
+        cursor: pointer ;
+        background-color: #FFF ;
+        -webkit-mask-repeat: no-repeat ;
+        -webkit-mask-position: center ;
+    }
+    .member{
+        -webkit-mask-image: url(images/icon_MEMBER.svg) ;
+    }
+    .cart{
+        -webkit-mask-image: url(images/icon_CART.svg) ;
+    }
+    .hamburger{
+        -webkit-mask-image: url(images/icon_MENU.svg) ;
+    }
+    .headerBg_a {
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .headerBg_a img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+
+    }
+    .headerBg_a p {
+        /* width: 100%; */
+        font-size: 36px;
+        font-weight: bold;
+        color:#fff;
+        position: absolute;
+        /* text-align: center; */
+        right: 13%;
+        letter-spacing: 5px;
+    }
+    .headerBg_a p:hover{
+        color: #3b6ae9;
+    }
+    .hideHeader {
+        opacity: 0;
+    }
+/*container-------------------------------------------------------------*/
+    #container {
+        width: 100%;  
+        height: 180vh;   
+    }
+/*Sec1-------------------------------------------------------------*/
+    .sec1_a {
+        width: 100%;   
+        padding-top: 50px;
+    }
+    .sec1_a h1 {
+        text-align: center;
+        font-size: 24pt;  
+    }
+    /*----步驟-------*/
+    .steps-container_a {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .step_a {
+        width: 200px;
+        height: 130px;
+    }
+    .step-content_a {
+        width: 30px;
+        height: 30px;
+        background: #fff;
+        display: inline-block;
+        border-radius: 100%;
+        border: 3px solid #1F5572;
+        position: relative;
+    }
+    .stepDown-content_a {
+        top:40px;
+    }
+    .step_a:first-child .step-content_a {
+        top:1px;
+    }
+    .step-content_a::after {
+        content: "";
+        display: block;
+        width: 155px;
+        height: 3px;
+        position: relative;
+        background: #1F5572;
+        margin-left: 37px;
+        margin-top: 50%;
+        transform: translateY(-50%);
+    }
+    .step_a:last-child .step-content_a::after {
+        width: 100px;
+    }
+    .step_a:first-child .step-content_a::before {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 3px;
+        position: relative;
+        background: #1F5572;
+        margin-left: -108px;
+        top: 14px;
+        transform: translateY(-50%);
+    }
+    .step_a:first-child .step-content_a::after {
+        margin-top: 36%;
+    }
+    .desUp_a {
+        padding-bottom: 20px;
+    }
+    .desDown_a {
+        padding-top: 55px;
+    }
+    .total_a {
+        padding: 85px;
+        border: none;
+        margin:0 auto;
+        text-align: center; 
+        color: #C1272D;
+    }
+    /*----表格-------*/
+    table {
+        width: 55%;
+        max-width: 55%;
+        margin: 0 auto;
+        margin-top: 20px;
+        border-collapse: collapse;
+    }
+    table thead tr th {
+        background:#666666;
+        color: #fff;
+        padding: 6px 0;
+        border: 1px solid #999;
+    }
+    .delect_a {
+        border-right: 1px solid #999;
+    }
+    table tbody tr td {
+        height: 200px;
+        border: 1px solid #999;
+    }
+    .formRadios_a {
+        width: 18px;
+        height: 18px;
+        margin: 25px 20px;
+    }
+    .formSelect_a{
+        height: 30px;
+    }
+    .formText {
+        height: 25px;   
+    }
+    /*----選擇付款運送方式-------*/
+    .choose-container_a {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .choose_a {
+        width: 120px;
+        height: 150px;
+    }
+    .choose_a .text_a {
+        width: 120px;
+    }
+    .chooseDes_a {
+        padding:50px 0;
+    }
+    .table2_a {
+        margin-top: 8%;
+    }
+    /*----按鈕-------*/
+    .btn_a {
+        display: flex;
+        justify-content: center;
+        margin-top: 7%;
+    }
+    .btn_a button {
+        margin:15px 45px;
+        border-radius: 28px;
+        padding:10px 40px;
+        border: 2px solid #302f3a;
+        background: transparent;
+        color:  #302f3a;
+        font-size: 1rem;
+        position: relative;
+    }
+    .btn_a button:hover {
+        color: #fff;
+        transition: color 200ms linear 200ms;
+        -webkit-transition: color 200ms linear 200ms;
+        z-index: 3;
+    }
+    .btn_a .goCart_a::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: -.6rem;
+        top: -.7rem;
+        z-index: -1;
+        background-color: #5b8095;
+        border-radius: 28px;
+        transition: all 200ms ease-out;
+    }
+    .btn_a .next_a::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: -.6rem;
+        top: -.7rem;
+        z-index: -1;
+        background-color: #f8d360;
+        border-radius: 28px;
+        transition: all 200ms ease-out;
+    }
+    .btn_a button:hover::before {
+        top: 0;
+        left: 0;
+    }
+    .btn_a button:active {
+        transform: translateY(3px);
+    }
+    
+/*Footer-------------------------------------------------------------*/
+    footer{
+        background-color: #CCC ;
+        color: #FFF ;
+    }
+    .f_content{
+        display: flex ;
+        padding: 40px ;
+    }
+    .f_quarter{
+        width: 25% ;
+        display: flex ;
+        justify-content: center ;
+        align-items: center ;
+        border-right: 1px solid #FFF ;
+        flex: 1 ;
+        font-size: 16px ;
+    }
+    .f_quarter h2{
+        font-family: "Nyala" ;
+        font-size: 32px ;
+    }
+    .f_quarter.between{
+        justify-content: space-around ;
+    }
+    .f_quarter.border_none{
+        border: none ;
+        flex: 1.5 ;
+        flex-wrap: wrap ;
+    }
+    .f_quarter.border_none .mail{
+        width: 265px ;
+        height: 30px ;
+        border: 2px solid #FFF ;
+        border-radius: 28px ;
+        margin: 16px 0 ;
+        display: flex ;
+        justify-content: center ;
+        align-items: center ;
+    }
+    .mail .einput{
+        width: 210px ;
+        height: 24px ;
+        margin-left: 5px ;
+        font-size: 16px ;
+        letter-spacing: normal ;
+        border: none ;
+        background: #CCC ;
+    }
+    .mail .einput:focus{
+        color: #FFF ;
+        outline: none ;
+    }
+    .mail .eput{
+        display: inline-block ;
+        padding: 0 5px ;
+    }
+    .mail .eput i{
+        font-size: 26px ;
+    }
+    .f_quarter a{
+        display: block ;
+        color: #FFF ;
+        padding: 9px 0px ;
+    }
+    .f_quarter a.aicon{
+        display: inline-block ;
+        margin: 20px ;
+    }
+    .f_quarter a.aicon i{
+        font-size: 28px ;
+    }
+    .f_quarter a.fb{
+        margin-left: 0 ;
+    }
+    .f_quarter a.fb i{
+        font-size: 24px ;
+    }
+    .foot{
+        text-align: center ;
+        font-size: 12px ;
+        background-color: #999 ;
+        padding: 12px ;
+        border-top: 1px solid #FFF ;
+    }
+/*Nav--------------------------------------------------------------*/
+    nav{
+        position: fixed ;
+        z-index: 10 ;
+        display: flex ;
+        width: 20% ;
+        height: 100vh ;
+        top: 0 ;
+        right: 0 ;
+        text-align: center ;
+        background-color: #ffffffcc ;
+        transition: 1s ;
+    }
+    nav.navhide{
+        right: -20% ;
+    }
+    nav .close{
+        width: 30px ;
+        height: 30px ;
+        position: absolute ;
+        top: 40px ;
+        right: 40px ;
+        cursor: pointer ;
+        background: url(images/X.svg) center center no-repeat ;
+    }
+    .n_ul{
+        width: 100% ;
+        margin: 0 auto ;
+        align-self: center ;
+        padding: 50px ;
+        
+    }
+    .n_ul li{
+        display: flex ;
+        align-content: center ;
+        margin: 4px 0 ; 
+    }
+    .n_ul li a{
+        display: block ;
+        width: 100% ;
+        padding: 12px ;
+        color: #666 ;
+        font-size: 20px ;
+        z-index: 10;
+    }
+    .n_ul li a:hover{
+        background-color: #CCC;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Unibella</h1>
+        <ul class="h_ul">
+            <li><a class="member"></a></li>
+            <li><a class="cart" ></a></li>
+            <li><a class="hamburger"></a></li>
+        </ul>
+    </header>
+<div id="container">
+    <div class="headerBg_a">
+        <img src="images/banner_CART.jpg" alt="">
+        <p>Be Your Unique Unbrella</p>
+    </div>
+    <section class="sec1_a" >
+
+        <div class="steps-container_a">
+            <div class="step_a ">
+                <div class="des_a desUp_a">
+                    <span>選擇付款方式</span>
+                </div>
+                <span class="step-content_a"></span> 
+            </div>
+            <div class="step_a">
+                <span class="step-content_a stepDown-content_a"></span>
+                <div class="des_a desDown_a">
+                    <span>填寫運送資料</span>
+                </div>
+            </div>
+            <div class="step_a">
+                <div class="des_a  desUp_a">
+                    <span>確認購物清單</span>
+                </div>
+                <span class="step-content_a"></span>
+            </div>
+            <div class="step_a">
+                <span class="step-content_a stepDown-content_a"></span>
+                <div class="des_a desDown_a">
+                    <span>購物完成</span>
+                </div>
+            </div>
+        </div>
+        <div class="total_a" data-val="">共 X 件，總金額 NT$. 2400</div>
+        <table class=".table_a">
+                <thead class="thead-dark_a">
+                    <tr>
+                        <th scope="col">折扣優惠</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input class="formRadios_a" type="radio" name="Radios" id="Radios1" value="option1">
+                            <select name="" class="formSelect_a">
+                                <option value="">xx1系列89折</option>
+                                <option value="">xx2系列9折</option>
+                                <option value="">xx3系列89折</option>
+                                <option value="">xx4系列89折</option>
+                            </select>
+                            <br>
+                            <input class="formRadios_a" type="radio" name="Radios" id="Radios2" value="option2">
+                            <input type="text" class="formText" placeholder="請輸入折扣碼">
+                        </td>
+                    </tr>
+                </tbody>
+        </table>
+        <div class="choose-container_a">
+            <div class="choose_a">
+                <div class="chooseDes_a">
+                    <span>付款方式</span>
+                </div>
+                <select name="" id="">
+                    <option value="">7-11貨到付款</option>
+                    <option value="">ATM</option>
+                    <option value="">信用卡付款</option>
+                </select>
+            </div>
+            <div class="choose_a">
+                <div class="chooseDes_a">
+                    <span>+</span>
+                </div>
+            </div>
+            <div class="choose_a">
+                <div class="chooseDes_a">
+                    <span>運送方式</span>
+                </div>
+                <select name="" id="">
+                    <option value="">7-11貨到付款</option>
+                    <option value="">ATM</option>
+                    <option value="">信用卡付款</option>
+                </select>
+            </div>
+            <div class="choose_a">
+                <div class="chooseDes_a">
+                    <span>-</span>
+                </div>
+            </div>
+            <div class="choose_a">
+                <div class="chooseDes_a">
+                    <span>折抵優惠</span>
+                </div>
+                <input type="text" class="text_a">
+            </div>
+            <div class="choose_a">
+                <div class="chooseDes_a">
+                    <span>=</span>
+                </div>
+            </div>
+            <div class="choose_a">
+                <div class="chooseDes_a">
+                    <span>應付金額</span>
+                </div>
+                <input type="text" class="text_a">
+            </div>
+        </div>
+        <table class="table_a table2_a">
+            <thead class="thead-dark_a">
+                <tr>
+                    <th scope="col">付款注意須知</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                    <p>青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今
+                    江東逝水，白髮漁樵江渚上，古今青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今
+                    江東逝水，白髮漁樵江渚上，古今青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今
+                    江東逝水，白髮漁樵江渚上，古今青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="btn_a">
+            <button class="goCart_a">回購物車</button>
+            <button class="next_a">下一步</button>
+        </div>
+        
+    </section>
+</div>
+    <nav class="navhide">
+        <div class="close"></div>
+        <ul class="n_ul">
+            <li><a href="">品牌介紹</a></li>
+            <li><a href="">專利技術</a></li>
+            <li><a href="">產品</a></li>
+            <li><a href="">最新消息</a></li>
+            <li><a href="">顧客服務</a></li>
+            <li><a href="">會員中心</a></li>
+            <li><a href="">聯絡我們</a></li>
+            <li><a href="">相關連結</a></li>
+            <li><a href="">Q&amp;A</a></li>
+        </ul>
+    </nav>
+    <footer>
+            <div class="f_content">
+                <div class="f_quarter"><h2>Unibella</h2></div>
+                <div class="f_quarter between">
+                    <ul>
+                        <li><a href="">品牌介紹</a></li>
+                        <li><a href="">產品</a></li>
+                        <li><a href="">最新消息</a></li>
+                        <li><a href="">顧客服務</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="">會員中心</a></li>
+                        <li><a href="">聯絡我們</a></li>
+                        <li><a href="">相關連結</a></li>
+                        <li><a href="">Q&amp;A</a></li>
+                    </ul>
+                </div>
+                <div class="f_quarter">
+                    <div>
+                        <p>社群</p>
+                        <a href="" class="aicon fb"><i class="fab fa-facebook-f"></i></a>
+                        <a href="" class="aicon"><i class="fab fa-instagram"></i></a>
+                        <a href="" class="aicon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="f_quarter border_none">
+                    <div>
+                        <p>取得最新消息</p>
+                        <div class="mail">
+                            <input type="text" name="" class="einput">
+                            <a href="" class="eput"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="foot">COPYRIGHT &COPY; Unibella ALL RIGHTS RESERVED</div>
+        </footer>   
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+    <script>
+    $(".hamburger").click(function(){
+            $("nav").removeClass("navhide");
+    });
+    $(".close").click(function(){
+            $("nav").addClass("navhide");
+    });
+    /*nav滑下消失*/
+    var scrollLast;
+    $(window).scroll(function(){
+    var scrollNow=$(this).scrollTop();
+    // console.log(scrollNow);
+        if(scrollNow<=240){
+        $("header").removeClass("hideHeader");
+        }else{
+        if(scrollNow>scrollLast){
+            $("header").addClass("hideHeader");
+
+        }else{
+            $("header").removeClass("hideHeader");
+        };
+        };            
+        scrollLast=scrollNow;
+    });
+   
+    
+
+    
+    </script> 
+</body>
+</html>
