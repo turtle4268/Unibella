@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Unibella</title>
+    <link href="fontawesome/css/fontawesome-all.css" rel="stylesheet">
+    <style>
+    /*
+        blue:#1F5572
+        yellow:#F8CF4E
+        black: #4d4d4d
+        logo-font:Nyala
+    */
+        *{
+            margin: 0 ;
+            padding: 0 ;
+            list-style-type: none ;
+            text-decoration-line: none ;
+            font-family: "微軟正黑體" ;
+            font-weight: normal ;
+            letter-spacing: 3px ;
+        }
+        section{
+            width: 100vw ;
+            max-width: 100% ;
+            /* height: 100vh ; */
+            /* background-color: #1F5572 ; */
+        }
+     /*Header--------------------------------------------------------*/
+        header{
+            position: fixed ;
+            z-index: 5 ;
+            width: 100% ;
+            display: flex ;
+            justify-content: space-between ;
+            color: #FFF ;
+            padding: 0 40px ;
+            padding-top: 28px ;
+            box-sizing: border-box ;
+        }
+        header h1{
+            font-family: "Nyala" ;
+            font-size: 36px ;
+            position: relative ;
+            left: 30px ;
+        }
+        .h_ul li{
+            display: inline-block ;
+            padding: 0 15px ;
+        }
+        .h_ul li a{
+            display: block ;
+            width: 25px ;
+            height: 25px ;
+            cursor: pointer ;
+            background-color: #FFF ;
+            -webkit-mask-repeat: no-repeat ;
+            -webkit-mask-position: center ;
+        }
+        .member{
+            -webkit-mask-image: url(images/icon_MEMBER.svg) ;
+        }
+        .cart{
+            -webkit-mask-image: url(images/icon_CART.svg) ;
+        }
+        .hamburger{
+            -webkit-mask-image: url(images/icon_MENU.svg) ;
+        }
+    /*Footer-------------------------------------------------------------*/
+        footer{
+            background-color: #CCC ;
+            color: #FFF ;
+        }
+        .f_content{
+            display: flex ;
+            padding: 40px ;
+        }
+        .f_quarter{
+            width: 25% ;
+            display: flex ;
+            justify-content: center ;
+            align-items: center ;
+            border-right: 1px solid #FFF ;
+            flex: 1 ;
+            font-size: 16px ;
+        }
+        .f_quarter h2{
+            font-family: "Nyala" ;
+            font-size: 32px ;
+        }
+        .f_quarter.between{
+            justify-content: space-around ;
+        }
+        .f_quarter.border_none{
+            border: none ;
+            flex: 1.5 ;
+            flex-wrap: wrap ;
+        }
+        .f_quarter.border_none .mail{
+            width: 265px ;
+            height: 30px ;
+            border: 2px solid #FFF ;
+            border-radius: 28px ;
+            margin: 16px 0 ;
+            display: flex ;
+            justify-content: center ;
+            align-items: center ;
+        }
+        .mail .einput{
+            width: 210px ;
+            height: 24px ;
+            margin-left: 5px ;
+            font-size: 16px ;
+            letter-spacing: normal ;
+            border: none ;
+            background: #CCC ;
+        }
+        .mail .einput:focus{
+            color: #FFF ;
+            outline: none ;
+        }
+        .mail .eput{
+            display: inline-block ;
+            padding: 0 5px ;
+        }
+        .mail .eput i{
+            font-size: 26px ;
+        }
+        .f_quarter a{
+            display: block ;
+            color: #FFF ;
+            padding: 9px 0px ;
+        }
+        .f_quarter a.aicon{
+            display: inline-block ;
+            margin: 20px ;
+        }
+        .f_quarter a.aicon i{
+            font-size: 28px ;
+        }
+        .f_quarter a.fb{
+            margin-left: 0 ;
+        }
+        .f_quarter a.fb i{
+            font-size: 24px ;
+        }
+        .foot{
+            text-align: center ;
+            font-size: 12px ;
+            background-color: #999 ;
+            padding: 12px ;
+            border-top: 1px solid #FFF ;
+        }
+    /*Nav--------------------------------------------------------------*/
+        nav{
+            position: fixed ;
+            z-index: 10 ;
+            display: flex ;
+            width: 20% ;
+            height: 100vh ;
+            top: 0 ;
+            right: 0 ;
+            text-align: center ;
+            background-color: #ffffffcc ;
+            transition: 1s ;
+        }
+        nav.navhide{
+            right: -20% ;
+        }
+        nav .close{
+            width: 25px ;
+            height: 25px ;
+            position: absolute ;
+            top: 40px ;
+            right: 40px ;
+            cursor: pointer ;
+            background: url(images/X.svg) center center no-repeat ;
+        }
+        .n_ul{
+            width: 100% ;
+            margin: 0 auto ;
+            align-self: center ;
+        }
+        .n_ul li{
+            display: flex ;
+            align-content: center ;
+            margin: 4px 0 ; 
+        }
+        .n_ul li a{
+            display: block ;
+            width: 100% ;
+            padding: 12px ;
+            color: #666 ;
+            font-size: 18px ;
+            transition: 0.4s ;
+        }
+        .n_ul li a:hover{
+            background-color: #CCC;
+        }
+        /*Container-------------------------------------------------------------------*/
+        .headerBg_f{
+            width: 100% ; 
+            display: flex;
+            align-items: center;
+            object-fit: fill;
+            position: relative;
+        }
+        .headerBg_f img{
+            width: 100%;
+        }
+        .headerBg_f p{
+            font-size: 30px;
+            font-weight: bold;
+            color:#fff;
+            position: absolute;
+            right: 13%;
+            letter-spacing: 5px;
+        }
+        .credit_f h6{
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #666;
+            margin-top: 50px;
+        }
+        .credit_f > p{
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            color:#C1272D;
+            padding: 150px 0;
+        }
+        /*active-----------------------------------------------------*/
+        .active_f {
+            width:70%;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+        .active_f ul {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;   
+        }
+        .active_f ul li {
+            width: 300px;
+            height: 300px;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+            transition: all 1s ease-in-out; 
+        }
+        .square_f {
+            background: #000000;
+        }
+        .active_f ul li a {
+            width: 300px;
+            height: 300px;
+            display: block;
+            z-index: 2;
+            
+        }
+        .active_f ul .square_f img {
+            max-width: 100%;
+            position: relative;
+            opacity: 0.4;
+            transition: all .5s ease-in-out; 
+        }
+        .square_f p {
+            font-size: 24px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            color: #fff;
+            transition: all .5s ease-in-out;
+            font-weight: 400; 
+
+        }
+        .square_f .p2 {
+            margin-top:-32px;
+            margin-left:-94px;
+        }
+        .square_f .p4 {
+            margin-top:-16px;
+            margin-left:-94px;
+        }
+        .square_f .p6 {
+            margin-top:-16px;
+            margin-left:-81px;
+        }
+        .active_f ul .square_f:before {
+            width: 145%;
+            height: 145%;
+            top: 0;
+            left: 0;
+            content: '';
+            background: #161414;
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+            transform: rotate(110deg) translateY(-31%) translateX(-3.3%);
+        }
+        /* .active_a ul .square_a.red {
+            background: #581a14;
+        } */
+        .active_f ul .square_f:hover:before,
+        .active_f ul .square_f.hover:before {
+            transform: rotate(110deg) translateY(-150%);
+        }
+        .active_f ul .square_f:hover img{
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .active_f ul .square_f:hover p,
+        .active_f ul .square_f.hover p {
+            transform:translate(-160%,0);
+        }
+        .active_f ul .blue {
+            background: #b1aeae;
+        }
+        .active_f ul .orange {
+            background:#e0a340;
+        }
+         /*button-------------------------------------------------*/
+         .btn_f {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0;
+        }
+        .btn_f a {
+            margin:15px 20px;
+            border-radius: 28px;
+            padding:10px 40px;
+            border: 2px solid #302f3a;
+            background: transparent;
+            color:  #302f3a;
+            font-size: 1rem;
+            position: relative;
+        }
+        .btn_f a:hover {
+            color: #fff;
+            transition: color 200ms linear 200ms;
+            -webkit-transition: color 200ms linear 200ms;
+            z-index: 3;
+        }
+        .btn_f .return_f::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: -.6rem;
+            top: -.7rem;
+            z-index: -1;
+            background-color: #5b8095;
+            border-radius: 28px;
+            transition: all 200ms ease-out;
+        }
+        .btn_f .submit_f::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: -.6rem;
+            top: -.7rem;
+            z-index: -1;
+            background-color: #f8d360;
+            border-radius: 28px;
+            transition: all 200ms ease-out;
+        }
+        .btn_f a:hover::before {
+            top: 0;
+            left: 0;
+        }
+        .btn_f a:active {
+            transform: translateY(3px);
+        }
+       
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Unibella</h1>
+        <ul class="h_ul">
+            <li><a class="member"></a></li>
+            <li><a class="cart"></a></li>
+            <li><a class="hamburger"></a></li>
+        </ul>
+    </header>
+    <nav class="navhide">
+        <div class="close"></div>
+        <ul class="n_ul">
+            <li><a href="">品牌介紹</a></li>
+            <li><a href="">專利技術</a></li>
+            <li><a href="">產品</a></li>
+            <li><a href="">最新消息</a></li>
+            <li><a href="">顧客服務</a></li>
+            <li><a href="">會員中心</a></li>
+            <li><a href="">聯絡我們</a></li>
+            <li><a href="">相關連結</a></li>
+            <li><a href="">Q&amp;A</a></li>
+        </ul>
+    </nav>
+    <aside class="l_aside">
+
+    </aside>
+    <aside class="r_aside">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </aside>
+    <div id="container">
+        <div class="headerBg_f">
+            <img src="images/banner_CART.jpg" alt="">
+            <p>Be Your Unique Unbrella.</p>
+        </div>
+        <section class="credit_f">
+            <h6>購物車清單</h6>
+            <p>購物車目前沒有商品</p>
+
+            <h6>最新活動</h6>
+            <div class="active_f">
+                <ul>
+                    <li class="square_f blue" >
+                            <img class="images" src="images/news_squre2_light.jpg" alt="">
+                            <p class="p2">梅雨季<br>全館雨傘88折</p>
+                            <a href=""></a>   
+                    </li>
+                    <li><img src="images/member_square2.jpg" alt=""></li>
+                    <li class="square_f orange">
+                            <img class="images" src="images/news_squre4_light.jpg" alt="">
+                            <p class="p4">自動傘新品上架</p>
+                            <a href=""></a>
+                    </li>
+                </ul>
+            </div> 
+
+            <div class="btn_f">
+                <a href="" class="return_f">回首頁</a>
+                <a href="" class="submit_f">回商品頁</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="f_content">
+            <div class="f_quarter"><h2>Unibella</h2></div>
+            <div class="f_quarter between">
+                <ul>
+                    <li><a href="">品牌介紹</a></li>
+                    <li><a href="">產品</a></li>
+                    <li><a href="">最新消息</a></li>
+                    <li><a href="">顧客服務</a></li>
+                </ul>
+                <ul>
+                    <li><a href="">會員中心</a></li>
+                    <li><a href="">聯絡我們</a></li>
+                    <li><a href="">相關連結</a></li>
+                    <li><a href="">Q&amp;A</a></li>
+                </ul>
+            </div>
+            <div class="f_quarter">
+                <div>
+                    <p>社群</p>
+                    <a href="" class="aicon fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="" class="aicon"><i class="fab fa-instagram"></i></a>
+                    <a href="" class="aicon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="f_quarter border_none">
+                <div>
+                    <p>取得最新消息</p>
+                    <div class="mail">
+                        <input type="text" name="" class="einput">
+                        <a href="" class="eput"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+  
+            </div>
+        </div>
+        <div class="foot">COPYRIGHT &COPY; Unibella ALL RIGHTS RESERVED</div>
+    </footer>
+
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script>
+        $(".hamburger").click(function(){
+            $("nav").removeClass("navhide");
+        });
+        $(".close").click(function(){
+            $("nav").addClass("navhide");
+        });
+    </script>
+</body>
+</html>
