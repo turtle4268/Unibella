@@ -101,7 +101,7 @@
 /*container-------------------------------------------------------------*/
     #container {
         width: 100%;  
-        height: 180vh;   
+        /* height: 180vh;    */
     }
 /*Sec1-------------------------------------------------------------*/
     .sec1_a {
@@ -196,7 +196,7 @@
         text-align: center; 
         color: #C1272D;
     }
-    /*----表格-------*/
+    /*----表格1-------*/
     table {
         width: 55%;
         max-width: 55%;
@@ -210,51 +210,86 @@
         padding: 6px 0;
         border: 1px solid #999;
     }
-    .delect_a {
-        border-right: 1px solid #999;
-    }
     table tbody tr td {
-        height: 200px;
         border: 1px solid #999;
+        position: relative;
     }
-    .formRadios_a {
-        width: 18px;
-        height: 18px;
-        margin: 25px 20px;
+    .table_a tbody tr td {
+        height: 200px;
     }
+    .table_a tbody tr td p span {
+       padding: 0 9%;
+    }
+    .formContent_a {
+        width: 100%;
+        position: absolute;
+        left: 34%;
+        top: 30%;
+    }
+    .formContent2_a {
+        width: 100%;
+        position: absolute;
+        left: 34%;
+        top: 56%;
+    }
+    
     .formSelect_a{
         height: 30px;
     }
     .formText {
         height: 25px;   
     }
-    /*----選擇付款運送方式-------*/
-    .choose-container_a {
-        width: 100%;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        margin: 0 auto;
-        overflow: hidden;
+    /*----表格2-------*/
+    .table2_a tbody tr td {
+        height: 50px;
     }
-    .choose_a {
-        width: 120px;
-        height: 150px;
+    .table2_a tbody tr .memo-td_a {
+        height: 100px;
     }
-    .choose_a .text_a {
-        width: 120px;
+    .table2_a tbody tr .address-td_a {
+        height: 100px;
     }
-    .chooseDes_a {
-        padding:50px 0;
+    .table2_a tbody tr td .address_a {
+        height: 30px;
     }
-    .table2_a {
-        margin-top: 8%;
+    .table2_a tbody tr td .notice_a  {
+        margin-left: 64px;
     }
+    .table2_a tbody tr .address-td_a p span {
+        margin-left: 0;
+    }
+    .table2_a tbody tr td p {
+        padding-left: 15px;
+    }
+    .table2_a tbody tr td p * {
+        width: 25%;
+        margin-left: 20px;
+    }
+    .table2_a tbody tr td p .memo_a {
+        width: 85%;
+        height: 80px;
+    }
+    .table2_a tbody tr td p span {
+        padding:0;
+    }
+    .table2_a tbody tr td .invoiceRadios_a {
+        float: left;
+    }
+    .table2_a tbody tr .invoice-td_a p {
+        margin-top: 22px;
+        float: left;
+    }
+    .formRadios_a {
+        width: 18px;
+        margin: 25px 20px;
+    }
+    
     /*----按鈕-------*/
     .btn_a {
         display: flex;
         justify-content: center;
-        margin-top: 7%;
+        margin-top: 5%;
+        margin-bottom: 5%;
     }
     .btn_a button {
         margin:15px 45px;
@@ -454,7 +489,6 @@
         <p>Be Your Unique Unbrella</p>
     </div>
     <section class="sec1_a" >
-
         <div class="steps-container_a">
             <div class="step_a ">
                 <div class="des_a desUp_a">
@@ -486,7 +520,7 @@
             <button class="next_a">下一步</button>
         </div> -->
         <div class="total_a" data-val="">共 X 件，總金額 NT$. 2400</div>
-        <table class=".table_a">
+        <table class="table_a">
                 <thead class="thead-dark_a">
                     <tr>
                         <th scope="col">付款資料</th>
@@ -495,12 +529,17 @@
                 <tbody>
                     <tr>
                         <td>
-                            
+                        <p class="formContent_a">付款方式
+                            <span>7-11貨到付款</span>
+                        </p>
+                        <p class="formContent2_a">應付金額
+                            <span>2400</span>
+                        </p>     
                         </td>
                     </tr>
                 </tbody>
         </table>
-        <table class="table_a table2_a">
+        <table class="table2_a">
             <thead class="thead-dark_a">
                 <tr>
                     <th scope="col">運送資料</th>
@@ -509,13 +548,71 @@
             <tbody>
                 <tr>
                     <td>
-                    
+                        <p>帳號
+                            <span>121345</span>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>門市
+                            <select name="" id="">
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>手機
+                            <input type="text">
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="memo-td_a">
+                        <p>備註
+                            <input type="textarea" class="memo_a">
+                        </p>
+                    </td>
+                </tr>
+                    <td class="address-td_a">
+                        <p class="address_a">
+                            <span>地址</span>
+                            <select name="" id="">
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>
+                            <select name="" id="">
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>
+                            <input type="text">                           
+                        </p>
+                        <p class="notice_a">注意事項
+                        <br>外島、離島地區無宅配服務，將會以郵局包裹或 7-11 到貨方式寄送
+                        </p>
+                    </td>
+                <tr>
+                    <td class="invoice-td_a">
+                        <p>發票</p>
+                        <div class="invoiceRadios_a">
+                            <input class="formRadios_a" type="radio" name="Radios" id="Radios1" value="option1">捐贈發票
+                            <br>
+                            <input class="formRadios_a" type="radio" name="Radios" id="Radios2" value="option2">電子發票
+                            <br>
+                            <input class="formRadios_a" type="radio" name="Radios" id="Radios3" value="option3">三聯式發票
+                        </div>
                     </td>
                 </tr>
             </tbody>
         </table>
         <div class="btn_a">
-            <button class="goCart_a disabled">回購物車</button>
+            <button class="goCart_a disabled">上一步</button>
             <button class="next_a">下一步</button>
         </div>
         
