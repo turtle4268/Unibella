@@ -55,7 +55,7 @@
             width: 25px ;
             height: 25px ;
             cursor: pointer ;
-            background-color: #666 ;
+            background-color: #666 ; /*y改*/
             -webkit-mask-repeat: no-repeat ;
             -webkit-mask-position: center ;
         }
@@ -194,10 +194,12 @@
             padding: 12px ;
             color: #666 ;
             font-size: 18px ;
+            transition: 0.4s ;
         }
         .n_ul li a:hover{
             background-color: #CCC;
         }
+        /*Container-------------------------------------------------------------------*/
         /*banner_y--------------------------------------------------------------*/
         .banner_y{
         	width: 100%;
@@ -205,12 +207,12 @@
             display: flex;
         	justify-content:center;
 			align-items:center;
+            position: relative;
         	          
         }
         .bannerTxt_y{
         	color: #fff;
         	font-weight: bold;
-        	font-family: "微軟正黑體" ;
         	font-size: 36px;
             position: absolute;
           
@@ -284,25 +286,12 @@
   			content: '';
         	border-bottom: 2px solid #fff;
         	transform: scaleX(0);
-			transition: transform .2s ease-in-out;
-            /*content: '';
-            display: block;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 2px;
-            width: 100%;
-            visibility: hidden;
-            background: #fff;
-            transform: scaleX(0);
-            transition: all .3s ease-in-out;*/
+			transition: transform .2s ease-in-out;    
         }
         .lineHover_y:hover:after {
         	transform: scaleX(1);
-            /*transform: scaleX(1);
-            visibility: visible;*/
         }
-        p{
+        .inforTxt_y p{
         	color: #666;
         	line-height: 2em;
         }
@@ -324,10 +313,6 @@
             </ul>
         </ul>
     </header>
-    <div class="banner_y">                       
-        <img src="images/banner_STORE.jpg" alt="">
-        <h1 class="bannerTxt_y">Be Your Unique Umbrella</h1>
-    </div>
     <nav class="navhide">
         <div class="close"></div>
         <ul class="n_ul">
@@ -349,6 +334,10 @@
         
     </aside>
     <div id="container" >
+        <div class="banner_y">
+            <img src="images/banner_STORE.jpg" alt="">
+            <h1 class="bannerTxt_y">Be Your Unique Umbrella.</h1>
+        </div>
         <div class="main_y">
 	         <h2 class="mainTitle_y">門市資訊</h2>
 	         <div class="infor_y">

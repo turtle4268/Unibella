@@ -21,13 +21,12 @@
             font-family: "微軟正黑體" ;
             font-weight: normal ;
             letter-spacing: 3px ;
-            box-sizing: border-box ;
         }
         section{
             width: 100vw ;
             max-width: 100% ;
-            height: 100vh ;
-            background-color: #FFF ;
+            /* height: 100vh ; */
+            /* background-color: #1F5572 ; */
         }
      /*Header--------------------------------------------------------*/
         header{
@@ -36,7 +35,7 @@
             width: 100% ;
             display: flex ;
             justify-content: space-between ;
-            color: #666 ;
+            color: #FFF ;
             padding: 0 40px ;
             padding-top: 28px ;
             box-sizing: border-box ;
@@ -56,7 +55,7 @@
             width: 25px ;
             height: 25px ;
             cursor: pointer ;
-            background-color: #666 ;
+            background-color: #FFF ;
             -webkit-mask-repeat: no-repeat ;
             -webkit-mask-position: center ;
         }
@@ -201,109 +200,185 @@
             background-color: #CCC;
         }
         /*Container-------------------------------------------------------------------*/
-        #container{
-            width: 100% ;
+        .headerBg_f{
+            width: 100% ; 
+            display: flex;
+            align-items: center;
+            object-fit: fill;
+            position: relative;
         }
-        /*Banner*/
-        .banner{
-            width: 100% ;
-            /* position: relative ; */
-            display: flex ;
-            justify-content: center ;
-            align-items: center ;
-            overflow: hidden ;
+        .headerBg_f img{
+            width: 100%;
         }
-        .banner h2{
-            font-size: 30px ;
-            font-weight: bold ;
-            color: #FFF ;
-            position: absolute ;
+        .headerBg_f p{
+            font-size: 30px;
+            font-weight: bold;
+            color:#fff;
+            position: absolute;
+            right: 13%;
+            letter-spacing: 5px;
         }
-        .banner img{
-            width: 100% ;
+        .credit_f h6{
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #666;
+            margin-top: 50px;
         }
-        /*Main*/
-        .main{
-            display: flex ;
-            padding-top:100px ; 
-            justify-content: space-around ;
-            flex-wrap: wrap ;
-            color: #666 ;
+        .credit_f > p{
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            color:#C1272D;
+            padding: 150px 0;
         }
-        /*Select*/
-        .select{
-            width: 15% ;
-            margin-top: 40px ;
-            padding-left: 20px ;
+        /*active-----------------------------------------------------*/
+        .active_f {
+            width:70%;
+            margin: 0 auto;
+            padding-top: 50px;
         }
-        .select .um{
-            margin-top: 40px ;
+        .active_f ul {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;   
         }
-        .select .um a{
-            display: block ;
-            padding: 8px ;
-            font-size: 18px ;
-            color: #1F5572 ;
-            border-bottom:1px solid #1F5572 ; 
+        .active_f ul li {
+            width: 300px;
+            height: 300px;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+            transition: all 1s ease-in-out; 
         }
-        .select .um a:hover{
-            background-color: #CCC ;
+        .square_f {
+            background: #000000;
         }
-        .check{
-            margin-top: 20px ;
-            padding-left: 8px ;
-            display: flex ;
-            flex-wrap: wrap ;
-            justify-content: space-between ;
+        .active_f ul li a {
+            width: 300px;
+            height: 300px;
+            display: block;
+            z-index: 2;
+            
         }
-        .check .label_group{
-            width: 42% ;
-            margin: 8px 5px ;
+        .active_f ul .square_f img {
+            max-width: 100%;
+            position: relative;
+            opacity: 0.4;
+            transition: all .5s ease-in-out; 
         }
-        .radio{
-            margin-top: 60px ;
-            border-top: 2px solid #1F5572 ;
-            padding-top: 20px ;
-        }.radio p{
-            color: #1F5572 ;
-            margin-bottom: 20px ;
+        .square_f p {
+            font-size: 24px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            color: #fff;
+            transition: all .5s ease-in-out;
+            font-weight: 400; 
+
         }
-        .radio .label_group{
-            margin: 8px 5px ;
+        .square_f .p2 {
+            margin-top:-32px;
+            margin-left:-94px;
         }
-        /*List*/
-        .list{
-            width: 75% ;
-            display: flex ;
-            flex-wrap: wrap ;
-            align-content: flex-start ;
+        .square_f .p4 {
+            margin-top:-16px;
+            margin-left:-94px;
         }
-        .list .card{
-            width: 32% ;
-            /* min-width: 300px ; */
-            min-height: 0px ;
-            background-color: #FFF ;
-            margin: 1% auto ;
+        .square_f .p6 {
+            margin-top:-16px;
+            margin-left:-81px;
         }
-        .list .card img{
-            width: 100% ;
-            display: block ;
+        .active_f ul .square_f:before {
+            width: 145%;
+            height: 145%;
+            top: 0;
+            left: 0;
+            content: '';
+            background: #161414;
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+            transform: rotate(110deg) translateY(-31%) translateX(-3.3%);
         }
-        /*Pagelist*/
-        .pagelist{
-            min-width: 100% ;
-            display: flex ;
-            justify-content: center ;
-            margin: 60px 0 ;
+        /* .active_a ul .square_a.red {
+            background: #581a14;
+        } */
+        .active_f ul .square_f:hover:before,
+        .active_f ul .square_f.hover:before {
+            transform: rotate(110deg) translateY(-150%);
         }
-        .pagelist .pageitem a{
-            display: block ;
-            margin: 8px ;
-            border-bottom: 1px solid transparent ;
+        .active_f ul .square_f:hover img{
+            opacity: 1;
+            transform: scale(1.1);
         }
-        .pagelist .pageitem a:hover{
-            border-bottom: 1px solid #666 ;
+
+        .active_f ul .square_f:hover p,
+        .active_f ul .square_f.hover p {
+            transform:translate(-160%,0);
         }
+        .active_f ul .blue {
+            background: #b1aeae;
+        }
+        .active_f ul .orange {
+            background:#e0a340;
+        }
+         /*button-------------------------------------------------*/
+         .btn_f {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0;
+        }
+        .btn_f a {
+            margin:15px 20px;
+            border-radius: 28px;
+            padding:10px 40px;
+            border: 2px solid #302f3a;
+            background: transparent;
+            color:  #302f3a;
+            font-size: 1rem;
+            position: relative;
+        }
+        .btn_f a:hover {
+            color: #fff;
+            transition: color 200ms linear 200ms;
+            -webkit-transition: color 200ms linear 200ms;
+            z-index: 3;
+        }
+        .btn_f .return_f::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: -.6rem;
+            top: -.7rem;
+            z-index: -1;
+            background-color: #5b8095;
+            border-radius: 28px;
+            transition: all 200ms ease-out;
+        }
+        .btn_f .submit_f::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: -.6rem;
+            top: -.7rem;
+            z-index: -1;
+            background-color: #f8d360;
+            border-radius: 28px;
+            transition: all 200ms ease-out;
+        }
+        .btn_f a:hover::before {
+            top: 0;
+            left: 0;
+        }
+        .btn_f a:active {
+            transform: translateY(3px);
+        }
+       
     </style>
 </head>
 <body>
@@ -329,88 +404,50 @@
             <li><a href="">Q&amp;A</a></li>
         </ul>
     </nav>
-    
+    <aside class="l_aside">
+
+    </aside>
+    <aside class="r_aside">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </aside>
     <div id="container">
-        <div class="banner">
-            <img src="images/banner_NEWS.jpg" alt="">
-            <h2>Be Your Unique Unbrella.</h2>
+        <div class="headerBg_f">
+            <img src="images/banner_CART.jpg" alt="">
+            <p>Be Your Unique Unbrella.</p>
         </div>
-        <div class="main">
-            <aside class="select">
-                <div class="um rain">
-                    <a>雨傘</a>
-                    <div class="check">
-                        <div class="label_group">
-                            <input type="checkbox" name="plain" id="plain" class="color"><label for="plain">素色</label>
-                        </div>
-                        <div class="label_group">
-                            <input type="checkbox" name="pattern" id="pattern" class="color"><label for="pattern">花色</label>
-                        </div>
-                        <div class="label_group">
-                            <input type="checkbox" name="straight" id="straight" class="skeleton"><label for="straight">直傘</label>
-                        </div>
-                        <div class="label_group">
-                            <input type="checkbox" name="folding" id="folding" class="skeleton"><label for="folding">折傘</label>
-                        </div>
-                        <div class="label_group">
-                            <input type="checkbox" name="auto" id="auto"><label for="auto">自動傘</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="um sun">
-                    <a>陽傘</a>
-                    <div class="check">
-                        <div class="label_group">
-                            <input type="checkbox" name="plain" id="plain" class="color"><label for="plain">素色</label>
-                        </div>
-                        <div class="label_group">
-                            <input type="checkbox" name="pattern" id="pattern" class="color"><label for="pattern">花色</label>
-                        </div>
-                        <div class="label_group">
-                            <input type="checkbox" name="straight" id="straight" class="skeleton"><label for="straight">直傘</label>
-                        </div>
-                        <div class="label_group">
-                            <input type="checkbox" name="folding" id="folding" class="skeleton"><label for="folding">折傘</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="radio">
-                    <p>排序</p>
-                    <div class="label_group">
-                        <input type="radio" name="Sort" id="pop" checked="checked"> <label for="pop">人氣排序</label>
-                    </div>
-                    <div class="label_group">
-                        <input type="radio" name="Sort" id="pricedown"> <label for="pricedown">價格由高到低</label>
-                    </div>
-                    <div class="label_group">
-                        <input type="radio" name="Sort" id="priceup"> <label for="priceup">價格由低到高</label>
-                    </div>
-                </div>
-            </aside>
-            <div class="list">
-                <div class="card"> <img src="images/town-navy.png" alt=""></div>
-                <div class="card none"> </div>
-                <div class="card"> <img src="images/town-navy.png" alt=""></div>
-                <div class="card none"> </div>
-                <div class="card"> <img src="images/town-navy.png" alt=""></div>
-                <div class="card none"> </div>
-                <div class="card"> <img src="images/town-navy.png" alt=""></div>
-                <div class="card none"> </div>
-                <div class="card"> <img src="images/town-navy.png" alt=""></div>
-                <div class="card none"> </div>
-                <div class="card"> <img src="images/town-navy.png" alt=""></div>
-                <div class="card none"> </div>
+        <section class="credit_f">
+            <h6>購物車清單</h6>
+            <p>購物車目前沒有商品</p>
+
+            <h6>最新活動</h6>
+            <div class="active_f">
+                <ul>
+                    <li class="square_f blue" >
+                            <img class="images" src="images/news_squre2_light.jpg" alt="">
+                            <p class="p2">梅雨季<br>全館雨傘88折</p>
+                            <a href=""></a>   
+                    </li>
+                    <li><img src="images/member_square2.jpg" alt=""></li>
+                    <li class="square_f orange">
+                            <img class="images" src="images/news_squre4_light.jpg" alt="">
+                            <p class="p4">自動傘新品上架</p>
+                            <a href=""></a>
+                    </li>
+                </ul>
+            </div> 
+
+            <div class="btn_f">
+                <a href="" class="return_f">回首頁</a>
+                <a href="" class="submit_f">回商品頁</a>
             </div>
-            <ul class="pagelist">
-                <li class="pageitem"><a><i class="fas fa-angle-double-left"></i></a></li>
-                <li class="pageitem"><a>1</a></li>
-                <li class="pageitem"><a>2</a></li>
-                <li class="pageitem"><a>3</a></li>
-                <li class="pageitem"><a><i class="fas fa-angle-double-right"></i></a></li>
-            </ul>
-        </div>
- 
+        </section>
     </div>
+
     <footer>
         <div class="f_content">
             <div class="f_quarter"><h2>Unibella</h2></div>
@@ -444,7 +481,7 @@
                         <a href="" class="eput"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                
+  
             </div>
         </div>
         <div class="foot">COPYRIGHT &COPY; Unibella ALL RIGHTS RESERVED</div>
