@@ -424,13 +424,13 @@
             justify-content: space-between;
             padding: 50px 0 30px;
             opacity: 0;
-            transition: transform 1.5s, opacity 3.5s;
+            transition: transform .8s, opacity 1.5s;
             transform: translateY(100px); 
         }
         .location_active_f, .light_active_f, .wind_active_f, .uv_active_f{
             opacity: 1;
             transform: translateY(0);
-            transition: transform 1.5s, opacity 3.5s;
+            transition: transform .8s, opacity 1.5s;
         }
         
         .word3_f img{
@@ -751,9 +751,9 @@
                 <img src="images/icon_location.svg" alt="">
                 <div class="article_f">
                     <h5>定位系統</h5>
-                    <p>青山依舊在，幾度夕陽紅。慣看秋月春風。<br> 
-                     一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，  
-                     滾滾長江東逝水，白髮漁樵江渚上，古今多少事，
+                    <p>Unibella智慧雨傘，透過雨傘內部的接收器與手機連線，
+                        當使用者離開雨傘的區域範圍（30/50 公尺）時，手機端會通知您忘記將雨傘帶走。
+                        同時也會記錄最後遺失的位置，讓您不再為遺失傘而煩惱。
                     </p>
                 </div>
                 
@@ -761,9 +761,8 @@
             <div class="light_f">
                 <div class="article_f">
                      <h5>極輕</h5>
-                     <p>使用FRP玻璃纖維骨架，<br> 
-                           具高韌性， 
-                            滾滾長江東逝水，白髮漁樵江渚上，古今多少事，
+                     <p>傘骨採用FRP玻璃纖維製作，除了抗風性佳，
+                        更減輕雨傘重量，不論放在背包或拿在手上都不會過度負擔。  
                      </p>
                 </div>
                 <img src="images/icon_light.svg" alt="">
@@ -780,9 +779,9 @@
             <div class="uv_f">
                 <div class="article_f">
                     <h5>專業抗UV</h5>
-                    <p>青山依舊在，幾度夕陽紅。慣看秋月春風。<br> 
-                        一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，
-                        滾滾長江東逝水，白髮漁樵江渚上，古今多少事，
+                    <p>傘面使用高密度防潑水PG傘布，屬於一級防紫外線的傘布，
+                        不易磨損、柔軟舒適、清洗方便、
+                        傘布較厚，防紫外線效果極佳。
                     </p>
                 </div>
                 <img src="images/icon_UV.svg" alt="">
@@ -934,10 +933,10 @@
             var scrollcricle =$(this).scrollTop();
             if(scrollcricle>2400){
                 $(".location_f").addClass("location_active_f");
-                $(".word3_f h6").fadeIn(1500);
+                $(".word3_f h6").fadeIn(800);
             }else{
                 $(".location_f").removeClass("location_active_f");
-                $(".word3_f h6").fadeOut(1000);
+                $(".word3_f h6").fadeOut(500);
             };
             if(scrollcricle>2800){
                 $(".light_f").addClass("light_active_f");
