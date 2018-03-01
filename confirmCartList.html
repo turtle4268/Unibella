@@ -72,16 +72,13 @@
     }
     .headerBg_a p {
         /* width: 100%; */
-        font-size: 36px;
+        font-size: 30px;
         font-weight: bold;
         color:#fff;
         position: absolute;
         /* text-align: center; */
         right: 13%;
         letter-spacing: 5px;
-    }
-    .headerBg_a p:hover{
-        color: #3b6ae9;
     }
     .hideHeader {
         opacity: 0;
@@ -151,6 +148,9 @@
     }
     .step1-content_a::after {
         margin-top: 36%;
+    }
+    .des_a {
+        font-size: 18px;
     }
     .desUp_a {
         padding-bottom: 20px;
@@ -311,6 +311,9 @@
     }
     .btn_a button:active {
         transform: translateY(3px);
+    }
+    .btn_a button:focus {
+        outline: none;
     }
     /*-------toTop--------*/
     .toTop{
@@ -687,7 +690,7 @@
         };            
         scrollLast=scrollNow;
     });
-     /*to top*/
+    /*to top*/
     $(".toTop").click(function(){
         $("html,body").animate({
             scrollTop:0
