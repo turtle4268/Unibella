@@ -290,6 +290,7 @@
         justify-content: center;
         margin-top: 5%;
         margin-bottom: 5%;
+        position: relative;
     }
     .btn_a button {
         margin:15px 45px;
@@ -337,6 +338,37 @@
     }
     .btn_a button:active {
         transform: translateY(3px);
+    }
+    /*-------toTop--------*/
+    .toTop{
+        color: #1F5572 ;
+        position: absolute;
+        right: 50px;
+        top: 10px ;
+        cursor: pointer ;
+    }
+    .toTop .tr{
+        width: 20px;
+        height: 20px;
+        margin: 5px auto;
+        position: relative ;
+        left: -2px ;
+        transform: rotate(180deg) ;
+        -webkit-mask-image: url(images/icon_scroll.svg) ;
+        background-color:#1F5572;
+        animation: scroll_top .5s linear infinite;
+        animation-direction: alternate;
+        animation-delay: .1s;
+    }
+    .toTop h5{
+        font-size: 16px ;
+        color: #1F5572 ;
+        text-align: center;
+    }
+    @keyframes scroll_top {
+        0%   { opacity: .2; top: 2px; }
+        50%  { opacity: .5; }
+        100% { opacity: 1; top: -4px ;}
     }
     
 /*Footer-------------------------------------------------------------*/
@@ -614,6 +646,10 @@
         <div class="btn_a">
             <button class="goCart_a disabled">上一步</button>
             <button class="next_a">下一步</button>
+            <div class="toTop">
+                <div class="tr"></div>
+                <h5>TOP</h5>
+            </div>
         </div>
         
     </section>
