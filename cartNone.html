@@ -218,52 +218,115 @@
             right: 13%;
             letter-spacing: 5px;
         }
-        /*信用卡交易步驟一------------------------------------*/
-        section{
+        .credit_f h6{
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
             color: #666;
             margin-top: 50px;
         }
-        .credit_f h6{
-            text-align: center;
-            font-size: 18px;
+        .credit_f > p{
             font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            color:#C1272D;
+            padding: 150px 0;
         }
-        table {
-            width: 60%;
-            max-width: 60%;
+        /*active-----------------------------------------------------*/
+        .active_f {
+            width:70%;
             margin: 0 auto;
-            margin-top: 30px;
-            border-collapse: collapse;
+            padding-top: 50px;
         }
-        table thead tr th {
-            background: #666;
+        .active_f ul {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;   
+        }
+        .active_f ul li {
+            width: 300px;
+            height: 300px;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+            transition: all 1s ease-in-out; 
+        }
+        .square_f {
+            background: #000000;
+        }
+        .active_f ul li a {
+            width: 300px;
+            height: 300px;
+            display: block;
+            z-index: 2;
+            
+        }
+        .active_f ul .square_f img {
+            max-width: 100%;
+            position: relative;
+            opacity: 0.4;
+            transition: all .5s ease-in-out; 
+        }
+        .square_f p {
+            font-size: 24px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
             color: #fff;
-            padding: 6px 0;
-            border: 1px solid #666;
-            border-right: 1px solid #fff;
+            transition: all .5s ease-in-out;
+            font-weight: 400; 
+
         }
-        table tbody tr td {
-            /* text-align: center; */
-            height: 60px;
-            border: 1px solid #666;
-            /* max-width: 80px; */
-            padding-left: 50px;
+        .square_f .p2 {
+            margin-top:-32px;
+            margin-left:-94px;
         }
-        .small_f{
-            max-width: 90px;
+        .square_f .p4 {
+            margin-top:-16px;
+            margin-left:-94px;
         }
-        .card_f input{
-            width: 60px;
-        } 
-        .invoice_f p{
-            display: inline-block;
-            padding: 15px ;
+        .square_f .p6 {
+            margin-top:-16px;
+            margin-left:-81px;
         }
-        .invoice_f span{
-            color: red;
+        .active_f ul .square_f:before {
+            width: 145%;
+            height: 145%;
+            top: 0;
+            left: 0;
+            content: '';
+            background: #161414;
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+            transform: rotate(110deg) translateY(-31%) translateX(-3.3%);
         }
-        /*button-------------------------------------------------*/
-        .btn_f {
+        /* .active_a ul .square_a.red {
+            background: #581a14;
+        } */
+        .active_f ul .square_f:hover:before,
+        .active_f ul .square_f.hover:before {
+            transform: rotate(110deg) translateY(-150%);
+        }
+        .active_f ul .square_f:hover img{
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .active_f ul .square_f:hover p,
+        .active_f ul .square_f.hover p {
+            transform:translate(-160%,0);
+        }
+        .active_f ul .blue {
+            background: #b1aeae;
+        }
+        .active_f ul .orange {
+            background:#e0a340;
+        }
+         /*button-------------------------------------------------*/
+         .btn_f {
             display: flex;
             justify-content: center;
             margin: 50px 0;
@@ -315,8 +378,7 @@
         .btn_f a:active {
             transform: translateY(3px);
         }
-
-
+       
     </style>
 </head>
 <body>
@@ -359,67 +421,33 @@
             <p>Be Your Unique Unbrella.</p>
         </div>
         <section class="credit_f">
-            <h6>信用卡交易</h6>
-            <table class="table_f">
-                <thead class="dark_f">
-                    <tr>
-                        <th></th>
-                        <th style="border-right:#666 1px solid">信用卡交易資料輸入頁面</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="small_f">金額</td>
-                        <td>NT.7400</td>
-                    </tr>
-                    <tr>
-                        <td class="small_f">信用卡卡號</td>
-                        <td class="card_f">
-                            <input type="text"> - 
-                            <input type="text"> - 
-                            <input type="text"> - 
-                            <input type="text">
-                        </td>
-                    </tr>
-                    <tr>
-                       <td class="small_f">信用卡背面末三碼</td> 
-                       <td class="card_f">
-                           <input type="text">
-                        </td> 
-                    </tr>
-                    <tr>
-                       <td class="small_f">到期日(月/年)</td>
-                       <td>
-                           <input type="month">
-                    </td>
-                    </tr>
-                </tbody>
-                <thead class="dark_f">
-                    <tr>
-                        <th></th>
-                        <th style="border-right:#666 1px solid">電子發票相關設定</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="small_f">處理方式</td>
-                        <td class="invoice_f">
-                            <input type="radio"><p>捐贈 <span>(財團法人兒童福利基金會)</span></p><br>
-                            <input type="radio"><p>二聯式發票</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="small_f">Email</td>
-                        <td><input type="text"></td>
-                    </tr>
-                </tbody>
-            </table>
+            <h6>購物車清單</h6>
+            <p>購物車目前沒有商品</p>
+
+            <h6>最新活動</h6>
+            <div class="active_f">
+                <ul>
+                    <li class="square_f blue" >
+                            <img class="images" src="images/news_squre2_light.jpg" alt="">
+                            <p class="p2">梅雨季<br>全館雨傘88折</p>
+                            <a href=""></a>   
+                    </li>
+                    <li><img src="images/member_square2.jpg" alt=""></li>
+                    <li class="square_f orange">
+                            <img class="images" src="images/news_squre4_light.jpg" alt="">
+                            <p class="p4">自動傘新品上架</p>
+                            <a href=""></a>
+                    </li>
+                </ul>
+            </div> 
+
             <div class="btn_f">
-                <a href="" class="return_f">上一步</a>
-                <a href="" class="submit_f">送出</a>
+                <a href="" class="return_f">回首頁</a>
+                <a href="" class="submit_f">回商品頁</a>
             </div>
         </section>
     </div>
+
     <footer>
         <div class="f_content">
             <div class="f_quarter"><h2>Unibella</h2></div>
@@ -453,7 +481,7 @@
                         <a href="" class="eput"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                
+  
             </div>
         </div>
         <div class="foot">COPYRIGHT &COPY; Unibella ALL RIGHTS RESERVED</div>

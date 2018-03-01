@@ -218,7 +218,14 @@
             right: 13%;
             letter-spacing: 5px;
         }
-        /*信用卡交易步驟一------------------------------------*/
+        /*信用卡交易步驟三------------------------------------*/
+        .total_f {
+            padding: 50px;
+            border: none;
+            margin:0 auto;
+            text-align: center; 
+            color: #C1272D;
+        }
         section{
             color: #666;
             margin-top: 50px;
@@ -240,27 +247,15 @@
             color: #fff;
             padding: 6px 0;
             border: 1px solid #666;
-            border-right: 1px solid #fff;
         }
         table tbody tr td {
-            /* text-align: center; */
+            text-align: center;
             height: 60px;
             border: 1px solid #666;
-            /* max-width: 80px; */
-            padding-left: 50px;
         }
-        .small_f{
-            max-width: 90px;
-        }
-        .card_f input{
-            width: 60px;
-        } 
-        .invoice_f p{
-            display: inline-block;
-            padding: 15px ;
-        }
-        .invoice_f span{
-            color: red;
+        table tbody tr td input{
+            width: 200px;
+            margin-left: 30px;
         }
         /*button-------------------------------------------------*/
         .btn_f {
@@ -359,67 +354,29 @@
             <p>Be Your Unique Unbrella.</p>
         </div>
         <section class="credit_f">
-            <h6>信用卡交易</h6>
-            <table class="table_f">
-                <thead class="dark_f">
+            <div class="total_f" data-val="">共 X 件，總金額 NT$. 7400</div>
+            <h6>信用卡交易驗證</h6>
+            <table>
+                <thead >
                     <tr>
-                        <th></th>
-                        <th style="border-right:#666 1px solid">信用卡交易資料輸入頁面</th>
+                        <th>驗證</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="small_f">金額</td>
-                        <td>NT.7400</td>
-                    </tr>
-                    <tr>
-                        <td class="small_f">信用卡卡號</td>
-                        <td class="card_f">
-                            <input type="text"> - 
-                            <input type="text"> - 
-                            <input type="text"> - 
+                        <td>請輸入您收到的驗證碼
                             <input type="text">
-                        </td>
-                    </tr>
-                    <tr>
-                       <td class="small_f">信用卡背面末三碼</td> 
-                       <td class="card_f">
-                           <input type="text">
-                        </td> 
-                    </tr>
-                    <tr>
-                       <td class="small_f">到期日(月/年)</td>
-                       <td>
-                           <input type="month">
-                    </td>
+                        </td>    
                     </tr>
                 </tbody>
-                <thead class="dark_f">
-                    <tr>
-                        <th></th>
-                        <th style="border-right:#666 1px solid">電子發票相關設定</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="small_f">處理方式</td>
-                        <td class="invoice_f">
-                            <input type="radio"><p>捐贈 <span>(財團法人兒童福利基金會)</span></p><br>
-                            <input type="radio"><p>二聯式發票</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="small_f">Email</td>
-                        <td><input type="text"></td>
-                    </tr>
-                </tbody>
-            </table>
+            </table> 
             <div class="btn_f">
-                <a href="" class="return_f">上一步</a>
+                <!-- <a href="" class="return_f">上一步</a> -->
                 <a href="" class="submit_f">送出</a>
             </div>
         </section>
     </div>
+
     <footer>
         <div class="f_content">
             <div class="f_quarter"><h2>Unibella</h2></div>
@@ -453,7 +410,7 @@
                         <a href="" class="eput"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                
+  
             </div>
         </div>
         <div class="foot">COPYRIGHT &COPY; Unibella ALL RIGHTS RESERVED</div>
