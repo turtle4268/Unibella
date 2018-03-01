@@ -256,6 +256,9 @@
         .l_aside_y ul li:hover{
             background: #e6e6e6;
         }
+        .topMain_y{
+            margin-left: 5%;
+        }
         .topMain_ul_y{
             display: flex;
         }
@@ -270,76 +273,136 @@
         /*main_y-------------------------------------*/
         .main_y{
             text-align: center;
-            color: #666;
         }
         .main_y h2{
             margin: 50px auto;
             font-weight: bold;
             color: #666;
         }
-        .form_infor_y{
-            width: 50%;
+        .table_infor_y{
+            width: 45%;
             margin: 0 auto;
-            padding-left: 5%; 
+            color: #666; 
         }
-        .memberInfor_y{
-            display: flex;
-            justify-content: space-between;
-            align-content: center;
-            margin-top:3em;
-        }
-        .memberLabel1_y{
-            color: #666;
-            font-size: 16px;
+        .l_td_y{
+            width:32%;
+            height: 30px; 
             text-align: left;
-            flex: 1;
-            padding-right: 5%;
-            margin-bottom: 3em;
+            padding-top:2.5em;
         }
-        .memberInput1_y{
-            /* width: 60%;
-            height: 30px; */
-            background-color:transparent;
-            color: #666;
-            border: none;
-            border-bottom: 1px solid #666;
-            flex: 3;
-            margin-bottom: 3em;
-        }
-        .memberLabel_y{
-            color: #666;
-            font-size: 16px;
-            text-align: left;
-            /* flex: 1; */
-            width: 12%;
-        }
-        .memberInput_y, .memberSelect_y{
-            /* width: 60%;
-            height: 30px; */
-            background-color:transparent;
-            color: #666;
-            border: none;
-            border-bottom: 1px solid #666;
-            /* flex: 3; */
-            width:88%;
+        .r_td_y{
+            width:68%;
             height: 30px;
+            text-align: left;
+            padding-top:2.5em;
+            border-bottom: 1px solid #000;
         }
-        .memberInput_y:focus{
-            outline:none;
+        .l_td1_y{
+            width:20%;
+            height: 30px; 
+            text-align: left;
         }
-        .memberBtn_y{
-            background-color: transparent;
-            font-size: 1em;
-            color: #1f5572;
-            border: 2px solid #1f5572;
-            border-radius: 50px;
-            padding: 1% 10%;
-            margin: 4em auto;
+        .r_td1_y{
+            width:80%;
+            height: 30px;
+            text-align: left;
+            border-bottom: 1px solid #000;
         }
-        .memberBtn_y:hover{
-            background-color: #1f5572;
-            color: #fff;           
-            border: 2px solid #1f5572;        
+        /*active_y-------------------------------------*/
+        .active_y{
+            margin-top: 15%;
+            margin-bottom: 10%;
+        }
+        .active_a {
+            width:100%;
+            margin: 0 auto;
+            /* padding-top: 50px; */
+        }
+        .active_a ul {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;   
+        }
+        .active_a ul li {
+            width: 300px;
+            height: 300px;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+            transition: all 1s ease-in-out; 
+        }
+        .square_a {
+            background: #000000;
+        }
+        .active_a ul li a {
+            width: 300px;
+            height: 300px;
+            display: block;
+            z-index: 2;
+            
+        }
+        .active_a ul .square_a img {
+            max-width: 100%;
+            position: relative;
+            opacity: 0.4;
+            transition: all .5s ease-in-out; 
+        }
+        .square_a p {
+            font-size: 24px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            color: #fff;
+            transition: all .5s ease-in-out; 
+
+        }
+        .square_a .p2 {
+            margin-top:-32px;
+            margin-left:-94px;
+        }
+        .square_a .p4 {
+            margin-top:-16px;
+            margin-left:-94px;
+        }
+        .square_a .p6 {
+            margin-top:-16px;
+            margin-left:-81px;
+        }
+        .active_a ul .square_a:before {
+            width: 145%;
+            height: 145%;
+            top: 0;
+            left: 0;
+            content: '';
+            background: #161414;
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+            transform: rotate(110deg) translateY(-31%) translateX(-3.3%);
+        }
+        /* .active_a ul .square_a.red {
+            background: #581a14;
+        } */
+        .active_a ul .square_a:hover:before,
+        .active_a ul .square_a.hover:before {
+            transform: rotate(110deg) translateY(-150%);
+        }
+        .active_a ul .square_a:hover img{
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .active_a ul .square_a:hover p,
+        .active_a ul .square_a.hover p {
+            transform:translate(-160%,0);
+        }
+        .active_a ul .blue {
+            background: #b1aeae;
+        }
+        .active_a ul .orange {
+            background:#e0a340;
         }
     </style>
 </head>
@@ -386,42 +449,64 @@
             </aside>
         
             <div class="main_y">
-                <h2>修改會員資料</h2>      
-                <form name="form_infor" class="form_infor_y" method="post" action="" onsubmit="">
-                    <div class="memberInfor_y">
-                        <label for="email" class="memberLabel1_y">電子郵件 </label>
-                        <input type="text" class="memberInput1_y" name="email" id="email" value="" placeholder="" disabled="disabled">
-                        <!-- <small id="emailWarning" class="form-text text-muted warning">請填寫正確的電郵</small>                                                                                                                             -->
+                <div class="topMain_y">
+                    <ul class="topMain_ul_y">
+                        <li class="topMain_li_y"><p>親愛的 <span class="li_span_y">XXX</span> 您好</p></li>
+                        <li class="topMain_li_y"><p>會員等級: <span class="li_span_y">一般會員</span></p></li>
+                    </ul>
+                </div>
+                <h2>會員資料</h2>
+                <table class="table_infor_y">
+                    <tr>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td class="l_td1_y">電子郵件 </td>
+                        <td class="r_td1_y">111</td>
+                    </tr>
+                    <tr>
+                        <td class="l_td_y">姓名 </td>
+                        <td class="r_td_y">222</td>
+                    </tr>
+                    <tr>
+                        <td class="l_td_y">性別 </td>
+                        <td class="r_td_y">333</td>
+                    </tr>
+                    <tr>
+                        <td class="l_td_y">生日 </td>
+                        <td class="r_td_y">444</td>
+                    </tr>
+                    <tr>
+                        <td class="l_td_y">手機</td>
+                        <td class="r_td_y">555</td>
+                    </tr>
+                    <tr>
+                        <td class="l_td_y">地址</td>
+                        <td class="r_td_y">666</td>
+                    </tr>
+                </table>
+                <div class="active_y">
+                    <h2>最新活動</h2>
+                    <div class="active_a">
+                        <ul>
+                            <li class="square_a blue">
+                                <img class="images" src="images/news_squre2_light.jpg" alt="">
+                                <p class="p2">梅雨季
+                                    <br>全館雨傘88折</p>
+                                <a href=""></a>
+                            </li>
+                            <li>
+                                <img src="images/member_square2.jpg" alt="">
+                            </li>
+                            <li class="square_a orange">
+                                <img class="images" src="images/news_squre4_light.jpg" alt="">
+                                <p class="p4">自動傘新品上架</p>
+                                <a href=""></a>
+                            </li>
+                        </ul>
                     </div>
-                    <p style="text-align:right">(*為必填)</p>       
-                    <div class="memberInfor_y">
-                        <label for="nickname" class="memberLabel_y"><span class="yellow_star">*</span>姓名: </label>
-                        <input type="text" class="memberInput_y" name="nickname" id="nickname" value="" placeholder="">
-                            <!-- <small id="nicknameWarning" class="form-text text-muted warning">請填寫兩個字以上的暱稱</small> -->
-                    </div>
-                    <div class="memberInfor_y">
-                        <label for="nickname" class="memberLabel_y">&nbsp;性別: </label>
-                        <select class="memberSelect_y" id="registerGender_y">
-                            <option value="1"></option>
-                            <option value="2">男</option>
-                            <option value="3">女</option>
-                        </select>
-                    </div>
-                    <div class="memberInfor_y">
-                        <label for="birthday" class="memberLabel_y"><span class="yellow_star">*</span>生日: </label>
-                        <input type="text" class="memberInput_y datepicker" name="birthday" id="birthday" value="" placeholder="">
-                    </div>
-                    <div class="memberInfor_y">
-                        <label for="mobile" class="memberLabel_y"><span class="yellow_star">*</span>手機: </label>
-                            <input type="text" class="memberInput_y" name="mobile" id="mobile" value="" placeholder="">
-                            <!-- <small id="mobileWarning" class="form-text text-muted warning">請輸入十位數的手機號碼</small> -->
-                    </div>       
-                    <div class="memberInfor_y">
-                        <label for="address" class="memberLabel_y"><span class="yellow_star">*</span>地址: </label>
-                        <input type="text" class="memberInput_y" name="address" id="address" value="" placeholder="">
-                    </div>
-                    <button type="submit" class="memberBtn_y">確認送出</button>
-                </form> 
+                </div>
             </div>
         </div>
     </div>
