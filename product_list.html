@@ -213,14 +213,47 @@
             align-items: center ;
             overflow: hidden ;
         }
-        .banner h2{
+        .banner img{
+            width: 100% ;
+        }
+        .banner .bn_bg{
+            position: relative ;
+            z-index: -1 ;
+        }
+        .banner .bn{
+            display: flex ;
+            width: 100% ;
+            position: absolute ;
+            justify-content: space-around ;
+            align-items: center ;
+            flex-wrap: wrap ;
+            overflow: hidden ;
+        }
+        .banner .bn h2{
             font-size: 30px ;
             font-weight: bold ;
             color: #FFF ;
-            position: absolute ;
+            margin-left: 2% ;
+            position: relative ;
+            z-index: 2 ;
         }
-        .banner img{
-            width: 100% ;
+        .banner .bn .b_umbrella{
+            width: 30% ;
+            margin-right: 2% ; 
+            
+            animation: umbrellaUp 1s 0.5s 1 both  ;
+        }
+        .b_umbrella img{
+            transform: rotate(-20deg) ;
+        }
+        .banner .bn .b_cloud{
+            min-width: 100% ;
+            position: absolute ;
+            bottom: -50% ;
+        }
+        @keyframes umbrellaUp {
+            0%{ transform: translateY(90%) ; }
+            100%{ transform: translateY(10%) ; }
         }
         /*Main*/
         .main{
@@ -332,8 +365,18 @@
     
     <div id="container">
         <div class="banner">
-            <img src="images/banner_NEWS.jpg" alt="">
-            <h2>Be Your Unique Unbrella.</h2>
+            <img src="images/banner_LIST.jpg" alt="" class="bn_bg">
+            <div class="bn">
+                <h2>Be Your Unique Unbrella.</h2>
+                <div class="b_umbrella">
+                    <img src="images/home_umbrella_b.png" alt="">
+                </div>
+                <div class="b_cloud">
+                    <img src="images/all_clouds.png" alt="">
+                </div>
+            </div>
+            
+            
         </div>
         <div class="main">
             <aside class="select">
