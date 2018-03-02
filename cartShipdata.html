@@ -507,6 +507,199 @@
     .n_ul li a:hover{
         background-color: #CCC;
     }
+    @media screen and (max-width: 376px) {
+    /*--header--*/
+    *{
+        letter-spacing: 2px ;
+    }
+    header {
+        padding-right: 5px;
+        padding-left: 5px;
+        padding-top: 10px ;
+    }
+    header h1 {
+        left: 10px;
+        top:0;
+        font-size:26px;
+    }
+    .h_ul li {
+        padding: 0 10px;
+    }
+    /*--banner--*/
+    .headerBg_a p {
+        width: 58%;
+        font-size: 18px;
+        right:1px;
+        top: 7%;
+        letter-spacing: 3px;
+    }
+    /*--sec1--*/
+    .sec1_a {
+        padding-top: 20px;
+    }
+    /*--step--*/
+    .step_a {
+        width: 88px;
+        height: auto;
+    }
+    .desUp_a {
+        padding-bottom: 7px;
+    }
+    .desDown_a {
+        padding-top: 50px;
+    }
+    .des_a {
+        font-size: 16px;
+        width:85px;
+    }
+    .step-content_a {
+        width: 20px;
+        height: 20px;
+    }
+    .step1-content_a::after {
+        margin-top: 45%;
+    }
+    .step-content_a::after {
+        width: 54px;
+        margin-top: 10px;
+        margin-left: 27px;
+    }
+    .step_a:last-child .step-content_a::after {
+        width: 30px;
+        opacity: 0;
+    }
+    .step_a:first-child .step-content_a {
+        top:-2px;
+    }
+    .step1-content_a::before {
+        opacity: 0;
+    }
+    .stepDown-content_a {
+        top:46px;
+    }
+    .step-content_a i {
+        left: 2px;
+        font-size: 16px;
+    }
+    /*--table--*/
+    table {
+        width: 80%;
+        max-width: 80%;
+    }
+    /*--table1--*/
+    .formContent_a {
+        left: 13%;
+    }
+    .formContent2_a {
+        left: 13%;
+    }
+    /*--table2--*/
+    .table2_a tbody tr td {
+        height:60px;
+    }
+    .table2_a tbody tr td p * {
+        width: 57%;
+    }
+    .table2_a tbody tr td .store_a select, option {
+        height: 25px;
+    }
+    .table2_a tbody tr .memo-td_a {
+        height: 130px;
+    }
+    .table2_a tbody tr td p .memo_a {
+        width: 65%;
+    }
+    .table2_a tbody tr td .notice_a {
+        margin-left: 0;
+    }
+    .table2_a tbody tr td .address_a {
+        height: 180px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .table2_a tbody tr td .address_a * {
+        margin-left: 0;
+        height: 25px;
+    }
+    .table2_a tbody tr td .address_a select, input {
+        height: 25px;
+        width: 57%;
+        margin-left: 61px;
+    }
+    .table2_a tbody tr td .address_a select option {
+        height: 25px;
+    }
+    .table2_a tbody tr td .address_a input{
+        width: 57%;
+        margin-left: 61px;
+    }
+    .table2_a tbody tr .address-td_a p span {
+        height: 10px;
+        width: 61px;
+    }
+    /*--button--*/
+    .btn_a {
+        display: block;
+        margin: 10% 0;
+        text-align: center;
+    }
+    /*--total--*/
+    .total_a {
+        padding:30px;
+    }
+    /*--toTop--*/
+    .toTop {
+        right:20px;
+        top: 80px;
+    }
+    /*--Nav--*/
+    nav{
+        width: 100% ;
+    }
+    nav.navhide{
+        right: -100% ;
+    }
+    /*footer*/
+    .f_content{
+        flex-wrap: wrap ;
+        padding: 20px 40px ;
+    }
+    .f_quarter{
+        min-width: 100% ;
+        border-right: none ;
+        padding: 20px 0 ;
+        position: relative ;
+    }
+    .f_quarter::before{
+        content: "" ;
+        border-bottom: 1px solid #FFF ;
+        width: 40% ;
+        height: 100% ;
+        position: absolute ;
+        margin: 0 auto ;
+    }
+    .f_quarter.border_none::before{
+        content: "" ;
+        border-bottom: 1px solid transparent ;
+        width: 50% ;
+        height: 100% ;
+        position: absolute ;
+        margin: 0 auto ;
+    }
+    .f_quarter p{
+        text-align: center ;
+    }
+    .f_quarter a.aicon{
+        width: 36px ;
+        margin: 0 ;
+        text-align: center ;
+        margin: 15px ;
+    }
+    .foot{
+        padding: 12px 0 ;
+        letter-spacing: 2px ;
+    }
+    }
     </style>
 </head>
 <body>
@@ -590,7 +783,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <p>門市
+                        <p class="store_a">門市
                             <select name="" id="">
                                 <option value=""></option>
                                 <option value=""></option>
@@ -756,7 +949,7 @@
     // Prev btn click
     $(goCartBtn).click(function() {
         if (i < 1) {
-            $(prevBtn).attr('disabled', 'disabled');
+            $(goCartBtn).attr('disabled', 'disabled');
             return false;
         } else {
             i = i - 1;
