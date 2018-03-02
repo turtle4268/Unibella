@@ -6,6 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Unibella</title>
     <style>
+         /*
+        blue:#1F5572
+        yellow:#F8CF4E
+        black: #666
+        logo-font:Nyala
+    */
         *{
             margin: 0 ;
             padding: 0 ;
@@ -100,8 +106,10 @@
             justify-content: space-between ;
             color: #fff ; 
             padding: 0 40px ;
-            padding-top: 50px ;
+            padding-top: 28px ;
             box-sizing: border-box ;
+            transition: 0.5s ;
+            filter: drop-shadow(0 0 1px #0000004d) ;
         }
         header h1{
             font-family: "Nyala" ;
@@ -121,6 +129,7 @@
             background-color: #fff ;
             -webkit-mask-repeat: no-repeat ;
             -webkit-mask-position: center ;
+            transition: 0.5s ;
         }
         .member{
             -webkit-mask-image: url(images/icon_MEMBER.svg) ;
@@ -131,7 +140,15 @@
         .hamburger{
             -webkit-mask-image: url(images/icon_MENU.svg) ;
         }
-    /*Nav--------------------------------------------------------------*/
+         /*Black*/
+        header.black{
+            color: #666 ;
+            background-color: hsla(0, 0%, 100%, 0.6) ;
+        }
+        header.black .h_ul li a{
+            background-color: #666 ;
+        }
+        /*Nav--------------------------------------------------------------*/
         nav{
             position: fixed ;
             z-index: 10 ;
@@ -148,10 +165,10 @@
             right: -20% ;
         }
         nav .close{
-            width: 30px ;
-            height: 30px ;
+            width: 25px ;
+            height: 25px ;
             position: absolute ;
-            top: 40px ;
+            top: 28px ;
             right: 40px ;
             cursor: pointer ;
             background: url(images/X.svg) center center no-repeat ;
@@ -172,6 +189,7 @@
             padding: 12px ;
             color: #666 ;
             font-size: 18px ;
+            transition: 0.4s ;
         }
         .n_ul li a:hover{
             background-color: #CCC;
@@ -283,7 +301,9 @@
             letter-spacing: 3px;
             /* flex: 2; */           
         }
-        
+        .f_register_y p{
+            color:#f8cf4e;
+        }    
         .registerInfor1_y{
              display: flex;
              justify-content: space-between;
@@ -447,6 +467,7 @@
                     <div class="full_register_y">
                         <div class="f_register_y">
                             <h2 class="f_registerTitle_y">會員註冊</h2>
+                            <p style="text-align:right">(*為必填)</p>
                             <form name="form_register" method="post" action="" onsubmit="">
                                 <div class="registerInfor1_y">
                                     <label for="email" class="registerLabel1111_y"><span class="yellow_star">*</span>電子郵件:</label>
@@ -476,7 +497,7 @@
                                 </div>
                                 <div class="registerInfor22_y">
                                     <label for="nickname" class="registerLabel2_y">&nbsp;性別:</label>
-                                    <select class="registerSelect_y qty" id="registerGender_y">
+                                    <select class="registerSelect_y" id="registerGender_y">
                                         <option value="1"></option>
                                         <option value="2">男</option>
                                         <option value="3">女</option>

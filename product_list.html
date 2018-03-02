@@ -21,6 +21,7 @@
             font-family: "微軟正黑體" ;
             font-weight: normal ;
             letter-spacing: 3px ;
+            box-sizing: border-box ;
         }
         section{
             width: 100vw ;
@@ -199,6 +200,143 @@
         .n_ul li a:hover{
             background-color: #CCC;
         }
+        /*Container-------------------------------------------------------------------*/
+        #container{
+            width: 100% ;
+        }
+        /*Banner*/
+        .banner{
+            width: 100% ;
+            /* position: relative ; */
+            display: flex ;
+            justify-content: center ;
+            align-items: center ;
+            overflow: hidden ;
+        }
+        .banner img{
+            width: 100% ;
+        }
+        .banner .bn_bg{
+            position: relative ;
+            z-index: -1 ;
+        }
+        .banner .bn{
+            display: flex ;
+            width: 100% ;
+            position: absolute ;
+            justify-content: space-around ;
+            align-items: center ;
+            flex-wrap: wrap ;
+            overflow: hidden ;
+        }
+        .banner .bn h2{
+            font-size: 30px ;
+            font-weight: bold ;
+            color: #FFF ;
+            margin-left: 2% ;
+            position: relative ;
+            z-index: 2 ;
+        }
+        .banner .bn .b_umbrella{
+            width: 30% ;
+            margin-right: 2% ; 
+            
+            animation: umbrellaUp 1s 0.5s 1 both  ;
+        }
+        .b_umbrella img{
+            transform: rotate(-20deg) ;
+        }
+        .banner .bn .b_cloud{
+            min-width: 100% ;
+            position: absolute ;
+            bottom: -50% ;
+        }
+        @keyframes umbrellaUp {
+            0%{ transform: translateY(90%) ; }
+            100%{ transform: translateY(10%) ; }
+        }
+        /*Main*/
+        .main{
+            display: flex ;
+            padding-top:100px ; 
+            justify-content: space-around ;
+            flex-wrap: wrap ;
+            color: #666 ;
+        }
+        /*Select*/
+        .select{
+            width: 15% ;
+            margin-top: 40px ;
+            padding-left: 20px ;
+        }
+        .select .um{
+            margin-top: 40px ;
+        }
+        .select .um a{
+            display: block ;
+            padding: 8px ;
+            font-size: 18px ;
+            color: #1F5572 ;
+            border-bottom:1px solid #1F5572 ; 
+        }
+        .select .um a:hover{
+            background-color: #CCC ;
+        }
+        .check{
+            margin-top: 20px ;
+            padding-left: 8px ;
+            display: flex ;
+            flex-wrap: wrap ;
+            justify-content: space-between ;
+        }
+        .check .label_group{
+            width: 42% ;
+            margin: 8px 5px ;
+        }
+        .radio{
+            margin-top: 60px ;
+            border-top: 2px solid #1F5572 ;
+            padding-top: 20px ;
+        }.radio p{
+            color: #1F5572 ;
+            margin-bottom: 20px ;
+        }
+        .radio .label_group{
+            margin: 8px 5px ;
+        }
+        /*List*/
+        .list{
+            width: 75% ;
+            display: flex ;
+            flex-wrap: wrap ;
+            align-content: flex-start ;
+        }
+        .list .card{
+            width: 32% ;
+            /* min-width: 300px ; */
+            min-height: 0px ;
+            background-color: #FFF ;
+            margin: 1% auto ;
+        }
+        .list .card img{
+            width: 100% ;
+            display: block ;
+        }
+        /*Pagelist*/
+        .pagelist{
+            min-width: 100% ;
+            display: flex ;
+            justify-content: center ;
+            margin: 60px 0 ;
+        }
+        .pagelist .pageitem a{
+            display: block ;
+            margin: 8px ;
+            border-bottom: 1px solid transparent ;
+        }
+        .pagelist .pageitem a:hover{
+            border-bottom: 1px solid #666 ;
+        }
     </style>
 </head>
 <body>
@@ -226,7 +364,95 @@
     </nav>
     
     <div id="container">
-        <section></section>
+        <div class="banner">
+            <img src="images/banner_LIST.jpg" alt="" class="bn_bg">
+            <div class="bn">
+                <h2>Be Your Unique Unbrella.</h2>
+                <div class="b_umbrella">
+                    <img src="images/home_umbrella_b.png" alt="">
+                </div>
+                <div class="b_cloud">
+                    <img src="images/all_clouds.png" alt="">
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="main">
+            <aside class="select">
+                <div class="um rain">
+                    <a>雨傘</a>
+                    <div class="check">
+                        <div class="label_group">
+                            <input type="checkbox" name="plain" id="plain" class="color"><label for="plain">素色</label>
+                        </div>
+                        <div class="label_group">
+                            <input type="checkbox" name="pattern" id="pattern" class="color"><label for="pattern">花色</label>
+                        </div>
+                        <div class="label_group">
+                            <input type="checkbox" name="straight" id="straight" class="skeleton"><label for="straight">直傘</label>
+                        </div>
+                        <div class="label_group">
+                            <input type="checkbox" name="folding" id="folding" class="skeleton"><label for="folding">折傘</label>
+                        </div>
+                        <div class="label_group">
+                            <input type="checkbox" name="auto" id="auto"><label for="auto">自動傘</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="um sun">
+                    <a>陽傘</a>
+                    <div class="check">
+                        <div class="label_group">
+                            <input type="checkbox" name="plain" id="plain" class="color"><label for="plain">素色</label>
+                        </div>
+                        <div class="label_group">
+                            <input type="checkbox" name="pattern" id="pattern" class="color"><label for="pattern">花色</label>
+                        </div>
+                        <div class="label_group">
+                            <input type="checkbox" name="straight" id="straight" class="skeleton"><label for="straight">直傘</label>
+                        </div>
+                        <div class="label_group">
+                            <input type="checkbox" name="folding" id="folding" class="skeleton"><label for="folding">折傘</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="radio">
+                    <p>排序</p>
+                    <div class="label_group">
+                        <input type="radio" name="Sort" id="pop" checked="checked"> <label for="pop">人氣排序</label>
+                    </div>
+                    <div class="label_group">
+                        <input type="radio" name="Sort" id="pricedown"> <label for="pricedown">價格由高到低</label>
+                    </div>
+                    <div class="label_group">
+                        <input type="radio" name="Sort" id="priceup"> <label for="priceup">價格由低到高</label>
+                    </div>
+                </div>
+            </aside>
+            <div class="list">
+                <div class="card"> <img src="images/town-navy.png" alt=""></div>
+                <div class="card none"> </div>
+                <div class="card"> <img src="images/town-navy.png" alt=""></div>
+                <div class="card none"> </div>
+                <div class="card"> <img src="images/town-navy.png" alt=""></div>
+                <div class="card none"> </div>
+                <div class="card"> <img src="images/town-navy.png" alt=""></div>
+                <div class="card none"> </div>
+                <div class="card"> <img src="images/town-navy.png" alt=""></div>
+                <div class="card none"> </div>
+                <div class="card"> <img src="images/town-navy.png" alt=""></div>
+                <div class="card none"> </div>
+            </div>
+            <ul class="pagelist">
+                <li class="pageitem"><a><i class="fas fa-angle-double-left"></i></a></li>
+                <li class="pageitem"><a>1</a></li>
+                <li class="pageitem"><a>2</a></li>
+                <li class="pageitem"><a>3</a></li>
+                <li class="pageitem"><a><i class="fas fa-angle-double-right"></i></a></li>
+            </ul>
+        </div>
+ 
     </div>
     <footer>
         <div class="f_content">

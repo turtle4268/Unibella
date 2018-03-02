@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="fontawesome/css/fontawesome-all.css" rel="stylesheet">
     <title>Unibella</title>
+    <link href="fontawesome/css/fontawesome-all.css" rel="stylesheet">
     <style>
     /*
         blue:#1F5572
@@ -31,7 +31,6 @@
      /*Header--------------------------------------------------------*/
         header{
             position: fixed ;
-            z-index: 5;
             width: 100% ;
             display: flex ;
             justify-content: space-between ;
@@ -46,7 +45,7 @@
             position: relative ;
             left: 30px ;
         }
-         .h_ul li{
+        .h_ul li{
             display: inline-block ;
             padding: 0 15px ;
         }
@@ -55,7 +54,7 @@
             width: 25px ;
             height: 25px ;
             cursor: pointer ;
-            background-color: #666 ; /*y改*/
+            background-color: #666; /*y改*/
             -webkit-mask-repeat: no-repeat ;
             -webkit-mask-position: center ;
         }
@@ -153,7 +152,7 @@
             padding: 12px ;
             border-top: 1px solid #FFF ;
         }
-   /*Nav--------------------------------------------------------------*/
+    /*Nav--------------------------------------------------------------*/
         nav{
             position: fixed ;
             z-index: 10 ;
@@ -168,6 +167,7 @@
         }
         nav.navhide{
             right: -20% ;
+            
         }
         nav .close{
             width: 25px ;
@@ -182,6 +182,7 @@
             width: 100% ;
             margin: 0 auto ;
             align-self: center ;
+           
         }
         .n_ul li{
             display: flex ;
@@ -193,7 +194,7 @@
             width: 100% ;
             padding: 12px ;
             color: #666 ;
-            font-size: 18px ;
+             font-size: 18px ;
             transition: 0.4s ;
         }
         .n_ul li a:hover{
@@ -204,115 +205,153 @@
         .banner_y{
         	width: 100%;
         	object-fit: cover;
-            display: flex;
+        	display: flex;
         	justify-content:center;
 			align-items:center;
-            position: relative;
-        	          
+            flex: 1
         }
         .bannerTxt_y{
         	color: #fff;
         	font-weight: bold;
-        	font-size: 36px;
-            position: absolute;
-          
+        	font-family: "微軟正黑體" ;
+        	font-size: 30px;
+            position:absolute;
+            padding-right: 50%;
+            padding-bottom: 3%;
+
         }
         .banner_y img{
             width:100%;          
         }
-        /*main_y--------------------------------------------------------------*/
-        .main_y{
-			margin: 36px auto;
-
-        }
-        .mainTitle_y{
-        	font-weight: bold;
-        	font-size: 30px;
-        	color: #666666 ;
-        	text-align:center;
-        }
-        .infor_y{
-        	width: 61%;
-        	margin: 43px auto;
-        	position: relative;
-        	display: flex;
-        	justify-content:space-between;
-        }        
-        .inforImg_y{
-        	/*position: absolute;
-        	top:0px;
-            left:0px;*/   
-        	z-index: 1;
-        	width: 26%;
-        	display: flex;
-        	flex-wrap: wrap;
-        }
-        .inforTxtBox_y{
-        	/*position: absolute;
-			top:56px;
-            right:0px;*/
-        	width: 69%;
-        	height: 372px;
-			background: #f8cf4e;
-			margin: 56px 0;
-        }
-        .inforImg_y img{
-        	margin: 5px auto;
-        	flex: 1;
-        }
-        .inforTxt_y{
-        	width: 55%;
-        	margin: 57px auto;
-            
-        }
-        .inforTitle_y{
-        	color: #666;
-            position: relative;
-        }
-        .inforTitleBox_y{
+        /*mainBox_y--------------------------------------------------------------*/
+        .mainBox_y{
             display: flex;
-            justify-content:space-between;
+            width: 85%;
+            margin: 35px auto 0 auto;           
         }
-        .inforTitleBox_y a{
-        	margin-right: 8em;
-        	color: #fff;
-        	list-style: none;
+        .asideListTitle_y{
+            font-weight: bold;
+            font-size: 20px;
+            color: #666666 ;
+            text-align:left;
+            padding: 0 0 35px 10px;
+            border-bottom: 1px solid #666;
         }
-        /*.inforTitleBox_y a:hover{
-        	border-bottom: 2px solid #fff;
-        }*/
-        .lineHover_y:after {
-        	display:block;
-  			content: '';
-        	border-bottom: 2px solid #fff;
-        	transform: scaleX(0);
-			transition: transform .2s ease-in-out;    
+        .l_aside_y{
+            flex: 1;
         }
-        .lineHover_y:hover:after {
-        	transform: scaleX(1);
+        .main_y{
+            flex: 5;
+            /* margin-left:7%;  */
         }
-        .inforTxt_y p{
-        	color: #666;
-        	line-height: 2em;
+        /*l_aside_y-------------------------------------*/
+        .asideA_y{
+            color: #666;
         }
-        .inforP_y{
-        	margin-top:1em;
-        	margin-bottom:.5em;
+        .l_aside_y ul li{
+            list-style: none;
+            padding: 15px 10px;
+            margin: 40px 0;
         }
-        
+        .l_aside_y ul li:hover{
+            background: #e6e6e6;
+        }
+        .topMain_ul_y{
+            display: flex;
+        }
+        .topMain_li_y{
+            padding: 0 2em;
+            border-right: 2px solid #666;
+            color: #666;
+        }
+        .li_span_y{
+            color: #1f5572;
+        }
+        /*main_y-------------------------------------*/
+        .main_y{
+            text-align: center;
+            color: #666;
+        }
+        .main_y h2{
+            margin: 50px auto;
+            font-weight: bold;
+            color: #666;
+        }
+        .form_infor_y{
+            width: 50%;
+            margin: 0 auto;
+            padding-left: 5%; 
+        }
+        .memberInfor_y{
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+            margin-top:3em;
+        }
+        .memberLabel1_y{
+            color: #666;
+            font-size: 16px;
+            text-align: left;
+            flex: 1;
+            padding-right: 5%;
+            margin-bottom: 3em;
+        }
+        .memberInput1_y{
+            /* width: 60%;
+            height: 30px; */
+            background-color:transparent;
+            color: #666;
+            border: none;
+            border-bottom: 1px solid #666;
+            flex: 3;
+            margin-bottom: 3em;
+        }
+        .memberLabel_y{
+            color: #666;
+            font-size: 16px;
+            text-align: left;
+            /* flex: 1; */
+            width: 12%;
+        }
+        .memberInput_y, .memberSelect_y{
+            /* width: 60%;
+            height: 30px; */
+            background-color:transparent;
+            color: #666;
+            border: none;
+            border-bottom: 1px solid #666;
+            /* flex: 3; */
+            width:88%;
+            height: 30px;
+        }
+        .memberInput_y:focus{
+            outline:none;
+        }
+        .memberBtn_y{
+            background-color: transparent;
+            font-size: 1em;
+            color: #1f5572;
+            border: 2px solid #1f5572;
+            border-radius: 50px;
+            padding: 1% 10%;
+            margin: 4em auto;
+        }
+        .memberBtn_y:hover{
+            background-color: #1f5572;
+            color: #fff;           
+            border: 2px solid #1f5572;        
+        }
     </style>
 </head>
 <body>	
     <header>
         <h1>Unibella</h1>
         <ul class="h_ul">
-            <ul class="h_ul">
-                <li><a class="member"></a></li>
-                <li><a class="cart"></a></li>
-                <li><a class="hamburger"></a></li>
-            </ul>
+            <li><a class="member"></a></li>
+            <li><a class="cart"></a></li>
+            <li><a class="hamburger"></a></li>
         </ul>
-    </header>
+    </header>    
     <nav class="navhide">
         <div class="close"></div>
         <ul class="n_ul">
@@ -326,46 +365,71 @@
             <li><a href="">相關連結</a></li>
             <li><a href="">Q&amp;A</a></li>
         </ul>
-    </nav>
-    <aside class="l_aside">
-
-    </aside>
-    <aside class="r_aside">
-        
-    </aside>
+    </nav>    
     <div id="container" >
         <div class="banner_y">
-            <img src="images/banner_STORE.jpg" alt="">
+            <img src="images/banner_MEMBER.jpg" alt="">
             <h1 class="bannerTxt_y">Be Your Unique Umbrella.</h1>
         </div>
-        <div class="main_y">
-	         <h2 class="mainTitle_y">門市資訊</h2>
-	         <div class="infor_y">
-	         	<div class="inforImg_y">
-	         		<img src="images/store_1.png" alt="store_1">
-	         		<img src="images/store_2.png" alt="store_2">
-	         	</div>
-	         	<div class="inforTxtBox_y">
-	         		<div class="inforTxt_y">
-                        <div class="inforTitleBox_y">
-    	         			<h3 class="inforTitle_y">台北 | 大安門市 </h3>
-                            <a href="" class="lineHover_y">MAP</a>
-                        </div>
-	         			<br>
-	         			<p>電話  02 2588-5688</p>
-	         			<p>地址  106台北市大安區和平東路二段106號</p>
-	         			<br>
-	         			<p class="inforP_y">門市營業時間</p>
-	         			<p>週日～週四 11:00 - 22:00</p>
-	         			<p>週五、週六 11:00 - 22:30</p>
-	         		</div>
-	         	</div>     	
-	         </div>       	
+        <div class="mainBox_y">
+            <aside class="l_aside_y">
+                <div class="asideListBox_y">
+                    <h2 class="asideListTitle_y">會員專區</h2>
+                    <ul class="l_ul_y">
+                        <li><a href="" class="asideA_y">修改會員資料</a></li>
+                        <li><a href="" class="asideA_y">訂購紀錄</a></li>
+                        <li><a href="" class="asideA_y">密碼修改</a></li>
+                        <li><a href="" class="asideA_y">收藏列表</a></li>
+                        <li><a href="" class="asideA_y">會員優惠</a></li>
+                    </ul>
+                </div>
+            </aside>
+        
+            <div class="main_y">
+                <h2>修改會員資料</h2>      
+                <form name="form_infor" class="form_infor_y" method="post" action="" onsubmit="">
+                    <div class="memberInfor_y">
+                        <label for="email" class="memberLabel1_y">電子郵件 </label>
+                        <input type="text" class="memberInput1_y" name="email" id="email" value="" placeholder="" disabled="disabled">
+                        <!-- <small id="emailWarning" class="form-text text-muted warning">請填寫正確的電郵</small>                                                                                                                             -->
+                    </div>
+                    <p style="text-align:right">(*為必填)</p>       
+                    <div class="memberInfor_y">
+                        <label for="nickname" class="memberLabel_y"><span class="yellow_star">*</span>姓名: </label>
+                        <input type="text" class="memberInput_y" name="nickname" id="nickname" value="" placeholder="">
+                            <!-- <small id="nicknameWarning" class="form-text text-muted warning">請填寫兩個字以上的暱稱</small> -->
+                    </div>
+                    <div class="memberInfor_y">
+                        <label for="nickname" class="memberLabel_y">&nbsp;性別: </label>
+                        <select class="memberSelect_y" id="registerGender_y">
+                            <option value="1"></option>
+                            <option value="2">男</option>
+                            <option value="3">女</option>
+                        </select>
+                    </div>
+                    <div class="memberInfor_y">
+                        <label for="birthday" class="memberLabel_y"><span class="yellow_star">*</span>生日: </label>
+                        <input type="text" class="memberInput_y datepicker" name="birthday" id="birthday" value="" placeholder="">
+                    </div>
+                    <div class="memberInfor_y">
+                        <label for="mobile" class="memberLabel_y"><span class="yellow_star">*</span>手機: </label>
+                            <input type="text" class="memberInput_y" name="mobile" id="mobile" value="" placeholder="">
+                            <!-- <small id="mobileWarning" class="form-text text-muted warning">請輸入十位數的手機號碼</small> -->
+                    </div>       
+                    <div class="memberInfor_y">
+                        <label for="address" class="memberLabel_y"><span class="yellow_star">*</span>地址: </label>
+                        <input type="text" class="memberInput_y" name="address" id="address" value="" placeholder="">
+                    </div>
+                    <button type="submit" class="memberBtn_y">確認送出</button>
+                </form> 
+            </div>
         </div>
     </div>
     <footer>
         <div class="f_content">
-            <div class="f_quarter"><h2>Unibella</h2></div>
+            <div class="f_quarter">
+                <h2>Unibella</h2>
+            </div>
             <div class="f_quarter between">
                 <ul>
                     <li><a href="">品牌介紹</a></li>
@@ -393,15 +457,16 @@
                     <p>取得最新消息</p>
                     <div class="mail">
                         <input type="text" name="" class="einput">
-                        <a href="" class="eput"><i class="fas fa-envelope"></i></a>
+                        <a href="" class="eput">
+                            <i class="fas fa-envelope"></i>
+                        </a>
                     </div>
                 </div>
-                
+    
             </div>
         </div>
         <div class="foot">COPYRIGHT &COPY; Unibella ALL RIGHTS RESERVED</div>
     </footer>
-
 
     <script src="http://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
