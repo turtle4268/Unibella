@@ -68,18 +68,27 @@
     .hamburger{
         -webkit-mask-image: url(images/icon_MENU.svg) ;
     }
+/*container-------------------------------------------------------------*/
+    #container {
+        width: 100%;  
+    }
+/*container banner-------------------------------------------------------------*/
     .headerBg_a {
         width: 100%;
         overflow: hidden;
         display: flex;
         justify-content: center;
         align-items: center;
+        /* width: 100% ; 
+        display: flex;
+         align-items: center;
+        object-fit: fill;
+        position: relative; */
     }
     .headerBg_a img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        display: block;
 
     }
     .headerBg_a p {
@@ -88,16 +97,11 @@
         font-weight: bold;
         color:#fff;
         position: absolute;
-        /* text-align: center; */
         right: 13%;
         letter-spacing: 5px;
     }
     .hideHeader {
         opacity: 0;
-    }
-/*container-------------------------------------------------------------*/
-    #container {
-        width: 100%;  
     }
 /*Sec1-------------------------------------------------------------*/
     .sec1_a {
@@ -233,7 +237,7 @@
     }
     .table2_a tbody tr td p {
         width: 90%;
-        margin: 0 auto;
+        margin: 10px auto;
     }
     /*----選擇付款運送方式-------*/
     .choose-container_a {
@@ -265,12 +269,17 @@
     .btn_a button {
         margin:15px 45px;
         border-radius: 28px;
-        padding:10px 40px;
         border: 2px solid #302f3a;
         background: transparent;
         color:  #302f3a;
         font-size: 1rem;
         position: relative;
+    }
+    .btn_a .goCart_a {
+        padding:10px 35px;  
+    }
+    .btn_a .next_a {
+        padding:10px 42px;
     }
     .btn_a button:hover {
         color: #fff;
@@ -478,6 +487,132 @@
     .n_ul li a:hover{
         background-color: #CCC;
     }
+    /*Mediaquery--------------------------------------------------------------*/
+    @media screen and (max-width: 376px) {
+    /*--header--*/
+    header {
+        padding-right: 5px;
+        padding-left: 5px;
+        padding-top: 10px ;
+    }
+    header h1 {
+        left: 10px;
+        top:0;
+        font-size:26px;
+    }
+    .h_ul li {
+        padding: 0 10px;
+    }
+    /*--banner--*/
+    .headerBg_a p {
+        width: 58%;
+        font-size: 18px;
+        right:1px;
+        top: 7%;
+        letter-spacing: 3px;
+    }
+    /*--sec1--*/
+    .sec1_a {
+        padding-top: 20px;
+    }
+    /*--step--*/
+    .step_a {
+        width: 88px;
+        height: auto;
+    }
+    .desUp_a {
+        padding-bottom: 7px;
+    }
+    .desDown_a {
+        padding-top: 50px;
+    }
+    .des_a {
+        font-size: 14px;
+        width:84px;
+    }
+    .step-content_a {
+        width: 20px;
+        height: 20px;
+    }
+    .step1-content_a::after {
+        margin-top: 45%;
+    }
+    .step-content_a::after {
+        width: 54px;
+        margin-top: 10px;
+        margin-left: 27px;
+    }
+    .step_a:last-child .step-content_a::after {
+        width: 30px;
+        opacity: 0;
+    }
+    .step_a:first-child .step-content_a {
+        top:-2px;
+    }
+    .step1-content_a::before {
+        opacity: 0;
+    }
+    .stepDown-content_a {
+        top:46px;
+    }
+    .step-content_a i {
+        left: 2px;
+        font-size: 16px;
+    }
+    /*--total--*/
+    .total_a {
+        padding:30px;
+    }
+    /*--table--*/
+    table {
+        width: 75%;
+        max-width: 75%;
+    }
+    /*choose container*/
+    .choose-container_a {
+        flex-wrap: wrap;
+    }
+    .choose_a {
+        height: auto;
+        width: 200px;
+    }
+    .chooseDes_a {
+        padding:0;
+        padding-top:40px;
+    }
+    /*--table2--*/
+    .table2_a {
+        margin-top: 20%;
+    }
+    /*--button--*/
+    .btn_a {
+        display: block;
+        margin: 10% 0;
+        text-align: center;
+    }
+    /*toTop*/
+    .toTop {
+        right:20px;
+        top: 80px;
+    }
+    /*footer*/
+    .f_content {
+        display: block;
+    }
+    .f_quarter {
+        width: 100%;
+        border-right:none;
+    }
+    .f_quarter div p {
+        text-align: center;
+        font-size: 20px;
+        border-top: 1px solid #FFF ;
+    }
+    .f_quarter h2 {
+        border-bottom: 1px solid #FFF ;
+    }
+    }
+    
     </style>
 </head>
 <body>
@@ -522,12 +657,8 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="btn_a">
-            <button class="goCart_a disabled">回購物車</button>
-            <button class="next_a">下一步</button>
-        </div> -->
         <div class="total_a" data-val="">共 X 件，總金額 NT$. 2400</div>
-        <table class=".table_a">
+        <table class="table_a">
             <thead class="thead-dark_a">
                 <tr>
                     <th scope="col">折扣優惠</th>
@@ -627,7 +758,7 @@
         
     </section>
 </div>
-    <nav class="navhide">
+    <nav class="navhide" style="visibility:hidden">
         <div class="close"></div>
         <ul class="n_ul">
             <li><a href="">品牌介紹</a></li>
