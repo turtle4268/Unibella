@@ -490,6 +490,9 @@
     /*Mediaquery--------------------------------------------------------------*/
     @media screen and (max-width: 376px) {
     /*--header--*/
+    *{
+        letter-spacing: 2px ;
+    }
     header {
         padding-right: 5px;
         padding-left: 5px;
@@ -596,20 +599,44 @@
         top: 80px;
     }
     /*footer*/
-    .f_content {
-        display: block;
+    .f_content{
+        flex-wrap: wrap ;
+        padding: 20px 40px ;
     }
-    .f_quarter {
-        width: 100%;
-        border-right:none;
+    .f_quarter{
+        min-width: 100% ;
+        border-right: none ;
+        padding: 20px 0 ;
+        position: relative ;
     }
-    .f_quarter div p {
-        text-align: center;
-        font-size: 20px;
-        border-top: 1px solid #FFF ;
-    }
-    .f_quarter h2 {
+    .f_quarter::before{
+        content: "" ;
         border-bottom: 1px solid #FFF ;
+        width: 40% ;
+        height: 100% ;
+        position: absolute ;
+        margin: 0 auto ;
+    }
+    .f_quarter.border_none::before{
+        content: "" ;
+        border-bottom: 1px solid transparent ;
+        width: 50% ;
+        height: 100% ;
+        position: absolute ;
+        margin: 0 auto ;
+    }
+    .f_quarter p{
+        text-align: center ;
+    }
+    .f_quarter a.aicon{
+        width: 36px ;
+        margin: 0 ;
+        text-align: center ;
+        margin: 15px ;
+    }
+    .foot{
+        padding: 12px 0 ;
+        letter-spacing: 2px ;
     }
     }
     
