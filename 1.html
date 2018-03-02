@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+  <style>
+    /*
+        blue:#1F5572
+        yellow:#F8CF4E
+        black: #4d4d4d
+        logo-font:Nyala
+    */
+        *{
+            margin: 0 ;
+            padding: 0 ;
+            list-style-type: none ;
+            text-decoration-line: none ;
+            font-family: "微軟正黑體" ;
+            font-weight: normal ;
+            letter-spacing: 3px ;
+        }
+
+    /*section1-----------------------------------------------------------*/
+
+        .scroll_f{
+            display: flex;
+            transform: rotate(-90deg);
+            align-items: center;
+        }
+        h4{
+            font-size: 16px;
+            animation: scroll_word 1s linear infinite;
+        }
+        .scroll_f .line_f{
+            height: 1px;
+            width: 70px;
+            background-color: #666;
+            margin-right:20px;
+        }
+
+
+        
+        .so_f{
+            margin-left:25px; 
+        }
+        .so_f .s_f{
+            width: 12px;
+            height: 12px;
+            margin: 5px;
+            animation: scroll_so .5s linear infinite;
+            animation-direction: alternate;
+        }.so_f .s_1_f{
+            -webkit-mask-image: url(images/icon_scroll.svg) ;
+            background-color:rgb(127, 202, 235);  
+            animation-delay: .1s;
+        }
+        .so_f .s_2_f{
+            -webkit-mask-image: url(images/icon_scroll.svg) ;
+            background-color: #29ABE2; 
+            animation-delay: .2s;  
+        }
+        .so_f .s_3_f{
+            -webkit-mask-image: url(images/icon_scroll.svg) ;
+            background-color: #0071BC;
+            animation-delay: .3s;
+        }
+       @keyframes scroll_word{
+            0% {
+                opacity: 1;
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+            }
+
+            100% {
+                opacity: .3;
+                -webkit-transform: translateX(-6px);
+                transform: translateX(-6px);
+                }
+       }
+       @keyframes scroll_so {
+            0%   { opacity: .2; }
+            50%  { opacity: .5; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+        
+            <div class="scroll_f">
+                <div class="line_f"></div>
+                <h4>Scroll</h4>
+            </div>
+            <div class="so_f">
+                <div class="s_f s_1_f"></div>
+                <div class="s_f s_2_f"></div>
+                <div class="s_f s_3_f"></div>
+            </div> 
+            
+    </div>
+</body>
+</html>

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Unibella</title>
     <link href="fontawesome/css/fontawesome-all.css" rel="stylesheet">
+
     
     <style>
     /*
@@ -77,8 +78,7 @@
             align-items: center;
             object-fit: fill;
             position: relative;
-            
-            }
+        }
         .pic1_f img{
             width: 100%;
             }
@@ -89,9 +89,9 @@
             position: absolute;
             }
         .word1_f{
-            width: 890px;
+            width: 60%;;
             margin: 0 auto;
-            transform: translateY(350px);
+            transform: translateY(250px);
             opacity: 0;
             transition: all 1.5s;
         }
@@ -303,7 +303,7 @@
             transition: all 1.5s;
         }
         .word2_f{
-            width: 1115px;
+            width: 70%;
             margin: 0 auto ;
             padding: 80px 0;
             display: flex;
@@ -408,7 +408,7 @@
        }
         /*word3--------------------------------------------*/
         .word3_f{
-            width: 900px;
+            width:60%;
             margin: 0 auto;
             padding: 100px 0;
         }
@@ -578,6 +578,7 @@
             background-color: #CCC;
         }
     </style>
+    <link rel="stylesheet" href="css/introduce_phone.css">
 </head>
 <body>
     <header>
@@ -838,17 +839,22 @@
         $(".close").click(function(){
             $("nav").addClass("navhide");
         });
+        
 
         $(window).scroll(function(){
+            //pic1
+            //var scrollPic1=$(this).scrollTop();
+            //$(".pic1_f img").css('transform', 'translateY('+(-scrollPic1*.5)+'px)');
             //第一層雲
             var scrollC1 = $(window).scrollTop(); 
+            // var topCSS1 = $(".clouds1_f").css('top');
+            // console.log(topCSS1);
             $(".clouds1_f #parallax1_f").css('top', (85-(scrollC1*.45))+'vh');//5
             $(".clouds1_f #parallax2_f").css('top', (85-(scrollC1*.35))+'vh');//3
             $(".clouds1_f #parallax3_f").css('top', (85-(scrollC1*.3))+'vh');//2
             $(".clouds1_f #parallax4_f").css('top', (85-(scrollC1*.25))+'vh');//1 0.05
             $(".clouds1_f #parallax5_f").css('top', (85-(scrollC1*.5))+'vh');//6
             $(".clouds1_f #parallax6_f").css('top', (85-(scrollC1*.4))+'vh');//4
-            
             //scroll icon
             var scrollicon = $(this).scrollTop();
             if(scrollicon>60){
@@ -866,6 +872,13 @@
             }else{
                 $(".word1_f").removeClass("word1_hide_f");
             };
+            //品牌介紹文字phone
+            var WordPhone1 = $(this).scrollTop(); 
+            if(WordPhone1>200){
+                $(".word1_f").addClass("word1_phone_hide_f");
+            }else{
+                $(".word1_f").removeClass("word1_phone_hide_f");
+            }
 
             //水滴圖片
             var scrollPic2=$(this).scrollTop();
@@ -878,7 +891,9 @@
                     $(".pic2_f p").removeClass("pic2_p_active_f");
                 }, 600);
             };
-
+            //水滴圖片 phone
+            var PicPhone2=$(this).scrollTop();
+          
             //第二層雲
             var scrollC2 = $(window).scrollTop(); 
             var mi=scrollC2-1000;
