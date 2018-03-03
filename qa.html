@@ -22,9 +22,9 @@
         width: 100% ;
         display: flex ;
         justify-content: space-between ;
-        color: #6f7d80 ;
+        color: #FFF ;
         padding: 0 40px ;
-        padding-top: 50px ;
+        padding-top: 28px ;
         box-sizing: border-box ;
     }
     header h1{
@@ -39,22 +39,24 @@
     }
     .h_ul li a{
         display: block ;
-        width: 35px ;
-        height: 35px ;
+        width: 25px ;
+        height: 25px ;
         cursor: pointer ;
-        background-color: #6f7d80 ;
+        background-color: #FFF ;
         -webkit-mask-repeat: no-repeat ;
         -webkit-mask-position: center ;
     }
     .member{
-        -webkit-mask-image: url(images/icon_MEMBER_gray.svg) ;
+        -webkit-mask-image: url(images/icon_MEMBER.svg) ;
     }
     .cart{
-        -webkit-mask-image: url(images/icon_CART_gray.svg) ;
+        -webkit-mask-image: url(images/icon_CART.svg) ;
     }
     .hamburger{
-        -webkit-mask-image: url(images/icon_MENU_gray.svg) ;
+        -webkit-mask-image: url(images/icon_MENU.svg) ;
     }
+    
+    /*container---------------------------------------------------*/
     .headerBg_a {
         width: 100%;
         overflow: hidden;
@@ -76,10 +78,7 @@
         font-weight: bold;
         text-align: center;
         position: absolute;
-    }
-
-    .headerBg_a p:hover{
-        color: #3b6ae9;
+        color: #fff;
     }
     .hideHeader {
         opacity: 0;
@@ -224,6 +223,87 @@
     .n_ul li a:hover{
         background-color: #CCC;
     }
+    @media screen and (max-width: 376px) {
+    /*--header--*/
+    *{
+        letter-spacing: 2px ;
+    }
+    header {
+        padding-right: 5px;
+        padding-left: 5px;
+        padding-top: 10px ;
+    }
+    header h1 {
+        left: 10px;
+        top:0;
+        font-size:26px;
+    }
+    .h_ul li {
+        padding: 0 10px;
+    }
+    /*--banner--*/
+    .headerBg_a p {
+        width: 58%;
+        font-size: 18px;
+        right:1px;
+        top: 7%;
+        letter-spacing: 3px;
+    }
+    /*--sec1--*/
+    .sec1_a {
+        padding-top:0;
+    }
+    .qaTitle_a {
+        padding-top:20px;
+    }
+     /*--Nav--*/
+     nav{
+        width: 100% ;
+    }
+    nav.navhide{
+        right: -100% ;
+    }
+    /*footer*/
+    .f_content{
+        flex-wrap: wrap ;
+        padding: 20px 40px ;
+    }
+    .f_quarter{
+        min-width: 100% ;
+        border-right: none ;
+        padding: 20px 0 ;
+        position: relative ;
+    }
+    .f_quarter::before{
+        content: "" ;
+        border-bottom: 1px solid #FFF ;
+        width: 40% ;
+        height: 100% ;
+        position: absolute ;
+        margin: 0 auto ;
+    }
+    .f_quarter.border_none::before{
+        content: "" ;
+        border-bottom: 1px solid transparent ;
+        width: 50% ;
+        height: 100% ;
+        position: absolute ;
+        margin: 0 auto ;
+    }
+    .f_quarter p{
+        text-align: center ;
+    }
+    .f_quarter a.aicon{
+        width: 36px ;
+        margin: 0 ;
+        text-align: center ;
+        margin: 15px ;
+    }
+    .foot{
+        padding: 12px 0 ;
+        letter-spacing: 2px ;
+    }
+    }
     </style>
 </head>
 <body>
@@ -235,10 +315,6 @@
             <li><a class="hamburger"></a></li>
         </ul>
     </header>
-    <div class="headerBg_a">
-            <p>Be Your Unique Umbrella</p>
-            <img src="images/banner_QA.jpg" alt="">  
-    </div>
     <nav class="navhide">
         <div class="close"></div>
         <ul class="n_ul">
@@ -254,6 +330,10 @@
         </ul>
     </nav>
     <div class="container_a">
+        <div class="headerBg_a">
+            <p>Be Your Unique Umbrella</p>
+            <img src="images/banner_QA.jpg" alt="">  
+        </div>
         <section class="sec1_a">
             <div class="qaTitle_a"><h1>Q&amp;A</h1></div>
             <div class="qaContent_a">
