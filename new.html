@@ -16,45 +16,45 @@
             letter-spacing: 3px ;
         }
     /*Header--------------------------------------------------------*/
-        header{
-            position: fixed ;
-            z-index: 5 ;
-            width: 100% ;
-            display: flex ;
-            justify-content: space-between ;
-            color: #6f7d80 ;
-            padding: 0 40px ;
-            padding-top: 50px ;
-            box-sizing: border-box ;
-        }
-        header h1{
-            font-family: "Nyala" ;
-            font-size: 36px ;
-            position: relative ;
-            left: 30px ;
-        }
-        .h_ul li{
-            display: inline-block ;
-            padding: 0 15px ;
-        }
-        .h_ul li a{
-            display: block ;
-            width: 35px ;
-            height: 35px ;
-            cursor: pointer ;
-            background-color: #6f7d80 ;
-            -webkit-mask-repeat: no-repeat ;
-            -webkit-mask-position: center ;
-        }
-        .member{
-            -webkit-mask-image: url(images/icon_MEMBER_gray.svg) ;
-        }
-        .cart{
-            -webkit-mask-image: url(images/icon_CART_gray.svg) ;
-        }
-        .hamburger{
-            -webkit-mask-image: url(images/icon_MENU_gray.svg) ;
-        }
+    header{
+        position: fixed ;
+        z-index: 5 ;
+        width: 100% ;
+        display: flex ;
+        justify-content: space-between ;
+        color: #FFF ;
+        padding: 0 40px ;
+        padding-top: 28px ;
+        box-sizing: border-box ;
+    }
+    header h1{
+        font-family: "Nyala" ;
+        font-size: 36px ;
+        position: relative ;
+        left: 30px ;
+    }
+    .h_ul li{
+        display: inline-block ;
+        padding: 0 15px ;
+    }
+    .h_ul li a{
+        display: block ;
+        width: 25px ;
+        height: 25px ;
+        cursor: pointer ;
+        background-color: #FFF ;
+        -webkit-mask-repeat: no-repeat ;
+        -webkit-mask-position: center ;
+    }
+    .member{
+        -webkit-mask-image: url(images/icon_MEMBER.svg) ;
+    }
+    .cart{
+        -webkit-mask-image: url(images/icon_CART.svg) ;
+    }
+    .hamburger{
+        -webkit-mask-image: url(images/icon_MENU.svg) ;
+    }
     /*container-------------------------------------------------------------*/
         .container_a {
             width: 100%;  
@@ -246,17 +246,15 @@
             top:17%;
             left: 30%;
         }
-    
-        .timeline ul li div {
+        .newLink_a a {
             display: block;
             position: relative;
             bottom: 23px;
             left: 40px;
             width: 400px;
             color: #fff;
-            /* background: #F45B69; */
         }
-   
+
         
 
     /*Footer-------------------------------------------------------------*/
@@ -371,14 +369,65 @@
         top: 7%;
         letter-spacing: 3px;
     }
-    /*--sec1--*/
+    .square_a .p2 {
+        margin-left: -80px;
+    }
+    /*--sec1Active--*/
     .sec1_a {
         padding-top:15px;
     }
-    .active_a ul li image-rendering:  {
-        width: 300px;
-        height: 300px;
+    .active_a ul li.squarePhone_a {
+        visibility: hidden;
+        width: 0;
+        height: 0;
     }
+    .active_a ul .square_a:before {
+        width: 140%;
+        height:113%;
+        visibility: hidden;
+    }
+    .active_a ul .square_a img {
+        opacity: 1;
+        filter:brightness(.5);
+    }
+    /*--sec2New--*/
+    .active_a {
+        padding-top: 25px;
+    }
+    .new_a {
+        display: block;
+    }
+    .yellow_a {
+        width: 100%;
+    }
+    .blue_a {
+        width: 100%;
+    }
+    .newContent_a {
+        left: 9%;
+        width: 80%;
+        height: 90%;
+    }
+    .timeline ul li {
+        width:100%;
+        background: none;
+        padding-top:30px;
+    }
+    .timeline ul li::after {
+        visibility: hidden;
+    }
+    .newLink_a {
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+    .newLink_a li a {
+        display: block;
+        width:90%;
+        top:90px;
+        left: 8%;
+    }
+    
     /*--Nav--*/
      nav{
         width: 100% ;
@@ -461,22 +510,21 @@
             <h1>最新活動</h1>
             <div class="active_a">
                 <ul>
-                    <li><img src="images/news_square1.jpg" alt=""></li>
+                    <li class="squarePhone_a"><img src="images/news_square1.jpg" alt=""></li>
                     <li class="square_a blue" >
                             <img class="images" src="images/news_squre2_light.jpg" alt="">
                             <p class="p2">梅雨季<br>全館雨傘88折</p>
                             <a href=""></a>   
                     </li>
-                    <li><img src="images/news_square3.jpg" alt=""></li>
+                    <li class="squarePhone_a"><img src="images/news_square3.jpg" alt=""></li>
                     <li class="square_a orange">
                         
                             <img class="images" src="images/news_squre4_light.jpg" alt="">
                             <p class="p4">自動傘新品上架</p>
                             <a href=""></a>
                     </li>
-                    <li><img src="images/news_square5.jpg" alt=""></li>
+                    <li class="squarePhone_a"><img src="images/news_square5.jpg" alt=""></li>
                     <li class="square_a orange">
-                        
                             <img class="images" src="images/news_squre6_light.jpg" alt="">
                             <p class="p6">陽傘新色上架</p>
                             <a href=""></a>
@@ -492,11 +540,11 @@
                 </div>
                 <div class="blue_a timeline">
                     <ul class="newLink_a">
-                        <li><a href=""><div>2018.03.05 智能雨傘正夯，讓你與傘不散</div></a></li>
-                        <li><a href=""><div>2018.03.05 智能雨傘正夯，讓你與傘不散</div></a></li>
-                        <li><a href=""><div>2018.03.05 智能雨傘正夯，讓你與傘不散</div></a></li>
-                        <li><a href=""><div>2018.03.05 智能雨傘正夯，讓你與傘不散</div></a></li>
-                        <li><a href=""><div>2018.03.05 智能雨傘正夯，讓你與傘不散</div></a></li>
+                        <li><a href="">2018.03.05 智能雨傘正夯，讓你與傘不散</a></li>
+                        <li><a href="">2018.03.05 智能雨傘正夯，讓你與傘不散</a></li>
+                        <li><a href="">2018.03.05 智能雨傘正夯，讓你與傘不散</a></li>
+                        <li><a href="">2018.03.05 智能雨傘正夯，讓你與傘不散</a></li>
+                        <li><a href="">2018.03.05 智能雨傘正夯，讓你與傘不散</a></li>
                     </ul>
                 </div>
             </section>
