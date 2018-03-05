@@ -92,4 +92,17 @@
         bottom: 30%;
         font-weight: 400;
     }
+    section{
+        margin-top: 20px;
+    }
+    /*table---------------*/
+    table {
+        width: 85%;
+        max-width: 85%;
+    }
+    table tbody tr td {
+        height: 60px;
+        border: 1px solid #666;
+        padding-left: 15px;
+    }
 }

@@ -92,4 +92,41 @@
         bottom: 30%;
         font-weight: 400;
     }
+    /*table------------------------------------------------------*/
+    table {
+        width: 85%;
+        max-width:85%;
+    }
+    table tbody tr td p{
+        width: 70%;
+        max-width: 70%;
+        margin: 0px auto;
+        padding: 40px 0;
+    }
+     /*thanks--------------------------------------------------*/
+     .thanks_f{
+        width: 85%;
+        max-width: 85%;
+        flex-direction:column;
+        height: 200px;
+        border: #1F5572 2px solid;
+    }
+    .thanks_f img{
+        width: 50px;
+        height: 50px;
+    }
+    .thanks_f p{
+        font-size: 30px;
+        color: #1F5572;
+        font-weight: bold;
+        padding: 30px 30px 0;
+    }
+     /*按鈕---------------------*/
+     .btn_f {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 200px;
+        margin: 0 auto;
+        padding-bottom: 20px;
+    }
 }

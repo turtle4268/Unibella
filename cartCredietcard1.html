@@ -247,6 +247,9 @@
             font-size: 18px;
             font-weight: bold;
         }
+        .forPhone_f{
+            display: none;
+        }
         table {
             width: 60%;
             max-width: 60%;
@@ -273,14 +276,11 @@
         }
         .card_f input{
             width: 60px;
+            height: 30px;
+        }
+        table input{
+            letter-spacing: 1px;
         } 
-        .invoice_f p{
-            display: inline-block;
-            padding: 15px ;
-        }
-        .invoice_f span{
-            color: red;
-        }
         /*button-------------------------------------------------*/
         .btn_f {
             display: flex;
@@ -410,27 +410,47 @@
                     <tr>
                        <td class="small_f">到期日(月/年)</td>
                        <td>
-                           <input type="month">
+                           <input type="month" style="height:20px">
                     </td>
                     </tr>
                 </tbody>
-                <thead class="dark_f">
+            </table>
+            <table class="forPhone_f">
+                <thead>
                     <tr>
-                        <th></th>
-                        <th style="border-right:#666 1px solid">電子發票相關設定</th>
+                        <th style="border-right:#666 1px solid">信用卡交易資料輸入頁面</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="small_f">處理方式</td>
-                        <td class="invoice_f">
-                            <input type="radio"><p>捐贈 <span>(財團法人兒童福利基金會)</span></p><br>
-                            <input type="radio"><p>二聯式發票</p>
+                        <td class="small_f">金額</td>
+                    </tr>
+                    <tr>
+                        <td>NT.7400</td>
+                    </tr>
+                    <tr>
+                        <td class="small_f">信用卡卡號</td>
+                    </tr>
+                    <tr>
+                        <td class="card_f">
+                            <input type="text">-<input type="text">-<input type="text">-<input type="text">
                         </td>
                     </tr>
                     <tr>
-                        <td class="small_f">Email</td>
-                        <td><input type="text"></td>
+                        <td class="small_f">信用卡背面末三碼</td>
+                    </tr>
+                    <tr>
+                        <td class="card_f">
+                            <input type="text">
+                         </td> 
+                    </tr>
+                    <tr>
+                        <td class="small_f">到期日(月/年)</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="month" style="height:20px">
+                        </td>
                     </tr>
                 </tbody>
             </table>
