@@ -203,6 +203,7 @@
         color: #C1272D;
     }
     /*----表格-------*/
+    
     table {
         width: 55%;
         max-width: 55%;
@@ -235,15 +236,83 @@
         height: 25px;   
     }
     /*form2*/
+    .payNotive_a {
+        position: relative;
+        height: 500px;
+    }
     .table2_a {
         margin-top: 8%;
+        position: absolute;
+        top: 0;
     }
-    .table2_a tbody {
-        position: relative;
+    .table3_a {
+        margin-top: 8%;
+        position: absolute;
+        top: 0;
     }
     .table2_a tbody tr td p {
         width: 90%;
         margin: 10px auto;
+    }
+    .table3_a tbody tr td p {
+        width: 90%;
+        margin: 0 auto;
+    }
+    /*----*/
+    .payNotive_a {
+        position: relative;
+        width:55%; 
+        /* background: #999; */
+        margin: 0 auto;
+        top:60px;
+    }
+    .seven11_a {
+        position: absolute;
+        top: 4.5%;
+        width:98%; 
+        left: 50%;
+        margin-left: -49%;
+        /* background: #C1272D;  */
+        border: 1px solid #999;
+        opacity: 0;
+    }
+    .atm_a {
+        position: absolute;
+        top:4.5%;
+        width:98%; 
+        left: 50%;
+        margin-left: -49%;
+        /* background: #F8CF4E; */
+        border: 1px solid #999;
+        opacity: 0;
+    }
+    .seven11_a p, .atm_a p, .visa_a p {
+        width: 99%;
+        margin: 0 auto;
+    }
+    .title_a {
+        width: 98%;
+        position: absolute;
+        top:0;
+        text-align: center;
+        left: 50%;
+        margin-left: -49%;
+        border: 1px solid #999;
+        background: #666;
+        color: #fff;
+    }
+    .visa_a {
+        position: absolute;
+        top:4.5%;
+        width:98%; 
+        left: 50%;
+        margin-left: -49%;
+        /* background: #F8CF4E; */
+        border: 1px solid #999;
+        opacity: 0;
+    }
+    .hide {
+        opacity: 1;
     }
     /*----選擇付款運送方式-------*/
     .choose-container_a {
@@ -269,7 +338,7 @@
         display: flex;
         justify-content: center;
         margin-bottom: 5%;
-        margin-top: 5%;
+        margin-top: 10%;
         position: relative;
     }
     .btn_a button {
@@ -514,9 +583,9 @@
     /*--banner--*/
     .headerBg_a p {
         width: 58%;
-        font-size: 18px;
-        right:1px;
-        top: 7%;
+        font-size: 20px;
+        left:40%;
+        top: 20%;
         letter-spacing: 3px;
     }
     .headerBg_a img {
@@ -734,10 +803,11 @@
                 <div class="chooseDes_a">
                     <span>付款方式</span>
                 </div>
-                <select name="" id="">
-                    <option value="">7-11貨到付款</option>
-                    <option value="">ATM</option>
-                    <option value="">信用卡付款</option>
+                <select name="" id="" class="payWay_a">
+                    <option value="0" class="payWayO_a">--</option>
+                    <option value="1" class="payWayO_a">7-11貨到付款</option>
+                    <option value="2" class="payWayO_a">ATM</option>
+                    <option value="3" class="payWayO_a">信用卡付款</option>
                 </select>
             </div>
             <div class="choose_a">
@@ -749,10 +819,9 @@
                 <div class="chooseDes_a">
                     <span>運送方式</span>
                 </div>
-                <select name="" id="">
-                    <option value="">7-11貨到付款</option>
-                    <option value="">ATM</option>
-                    <option value="">信用卡付款</option>
+                <select name="" id="" class="shipWay_a">
+                    <option value="1" class="shipWayO1_a" id="shipWayO1_a">--</option>
+                    <option value="2" class="shipWayO2_a" id="shipWayO2_a">宅配</option>
                 </select>
             </div>
             <div class="choose_a">
@@ -778,7 +847,37 @@
                 <input type="text" class="text_a">
             </div>
         </div>
-        <table class="table_a table2_a">
+    <div class="payNotive_a">
+        <div class="title_a">付款注意需知</div>
+        <div class="seven11_a">
+            <p>如不能100%配合，請勿使用7-11取貨付款喔！
+            <br>商品金額【2000元以下】方可使用7-11取貨付款服務，2000元以上請使用【宅急便】的運送方式。	
+            <br>
+            <br>選擇7-11取貨付款，不需要先匯款，等商品寄出之後，我們會發送mail以及簡訊通知，請自行於指定日期後的7日內到指定門市取貨付款即可。PS.簡訊發送依系統內訂單手機為主，請確認現用手機號碼與註冊號碼是否相同避免漏收簡訊，且勿與電信公司設定"拒收加值簡訊"的服務，否則將無法收到貨到通知簡訊唷！
+            <br>
+            <br>為了防範少部分慣性不領取包裹的消費者，寄出包裹若遭超商退回，若累積一次未領取包裹者，將直接加入黑名單喔。
+            <br>	
+            <br>包裹限制大小為長+寬+高三邊總和90公分(含)以下，單邊最長小於(含)30公分，賣場所有靴款、長大衣類、大包包款，皆因體積過大的關係無法使用超商取貨的付款方式，請購買此類款式的買家務必選擇「宅急便」或 「貨到付款／線上刷卡」的方式。若出貨中發現體積超過限制，將保留訂單，並以mail通知，請於三日內回覆，超過期限將直接入庫取消訂單喔！
+            <br>
+            <br>包裹若因門市管理問題等種種原因遭退回，商品無法順利送達，當門市系統回報此訊息時，客服人員會另外以簡訊或email通知您。
+            <br>
+            <br>歡迎隨時到「系統的-訂單商品查詢」查詢您目前訂單處理進度。
+            <br>
+            <br>7-11取貨最低代收款為$50，若使用購物金折抵需注意喔！</p>
+        </div>
+        <div class="atm_a">
+            <p>
+            我們會給您一組繳款的虛擬帳號，每筆交易所產生的虛擬帳號均不相同，所以請留意金額務必正確，也請勿重複匯入喔！
+            該虛擬帳號以三天為期限，請務必於三天內完成匯款，超過期限該筆訂單與虛擬帳號將自動作廢，若仍須購買只能重新填單喔！
+            </p>
+         </div>
+         <div class="visa_a">
+            <p>
+            我們會給您一組繳款的虛擬帳號，每筆交易所產生的虛擬帳號均不相同，所以請留意金額務必正確，也請勿重複匯入喔！
+            該虛擬帳號以三天為期限，請務必於三天內完成匯款，超過期限該筆訂單與虛擬帳號將自動作廢，若仍須購買只能重新填單喔
+            </p>
+        </div>
+        <!-- <table class="table2_a">
             <thead class="thead-dark_a">
                 <tr>
                     <th scope="col">付款注意須知</th>
@@ -801,13 +900,26 @@
                         <br>歡迎隨時到「系統的-訂單商品查詢」查詢您目前訂單處理進度。
                         <br>
                         <br>7-11取貨最低代收款為$50，若使用購物金折抵需注意喔！</p>
-                        
+                    </td>
+                </tr>
+            </tbody>
+        </table> -->
+        <!-- <table class="table3_a">
+            <thead class="thead-dark_a">
+                <tr>
+                    <th scope="col">付款注意須知</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
                         <p class="atm_a">我們會給您一組繳款的虛擬帳號，每筆交易所產生的虛擬帳號均不相同，所以請留意金額務必正確，也請勿重複匯入喔！
                             該虛擬帳號以三天為期限，請務必於三天內完成匯款，超過期限該筆訂單與虛擬帳號將自動作廢，若仍須購買只能重新填單喔！</p>
                     </td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
+    </div> 
         <div class="btn_a">
             <button class="goCart_a disabled">回購物車</button>
             <button class="next_a">下一步</button>
@@ -815,8 +927,7 @@
                 <div class="tr"></div>
                 <h5>TOP</h5>
             </div>
-        </div>
-        
+        </div>   
     </section>
 </div>
     <nav class="navhide">
@@ -915,24 +1026,48 @@
             return false;
         }
     });
-    // Prev btn click
-    // $(goCartBtn).click(function() {
-    //     if (i < 1) {
-    //         $(prevBtn).attr('disabled', 'disabled');
-    //         return false;
-    //     } else {
-    //         i = i - 1;
-    //         if ($(stepContent[i]).hasClass("active")) {
-    //         $(stepContent[i]).removeClass("active");
-    //         }
-    //     }
-    // });
-    /*to top*/
+
+
     $(".toTop").click(function(){
         $("html,body").animate({
             scrollTop:0
         },1000);
     });
+
+   //payWay 
+    $( ".payWay_a" ).change(function() {
+    console.log($(this).val());
+    payWayVal=$(this).val();
+    shipWayVal=$(".shipWayVal option").atrr("data-a");
+    if(payWayVal==1){
+        $(".seven11_a").addClass('hide');
+        $(".atm_a").removeClass('hide');
+        $(".visa_a").removeClass('hide');
+        
+
+    } else{
+        if(payWayVal==2){
+            $(".atm_a").addClass('hide'); 
+            $(".seven11_a").removeClass('hide');
+            $(".visa_a").removeClass('hide');
+            
+        }else if(payWayVal==3) {
+            $(".visa_a").addClass('hide');
+            $(".seven11_a").removeClass('hide');
+            $(".atm_a").removeClass('hide');
+        }else {
+            $(".visa_a").removeClass('hide');
+            $(".seven11_a").removeClass('hide');
+            $(".atm_a").removeClass('hide');
+        }
+    }
+   });
+   
+
+  
+
+       
+
    
     </script> 
 </body>
