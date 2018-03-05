@@ -1,0 +1,153 @@
+@media screen and (max-width:375px){
+    *{
+        letter-spacing: 2px ;
+    }
+    /*Header------------------------------------------------------------------------*/
+    header{
+        padding: 0 20px ;
+        padding-top: 28px ;
+        top: 0px ;
+        transition: 0.5s ;
+    }
+    header h1{
+        left: 0 ;
+    }
+    .h_ul li{
+        padding: 0 8px ;
+    }
+    header.hide{
+        top: -70px ;
+    }
+    /*Footer---------------------------------------------------------------------*/
+    .f_content{
+        flex-wrap: wrap ;
+        padding: 20px 40px ;
+    }
+    .f_quarter{
+        min-width: 100% ;
+        border-right: none ;
+        padding: 20px 0 ;
+        position: relative ;
+    }
+    .f_quarter::before{
+        content: "" ;
+        border-bottom: 1px solid #FFF ;
+        width: 40% ;
+        height: 100% ;
+        position: absolute ;
+        margin: 0 auto ;
+    }
+    .f_quarter.border_none::before{
+        content: "" ;
+        border-bottom: 1px solid transparent ;
+        width: 50% ;
+        height: 100% ;
+        position: absolute ;
+        margin: 0 auto ;
+    }
+    .f_quarter p{
+        text-align: center ;
+    }
+    .f_quarter a.aicon{
+        width: 36px ;
+        margin: 0 ;
+        text-align: center ;
+        margin: 15px ;
+    }
+    .foot{
+        padding: 12px 0 ;
+        letter-spacing: 2px ;
+    }
+    /*Nav----------------------------------------------------------------------*/
+    nav{
+        width: 100% ;
+    }
+    nav.navhide{
+        right: -100% ;
+    }
+    /*Container-------------------------------------------------------------------*/
+    /*Banner*/
+    .banner img{
+        width: 450% ;
+    }
+    .banner .bn{
+        height: 50% ;
+        margin-top: 5% ;
+    }
+    .banner .bn h2{
+        width: 70% ;
+        font-size: 24px ;
+        margin: 0 auto ;
+        position: relative ;
+        top: 8% ;
+    }
+    .banner .bn .b_umbrella{
+        width: 90% ;
+    }
+    .b_umbrella img{
+        width: 100% ;
+    }
+    .banner .bn .b_cloud{
+        bottom: -8% ;
+    }
+    .b_cloud img{
+        width: 100% ;
+    }
+    /*Main*/
+    .main{
+        padding-top: 0 ;
+    }
+    /*Select*/
+    .select{
+        min-width: 100% ;
+        margin-top: 0 ;
+        padding-left: 0 ;
+    }
+    .select .sel_um{
+        position: relative ;
+    }
+    .select .um{
+        width: 100% ;
+        margin-top: 0 ;
+        position: absolute ;
+    }
+    .select .um a{
+        width: 50% ;
+        border-radius: 20px 20px 0 0 ;
+        position: relative ;
+    }
+    .select .um.sun a{
+        position: relative ;
+        left: 50% ;
+    }
+    .check{
+        margin-top: 5px ;
+        height: 120px ;
+        justify-content: center ;
+        background-color: #FFF ;
+        display: none ;
+    }
+    .check .label_group{
+        width: 34% ;
+        margin: 8px 5px ;
+    }
+    .select .um.act a{
+        padding: 10px ;
+        top: -4px ;
+    }
+    .select .um.act .check{
+        display: flex ;
+    }
+    .radio{
+        margin-top: 50% ;
+        border-top: 2px solid #1F5572 ;
+        padding-top: 20px ;
+    }
+    /*List*/
+    .list{
+        width: 100% ;
+    }
+    .list .card{
+        width: 100% ;
+    }
+}
