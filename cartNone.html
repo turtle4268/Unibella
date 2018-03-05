@@ -39,12 +39,27 @@
             padding: 0 40px ;
             padding-top: 28px ;
             box-sizing: border-box ;
+            height: 80px;
+            transition: all .5s;
         }
-        header h1{
-            font-family: "Nyala" ;
-            font-size: 36px ;
-            position: relative ;
-            left: 30px ;
+        .hide {
+            transform: translateY(-100px);
+            transition: all .5s;
+        }
+        .bg {
+            background: rgba(255, 255, 255, .8);
+        }
+        header h1 {
+            -webkit-mask-image: url(images/logo_new.svg);
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            width: 145px;
+            height: 45px;
+            background-color: #fff;
+            margin-top: -12px;
+        }
+        .phone_hide_f{
+            background-color: #666 !important;
         }
         .h_ul li{
             display: inline-block ;
@@ -391,10 +406,11 @@
         }
        
     </style>
+    <link rel="stylesheet" href="css/cartNone_phone.css">
 </head>
 <body>
     <header>
-        <h1>Unibella</h1>
+        <h1></h1>
         <ul class="h_ul">
             <li><a class="member"></a></li>
             <li><a class="cart"></a></li>
@@ -507,6 +523,24 @@
         });
         $(".close").click(function(){
             $("nav").addClass("navhide");
+        });
+        var scrollHeaderLast;
+        $(window).scroll(function(){
+             //header
+             var scrollHeader = $(this).scrollTop();
+            if (scrollHeader < 200) {
+                $("header").removeClass("hide, bg")
+                $("header h1, .h_ul li a").removeClass("phone_hide_f")
+            } else {
+                if (scrollHeader > scrollHeaderLast) {
+                    $("header").addClass("hide").removeClass("bg")
+                    $("header h1, .h_ul li a").addClass("phone_hide_f")
+                } else {
+                    $("header").removeClass("hide").addClass("bg")
+                };
+            };
+            scrollHeaderLast = scrollHeader;
+            console.log(scrollHeader);
         });
     </script>
 </body>

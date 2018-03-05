@@ -29,45 +29,64 @@
             /* background-color: #1F5572 ; */
         }
      /*Header--------------------------------------------------------*/
-        header{
-            position: fixed ;
-            z-index: 5 ;
-            width: 100% ;
-            display: flex ;
-            justify-content: space-between ;
-            color: #FFF ;
-            padding: 0 40px ;
-            padding-top: 28px ;
-            box-sizing: border-box ;
+
+        header {
+            position: fixed;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            padding: 0 40px;
+            padding-top: 28px;
+            box-sizing: border-box;
+            z-index: 10;
+            transition: all .5s;
+            height: 80px;
         }
-        header h1{
-            font-family: "Nyala" ;
-            font-size: 36px ;
-            position: relative ;
-            left: 30px ;
+        .hide {
+            transform: translateY(-100px);
+            transition: all .5s;
         }
-        .h_ul li{
-            display: inline-block ;
-            padding: 0 15px ;
+        .bg {
+            background: rgba(255, 255, 255, .8);
         }
-        .h_ul li a{
-            display: block ;
-            width: 25px ;
-            height: 25px ;
-            cursor: pointer ;
-            background-color: #FFF ;
-            -webkit-mask-repeat: no-repeat ;
-            -webkit-mask-position: center ;
+        .phone_hide_f{
+            background-color: #666 !important;
         }
-        .member{
-            -webkit-mask-image: url(images/icon_MEMBER.svg) ;
+        header h1 {
+            -webkit-mask-image: url(images/logo_new.svg);
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            width: 145px;
+            height: 45px;
+            background-color: #fff;
+            margin-top: -12px;
         }
-        .cart{
-            -webkit-mask-image: url(images/icon_CART.svg) ;
+        .h_ul li {
+            display: inline-block;
+            padding: 0 15px;
         }
-        .hamburger{
-            -webkit-mask-image: url(images/icon_MENU.svg) ;
+        .h_ul li a {
+            display: block;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            background-color: #fff;
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: center;
         }
+        .member {
+            -webkit-mask-image: url(images/icon_MEMBER.svg);
+        }
+
+        .cart {
+            -webkit-mask-image: url(images/icon_CART.svg);
+        }
+
+        .hamburger {
+            -webkit-mask-image: url(images/icon_MENU.svg);
+        }
+
     /*Footer-------------------------------------------------------------*/
         footer{
             background-color: #CCC ;
@@ -308,13 +327,12 @@
         .btn_f a:active {
             transform: translateY(3px);
         }
-
-
     </style>
+    <link rel="stylesheet" href="css/cartCredit2_phone.css">
 </head>
 <body>
     <header>
-        <h1>Unibella</h1>
+        <h1></h1>
         <ul class="h_ul">
             <li><a class="member"></a></li>
             <li><a class="cart"></a></li>
@@ -425,6 +443,24 @@
         });
         $(".close").click(function(){
             $("nav").addClass("navhide");
+        });
+        var scrollHeaderLast;
+        $(window).scroll(function(){
+             //header
+             var scrollHeader = $(this).scrollTop();
+            if (scrollHeader < 200) {
+                $("header").removeClass("hide, bg")
+                $("header h1, .h_ul li a").removeClass("phone_hide_f")
+            } else {
+                if (scrollHeader > scrollHeaderLast) {
+                    $("header").addClass("hide").removeClass("bg")
+                    $("header h1, .h_ul li a").addClass("phone_hide_f")
+                } else {
+                    $("header").removeClass("hide").addClass("bg")
+                };
+            };
+            scrollHeaderLast = scrollHeader;
+            console.log(scrollHeader);
         });
     </script>
 </body>

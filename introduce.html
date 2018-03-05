@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,110 +8,140 @@
     <title>Unibella</title>
     <link href="fontawesome/css/fontawesome-all.css" rel="stylesheet">
 
-    
+
     <style>
-    /*
+        /*
         blue:#1F5572
         yellow:#F8CF4E
         black: #4d4d4d
         logo-font:Nyala
     */
-        *{
-            margin: 0 ;
-            padding: 0 ;
-            list-style-type: none ;
-            text-decoration-line: none ;
-            font-family: "微軟正黑體" ;
-            font-weight: normal ;
-            letter-spacing: 3px ;
+
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            text-decoration-line: none;
+            font-family: "微軟正黑體";
+            font-weight: normal;
+            letter-spacing: 3px;
         }
-            /* body{
+
+        /* body{
                 background-color: black;
             } */
-     /*Header--------------------------------------------------------*/
-     header{
-        position: fixed ;
-        width: 100% ;
-        display: flex ;
-        justify-content: space-between ;
-        color: #666 ;
-        padding: 0 40px ;
-        padding-top: 28px ;
-        box-sizing: border-box ;
-        z-index: 5 ;
-    }
-    header h1{
-        font-family: "Nyala" ;
-        font-size: 36px ;
-        position: relative ;
-        left: 30px ;
-    }
-    .h_ul li{
-        display: inline-block ;
-        padding: 0 15px ;
-    }
-    .h_ul li a{
-        display: block ;
-        width: 25px ;
-        height: 25px ;
-        cursor: pointer ;
-        background-color: #666 ;
-        -webkit-mask-repeat: no-repeat ;
-        -webkit-mask-position: center ;
-    }
-    .member{
-        -webkit-mask-image: url(images/icon_MEMBER.svg) ;
-    }
-    .cart{
-        -webkit-mask-image: url(images/icon_CART.svg) ;
-    }
-    .hamburger{
-        -webkit-mask-image: url(images/icon_MENU.svg) ;
-    }
-    /*section1-----------------------------------------------------------*/
-        section{
-            color:#666; 
+
+        /*Header--------------------------------------------------------*/
+
+        header {
+            position: fixed;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            padding: 0 40px;
+            padding-top: 28px;
+            box-sizing: border-box;
+            z-index: 10;
+            transition: all .5s;
+            height: 80px;
         }
-        .pic1_f{
-            width: 100% ; 
+        .hide {
+            transform: translateY(-100px);
+            transition: all .5s;
+        }
+        .bg {
+            background: rgba(255, 255, 255, .8);
+        }
+        header h1 {
+            -webkit-mask-image: url(images/logo_new.svg);
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            width: 145px;
+            height: 45px;
+            background-color: #666;
+            margin-top: -12px;
+        }
+        .h_ul li {
+            display: inline-block;
+            padding: 0 15px;
+        }
+        .h_ul li a {
+            display: block;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            background-color: #666;
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+        }
+        .member {
+            -webkit-mask-image: url(images/icon_MEMBER.svg);
+        }
+
+        .cart {
+            -webkit-mask-image: url(images/icon_CART.svg);
+        }
+
+        .hamburger {
+            -webkit-mask-image: url(images/icon_MENU.svg);
+        }
+
+        /*section1-----------------------------------------------------------*/
+
+        section {
+            color: #666;
+        }
+
+        .pic1_f {
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             object-fit: fill;
             position: relative;
         }
-        .pic1_f img{
+
+        .pic1_f img {
             width: 100%;
-            }
-        .pic1_f p{
+        }
+
+        .pic1_f p {
             color: #666;
-            font-weight:800;
+            font-weight: 800;
             font-size: 36px;
             position: absolute;
-            }
-        .word1_f{
-            width: 60%;;
+        }
+
+        .word1_f {
+            width: 60%;
+            ;
             margin: 0 auto;
             transform: translateY(250px);
             opacity: 0;
             transition: all 1.5s;
         }
-        .word1_f h3{
+
+        .word1_f h3 {
             text-align: center;
             font-size: 24px;
             font-weight: bold;
             padding-top: 50px;
-        } 
-        .word1_f p{
-            line-height: 36px;
-            padding: 50px 0 100px;
         }
-        .scroll_all_f{
+
+        .word1_f p {
+            line-height: 36px;
+            padding: 50px 0 100px 0;
+            text-align: justify;
+        }
+
+        .scroll_all_f {
             position: absolute;
             top: 85vh;
 
         }
-        .scroll_f{
+
+        .scroll_f {
             display: flex;
             position: absolute;
             bottom: 80px;
@@ -119,44 +150,53 @@
             z-index: 10;
             left: -65px;
         }
-        .scroll_f h4{
+
+        .scroll_f h4 {
             font-size: 16px;
             animation: scroll_word 1s linear infinite;
         }
-        .scroll_f .line_f{
+
+        .scroll_f .line_f {
             height: 1px;
             width: 70px;
             background-color: #666;
-            margin-right:20px;
-            
+            margin-right: 20px;
+
         }
-        .so_f{
+
+        .so_f {
             position: absolute;
             bottom: 100px;
-            margin-left:25px; 
+            margin-left: 25px;
         }
-        .so_f .s_f{
+
+        .so_f .s_f {
             width: 12px;
             height: 12px;
             margin: 5px;
             animation: scroll_so .5s linear infinite;
             animation-direction: alternate;
-        }.so_f .s_1_f{
-            -webkit-mask-image: url(images/icon_scroll.svg) ;
-            background-color:rgb(127, 202, 235);  
+        }
+
+        .so_f .s_1_f {
+            -webkit-mask-image: url(images/icon_scroll.svg);
+            background-color: rgb(127, 202, 235);
             animation-delay: .1s;
         }
-        .so_f .s_2_f{
-            -webkit-mask-image: url(images/icon_scroll.svg) ;
-            background-color: #29ABE2; 
-            animation-delay: .2s;  
+
+        .so_f .s_2_f {
+            -webkit-mask-image: url(images/icon_scroll.svg);
+            background-color: #29ABE2;
+            animation-delay: .2s;
         }
-        .so_f .s_3_f{
-            -webkit-mask-image: url(images/icon_scroll.svg) ;
+
+        .so_f .s_3_f {
+            -webkit-mask-image: url(images/icon_scroll.svg);
             background-color: #0071BC;
             animation-delay: .3s;
         }
-       @keyframes scroll_word{
+
+        @keyframes scroll_word {
             0% {
                 opacity: 1;
                 -webkit-transform: translateX(0);
@@ -167,185 +207,233 @@
                 opacity: .3;
                 -webkit-transform: translateX(-6px);
                 transform: translateX(-6px);
-                }
-       }
-       @keyframes scroll_so {
-            0%   { opacity: .2; }
-            50%  { opacity: .5; }
-            100% { opacity: 1; }
+            }
         }
-        .word1_hide_f{
+
+        @keyframes scroll_so {
+            0% {
+                opacity: .2;
+            }
+            50% {
+                opacity: .5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .word1_hide_f {
             transform: translateY(0px);
             opacity: 1;
-			transition: all 1.2s;
+            transition: all 1.2s;
         }
+
         /* .word1_hide2_f{
             transform: translateY(200px);
             opacity: 0;
 			transition: all .5s;
         } */
-   
-    /*section1-parallax-cloud--------------------------------------------*/
-        .clouds1_f{
+
+        /*section1-parallax-cloud--------------------------------------------*/
+
+        .clouds1_f {
             position: absolute;
             left: 50%;
             width: 100%;
             margin-left: -50%;
-            top:80vh;
+            top: 80vh;
         }
-        .parallax_f{
+
+        .parallax_f {
             position: fixed;
             width: 100%;
         }
-        #parallax1_f{
+
+        #parallax1_f {
             z-index: 5;
         }
-        #parallax2_f{
-            z-index:2
+
+        #parallax2_f {
+            z-index: 2
         }
-        #parallax3_f{
+
+        #parallax3_f {
             z-index: 1;
         }
-        #parallax4_f{
+
+        #parallax4_f {
             z-index: 3;
         }
-        #parallax5_f{
+
+        #parallax5_f {
             z-index: 4;
         }
-        #parallax6_f{
+
+        #parallax6_f {
             z-index: 6;
         }
-        .cloud_f{
+
+        .cloud_f {
             position: absolute;
             display: block;
             width: 450px;
             height: 300px;
         }
-        .cloud1_f{
+
+        .cloud1_f {
             background: url(images/cloud1.png) no-repeat;
-            left: -100px; 
+            left: -100px;
         }
-        .cloud1-2_f{
-            left:600px;
+
+        .cloud1-2_f {
+            left: 600px;
         }
-        .cloud2_f{
+
+        .cloud2_f {
             background: url(images/cloud2.png) no-repeat;
             left: 200px;
         }
-        .cloud2-2_f{
-            left:900px;
+
+        .cloud2-2_f {
+            left: 900px;
         }
-       .cloud3_f{
+
+        .cloud3_f {
             background: url(images/cloud3.png) no-repeat;
             left: 500px;
         }
-        .cloud3-2_f{
+
+        .cloud3-2_f {
             left: 1200px;
         }
-        .cloud4_f{
+
+        .cloud4_f {
             background: url(images/cloud4.png) no-repeat;
             left: 700px;
         }
-        .cloud4-2_f{
+
+        .cloud4-2_f {
             left: 1400px;
         }
-        .cloud5_f{
+
+        .cloud5_f {
             background: url(images/cloud5.png) no-repeat;
             left: 1000px;
         }
-        .cloud5-2_f{
+
+        .cloud5-2_f {
             left: 20px;
         }
-        .cloud6_f{
+
+        .cloud6_f {
             background: url(images/cloud6.png) no-repeat;
             left: 1300px;
         }
-        .cloud6-2_f{
+
+        .cloud6-2_f {
             left: 320px;
         }
 
-    /*section2_cloud_top-------------------------------------------------*/
-       .clouds2_f{
+        /*section2_cloud_top-------------------------------------------------*/
+
+        .clouds2_f {
             position: absolute;
             left: 50%;
             width: 100%;
             margin-left: -50%;
             top: 140vh;
-       }
-    /*section2-----------------------------------------------------------*/
-        .pic2_f{
-            width: 100% ; 
+        }
+
+        /*section2-----------------------------------------------------------*/
+
+        .pic2_f {
+            width: 100%;
             display: flex;
             align-items: center;
             object-fit: fill;
         }
-        .pic2_f img{
+
+        .pic2_f img {
             display: block;
             width: 100%;
             transition: all 1.2s;
         }
-        .pic2_img_active_f{
+
+        .pic2_img_active_f {
             opacity: 0;
             transform: translateY(600px);
-            transition:all 1.5s; 
+            transition: all 1.5s;
         }
-        .pic2_f p{
+
+        .pic2_f p {
             color: white;
-            font-weight:800;
+            font-weight: 800;
             font-size: 36px;
             position: absolute;
             margin-left: 150px;
             transition: all 1.5s;
-            }
-       .pic2_p_active_f{
+        }
+
+        .pic2_p_active_f {
             opacity: 0;
             transform: translateY(-300px);
             transition: all 1.5s;
         }
-        .word2_f{
+
+        .word2_f {
             width: 70%;
-            margin: 0 auto ;
+            margin: 0 auto;
             padding: 80px 0;
             display: flex;
             justify-content: space-between;
         }
-        .word2_f p{
+
+        .word2_f p {
             padding-top: 50px;
+            text-align: justify;
         }
-        .word2_f ul{
+
+        .word2_f ul {
             line-height: 36px;
             margin-left: 20px;
             padding: 30px 0;
         }
-        .word2_f li{
+
+        .word2_f li {
             list-style: disc;
         }
-        .word2_in_f{
+
+        .word2_in_f {
             opacity: 0;
             transform: translateY(350px);
             transition: all 1.5s;
-        }        
-        .word2_in_active_f{
+        }
+
+        .word2_in_active_f {
             opacity: 1;
             transform: translateY(0);
             transition: all 1.5s;
         }
-        .small_pic_f{
+
+        .small_pic_f {
             position: relative;
             top: -30px;
-            
+
         }
-        .small_pic_f img{
+
+        .small_pic_f img {
             opacity: 0;
             transform: translateY(150px);
             transition: all 1.5s;
         }
-        .small_pic_active_f{
+
+        .small_pic_active_f {
             opacity: 1 !important;
             transform: translateY(0px) !important;
             transition: all 1.5s !important;
         }
-        .yellow_f{
+
+        .yellow_f {
             width: 183px;
             height: 183px;
             background-color: rgba(255, 222, 82, .5);
@@ -358,256 +446,329 @@
             transform-origin: bottom;
             transition: all 1.5s;
         }
-        .yellow_active_f{
+
+        .yellow_active_f {
             opacity: 1;
             transform: scaleY(1);
             transform-origin: bottom;
             transition: all 1.5s;
         }
-    /*section3-----------------------------------------------------------*/
-        .pic3_f{
-            width: 100% ; 
+
+        /*section3-----------------------------------------------------------*/
+
+        .pic3_f {
+            width: 100%;
             display: flex;
-            justify-content:flex-end;
+            justify-content: flex-end;
             align-items: center;
             object-fit: fill;
         }
-        .pic3_f img{
+
+        .pic3_f img {
             width: 100%;
             display: block;
             transition: all 1.2s;
         }
-        .pic3_img_active_f{
+
+        .pic3_img_active_f {
             opacity: 0;
             transform: translateY(600px);
-            transition:all 1.5s; 
+            transition: all 1.5s;
         }
-        .pic3_f p{
+
+        .pic3_f p {
             color: #666;
-            font-weight:800;
+            font-weight: 800;
             font-size: 36px;
             position: absolute;
             padding-right: 200px;
             transition: all 1.5s;
             overflow: hidden;
-            
+
         }
-        .pic3_p_active_f{
+
+        .pic3_p_active_f {
             opacity: 0;
             transform: translateY(-200px);
             transition: all 1.5s;
         }
+
         /*Clouds3---------------------------------------*/
-        
-       .clouds3_f{
+
+        .clouds3_f {
             position: absolute;
             left: 50%;
             width: 100%;
             margin-left: -50%;
             top: 140vh;
-       }
+        }
+
         /*word3--------------------------------------------*/
-        .word3_f{
-            width:60%;
+
+        .word3_f {
+            width: 70%;
             margin: 0 auto;
             padding: 100px 0;
         }
-        .word3_f h6{
-            font-size: 18px;
+
+        .word3_f h6 {
+            font-size: 20px;
             font-weight: bold;
             text-align: center;
             position: relative;
             z-index: 10;
         }
-        .location_f, .light_f, .wind_f, .uv_f{
+
+        .location_f,
+        .light_f,
+        .wind_f,
+        .uv_f {
             display: flex;
             justify-content: space-between;
             padding: 50px 0 30px;
             opacity: 0;
             transition: transform .8s, opacity 1.5s;
-            transform: translateY(100px); 
+            transform: translateY(100px);
         }
-        .location_active_f, .light_active_f, .wind_active_f, .uv_active_f{
+
+        .location_active_f,
+        .light_active_f,
+        .wind_active_f,
+        .uv_active_f {
             opacity: 1;
             transform: translateY(0);
             transition: transform .8s, opacity 1.5s;
         }
-        
-        .word3_f img{
+
+        .word3_f img {
             width: 225px;
             height: 225px;
         }
-        .article_f{
-            padding-top:25px;
+
+        .article_f {
+            padding-top: 25px;
             width: 620px;
             line-height: 30px;
+            text-align: justify;
         }
-        .word3_f h5{
+
+        .word3_f h5 {
             font-size: 18px;
-            font-weight:bold;
-            padding: 20px 0; 
+            font-weight: bold;
+            padding: 20px 0;
         }
-    /*Footer-------------------------------------------------------------*/
-        footer{
-            background-color: #CCC ;
-            color: #FFF ;
+
+        /*Footer-------------------------------------------------------------*/
+
+        footer {
+            background-color: #CCC;
+            color: #FFF;
         }
-        .f_content{
-            display: flex ;
-            padding: 40px ;
+
+        .f_content {
+            display: flex;
+            padding: 40px;
         }
-        .f_quarter{
-            width: 25% ;
-            display: flex ;
-            justify-content: center ;
-            align-items: center ;
-            border-right: 1px solid #FFF ;
-            flex: 1 ;
-            font-size: 16px ;
+
+        .f_quarter {
+            width: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-right: 1px solid #FFF;
+            flex: 1;
+            font-size: 16px;
         }
-        .f_quarter h2{
-            font-family: "Nyala" ;
-            font-size: 32px ;
+
+        .f_quarter h2 {
+            font-family: "Nyala";
+            font-size: 32px;
         }
-        .f_quarter.between{
-            justify-content: space-around ;
+
+        .f_quarter.between {
+            justify-content: space-around;
         }
-        .f_quarter.border_none{
-            border: none ;
-            flex: 1.5 ;
-            flex-wrap: wrap ;
+
+        .f_quarter.border_none {
+            border: none;
+            flex: 1.5;
+            flex-wrap: wrap;
         }
-        .f_quarter.border_none .mail{
-            width: 265px ;
-            height: 30px ;
-            border: 2px solid #FFF ;
-            border-radius: 28px ;
-            margin: 16px 0 ;
-            display: flex ;
-            justify-content: center ;
-            align-items: center ;
+
+        .f_quarter.border_none .mail {
+            width: 265px;
+            height: 30px;
+            border: 2px solid #FFF;
+            border-radius: 28px;
+            margin: 16px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .mail .einput{
-            width: 210px ;
-            height: 24px ;
-            margin-left: 5px ;
-            font-size: 16px ;
-            letter-spacing: normal ;
-            border: none ;
-            background: #CCC ;
+
+        .mail .einput {
+            width: 210px;
+            height: 24px;
+            margin-left: 5px;
+            font-size: 16px;
+            letter-spacing: normal;
+            border: none;
+            background: #CCC;
         }
-        .mail .einput:focus{
-            color: #FFF ;
-            outline: none ;
+
+        .mail .einput:focus {
+            color: #FFF;
+            outline: none;
         }
-        .mail .eput{
-            display: inline-block ;
-            padding: 0 5px ;
+
+        .mail .eput {
+            display: inline-block;
+            padding: 0 5px;
         }
-        .mail .eput i{
-            font-size: 26px ;
+
+        .mail .eput i {
+            font-size: 26px;
         }
-        .f_quarter a{
-            display: block ;
-            color: #FFF ;
-            padding: 9px 0px ;
+
+        .f_quarter a {
+            display: block;
+            color: #FFF;
+            padding: 9px 0px;
         }
-        .f_quarter a.aicon{
-            display: inline-block ;
-            margin: 20px ;
+
+        .f_quarter a.aicon {
+            display: inline-block;
+            margin: 20px;
         }
-        .f_quarter a.aicon i{
-            font-size: 28px ;
+
+        .f_quarter a.aicon i {
+            font-size: 28px;
         }
-        .f_quarter a.fb{
-            margin-left: 0 ;
+
+        .f_quarter a.fb {
+            margin-left: 0;
         }
-        .f_quarter a.fb i{
-            font-size: 24px ;
+
+        .f_quarter a.fb i {
+            font-size: 24px;
         }
-        .foot{
-            text-align: center ;
-            font-size: 12px ;
-            background-color: #999 ;
-            padding: 12px ;
-            border-top: 1px solid #FFF ;
+
+        .foot {
+            text-align: center;
+            font-size: 12px;
+            background-color: #999;
+            padding: 12px;
+            border-top: 1px solid #FFF;
         }
-    /*Nav--------------------------------------------------------------*/
-        nav{
-            position: fixed ;
-            display: flex ;
-            width: 20% ;
-            height: 100vh ;
-            right: 0 ;
-            text-align: center ;
-            background-color: #ffffffcc ;
-            transition: 1s ;
-            z-index: 10 ;
+
+        /*Nav--------------------------------------------------------------*/
+
+        nav {
+            position: fixed;
+            display: flex;
+            width: 20%;
+            height: 100vh;
+            right: 0;
+            text-align: center;
+            background-color: #ffffffcc;
+            transition: 1s;
+            z-index: 10;
         }
-        nav.navhide{
-            right: -20% ;
-            
+
+        nav.navhide {
+            right: -20%;
+
         }
-        nav .close{
-            width: 25px ;
-            height: 25px ;
-            position: absolute ;
-            top: 28px ;
-            right: 40px ;
-            background: url(images/X.svg) center center no-repeat ;
+
+        nav .close {
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: 28px;
+            right: 40px;
+            background: url(images/X.svg) center center no-repeat;
         }
-        .n_ul{
-            width: 100% ;
-            margin: 0 auto ;
-            align-self: center ;
-           
+
+        .n_ul {
+            width: 100%;
+            margin: 0 auto;
+            align-self: center;
+
         }
-        .n_ul li{
-            display: flex ;
-            align-content: center ;
-            margin: 4px 0 ; 
+
+        .n_ul li {
+            display: flex;
+            align-content: center;
+            margin: 4px 0;
         }
-        .n_ul li a{
-            display: block ;
-            width: 100% ;
-            padding: 12px ;
-            color: #666 ;
-            font-size: 18px ;
+
+        .n_ul li a {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            color: #666;
+            font-size: 18px;
         }
-        .n_ul li a:hover{
+
+        .n_ul li a:hover {
             background-color: #CCC;
         }
     </style>
     <link rel="stylesheet" href="css/introduce_phone.css">
 </head>
+
 <body>
     <header>
-        <h1>Unibella</h1>
+        <h1></h1>
         <ul class="h_ul">
-            <li><a class="member"></a></li>
-            <li><a class="cart"></a></li>
-            <li><a class="hamburger"></a></li>
+            <li>
+                <a class="member"></a>
+            </li>
+            <li>
+                <a class="cart"></a>
+            </li>
+            <li>
+                <a class="hamburger"></a>
+            </li>
         </ul>
     </header>
     <nav class="navhide">
         <div class="close"></div>
         <ul class="n_ul">
-            <li><a href="">品牌介紹</a></li>
-            <li><a href="">專利技術</a></li>
-            <li><a href="">產品</a></li>
-            <li><a href="">最新消息</a></li>
-            <li><a href="">顧客服務</a></li>
-            <li><a href="">會員中心</a></li>
-            <li><a href="">聯絡我們</a></li>
-            <li><a href="">相關連結</a></li>
-            <li><a href="">Q&amp;A</a></li>
+            <li>
+                <a href="">品牌介紹</a>
+            </li>
+            <li>
+                <a href="">專利技術</a>
+            </li>
+            <li>
+                <a href="">產品</a>
+            </li>
+            <li>
+                <a href="">最新消息</a>
+            </li>
+            <li>
+                <a href="">顧客服務</a>
+            </li>
+            <li>
+                <a href="">會員中心</a>
+            </li>
+            <li>
+                <a href="">聯絡我們</a>
+            </li>
+            <li>
+                <a href="">相關連結</a>
+            </li>
+            <li>
+                <a href="">Q&amp;A</a>
+            </li>
         </ul>
     </nav>
     <aside class="l_aside">
 
     </aside>
     <aside class="r_aside">
-        
+
     </aside>
     <div id="container">
         <section class="pic1_f">
@@ -628,7 +789,7 @@
                 <div id="parallax1_f" class="parallax_f">
                     <div class="cloud1_f cloud_f"></div>
                     <div class="cloud1_f cloud1-2_f cloud_f"></div>
-                </div> 
+                </div>
                 <div id="parallax2_f" class="parallax_f">
                     <div class="cloud2_f cloud_f"></div>
                     <div class="cloud2_f cloud2-2_f cloud_f"></div>
@@ -650,34 +811,29 @@
                     <div class="cloud6_f cloud6-2_f cloud_f"></div>
                 </div>
             </div>
-            
+
         </section>
         <section class="word1_f">
             <h3>品牌故事</h3>
             <p>我們的產品持久耐用，使用最好的材料精心製作，結合審美與耐久性，對消費者來說完美的現代消費。
                 <br>
-                <br>    
-                特別強大的雨傘
-                將功能性能與大都市風格相結合，並通過提供一系列的技術改進，在設計上符合其高審美標準，並經過設計師，工業工程師和其他創意專業人士所挑選，
-                我們的顧客認為購買一把能夠維持多年的高品質產品比層出不窮的替代產品更好。
+                <br> 特別強大的雨傘 將功能性能與大都市風格相結合，並通過提供一系列的技術改進，在設計上符合其高審美標準，並經過設計師，工業工程師和其他創意專業人士所挑選， 我們的顧客認為購買一把能夠維持多年的高品質產品比層出不窮的替代產品更好。
                 <br>
-                <br>     
-                我們的雨傘和功能結合優雅和完美的表現，購買UNIBELLA雨傘是您長期投資的一個選擇，我們的客戶喜歡購買一個可以持續多年的高品質產品勝過一個需要常常更換的低品質產品。
+                <br> 我們的雨傘和功能結合優雅和完美的表現，購買UNIBELLA雨傘是您長期投資的一個選擇，我們的客戶喜歡購買一個可以持續多年的高品質產品勝過一個需要常常更換的低品質產品。
                 <br>
-                <br>     
-                UNIBELLA雨傘設計為極致的耐用性，並使用96個艱苦的步驟精心製作，作為對質量承諾的證明，UNIBELLA以無條件的終身保證為每一把傘提供支持。
+                <br> UNIBELLA雨傘設計為極致的耐用性，並使用96個艱苦的步驟精心製作，作為對質量承諾的證明，UNIBELLA以無條件的終身保證為每一把傘提供支持。
             </p>
 
         </section>
         <section class="pic2_f">
-                <img src="images/intro_big2.jpg" alt="">
-                <p>Be Your Unique Umbrella.</p>
+            <img src="images/intro_big2.jpg" alt="">
+            <p>Be Your Unique Umbrella.</p>
 
             <div class="clouds2_f">
                 <div id="parallax1_f" class="parallax_f">
                     <div class="cloud1_f cloud_f"></div>
                     <div class="cloud1_f cloud1-2_f cloud_f"></div>
-                </div> 
+                </div>
                 <div id="parallax2_f" class="parallax_f">
                     <div class="cloud2_f cloud_f"></div>
                     <div class="cloud2_f cloud2-2_f cloud_f"></div>
@@ -698,12 +854,12 @@
                     <div class="cloud6_f cloud_f"></div>
                     <div class="cloud6_f cloud6-2_f cloud_f"></div>
                 </div>
-            </div> 
+            </div>
         </section>
         <section class="word2_f">
             <div class="word2_in_f">
-                 <p>U N I B E L L A 指導原則：</p>
-                 <ul>
+                <p>U N I B E L L A 指導原則：</p>
+                <ul>
                     <li>應用最高的標準，不妥協的品質，耐用性和可靠性。</li>
                     <li>保持對細節和工藝的狂熱關注。</li>
                     <li>保持我們產品設計和生產的持續改進。</li>
@@ -723,7 +879,7 @@
                 <div id="parallax1_f" class="parallax_f">
                     <div class="cloud1_f cloud_f"></div>
                     <div class="cloud1_f cloud1-2_f cloud_f"></div>
-                </div> 
+                </div>
                 <div id="parallax2_f" class="parallax_f">
                     <div class="cloud2_f cloud_f"></div>
                     <div class="cloud2_f cloud2-2_f cloud_f"></div>
@@ -744,7 +900,7 @@
                     <div class="cloud6_f cloud_f"></div>
                     <div class="cloud6_f cloud6-2_f cloud_f"></div>
                 </div>
-            </div> 
+            </div>
         </section>
         <section class="word3_f">
             <h6>專業技術</h6>
@@ -752,67 +908,85 @@
                 <img src="images/icon_location.svg" alt="">
                 <div class="article_f">
                     <h5>定位系統</h5>
-                    <p>Unibella智慧雨傘，透過雨傘內部的接收器與手機連線，
-                        當使用者離開雨傘的區域範圍（30/50 公尺）時，手機端會通知您忘記將雨傘帶走。
-                        同時也會記錄最後遺失的位置，讓您不再為遺失傘而煩惱。
+                    <p>Unibella智慧雨傘，透過雨傘內部的接收器與手機連線， 當使用者離開雨傘的區域範圍（30/50 公尺）時，手機端會通知您忘記將雨傘帶走。 同時也會記錄最後遺失的位置，讓您不再為遺失傘而煩惱。
                     </p>
                 </div>
-                
+
             </div>
             <div class="light_f">
                 <div class="article_f">
-                     <h5>極輕</h5>
-                     <p>傘骨採用FRP玻璃纖維製作，除了抗風性佳，
-                        更減輕雨傘重量，不論放在背包或拿在手上都不會過度負擔。  
-                     </p>
+                    <h5>極輕</h5>
+                    <p>傘骨採用FRP玻璃纖維製作，除了抗風性佳， 更減輕雨傘重量，不論放在背包或拿在手上都不會過度負擔。
+                    </p>
                 </div>
-                <img src="images/icon_light.svg" alt="">
+                <img src="images/icon_light.svg" alt="" class="gototop_f">
             </div>
             <div class="wind_f">
                 <img src="images/icon_wind.svg" alt="">
                 <div class="article_f">
                     <h5>超強抗風</h5>
-                    <p>使用FRP玻璃纖維骨架，具高韌性彈力佳、不易折斷抗風性佳、回覆性佳。
-                       (雨傘工業裡最常見廣泛運用的素材，其中以白色玻璃纖維品質最穩定、耐用性最高)
+                    <p>使用FRP玻璃纖維骨架，具高韌性彈力佳、不易折斷抗風性佳、回覆性佳。 (雨傘工業裡最常見廣泛運用的素材，其中以白色玻璃纖維品質最穩定、耐用性最高)
                     </p>
                 </div>
             </div>
             <div class="uv_f">
                 <div class="article_f">
                     <h5>專業抗UV</h5>
-                    <p>傘面使用高密度防潑水PG傘布，屬於一級防紫外線的傘布，
-                        不易磨損、柔軟舒適、清洗方便、
-                        傘布較厚，防紫外線效果極佳。
+                    <p>傘面使用高密度防潑水PG傘布，屬於一級防紫外線的傘布， 不易磨損、柔軟舒適、清洗方便、 傘布較厚，防紫外線效果極佳。
                     </p>
                 </div>
-                <img src="images/icon_UV.svg" alt="">
+                <img src="images/icon_UV.svg" alt="" class="gototop_f">
             </div>
         </section>
     </div>
 
     <footer>
         <div class="f_content">
-            <div class="f_quarter"><h2>Unibella</h2></div>
+            <div class="f_quarter">
+                <h2>Unibella</h2>
+            </div>
             <div class="f_quarter between">
                 <ul>
-                    <li><a href="">品牌介紹</a></li>
-                    <li><a href="">產品</a></li>
-                    <li><a href="">最新消息</a></li>
-                    <li><a href="">顧客服務</a></li>
+                    <li>
+                        <a href="">品牌介紹</a>
+                    </li>
+                    <li>
+                        <a href="">產品</a>
+                    </li>
+                    <li>
+                        <a href="">最新消息</a>
+                    </li>
+                    <li>
+                        <a href="">顧客服務</a>
+                    </li>
                 </ul>
                 <ul>
-                    <li><a href="">會員中心</a></li>
-                    <li><a href="">聯絡我們</a></li>
-                    <li><a href="">相關連結</a></li>
-                    <li><a href="">Q&amp;A</a></li>
+                    <li>
+                        <a href="">會員中心</a>
+                    </li>
+                    <li>
+                        <a href="">聯絡我們</a>
+                    </li>
+                    <li>
+                        <a href="">相關連結</a>
+                    </li>
+                    <li>
+                        <a href="">Q&amp;A</a>
+                    </li>
                 </ul>
             </div>
             <div class="f_quarter">
                 <div>
                     <p>社群</p>
-                    <a href="" class="aicon fb"><i class="fab fa-facebook-f"></i></a>
-                    <a href="" class="aicon"><i class="fab fa-instagram"></i></a>
-                    <a href="" class="aicon"><i class="fab fa-youtube"></i></a>
+                    <a href="" class="aicon fb">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="" class="aicon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="" class="aicon">
+                        <i class="fab fa-youtube"></i>
+                    </a>
                 </div>
             </div>
             <div class="f_quarter border_none">
@@ -820,156 +994,212 @@
                     <p>取得最新消息</p>
                     <div class="mail">
                         <input type="text" name="" class="einput">
-                        <a href="" class="eput"><i class="fas fa-envelope"></i></a>
+                        <a href="" class="eput">
+                            <i class="fas fa-envelope"></i>
+                        </a>
                     </div>
                 </div>
-                
+
             </div>
         </div>
         <div class="foot">COPYRIGHT &COPY; Unibella ALL RIGHTS RESERVED</div>
     </footer>
 
-    <script src="http://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script>
-        $(".hamburger").click(function(){
+        $(".hamburger").click(function () {
             $("nav").removeClass("navhide");
         });
-        $(".close").click(function(){
+        $(".close").click(function () {
             $("nav").addClass("navhide");
         });
-        
 
-        $(window).scroll(function(){
-            //pic1
-            //var scrollPic1=$(this).scrollTop();
-            //$(".pic1_f img").css('transform', 'translateY('+(-scrollPic1*.5)+'px)');
+        var scrollHeaderLast;
+        $(window).scroll(function () {
+            //header
+            var scrollHeader = $(this).scrollTop();
+            if (scrollHeader < 350) {
+                $("header").removeClass("hide, bg")
+                $("header h1, .h_ul li a").removeClass("phone_hide_f")
+            } else {
+                if (scrollHeader > scrollHeaderLast) {
+                    $("header").addClass("hide").removeClass("bg")
+                    $("header h1, .h_ul li a").addClass("phone_hide_f")
+                } else {
+                    $("header").removeClass("hide").addClass("bg")
+                };
+            };
+            scrollHeaderLast = scrollHeader;
             //第一層雲
-            var scrollC1 = $(window).scrollTop(); 
+            var scrollC1 = $(window).scrollTop();
             // var topCSS1 = $(".clouds1_f").css('top');
             // console.log(topCSS1);
-            $(".clouds1_f #parallax1_f").css('top', (85-(scrollC1*.45))+'vh');//5
-            $(".clouds1_f #parallax2_f").css('top', (85-(scrollC1*.35))+'vh');//3
-            $(".clouds1_f #parallax3_f").css('top', (85-(scrollC1*.3))+'vh');//2
-            $(".clouds1_f #parallax4_f").css('top', (85-(scrollC1*.25))+'vh');//1 0.05
-            $(".clouds1_f #parallax5_f").css('top', (85-(scrollC1*.5))+'vh');//6
-            $(".clouds1_f #parallax6_f").css('top', (85-(scrollC1*.4))+'vh');//4
+            $(".clouds1_f #parallax1_f").css('top', (85 - (scrollC1 * .45)) + 'vh');//5
+            $(".clouds1_f #parallax2_f").css('top', (85 - (scrollC1 * .35)) + 'vh');//3
+            $(".clouds1_f #parallax3_f").css('top', (85 - (scrollC1 * .3)) + 'vh');//2
+            $(".clouds1_f #parallax4_f").css('top', (85 - (scrollC1 * .25)) + 'vh');//1 0.05
+            $(".clouds1_f #parallax5_f").css('top', (85 - (scrollC1 * .5)) + 'vh');//6
+            $(".clouds1_f #parallax6_f").css('top', (85 - (scrollC1 * .4)) + 'vh');//4
             //scroll icon
             var scrollicon = $(this).scrollTop();
-            if(scrollicon>60){
+            if (scrollicon > 60) {
                 $(".scroll_f, .so_f").fadeOut(400);
-                $(".scroll_all_f").css('top', (85-scrollicon*.3)+'vh');
-            }else{
+                $(".scroll_all_f").css('top', (85 - scrollicon * .3) + 'vh');
+            } else {
                 $(".scroll_f, .so_f").fadeIn(400);
-                $(".scroll_all_f").css('top', (85-scrollicon*.3)+'vh');
+                $(".scroll_all_f").css('top', (85 - scrollicon * .3) + 'vh');
             };
 
             //品牌介紹文字
-            var scrollWord1 = $(this).scrollTop(); 
-            if(scrollWord1>350){
+            var scrollWord1 = $(this).scrollTop();
+            if (scrollWord1 > 350) {
                 $(".word1_f").addClass("word1_hide_f");
-            }else{
+            } else {
                 $(".word1_f").removeClass("word1_hide_f");
             };
             //品牌介紹文字phone
-            var WordPhone1 = $(this).scrollTop(); 
-            if(WordPhone1>200){
+            var WordPhone1 = $(this).scrollTop();
+            if (WordPhone1 > 200) {
                 $(".word1_f").addClass("word1_phone_hide_f");
-            }else{
+            } else {
                 $(".word1_f").removeClass("word1_phone_hide_f");
             }
 
             //水滴圖片
-            var scrollPic2=$(this).scrollTop();
-            if(scrollPic2<700){
+            var scrollPic2 = $(this).scrollTop();
+            if (scrollPic2 < 700) {
                 $(".pic2_f img").addClass("pic2_img_active_f");
                 $(".pic2_f p").addClass("pic2_p_active_f");
-            }else{
+            } else {
                 $(".pic2_f img").removeClass("pic2_img_active_f");
-                setTimeout(function(){
+                setTimeout(function () {
                     $(".pic2_f p").removeClass("pic2_p_active_f");
                 }, 600);
             };
             //水滴圖片 phone
-            var PicPhone2=$(this).scrollTop();
-          
+            var PhonePic2 = $(this).scrollTop();
+            if (PhonePic2 < 1300) {
+                $(".pic2_f img").addClass("pic2_img_active_phone_f");
+                $(".pic2_f p").addClass("pic2_p_active_phone_f");
+            } else {
+                $(".pic2_f img").removeClass("pic2_img_active_phone_f");
+                setTimeout(function () {
+                    $(".pic2_f p").removeClass("pic2_p_active_phone_f");
+                }, 600);
+            };
+
             //第二層雲
-            var scrollC2 = $(window).scrollTop(); 
-            var mi=scrollC2-1000;
-            if(scrollC2>1000){
-                $(".clouds2_f #parallax1_f").css('top', (140-mi*.29)+'vh');//4
-                $(".clouds2_f #parallax2_f").css('top', (140-mi*.26)+'vh');//3
-                $(".clouds2_f #parallax3_f").css('top', (140-mi*.23)+'vh');//2 0.05
-                $(".clouds2_f #parallax4_f").css('top', (140-mi*.2)+'vh');//1 0.007
-                $(".clouds2_f #parallax5_f").css('top', (140-mi*.35)+'vh');//6
-                $(".clouds2_f #parallax6_f").css('top', (140-mi*.32)+'vh');//5
-            }else{
-                $("clouds2_f").css('top', 140+'vh');
+            var scrollC2 = $(window).scrollTop();
+            var mi = scrollC2 - 1000;
+            if (scrollC2 > 1000) {
+                $(".clouds2_f #parallax1_f").css('top', (140 - mi * .29) + 'vh');//4
+                $(".clouds2_f #parallax2_f").css('top', (140 - mi * .26) + 'vh');//3
+                $(".clouds2_f #parallax3_f").css('top', (140 - mi * .23) + 'vh');//2 0.05
+                $(".clouds2_f #parallax4_f").css('top', (140 - mi * .2) + 'vh');//1 0.007
+                $(".clouds2_f #parallax5_f").css('top', (140 - mi * .35) + 'vh');//6
+                $(".clouds2_f #parallax6_f").css('top', (140 - mi * .32) + 'vh');//5
+            } else {
+
+                $("clouds2_f").css('top', 140 + 'vh');
             };
             //unibella指導原則
-            var scrollWord2=$(this).scrollTop();
-            if(scrollWord2>1400){
+            var scrollWord2 = $(this).scrollTop();
+            if (scrollWord2 > 1400) {
                 $(".word2_in_f").addClass("word2_in_active_f");
                 $(".small_pic_f img").addClass("small_pic_active_f");
                 $(".yellow_f").addClass("yellow_active_f");
-            }else{
+            } else {
                 $(".word2_in_f").removeClass("word2_in_active_f");
                 $(".small_pic_f img").removeClass("small_pic_active_f");
                 $(".yellow_f").removeClass("yellow_active_f");
             };
+            var PhoneWord2 = $(this).scrollTop();
+            if (PhoneWord2 > 1700) {
+                $(".word2_in_f").addClass("word2_in_active_phone_f");
+            } else {
+                $(".word2_in_f").removeClass("word2_in_active_phone_f");
+            };
 
             //漣漪圖片
-            var scrollPic3=$(this).scrollTop();
-            if(scrollPic3<1900){
+            var scrollPic3 = $(this).scrollTop();
+            if (scrollPic3 < 1900) {
                 $(".pic3_f img").addClass("pic3_img_active_f");
-                
-                    $(".pic3_f p").addClass("pic3_p_active_f");
-                
-            }else{
+                $(".pic3_f p").addClass("pic3_p_active_f");
+            } else {
                 $(".pic3_f img").removeClass("pic3_img_active_f");
                 $(".pic3_f p").removeClass("pic3_p_active_f");
+            };
+            var PhonePic3 = $(this).scrollTop();
+            if (PhonePic3 < 2200) {
+                $(".pic3_f img").addClass("pic3_img_active_phone_f");
+                $(".pic3_f p").addClass("pic3_p_active_phone_f");
+            } else {
+                $(".pic3_f img").removeClass("pic3_img_active_phone_f");
+                $(".pic3_f p").removeClass("pic3_p_active_phone_f");
             };
 
             //第三層雲
             var scrollC3 = $(window).scrollTop();
-            var mi2=scrollC3-2100;
-            if(scrollC3>1000){
-                $(".clouds3_f #parallax1_f").css('top', (140-mi2*.29)+'vh');//4
-                $(".clouds3_f #parallax2_f").css('top', (140-mi2*.26)+'vh');//3
-                $(".clouds3_f #parallax3_f").css('top', (140-mi2*.23)+'vh');//2 0.05
-                $(".clouds3_f #parallax4_f").css('top', (140-mi2*.2)+'vh');//1 0.007
-                $(".clouds3_f #parallax5_f").css('top', (140-mi2*.35)+'vh');//6
-                $(".clouds3_f #parallax6_f").css('top', (140-mi2*.32)+'vh');//5
-            }else{
-                $("clouds3_f").css('top', 140+'vh');
+            var mi2 = scrollC3 - 2100;
+            if (scrollC3 > 1000) {
+                $(".clouds3_f #parallax1_f").css('top', (140 - mi2 * .29) + 'vh');//4
+                $(".clouds3_f #parallax2_f").css('top', (140 - mi2 * .26) + 'vh');//3
+                $(".clouds3_f #parallax3_f").css('top', (140 - mi2 * .23) + 'vh');//2 0.05
+                $(".clouds3_f #parallax4_f").css('top', (140 - mi2 * .2) + 'vh');//1 0.007
+                $(".clouds3_f #parallax5_f").css('top', (140 - mi2 * .35) + 'vh');//6
+                $(".clouds3_f #parallax6_f").css('top', (140 - mi2 * .32) + 'vh');//5
+            } else {
+                $("clouds3_f").css('top', 140 + 'vh');
             };
             //icon們
-            var scrollcricle =$(this).scrollTop();
-            if(scrollcricle>2400){
+            var scrollcricle = $(this).scrollTop();
+            if (scrollcricle > 2400) {
                 $(".location_f").addClass("location_active_f");
                 $(".word3_f h6").fadeIn(800);
-            }else{
+            } else {
                 $(".location_f").removeClass("location_active_f");
                 $(".word3_f h6").fadeOut(500);
             };
-            if(scrollcricle>2800){
+            if (scrollcricle > 2800) {
                 $(".light_f").addClass("light_active_f");
-            }else{
+            } else {
                 $(".light_f").removeClass("light_active_f");
             };
-            if(scrollcricle>3100){
+            if (scrollcricle > 3100) {
                 $(".wind_f").addClass("wind_active_f");
-            }else{
+            } else {
                 $(".wind_f").removeClass("wind_active_f");
             };
-            if(scrollcricle>3400){
+            if (scrollcricle > 3400) {
                 $(".uv_f").addClass("uv_active_f");
-            }else{
+            } else {
                 $(".uv_f").removeClass("uv_active_f");
             };
-                console.log(scrollC2);
+            //icons PHONE
+            var PhoneCircle = $(this).scrollTop();
+            if (PhoneCircle > 2600) {
+                $(".location_f").addClass("location_active_phone_f");
+            } else {
+                $(".location_f").removeClass("location_active_phone_f");
+            };
+            if (PhoneCircle > 3300) {
+                $(".light_f").addClass("light_active_phone_f");
+            } else {
+                $(".light_f").removeClass("light_active_phone_f");
+            };
+            if (PhoneCircle > 3900) {
+                $(".wind_f").addClass("wind_active_phone_f");
+            } else {
+                $(".wind_f").removeClass("wind_active_phone_f");
+            };
+            if (PhoneCircle > 4500) {
+                $(".uv_f").addClass("uv_active_phone_f");
+            } else {
+                $(".uv_f").removeClass("uv_active_phone_f");
+            };
+            console.log(scrollC2);
         });
     </script>
 </body>
+
 </html>
