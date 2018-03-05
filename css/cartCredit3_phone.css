@@ -92,4 +92,34 @@
         bottom: 30%;
         font-weight: 400;
     }
+    section{
+        margin-top: 20px;
+    }
+    /*p--------------------------*/
+    .total_f {
+        padding: 50px;
+    }
+    /*table--------------------------------*/
+    table {
+        width: 85%;
+        max-width: 85%;
+        /* margin: 0 auto;
+        margin-top: 30px;
+        border-collapse: collapse; */
+    }
+    /* table thead tr th {
+        background: #666;
+        color: #fff;
+        padding: 6px 0;
+        border: 1px solid #666;
+    } */
+    table tbody tr td {
+        display: flex;
+        flex-direction: column;
+        padding: 30px 0;
+    }
+    table tbody tr td input{
+        width: 200px;
+        margin: 20px auto;
+    }
 }

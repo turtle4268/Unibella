@@ -119,6 +119,9 @@
         height: 200px;
         border: 1px solid #000;
     }
+    .tablePhone_a {
+        display:none;
+    }
     .total_a {
         padding: 85px;
         /* background: #3b6ae9; */
@@ -126,6 +129,7 @@
         margin:0 auto;
         text-align: center; 
         color: #C1272D;
+        
     }
     .btn_a {
         display: flex;
@@ -348,6 +352,154 @@
     .n_ul li a:hover{
         background-color: #CCC;
     }
+     /*Mediaquery--------------------------------------------------------------*/
+     @media screen and (max-width: 376px) {
+    /*--header--*/
+    *{
+        letter-spacing: 2px ;
+    }
+    header {
+        padding-right: 5px;
+        padding-left: 5px;
+        padding-top: 10px ;
+    }
+    header h1 {
+        left: 10px;
+        top:0;
+        font-size:26px;
+    }
+    .h_ul li {
+        padding: 0 10px;
+    }
+    /*--banner--*/
+    .headerBg_a p {
+        width: 58%;
+        font-size: 20px;
+        left:40%;
+        top: 20%;
+        letter-spacing: 3px;
+    }
+    .headerBg_a img {
+        width: 300%;
+    }
+    /*--sec1--*/
+    .sec1_a {
+        padding-top: 20px;
+    }
+    /*--total--*/
+    .total_a {
+        padding:50px;
+    }
+    /*--table--*/
+    table {
+        width: 75%;
+        max-width: 75%;
+    }
+    .table_a {
+        display: none;
+    }
+    .tablePhone_a {
+        display: block;
+        margin: 0 9%;
+        margin-top:30px;
+    }
+    .tablePhone_a tbody tr td figure {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        overflow: hidden;
+
+    }
+    .tablePhone_a tbody tr td figure img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    .tablePhone_a tbody .producCotent_a {
+        height: 50px;
+    }
+    .tablePhone_a tbody .producCotent_a td {
+        border-top: none;
+        border-bottom: none;
+        height: 50px;
+        text-align: left;
+    }
+    .tablePhone_a tbody .producCotentL_a  {
+        border-bottom: 1px solid #666;
+    }
+    .tablePhone_a tbody .producCotent_a td p {
+        width: 70%;
+        margin-left: 15%;
+    }
+    .tablePhone_a tbody .producCotent_a td p span {
+        margin-left: 18%;
+    }
+    .tablePhone_a tbody .producCotentM_a td p span {
+        margin-left: 35%;
+    }
+  
+    /*--button--*/
+    .btn_a {
+        display: block;
+        margin: 0 0;
+        text-align: center;
+        margin-bottom: 15%;
+    }
+    /*--toTop--*/
+    .toTop {
+        right:20px;
+        top: 80px;
+    }
+    /*--Nav--*/
+    nav{
+        width: 100% ;
+    }
+    nav.navhide{
+        right: -100% ;
+    }
+    /*footer*/
+    .f_content{
+        flex-wrap: wrap ;
+        padding: 20px 40px ;
+    }
+    .f_quarter{
+        min-width: 100% ;
+        border-right: none ;
+        padding: 20px 0 ;
+        position: relative ;
+    }
+    .f_quarter::before{
+        content: "" ;
+        border-bottom: 1px solid #FFF ;
+        width: 40% ;
+        height: 100% ;
+        position: absolute ;
+        margin: 0 auto ;
+    }
+    .f_quarter.border_none::before{
+        content: "" ;
+        border-bottom: 1px solid transparent ;
+        width: 50% ;
+        height: 100% ;
+        position: absolute ;
+        margin: 0 auto ;
+    }
+    .f_quarter p{
+        text-align: center ;
+    }
+    .f_quarter a.aicon{
+        width: 36px ;
+        margin: 0 ;
+        text-align: center ;
+        margin: 15px ;
+    }
+    .foot{
+        padding: 12px 0 ;
+        letter-spacing: 2px ;
+    }
+    }
     </style>
 </head>
 <body>
@@ -367,7 +519,7 @@
     <section class="sec1_a" >
         
         <h1>購物車列表</h1>
-        <table class=".table_a">
+        <table class="table_a">
             <thead class="thead-dark_a">
                 <tr>
                   <th scope="col">商品圖片</th>
@@ -400,6 +552,37 @@
                 </tr>
             </tbody>
         </table>
+        <table class="tablePhone_a">
+                <thead class="thead-dark_a">
+                    <tr>
+                      <th scope="col">商品圖片</th>
+                    </tr>
+                  </thead>
+                <tbody>
+                    <tr>
+                      <td><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
+                    </tr>
+                    <tr class="producCotent_a">
+                      <td><p>商品名稱<span>我是商品</span></p></td>
+                    </tr>
+                    <tr class="producCotent_a producCotentM_a">
+                        <td><p>數量<span>1</span></p></td>
+                    </tr>
+                    <tr class="producCotent_a producCotentM_a">
+                        <td><p>單價<span>NT$.1850</span></p></td>
+                    </tr>
+                    <tr class="producCotent_a producCotentM_a">
+                        <td><p>小計<span>NT$.1850</span></p></td>
+                    </tr>
+                    <tr class="producCotent_a producCotentM_a">
+                        <td><p>備註<span></span></p></td>
+                    </tr>
+                    <tr class="producCotent_a  producCotentL_a">
+                        <td><p>刪除<span></span></p></td>
+                    </tr>
+
+                </tbody>
+            </table>
         <div class="total_a" data-val="">共 X 件，總金額 NT$. 2400</div>
         <div class="btn_a">
             <button class="shop_a">繼續購物</button>
