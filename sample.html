@@ -17,10 +17,11 @@
             margin: 0 ;
             padding: 0 ;
             list-style-type: none ;
-            text-decoration-line: none ;
+            text-decoration: none ;
             font-family: "微軟正黑體" ;
             font-weight: normal ;
             letter-spacing: 3px ;
+            box-sizing: border-box ;
         }
         section{
             width: 100vw ;
@@ -40,11 +41,13 @@
             padding-top: 28px ;
             box-sizing: border-box ;
         }
-        header h1{
-            font-family: "Nyala" ;
-            font-size: 36px ;
-            position: relative ;
-            left: 30px ;
+        header h1 a{
+            display: block ;
+            width: 145px ;
+            height: 43px ;
+            -webkit-mask-image: url(images/logo_new.svg) ;
+            background-color: #FFF ;
+            margin-top: -12px ;
         }
         .h_ul li{
             display: inline-block ;
@@ -86,9 +89,12 @@
             flex: 1 ;
             font-size: 16px ;
         }
-        .f_quarter h2{
-            font-family: "Nyala" ;
-            font-size: 32px ;
+        .f_quarter h2 a{
+            display: block ;
+            width: 120px ;
+            height: 36px ;
+            -webkit-mask-image: url(images/logo_new.svg) ;
+            background-color: #FFF ;
         }
         .f_quarter.between{
             justify-content: space-around ;
@@ -285,7 +291,7 @@
 </head>
 <body>
     <header>
-        <h1>Unibella</h1>
+        <h1><a href="./home.html"></a></h1>
         <ul class="h_ul">
             <li><a class="member"></a></li>
             <li><a class="cart"></a></li>
@@ -295,15 +301,14 @@
     <nav class="navhide">
         <div class="close"></div>
         <ul class="n_ul">
-            <li><a href="">品牌介紹</a></li>
-            <li><a href="">專利技術</a></li>
+            <li><a href="./introduce.html">品牌介紹</a></li>
             <li><a href="">產品</a></li>
-            <li><a href="">最新消息</a></li>
+            <li><a href="./new.html">最新消息</a></li>
             <li><a href="">顧客服務</a></li>
             <li><a href="">會員中心</a></li>
-            <li><a href="">聯絡我們</a></li>
+            <li><a href="./contact.html">聯絡我們</a></li>
             <li><a href="">相關連結</a></li>
-            <li><a href="">Q&amp;A</a></li>
+            <li><a href="./qa.html">Q&amp;A</a></li>
         </ul>
     </nav>
     <aside class="l_aside">
@@ -322,7 +327,7 @@
     </div>
     <footer>
         <div class="f_content">
-            <div class="f_quarter"><h2>Unibella</h2></div>
+            <div class="f_quarter"><h2><a href=""></a></h2></div>
             <div class="f_quarter between">
                 <ul>
                     <li><a href="">品牌介紹</a></li>
