@@ -1,0 +1,107 @@
+@media screen and (max-width:375px){
+    body{
+        background: black;
+    }
+    /*header---------------------------------*/
+    header{
+       padding: 0 20px;
+       padding-top: 28px ;
+    }
+    header h1{
+        left: 10px;
+        font-size: 30px;
+    }
+    .h_ul li{
+        padding: 0 8px ;
+    }
+    /*section1---------------------------------------*/
+    .pic1_f{
+        overflow: hidden;
+        height: 100vh;
+    }
+    .pic1_f img{
+        transform: scale(4.7)  translateX(-40px) translateY(50px);
+        transform-origin: bottom;
+    }
+    .pic1_f p{
+        font-size: 24px;
+        /* top:30vh; */
+        left: 10%;
+        font-weight: 400;
+    }
+    .scroll_all_f{
+        top:92vh;   
+    }
+    /*第一層雲---------------------------------*/
+    .cloud_f{
+        width: 300px;
+        height:200px;
+    }
+    .cloud1_f{
+        background-size: cover;
+        left: -100px;
+    }
+    .cloud1-2_f{
+        left:240px;
+    }
+    .cloud2_f{
+        background-size: cover;
+        left: 0px;
+    }
+    .cloud2-2_f{
+        left:340px;
+    }
+   .cloud3_f{
+       background-size: cover;
+        left: 100px;
+    }
+    .cloud3-2_f{
+        left: 40px;
+    }
+    .cloud4_f{
+        background-size: cover;
+        left: 200px;
+    }
+    .cloud4-2_f{
+        left: 50px;
+    }
+    .cloud5_f{
+        background-size: cover;
+        left: 50px;
+    }
+    .cloud5-2_f{
+        left: 5px;
+    }
+    .cloud6_f{
+        background-size: cover;
+        left: 125px;
+    }
+    .cloud6-2_f{
+        left: 15px;
+    }
+    /*品牌介紹文字---------------------------------*/
+    .word1_f{
+        width: 75%;
+    }
+    .word1_phone_hide_f{
+        transform: translateY(0px);
+        opacity: 1;
+        transition: all 1.2s;
+    }
+    /*水滴圖片------------------------------------*/
+    .pic2_f{
+        overflow: hidden;
+        height: 60vh;
+        /* object-fit: fill; */
+    }
+    .pic2_f img{
+        transform: scale(3)  translateX(-40px) translateY(40px);
+        transform-origin: bottom;
+    }
+    .pic2_f p{
+        font-weight:400;
+        font-size: 24px;
+        margin: 80px 0 0 40px;
+        transition: all 1.5s;
+    }
+}
