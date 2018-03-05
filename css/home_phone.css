@@ -6,12 +6,17 @@
     header{
         padding: 0 20px ;
         padding-top: 28px ;
+        top: 0px ;
+        transition: 0.5s ;
     }
     header h1{
         left: 0 ;
     }
     .h_ul li{
         padding: 0 8px ;
+    }
+    header.hide{
+        top: -70px ;
     }
     /*Footer---------------------------------------------------------------------*/
     .f_content{
@@ -72,7 +77,7 @@
     /*Top-------------------------*/
     .full .umbrella{
         width: 80% ;
-        bottom: -350px ;
+        bottom: -300px ;
         left: 0 ;
     }
     .full .umbrella h2{
@@ -89,11 +94,12 @@
         height: 192px ;
         border-radius: 0 ;
         background-color: transparent ;
-        top: 15% ;
+        top: 16% ;
     }
     .intro p{
         width: 65% ;
         text-align: justify ;
+        line-height: 36px ;
     }
     .intro_r{
         left: -0% ;
@@ -111,4 +117,69 @@
     .back_r{
         right: -36% ;
     }
+    /*Location----------------------*/
+    #location .phone{
+        width: 40% ;
+        padding-top: 74% ;
+        bottom: -18px ;
+        right: -8% ;
+    }
+    #location .umbrella{
+        width: 55% ;
+        top: unset ;
+        bottom: -2% ;
+    }
+    #location svg{
+        width: 40px ;
+    }
+    #location .umbrella svg{
+        transform: rotate(127deg) ;
+        left: 30% ;
+        top: -60px ;
+    }
+    #location .phone svg{
+        top: -40px ;
+        left: -35px ;
+    }
+    .content h3{
+        font-size: 18px ;
+        margin-bottom: 20px ;
+    }
+    .content p{
+        line-height: 36px ;
+    }
+    #location .content{
+        top: 10% ;
+        left: 0 ;
+    }
+    /*Light-------------------------*/
+    #light .content{
+        left: 0 ;
+        top: 10% ;
+    }
+    #light .scale{
+        width: 80% ;
+        padding-bottom: 60% ;
+    }
+     /*Popular-----------------------*/
+     section#popular{
+         overflow: auto ;
+         height: auto ;
+         padding-bottom: 20px ;
+     }
+     #popular h4{
+         font-size: 18px ;
+         margin-top: 70px ;
+     }
+     .cards{
+         flex-wrap: wrap ;
+     }
+     #popular .card{
+         max-width: 80% ;
+         margin: 10px auto ;
+     }
+     .toTop{
+         margin-top: 10px ;
+         position: static ;
+     }
 }

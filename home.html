@@ -17,7 +17,7 @@
             margin: 0 ;
             padding: 0 ;
             list-style-type: none ;
-            text-decoration-line: none ;
+            text-decoration: none ;
             font-family: "微軟正黑體" ;
             font-weight: normal ;
             letter-spacing: 3px ;
@@ -88,9 +88,9 @@
         /*Black*/
         header.black{
             color: #666 ;
-            background-color: hsla(0, 0%, 100%, 0.6) ;
+            background-color: #ffffff99 ;
         }
-        header.black .h_ul li a{
+        header.black a{
             background-color: #666 ;
         }
     /*Footer-------------------------------------------------------------*/
@@ -625,6 +625,7 @@
         }
         #popular h4{
             font-size: 24px ;
+            font-weight: bold ;
             color: #666 ;
             align-self: baseline ;
         }
@@ -702,7 +703,7 @@
             100% { opacity: 1; top: -4px ;}
         }
     </style>
-    <link rel="stylesheet" href="css/home_375.css">
+    <link rel="stylesheet" href="css/home_phone.css">
 </head>
 <body>
     <header>
@@ -907,6 +908,15 @@
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
     <script>
+        var $Header=$("header"),
+            $Laside=$(".l_aside"),
+            $Raside=$(".r_aside"),
+            $Nav=$("nav"),
+            $Hamburger=$(".hamburger"),
+            $Close=$(".close"),
+            $Half=$(".half"),
+            $Back=$(".back"),
+            $Totop=$(".toTop");
         var Ttop=$("#top").offset().top ,
             Tlocation=$("#location").offset().top ,
             Tlight=$("#light").offset().top ,
@@ -918,16 +928,17 @@
         var position=[Ttop,Tlocation,Tlight,Tpopular,Tpopular+(full-Tfooter)];
         var nowPosition=0;
         var log;
+        var scrolllast;
         var ifact=false ;
         function addBlack(){
-            $("header").addClass("black");
-            $(".l_aside").addClass("black");
-            $(".r_aside").addClass("black");
+            $Header.addClass("black");
+            $Laside.addClass("black");
+            $Raside.addClass("black");
         }
         function removeBlack(){
-            $("header").removeClass("black");
-            $(".l_aside").removeClass("black");
-            $(".r_aside").removeClass("black");
+            $Header.removeClass("black");
+            $Laside.removeClass("black");
+            $Raside.removeClass("black");
         }
         function rightAct(now){
             $(".r_aside ul li").eq(now).addClass("act").siblings().removeClass("act");
@@ -943,15 +954,37 @@
                         removeBlack();
                     }
                     if(now>3){
-                        $(".l_aside").addClass("hide");
+                        $Laside.addClass("hide");
                     }else{
-                        $(".l_aside").removeClass("hide");
+                        $Laside.removeClass("hide");
                     }
             });
             rightAct(now);
         }
+        /*手機hideNav*/
+        function hideNav(){
+            $(window).scroll(function(){
+                var scrollNow=$(this).scrollTop();
+                console.log(scrollNow);
+                if(scrollNow>=position[1]-65){
+                    addBlack();
+                }else{
+                    removeBlack();
+                }
+                if (scrollNow<=65) {  //在80以內不會縮回
+                    $Header.removeClass("hide");
+                } else {
+                    if (scrollNow>scrolllast) {
+                        $Header.addClass("hide");
+                    } else {
+                        $Header.removeClass("hide");
+                    }
+                }
+                scrolllast=scrollNow;
+            });
+        }
         /*滾輪事件*/
-        $(document).ready(function(){ 
+        function mouseWheel(){
             $(document).on('DOMMouseScroll mousewheel',function(e){
                 //火狐以外 => mousewheel
                 //火狐 => DOMMouseScroll
@@ -979,6 +1012,9 @@
                     }
                 }
             });
+        }
+        $(document).ready(function(){ 
+            console.log($(window).width());
             /*目前位置*/
             switch (nowscrollTop) {
                 case Ttop:
@@ -1002,24 +1038,30 @@
                     nowPosition=4;
                     rightAct(nowPosition);
                     addBlack();
-                    $(".l_aside").addClass("hide");
+                    $Laside.addClass("hide");
                     break;
+            }
+            /*手機*/
+            if($(window).width()<376){
+                hideNav();
+            }else{
+                mouseWheel();
             }
         });
         /*Hamburger*/
-        $(".hamburger").click(function(){
-            $("nav").removeClass("navhide");
+        $Hamburger.click(function(){
+            $Nav.removeClass("navhide");
         });
-        $(".close").click(function(){
-            $("nav").addClass("navhide");
+        $Close.click(function(){
+            $Nav.addClass("navhide");
         });
         /*Top*/
-        $(".half").click(function(){
+        $Half.click(function(){
             $(this).addClass("halfTofull").siblings().addClass("halfTonull");
             $(".half h2").addClass("fadeOut");
             $(this).find(".intro").removeClass("fadeOut");
         });
-        $(".back").click(function(e){
+        $Back.click(function(e){
             $(this).closest(".half").removeClass("halfTofull").siblings().removeClass("halfTonull");
             $(".half h2").removeClass("fadeOut");
             $(this).closest(".half").find(".intro").addClass("fadeOut");
@@ -1031,7 +1073,7 @@
             fullpageScroll(nowPosition);
         });
         /*to top*/
-        $(".toTop").click(function(){
+        $Totop.click(function(){
             nowPosition=0 ;
             fullpageScroll(nowPosition);
         });
