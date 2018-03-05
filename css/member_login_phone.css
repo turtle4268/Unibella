@@ -1,0 +1,354 @@
+@media screen and (max-width:375px){
+        *{
+        letter-spacing: 2px ;
+    }
+    /*Header------------------------------------------------------------------------*/
+    header{
+        padding: 0 20px ;
+        padding-top: 28px ;
+        /*width: 63%;*/  /*y改*/
+    }
+    header h1{
+        left: 0 ;
+    }
+    .h_ul li{
+        padding: 0 8px ;
+    }
+    /*Footer---------------------------------------------------------------------*/
+    .f_content{
+        flex-wrap: wrap ;
+        padding: 20px 40px ;
+    }
+    .f_quarter{
+        min-width: 100% ;
+        border-right: none ;
+        padding: 20px 0 ;
+        position: relative ;
+    }
+    .f_quarter::before{
+        content: "" ;
+        border-bottom: 1px solid #FFF ;
+        width: 40% ;
+        height: 100% ;
+        position: absolute ;
+        margin: 0 auto ;
+    }
+    .f_quarter.border_none::before{
+        content: "" ;
+        border-bottom: 1px solid transparent ;
+        width: 50% ;
+        height: 100% ;
+        position: absolute ;
+        margin: 0 auto ;
+    }
+    .f_quarter p{
+        text-align: center ;
+    }
+    .f_quarter a.aicon{
+        width: 36px ;
+        margin: 0 ;
+        text-align: center ;
+        margin: 15px ;
+    }
+    .foot{
+        padding: 12px 0 ;
+        letter-spacing: 2px ;
+    }
+    /*Nav----------------------------------------------------------------------*/
+    nav{
+        width: 100% ; 
+    }
+    nav.navhide{
+        right: -100% ;
+    }
+    /*Left aside--------------------------------------------------------------------*/
+    .l_aside{
+        display: none ;
+    }
+    /*Right aside-------------------------------------------------------------------*/
+    .r_aside{
+        display: none ;
+    }
+    /*Container-------------------------------------------------------------------*/
+    /*login_y--------------------------------------------------------------*/
+    .loginBox_y{
+        width:100vw;
+        height:100vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .login1_y{
+       display: none;
+    }
+    .login2_y{
+        width: 90%;
+        /* height: 100%; */
+        text-align: center;
+        letter-spacing: 3px;
+        margin: 6vh auto 0 auto;  
+    }
+    .loginTitle_y{
+        font-size: 18px;
+        color: #1f5572;
+        margin-bottom: 3em;
+    }
+    .loginLabel_y{
+        color: #1f5572;
+        font-size: 12px;
+        flex: 2;
+    }
+    .loginInput_y{
+        background-color:transparent;
+        color: #1f5572;
+        border: none;
+        border-bottom: 1px solid #1f5572;
+        /* padding-right: 10%; */
+        flex: 3;
+    }
+    .login_y input:focus{
+        outline:none;
+    }
+    .loginBtn_y{
+        background-color: transparent;
+        font-size: 18px;
+        color: #1f5572;
+        border: 2px solid #1f5572;
+        border-radius: 50px;
+        padding: 1% 25%;
+        margin-top: 1em;
+    }
+    .loginBtn_y:hover, .registerPBtn_y:hover{
+        background-color: #1f5572;
+        color: #f8cf4e;           
+        border: 2px solid #1f5572;        
+    }
+    .loginInfor_y{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 3em ; 
+        text-align: left;
+    }
+    .registerP_Title_y{
+        font-size: 18px;
+        color: #1f5572;
+        margin-top: 4em;
+        margin-bottom: 2em;
+    }
+    .registerPBtn_y{
+        background-color: transparent;
+        font-size: 18px;
+        color: #1f5572;
+        border: 2px solid #1f5572;
+        border-radius: 50px;
+        padding: 1% 25%;
+    }
+    .loginP_y{
+        display: block;
+    }
+    /*register_y--------------------------------------------------------------*/
+    .h_registerBox_y{
+        width: 100vw;
+        height: 100vh;
+        display: block;
+    }
+    .h_register_y{
+        display: none;       
+    }
+    /*f_register_y--------------------------------------------------------------*/
+    .full_register_y{
+        width: 80%;
+        height: 100vh;
+        text-align: center;
+        letter-spacing: 3px;
+        margin:0 auto;
+        padding: 10vh 0;
+        /* flex: 2; */           
+    }
+    .f_registerTitle_y{
+        font-size: 18px;
+        color: #f8cf4e;
+        margin-bottom: 1em;
+    }
+    .f_register_y{
+        
+    }  
+    .f_register_y p{
+        color:#f8cf4e;
+    }    
+    .registerInfor1_y{
+        display: block;
+        margin-top:2em; 
+        overflow: hidden;
+        text-align: left;
+    }
+    .registerLabel_y{
+        color: #f8cf4e;
+        font-size: 16px;
+        width: 8%;
+        text-align: left;
+        
+    }
+    .registerInput_y{
+        background-color:transparent;
+        color: #f8cf4e;
+        border: none;
+        border-bottom: 1px solid #f8cf4e;
+        width:100%;
+        height: 30px;     
+    }   
+    .registerLabel1111_y{
+        color: #f8cf4e;
+        font-size: 16px;
+        width: 13%;
+        text-align: left;
+        
+    }
+    .registerInput1111_y{
+        background-color:transparent;
+        color: #f8cf4e;
+        border: none;
+        border-bottom: 1px solid #f8cf4e;
+        width:100%;
+        height: 30px;     
+    }           
+    .registerInfor2_y{
+        display: block;
+        margin-top:2em; 
+        /* padding: 0 3%; */
+        text-align: left;
+    }
+    .registerInfor22_y{
+        display: block;
+        margin-top:2em;
+        width: 100%; 
+    }
+    .registerLabel2_y{
+        color: #f8cf4e;
+        font-size: 16px;
+        /* flex: 0.5; */
+        width: 16%;
+        text-align: left;
+    }
+    .registerInput2_y{
+        background-color:transparent;
+        color: #f8cf4e;
+        border: none;
+        border-bottom: 1px solid #f8cf4e;
+        /* padding-right: 10%; */
+        /* flex: 2;     */
+        width:100%;
+        height: 30px;     
+    }
+    .registerLabel2222_y{
+        color: #f8cf4e;
+        font-size: 16px;
+        /* flex: 0.5; */
+        width: 27%;
+        text-align: left;
+    }
+    .registerInput2222_y{
+        background-color:transparent;
+        color: #f8cf4e;
+        border: none;
+        border-bottom: 1px solid #f8cf4e;
+        /* padding-right: 10%; */
+        /* flex: 2;     */
+        width:100%;
+        height: 30px;     
+    }
+    .registerSelect_y{
+        background-color:#1f5572;
+        color: #f8cf4e;
+        border: none;
+        border-bottom: 1px solid #f8cf4e;
+        width:300px;
+        height: 30px; 
+    }
+    .f_registerBtn_y{
+        background-color: transparent;
+        font-size: 18px;
+        color: #f8cf4e;
+        border: 2px solid #f8cf4e;
+        border-radius: 50px;
+        padding: 2% 15%;
+        margin-top: 4em;
+    }
+    .f_registerBtn_y:hover{
+        background-color: #f8cf4e;
+        color: #1f5572;           
+        border: 2px solid #f8cf4e;        
+    }
+    ::placeholder { 
+        color: #b3b3b3;
+        font-size: 12px;
+    }
+ /*Top-------------------------*/
+ /*phoneBg_y-------------------------*/
+    .full{
+        width: 100vw ;
+        height: 150vh ;
+        text-align: center ;
+        position: relative ;
+    }
+    .full_100vh{
+        height: 100vh ;
+    }
+    .full .umbrella{
+        width: 80% ;
+        bottom: -350px ;
+        left: 0 ;
+    }
+    .full .umbrella h2{
+        font-size: 18px ;
+        letter-spacing: 3px ;
+        font-weight: bold ;
+        top: -10% ;
+    }
+    .half{
+        width: 100vw ;
+        height: 150vh ;
+        transition: 1s ;
+    }
+    .half_unanimate_y{         /*y增加*/
+        width: 100vw ;
+        height: 100vh ;
+        position: absolute;
+        transition: 1s ;
+    }
+    .halfTofull{ 
+        width:100%;
+    }
+    .halfTonull{
+        width:0%;
+    }
+    .intro{
+        width: 100% ;
+        height: 192px ;
+        border-radius: 0 ;
+        background-color: transparent ;
+        top: 15% ;
+    }
+    .intro p{
+        width: 65% ;
+        text-align: justify ;
+    }
+    .intro_r{
+        left: -0% ;
+    }
+    .intro_l{
+        right: 0% ;
+    }
+    .back{
+        width: 70% ;
+        bottom: -40% ;
+    }
+    .back_l{
+        left: -36% ;
+        display: none;
+    }
+    .back_r{
+        right: -36% ;
+    }
+}

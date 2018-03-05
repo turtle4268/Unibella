@@ -199,10 +199,10 @@
             width:100%;
             height:100%;
             display: flex;
-            justify-content: space-around;;
+            justify-content: space-around;
             align-items: center;
         }
-        .login_y{
+        .login1_y, .login2_y{
             width: 16%;
             /* height: 100%; */
             text-align: center;
@@ -212,7 +212,6 @@
         .loginTitle_y{
             color: #1f5572;
             margin-bottom: 4em;
-
         }
         .loginLabel_y{
             color: #1f5572;
@@ -239,7 +238,7 @@
             padding: 1% 30%;
             margin-top: 4em;
         }
-        .loginBtn_y:hover{
+        .loginBtn_y:hover, .registerPBtn_y:hover{
             background-color: #1f5572;
             color: #f8cf4e;           
             border: 2px solid #1f5572;        
@@ -251,6 +250,22 @@
              margin-top:2em; 
              padding: 0 3%;
              text-align: left;
+        }
+        .registerP_Title_y{
+            color: #1f5572;
+            margin-top: 4em;
+            margin-bottom: 1em;
+        }
+        .registerPBtn_y{
+             background-color: transparent;
+            font-size: 1.5em;
+            color: #1f5572;
+            border: 2px solid #1f5572;
+            border-radius: 50px;
+            padding: 1% 30%;
+        }
+        .loginP_y{
+            display: none;
         }
         /*register_y--------------------------------------------------------------*/
         .h_registerBox_y{
@@ -410,7 +425,7 @@
             color: #f8cf4e;
             border: 2px solid #f8cf4e;
             border-radius: 50px;
-            padding: 1% 10%;
+            padding: 0.5% 10%;
             margin-top: 4em;
         }
         .f_registerBtn_y:hover{
@@ -423,6 +438,7 @@
             font-size: 12px;
         }
     </style>
+    <link rel="stylesheet" href="css/member_login_phone.css">
 </head>
 <body>
 <header>
@@ -519,7 +535,7 @@
                                 </div><!--<div class="registerInfor2_y">-->
                                 <div class="registerInfor1_y">
                                     <label for="address" class="registerLabel_y"><span class="yellow_star">*</span>地址:</label>
-                                    <input type="text" class="registerInput_y" name="address" id="address" value="" placeholder="">
+                                    <input type="text" class="registerInput_y regAddress_y" name="address" id="address" value="" placeholder="">
                                 </div>
                                 <button type="submit" class="f_registerBtn_y" >送出</button>
                             </form>
@@ -534,8 +550,8 @@
             <div class="half_unanimate_y">
                 <div class="sun full">
                     <div class="loginBox_y">
-                        <div class="login_y"></div>
-                        <div class="login_y">
+                        <div class="login1_y"></div>
+                        <div class="login2_y">
                             <h2 class="loginTitle_y">會員登入</h2>
                             <form name="form_login" method="post" action="" onsubmit="">
                                 <div class="loginInfor_y">
@@ -552,6 +568,10 @@
                                 </div>
                                 <button type="submit" class="loginBtn_y">登入</button>
                             </form>
+                            <div class="loginP_y">
+                                <h2 class="registerP_Title_y">首次購物</h2>
+                                <button type="submit" class="registerPBtn_y">註冊</button>
+                            </div>
                         </div>
                     </div>
                     <!-- <h1>2</h1> -->
@@ -568,6 +588,7 @@
     <script src="http://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
+    <script src="lib/detectmobilebrowser.js"></script>
     <script>
         $(".full_register_y").hide();
         $(".h_registerBtn_y").click(function(){
@@ -603,6 +624,36 @@
             $(".close").click(function () {
                 $("nav").addClass("navhide");
             });
+        /*手機375*/
+        $(".registerPBtn_y").click(function () {
+            $(".half_unanimate_y").addClass("halfTonull")
+            $(".h_register_y").animate(
+                { opacity: 0 }
+                , 300
+                , function () { $(this).hide(); }
+            );
+            $(".full_register_y").animate(
+                { opacity: 1 }
+                , 500
+                , function () { $(this).show(); }
+            );
+            alert($.browser.mobile);
+                    });
+        $(".back").click(function (e) {
+            $(".h_register_y").animate(
+                { opacity: 1 }
+                , 300
+                , function () { $(this).show(); }
+            );
+            $(".full_register_y").animate(
+                { opacity: 0 }
+                , 300
+                , function () { $(this).hide(); }
+            );
+            alert($.browser.mobile);
+            $(this).closest(".half").removeClass("halfTofull").siblings().removeClass("halfTonull");
+            e.stopPropagation();    //不讓父元素動作(阻止事件冒泡)
+        });
     </script>
 </body>
 </html>

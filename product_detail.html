@@ -238,28 +238,30 @@
         /*productSlideBox_y-----------------------------------------*/
         .productSlideBox_y{
             /* flex: ; */
-			width: 40%;
-            height: 80vh;
+			width: 90%;
+            /* height: 80vh; */
 			margin: 0 auto;
 			/* background: #000;           */
-			overflow: hidden;
             position: relative;
             padding: 3% 5%;
+            margin-top: -50px;
 		} 
-		.SlidePic_y{			
+		.productSlide_y{			
+            /* position: absolute;
+            top:0;
+            left: 0; */
+            overflow: hidden;
+            /* width: 300%;   */
+            transition: all .5s;
+        }
+        .SlidePic_y{
+            width:290%;
             display: flex;
             align-items: center;
 	        justify-content: center;
-            position: absolute;
-            top:0;
-            left: 0;
-            /* margin-top:-52%; */
-            /* margin-left: -3%; */
-            width: 300%;  
-            height: 80vh;      
-            transition: all .5s;
-            
-		}
+            position: relative;
+            transition:.5s; 
+        }
 		.SlidePic_y li{
 			list-style: none;
 			width: 33.3%;
@@ -274,14 +276,13 @@
             /* width: 50%;
             height: 15%; */
 			position: absolute;
-			bottom: 0;
+			/* bottom: 0; */
 			left: 50%;
-            margin-bottom: -15%;
+            /* margin-bottom: -15%; */
 			margin-left: -15%;
 			text-align: center;
             width: 30%;
-            height: 30%;
-            overflow: hidden;
+            margin-top: -20px;
 		}
 		.slidePage_y li{
 			list-style: none;
@@ -299,13 +300,13 @@
 			opacity: 1;
 		}
         .slideArrow_y{
-            width: 100%;
+            width: 80%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             position: absolute;
             top:50%;
-            left: 0;           
+            /* left: 0;   */
         }
         .sa_y{
             display: block;
@@ -607,7 +608,7 @@
                     </div>
                     <div class="productSlide_y">
                     <ul class="SlidePic_y">
-                        <li class="slidePicLi_y slide1_y"><img src="images/AF001_1.png" alt=""></li>
+                        <li class="slidePicLi_y slide1_y"><img src="images/Midnight_Side-40.png" alt=""></li>
                         <li class="slidePicLi_y slide2_y"><img src="images/AF001_2.png" alt=""></li>
                         <li class="slidePicLi_y slide3_y"><img src="images/AF001_3.png" alt=""></li>
                     </ul>
@@ -779,7 +780,7 @@
             });
            function moveSlide(nowSlide) {
                 $(".slidePage_y li").eq(nowSlide).css("opacity", 1).siblings().css("opacity", .5);
-                $(".SlidePic_y").css("left", 0 - ($(".slidePage_y li").eq(nowSlide).index() * 100)+ "%");
+                $(".SlidePic_y").css("left", 0 - ($(".slidePage_y li").eq(nowSlide).index() * (290/3))+ "%");
             }
             $(".slideArrow_left_y").click(function () {
                 nowSlide = nowSlide - 1; 
