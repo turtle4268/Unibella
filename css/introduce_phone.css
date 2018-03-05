@@ -1,0 +1,299 @@
+@media screen and (max-width:414px){
+    /*Header------------------------------------------------------------------------*/
+    header{
+        padding: 0 20px ;
+        padding-top: 28px ;
+    }
+    header h1{
+        left: 0 ;
+        background-color: #fff;
+        transition: all .5s;
+    }
+    .h_ul li{
+        padding: 0 8px ;
+    }
+    .h_ul li a{
+        background-color: white;
+        transition: all .5s;
+    }
+    .phone_hide_f{
+        background-color: #666 !important;
+    }
+    /*Footer---------------------------------------------------------------------*/
+    .f_content{
+        flex-wrap: wrap ;
+        padding: 20px 40px ;
+    }
+    .f_quarter{
+        min-width: 100% ;
+        border-right: none ;
+        padding: 20px 0 ;
+        position: relative ;
+    }
+    .f_quarter::before{
+        content: "" ;
+        border-bottom: 1px solid #FFF ;
+        width: 40% ;
+        height: 100% ;
+        position: absolute ;
+        margin: 0 auto ;
+    }
+    .f_quarter.border_none::before{
+        content: "" ;
+        border-bottom: 1px solid transparent ;
+        width: 50% ;
+        height: 100% ;
+        position: absolute ;
+        margin: 0 auto ;
+    }
+    .f_quarter p{
+        text-align: center ;
+    }
+    .f_quarter a.aicon{
+        width: 36px ;
+        margin: 0 ;
+        text-align: center ;
+        margin: 15px ;
+    }
+    .foot{
+        padding: 12px 0 ;
+        letter-spacing: 2px ;
+    }
+    /*Nav----------------------------------------------------------------------*/
+    nav{
+        width: 100% ;
+    }
+    nav.navhide{
+        right: -100% ;
+    }
+    /*Left aside--------------------------------------------------------------------*/
+    .l_aside{
+        display: none ;
+    }
+    /*Right aside-------------------------------------------------------------------*/
+    .r_aside{
+        display: none ;
+    }
+    /*------------------------------------------------------------------------------------------------------------------*/
+    /* body{
+        background: black;
+    } */
+    /*section1---------------------------------------*/
+    .pic1_f{
+        overflow: hidden;
+        
+    }
+    .pic1_f img{
+        width: 400%;
+        position: relative;
+        left: -130px;;
+    }
+    .pic1_f p{
+        font-size: 24px;
+        /* top:30vh; */
+        left: 10%;
+        font-weight: 400;
+    }
+    .scroll_all_f{
+        top:92vh;   
+    }
+    /*第一層雲---------------------------------*/
+    .cloud_f{
+        width: 300px;
+        height:200px;
+    }
+    .cloud1_f{
+        background-size: cover;
+        left: -100px;
+    }
+    .cloud1-2_f{
+        left:240px;
+    }
+    .cloud2_f{
+        background-size: cover;
+        left: 0px;
+    }
+    .cloud2-2_f{
+        left:340px;
+    }
+   .cloud3_f{
+       background-size: cover;
+        left: 100px;
+    }
+    .cloud3-2_f{
+        left: 40px;
+    }
+    .cloud4_f{
+        background-size: cover;
+        left: 200px;
+    }
+    .cloud4-2_f{
+        left: 50px;
+    }
+    .cloud5_f{
+        background-size: cover;
+        left: 50px;
+    }
+    .cloud5-2_f{
+        left: 5px;
+    }
+    .cloud6_f{
+        background-size: cover;
+        left: 125px;
+    }
+    .cloud6-2_f{
+        left: 15px;
+    }
+    /*品牌介紹文字---------------------------------*/
+    .word1_f{
+        width: 75%;
+    }
+    .word1_f p{
+        padding: 50px 0 50px 0;
+    }
+    .word1_phone_hide_f{
+        transform: translateY(0px);
+        opacity: 1;
+        transition: all 1.2s;
+    }
+    /*水滴圖片------------------------------------*/
+    .pic2_f{
+        overflow: hidden;
+    }
+    .pic2_f img{
+        width: 300%;
+        transition: all 1.5s;
+        position: relative;
+        left: -350px;
+    }
+    .pic2_f p{
+        font-weight:400;
+        font-size: 24px;
+        margin: 80px 0 0 40px;
+        transition: all 1.5s;
+    }
+    .pic2_img_active_f{/*移除*/
+        opacity: 1;
+        transform: translateY(0px);
+    }
+   .pic2_p_active_f{/*移除*/
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    /*phone*/
+    .pic2_img_active_phone_f{
+        opacity: 0;
+        transform:translateY(300px);
+        transition: all 1.5s;
+    }
+    .pic2_p_active_phone_f{
+        opacity: 0;
+        transform: translateY(-300px);
+        transition:all 1.5s; 
+    }
+    /*第二層雲----------------------------------*/
+    /*指導原則----------------------------------*/
+    .small_pic_f{
+        display: none;
+    }
+    .word2_f p{
+        padding-top: 0px;
+    }
+    .word2_f{
+            width: 75%;
+            margin: 0 auto ;
+            padding: 80px 0 0 ;
+            display: flex;
+            justify-content: space-between;
+    }
+    .word2_in_active_f{
+        opacity: 0;
+        transform: translateY(200px);
+        transition: all 1.5s;
+    }
+    .word2_in_active_phone_f{
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 1.5s;
+    }
+    /*漣漪圖片----------------------------------------------*/
+    .pic3_f{
+        overflow: hidden;
+        height: 60vh;
+        padding-top: 0px;
+    }
+    .pic3_f img{
+        width: 250%;
+        position: relative;
+        left: 200px;
+        transition: all 1.5s;
+    }
+    .pic3_f p{
+        font-weight:400;
+        font-size: 24px;
+        transition: all 1.5s;
+        padding: 120px 30px 0 120px;
+        /* padding-left: 120px;
+        padding-right: 30px; */
+        text-align-last: right;
+    }
+    .pic3_img_active_f{/*移除*/
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    .pic3_p_active_f{/*移除*/
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    /*phone*/
+    .pic3_img_active_phone_f{
+        opacity: 0;
+        transform: translateY(300px) ;
+        transition: all 1.5s;
+    }
+    .pic3_p_active_phone_f{
+        opacity: 0;
+        transform: translateY(-200px);
+        transition:all 1.5s; 
+    }
+    /*專業技術-----------------------------------*/
+    .word3_f{
+        width:75%;
+        padding: 50px 0;
+    }
+    .location_f, .light_f, .wind_f, .uv_f{
+        display: flex;
+        flex-direction: column;
+        padding: 80px 0 30px;
+        opacity: 0;
+        transition: transform .8s, opacity 1.5s;
+        transform: translateY(100px); 
+    }
+    .word3_f img{
+        display: block;
+        margin: 0 auto;
+    }
+    .article_f{
+        padding-top:10px;
+        width: 75%;
+        line-height: 30px;
+        margin: 0 auto;
+    }
+    .light_f, .uv_f{
+        flex-direction: column-reverse;
+    }
+    .location_active_f, .light_active_f, .wind_active_f, .uv_active_f{
+        opacity: 0;/*移除*/
+        transform: translateY(100px);
+        transition: transform .8s, opacity 1.5s;
+    }
+    .location_active_phone_f, .light_active_phone_f, .wind_active_phone_f, .uv_active_phone_f{
+        opacity: 1;
+        transform: translateY(0px);
+        transition: transform .8s, opacity 1.5s;
+    }
+    .clouds2_f, .clouds3_f{
+        display: none;
+    }
+
+}
