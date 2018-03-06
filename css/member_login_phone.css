@@ -317,6 +317,9 @@
         position: absolute;
         transition: 1s ;
     }
+    /* .half_sun_hide_y{
+         height: 100vh ;
+    } */
     .halfTofull{ 
         width:100%;
     }
