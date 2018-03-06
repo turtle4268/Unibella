@@ -313,7 +313,7 @@
     }
     .half_unanimate_y{         /*y增加*/
         width: 100vw ;
-        height: 100vh ;
+        height: 150vh ;
         position: absolute;
         transition: 1s ;
     }

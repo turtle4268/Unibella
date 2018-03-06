@@ -637,20 +637,13 @@
                 , 500
                 , function () { $(this).show(); }
             );
-            alert($.browser.mobile);
+            // alert($.browser.mobile);
                     });
         $(".back").click(function (e) {
-            $(".h_register_y").animate(
-                { opacity: 1 }
-                , 300
-                , function () { $(this).show(); }
-            );
-            $(".full_register_y").animate(
-                { opacity: 0 }
-                , 300
-                , function () { $(this).hide(); }
-            );
-            alert($.browser.mobile);
+            $("html,body").animate({
+                scrollTop: 0
+            }, 1);
+            // alert($.browser.mobile);
             $(this).closest(".half").removeClass("halfTofull").siblings().removeClass("halfTonull");
             e.stopPropagation();    //不讓父元素動作(阻止事件冒泡)
         });
