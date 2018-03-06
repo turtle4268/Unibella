@@ -975,12 +975,11 @@
 
     
 
-   //payWay 
+   //payWay shipWay 
     $( ".payWay_a" ).change(function() {
     console.log($(this).val());
     payWayVal=$(this).val();
     shipWayVal=$(" shipWay_a").index();
-    shipWayAttr=$(" shipWay_a").attr("selected")
     if(payWayVal==1){
         $(".seven11_a").addClass('show');
         $(".atm_a").removeClass('show');
