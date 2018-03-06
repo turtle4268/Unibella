@@ -71,7 +71,7 @@
         width: 450% ;
     }
     .banner .bn{
-        height: 50% ;
+        height: 60% ;
         margin-top: 5% ;
     }
     .banner .bn h2{
@@ -115,6 +115,7 @@
         width: 50% ;
         border-radius: 20px 20px 0 0 ;
         position: relative ;
+        z-index: 3 ;
     }
     .select .um.sun a{
         position: relative ;
@@ -131,17 +132,34 @@
         width: 34% ;
         margin: 8px 5px ;
     }
-    .select .um.act a{
-        padding: 10px ;
-        top: -4px ;
-    }
     .select .um.act .check{
         display: flex ;
     }
     .radio{
         margin-top: 50% ;
-        border-top: 2px solid #1F5572 ;
-        padding-top: 20px ;
+        border-top: none ;
+        padding-top: 10px ;
+    }
+    .radio p{
+        color: #FFF ;
+        background-color: #1F5572 ;
+        margin-bottom: 0 ;
+        padding: 8px ;
+        display: flex ;
+        justify-content: space-between ;
+        cursor: pointer ;
+    }
+    .radio p i{
+        display: inline-block ;
+    }
+    .radio .radio_box{
+        max-height: 0 ;
+        overflow: hidden ;
+        transition: 0.5s ;
+        padding-left: 8px ;
+    }
+    .radio.show .radio_box{
+        max-height: 90px ;
     }
     /*List*/
     .list{
@@ -149,5 +167,51 @@
     }
     .list .card{
         width: 100% ;
+        min-width: unset ;
+    }
+    .list .card.has{
+        background: none ;
+    }
+    .card .content{
+        position: relative ;
+        top: 0;
+        left: 0 ;
+        background-color: #808080cb ;
+        height: 51px ;
+        margin-top: -51px ;
+        overflow: hidden ;
+    }
+    .card .content::before{
+        width: 72%;
+        height: 300%;
+        top: 0;
+        left: 0;
+        content: '';
+        background-color: #161414;
+        opacity: 0.5 ;
+        position: absolute;
+        transform: rotate(25deg) translateY(-63%) translateX(64%);
+    }
+    .card p{
+        font-size: 16px ;
+        font-weight: normal ;
+        display: inline-block ;
+        position: absolute ;
+    }
+    .card p.name{
+        font-size: 16px ;
+        left: 10% ;
+    }
+    .card p.price{
+        right: 10% ;
+    }
+    .card.has:hover::before{
+        transform: rotate(16deg) translateY(-16%) translateX(110%);
+    }
+    .card.has:hover img{
+        opacity: 1 ;
+    }
+    .card.has:hover .content{
+        left: 0 ;
     }
 }
