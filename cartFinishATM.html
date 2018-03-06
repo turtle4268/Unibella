@@ -233,85 +233,96 @@
             right: 13%;
             letter-spacing: 5px;
         }
-        /*步驟----------*/
-        .steps-container_f {
-            width: 100%;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            margin: 0 auto;
-            overflow: hidden;
-            color: #666;
-            font-size: 18px;
-        }
-        .step_f {
-            width: 200px;
-            height: 130px;
-        }
-        .step-content_f {
-            width: 30px;
-            height: 30px;
-            background: #fff;
-            display: inline-block;
-            border-radius: 100%;
-            border: 3px solid #1F5572;
-            position: relative;
-        }
-        .stepDown-content_f {
-            top:40px;
-        }
-        .step_f:first-child .step-content_f {
-            top:1px;
-        }
-        .step-content_f::after {
-            content: "";
-            display: block;
-            width: 155px;
-            height: 3px;
-            position: relative;
-            background: #1F5572;
-            margin-left: 37px;
-            margin-top: 50%;
-            transform: translateY(-50%);
-        }
-        .step_f:last-child .step-content_f::after {
-            width: 100px;
-        }
-        .step1-content_f::before {
-            content: "";
-            display: block;
-            width: 100px;
-            height: 3px;
-            position: relative;
-            background: #1F5572;
-            margin-left: -108px;
-            top: 13px;
-            transform: translateY(-50%);
-        }
-        .step1-content_f::after {
-            margin-top: 36%;
-        }
-        .desUp_f {
-            padding-bottom: 20px;
-        }
-        .desDown_f {
-            padding-top: 55px;
-        }
-        .step-content_f.active {
-            background: #F8CF4E;
-            border-color: #F8CF4E;
-            animation: blob 0.3s ease-out;
-        }
-        .step-content_f i {
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 50%;
-            line-height: 0;
-            font-size: 18px;
-            color: #fff;
-            font-weight: bold;
-        }
+       /*----步驟-------*/
+    .steps-container_a {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .step_a {
+        width: 200px;
+        height: 130px;
+    }
+    .step-content_a {
+        width: 30px;
+        height: 30px;
+        background: #fff;
+        display: inline-block;
+        border-radius: 100%;
+        border: 3px solid #1F5572;
+        position: relative;
+    }
+    .stepDown-content_a {
+        top:40px;
+    }
+    .step_a:first-child .step-content_a {
+        top:2px;
+    }
+    .step_a:nth-child(3) .step-content_a {
+        top:1px;
+    }
+    .step-content_a::after {
+        content: "";
+        display: block;
+        width: 155px;
+        height: 3px;
+        position: relative;
+        background: #1F5572;
+        margin-left: 37px;
+        margin-top: 50%;
+        transform: translateY(-50%);
+    }
+    .step_a:last-child .step-content_a::after {
+        width: 100px;
+    }
+    .step1-content_a::before {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 3px;
+        position: relative;
+        background: #1F5572;
+        margin-left: -108px;
+        top: 14px;
+        transform: translateY(-50%);
+    }
+    .step1-content_a::after {
+        margin-top: 36%;
+    }
+    .des_a {
+        font-size: 18px;
+    }
+    .desUp_a {
+        padding-bottom: 15px;
+    }
+    .desDown_a {
+        padding-top: 55px;
+    }
+    .step-content_a.active {
+        background: #F8CF4E;
+        border-color: #F8CF4E;
+        animation: blob 0.3s ease-out;
+    }
+    .step-content_a i {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        line-height: 0;
+        font-size: 18px;
+        color: #fff;
+        font-weight: bold;
+    }
+    .total_a {
+        padding: 85px;
+        border: none;
+        margin:0 auto;
+        text-align: center; 
+        color: #C1272D;
+    }
         /*table------------------------------------------------------*/
         table {
             width: 60%;
@@ -457,28 +468,28 @@
             <p>Be Your Unique Unbrella.</p>
         </div>
         <section class="credit_f">
-            <div class="steps-container_f">
-                <div class="step_f ">
-                    <div class="des_f desUp_f">
+            <div class="steps-container_a">
+                <div class="step_a ">
+                    <div class="des_a desUp_a">
                         <span>選擇付款方式</span>
                     </div>
-                    <span class="step-content_f step1-content_f "></span> 
+                    <span class="step-content_a step1-content_a "></span> 
                 </div>
-                <div class="step_f">
-                    <span class="step-content_f stepDown-content_f"></span>
-                    <div class="des_f desDown_f">
+                <div class="step_a">
+                    <span class="step-content_a stepDown-content_a"></span>
+                    <div class="des_a desDown_a">
                         <span>填寫運送資料</span>
                     </div>
                 </div>
-                <div class="step_f">
-                    <div class="des_f  desUp_f">
+                <div class="step_a">
+                    <div class="des_a  desUp_a">
                         <span>確認購物清單</span>
                     </div>
-                    <span class="step-content_f"></span>
+                    <span class="step-content_a"></span>
                 </div>
-                <div class="step_f">
-                    <span class="step-content_f stepDown-content_f"></span>
-                    <div class="des_f desDown_f">
+                <div class="step_a">
+                    <span class="step-content_a stepDown-content_a"></span>
+                    <div class="des_a desDown_a">
                         <span>購物完成</span>
                     </div>
                 </div>

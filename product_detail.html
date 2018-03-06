@@ -767,8 +767,9 @@
             });
             /*to top*/
             $(".toTop").click(function () {
-                nowPosition = 0;
-                fullpageScroll(nowPosition);
+                $("html,body").animate({
+                    scrollTop: 0
+                }, 1000);
             });
             /*Slider*/
             var nowSlide = 0; 

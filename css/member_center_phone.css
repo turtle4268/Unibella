@@ -1,5 +1,5 @@
 @media screen and (max-width:375px){
-        *{
+    *{
         letter-spacing: 2px ;
     }
     /*Header------------------------------------------------------------------------*/
@@ -61,14 +61,6 @@
     nav.navhide{
         right: -100% ;
     }
-    /*Left aside--------------------------------------------------------------------*/
-    .l_aside{
-        display: none ;
-    }
-    /*Right aside-------------------------------------------------------------------*/
-    .r_aside{
-        display: none ;
-    }
     /*Container-------------------------------------------------------------------*/
     /*banner_y--------------------------------------------------------------*/
         .banner_y{
@@ -86,86 +78,120 @@
             width:300%; 
             margin-right:10%;         
         }
-    /*main_y--------------------------------------------------------------*/
+    /*mainBox_y--------------------------------------------------------------*/
+        .mainBox_y{
+            display: flex;
+            width: 85%;
+            margin: 35px auto 0 auto;           
+        }
+        .asideListTitle_y{
+            font-weight: bold;
+            font-size: 20px;
+            color: #666666 ;
+            text-align:left;
+            padding: 0 0 35px 10px;
+            border-bottom: 1px solid #666;
+        }
+        .l_aside_y{
+            flex: 1;
+        }
         .main_y{
-			margin: 36px auto;
-
+            flex: 5;
+            /* margin-left:7%;  */
         }
-        .mainTitle_y{
-        	font-weight: bold;
-        	font-size: 18px;
-        	color: #666666 ;
-        	text-align:center;
+        /*l_aside_y-------------------------------------*/
+        .asideA_y{
+            color: #666;
         }
-        .infor_y{
-        	width: 80%;
-        	margin: 43px auto;
-        	position: relative;
+        .l_aside_y ul li{
+            list-style: none;
+            padding: 15px 10px;
+            margin: 40px 0;
+        }
+        .l_aside_y ul li:hover{
+            background: #e6e6e6;
+        }
+        .topMain_y{
+            margin-left: 5%;
+        }
+        .topMain_ul_y{
             display: flex;
-            flex-wrap: wrap;
-        	/* justify-content:space-between; */
-        }        
-        .inforImg_y{ 
-        	z-index: 1;
-            width: 90%;
-            height: 90%;
-            margin: 55vh auto 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            
         }
-        .inforTxtBox_y{
-        	width: 100%;
-        	height: 85vh;
-			background: #f8cf4e;
-            margin: 0;
-            position: absolute;
-            top:0;
-            left: 0;
+        .topMain_li_y{
+            padding: 0 2em;
+            border-right: 2px solid #666;
+            color: #666;
         }
-        .inforImg_y img{
-            width: 100%;
-        	height: 100%;
-        	margin: 8px auto;
-        	flex: 1;
+        .li_span_y{
+            color: #1f5572;
         }
-        .inforTxt_y{
-        	width: 80%;
-        	margin: 57px auto;
-            
+        /*main_y-------------------------------------*/
+        .main_y{
+            text-align: center;
         }
-        .inforTitle_y{
-        	color: #666;
+        .main_y h2{
+            margin: 50px auto;
+            font-weight: bold;
+            color: #666;
+        }
+        .table_infor_y{
+            width: 45%;
+            margin: 0 auto;
+            color: #666; 
+        }
+        .l_td_y{
+            width:32%;
+            height: 30px; 
+            text-align: left;
+            padding-top:2.5em;
+        }
+        .r_td_y{
+            width:68%;
+            height: 30px;
+            text-align: left;
+            padding-top:2.5em;
+            border-bottom: 1px solid #000;
+        }
+        .l_td1_y{
+            width:20%;
+            height: 30px; 
+            text-align: left;
+        }
+        .r_td1_y{
+            width:80%;
+            height: 30px;
+            text-align: left;
+            border-bottom: 1px solid #000;
+        }
+        /*active-----------------------------------------------------*/
+        .active_f {
+            width:100%;
+        }
+        .small_pic_f{
+            display: none;
+        }
+        .active_f ul {
+            flex-wrap: nowrap;
+            justify-content: space-between;   
+        }
+        .active_f ul li {
+            width: 183px;
+            height: 183px;
+            margin-right: 0;
             position: relative;
         }
-        .inforTitleBox_y{
-            display: flex;
-            justify-content:space-between;
+        .active_f ul li .square_f blue{
+            margin-right: 10px;
         }
-        .inforTitleBox_y a{
-        	margin-right: 1em;
-        	color: #fff;
-        	list-style: none;
+        .square_f p {
+            font-size: 20px;
         }
-        /*.inforTitleBox_y a:hover{
-        	border-bottom: 2px solid #fff;
-        }*/
-        .lineHover_y:after {
-        	display:block;
-  			content: '';
-        	border-bottom: 2px solid #fff;
-        	transform: scaleX(0);
-			transition: transform .2s ease-in-out;    
+        .square_f .p2 {
+            margin-top:-32px;
+            margin-left:-70px;
         }
-        .lineHover_y:hover:after {
-        	transform: scaleX(1);
-        }
-        .inforTxt_y p{
-        	color: #666;
-        	line-height: 2em;
-        }
-        .inforP_y{
-        	margin-top:1em;
-        	margin-bottom:.5em;
-        }    
+        .square_f .p4 {
+            margin-top:-16px;
+            margin-left:-80px;
+        }  
 }
