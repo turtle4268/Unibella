@@ -1,32 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Unibella</title>
-    <link href="fontawesome/css/fontawesome-all.css" rel="stylesheet">
+<?php include __DIR__.'/module_head.php' ?>
     <style>
-    /*
-        blue:#1F5572
-        yellow:#F8CF4E
-        black: #666
-        logo-font:Nyala
-    */
-        *{
-            margin: 0 ;
-            padding: 0 ;
-            list-style-type: none ;
-            text-decoration: none ;
-            font-family: "微軟正黑體" ;
-            font-weight: normal ;
-            letter-spacing: 3px ;
-            box-sizing: border-box ;
-        }
         section{
-            width: 100vw ;
-            max-width: 100% ;
-            height: 100vh ;
             text-align: center ;
             overflow: hidden ;
             color: #FFF ;
@@ -38,53 +12,13 @@
         h3{
             font-size: 36px ;
         }
-        img{
-            width: 100% ;
-            height: 100% ;
-        }
-     /*Header--------------------------------------------------------*/
+        /*Header--------------------------------------------------------*/
         header{
-            position: fixed ;
-            z-index: 5 ;
-            width: 100% ;
-            height: 80px ;
-            display: flex ;
-            justify-content: space-between ;
-            color: #FFF ;
-            padding: 0 40px ;
-            padding-top: 28px ;
-            box-sizing: border-box ;
             transition: 0.5s ;
             filter: drop-shadow(0 0 1px #0000004d) ;
         }
-        header h1{
-            font-family: "Nyala" ;
-            font-size: 36px ;
-            position: relative ;
-            left: 30px ;
-        }
-        .h_ul li{
-            display: inline-block ;
-            padding: 0 15px ;
-        }
-        .h_ul li a{
-            display: block ;
-            width: 25px ;
-            height: 25px ;
-            cursor: pointer ;
-            background-color: #FFF ;
-            -webkit-mask-repeat: no-repeat ;
-            -webkit-mask-position: center ;
+        header a{
             transition: 0.5s ;
-        }
-        .member{
-            -webkit-mask-image: url(images/icon_MEMBER.svg) ;
-        }
-        .cart{
-            -webkit-mask-image: url(images/icon_CART.svg) ;
-        }
-        .hamburger{
-            -webkit-mask-image: url(images/icon_MENU.svg) ;
         }
         /*Black*/
         header.black{
@@ -93,148 +27,6 @@
         }
         header.black a{
             background-color: #666 ;
-        }
-    /*Footer-------------------------------------------------------------*/
-        footer{
-            background-color: #CCC ;
-            color: #FFF ;
-        }
-        .f_content{
-            display: flex ;
-            padding: 40px ;
-        }
-        .f_quarter{
-            width: 25% ;
-            display: flex ;
-            justify-content: center ;
-            align-items: center ;
-            border-right: 1px solid #FFF ;
-            flex: 1 ;
-            font-size: 16px ;
-        }
-        .f_quarter h2{
-            font-family: "Nyala" ;
-            font-size: 32px ;
-        }
-        .f_quarter.between{
-            justify-content: space-around ;
-        }
-        .f_quarter.border_none{
-            border: none ;
-            flex: 1.5 ;
-            flex-wrap: wrap ;
-        }
-        .f_quarter.border_none .mail{
-            width: 265px ;
-            height: 30px ;
-            border: 2px solid #FFF ;
-            border-radius: 28px ;
-            margin: 16px 0 ;
-            display: flex ;
-            justify-content: center ;
-            align-items: center ;
-        }
-        .mail .einput{
-            width: 210px ;
-            height: 24px ;
-            margin-left: 5px ;
-            font-size: 16px ;
-            letter-spacing: normal ;
-            border: none ;
-            background: #CCC ;
-        }
-        .mail .einput:focus{
-            color: #FFF ;
-            outline: none ;
-        }
-        .mail .eput{
-            display: inline-block ;
-            padding: 0 5px ;
-        }
-        .mail .eput i{
-            font-size: 26px ;
-        }
-        .f_quarter a{
-            display: block ;
-            color: #FFF ;
-            padding: 9px 0px ;
-        }
-        .f_quarter a.aicon{
-            display: inline-block ;
-            margin: 20px ;
-        }
-        .f_quarter a.aicon i{
-            font-size: 28px ;
-        }
-        .f_quarter a.fb{
-            margin-left: 0 ;
-        }
-        .f_quarter a.fb i{
-            font-size: 24px ;
-        }
-        .foot{
-            text-align: center ;
-            font-size: 12px ;
-            background-color: #999 ;
-            padding: 12px ;
-            border-top: 1px solid #FFF ;
-        }
-    /*Nav--------------------------------------------------------------*/
-        nav{
-            position: fixed ;
-            z-index: 10 ;
-            display: flex ;
-            width: 20% ;
-            height: 100vh ;
-            top: 0 ;
-            right: 0 ;
-            text-align: center ;
-            background-color: #ffffffcc ;
-            transition: 1s ;
-        }
-        nav.navhide{
-            right: -20% ;
-        }
-        nav .close{
-            width: 25px ;
-            height: 25px ;
-            position: absolute ;
-            top: 28px ;
-            right: 40px ;
-            cursor: pointer ;
-            background: url(images/X.svg) center center no-repeat ;
-        }
-        .n_ul{
-            width: 100% ;
-            margin: 0 auto ;
-            align-self: center ;
-        }
-        .n_ul li{
-            display: flex ;
-            align-content: center ;
-            /* margin: 4px 0 ;  */
-        }
-        .n_ul li a{
-            display: block ;
-            width: 100% ;
-            padding: 12px ;
-            color: #666 ;
-            font-size: 18px ;
-            position: relative ;
-        }
-        .n_ul li a::before{
-            content: "" ;
-            position: absolute ;
-            width: 0% ;
-            height: 100% ;
-            left: 0 ;
-            top: 0 ;
-            z-index: -1 ;
-            background-color: #CCC;
-            transition: 0.4s ;
-        }
-        .n_ul li a:hover::before{
-            width: 100% ;
         }
         /*Left aside--------------------------------------------------------------------*/
         .l_aside{
@@ -704,30 +496,10 @@
             100% { opacity: 1; top: -4px ;}
         }
     </style>
-    <link rel="stylesheet" href="css/home_phone.css">
-</head>
-<body>
-    <header>
-        <h1>Unibella</h1>
-        <ul class="h_ul">
-            <li><a class="member"></a></li>
-            <li><a class="cart"></a></li>
-            <li><a class="hamburger"></a></li>
-        </ul>
-    </header>
-    <nav class="navhide">
-        <div class="close"></div>
-        <ul class="n_ul">
-            <li><a href="">品牌介紹</a></li>
-            <li><a href="">產品</a></li>
-            <li><a href="">最新消息</a></li>
-            <li><a href="">顧客服務</a></li>
-            <li><a href="">會員中心</a></li>
-            <li><a href="">聯絡我們</a></li>
-            <li><a href="">相關連結</a></li>
-            <li><a href="">Q&amp;A</a></li>
-        </ul>
-    </nav>
+    <style>
+        @import url("css/home_phone.css");
+    </style>
+    <?php include __DIR__.'/module_nav.php' ?>
     <aside class="l_aside">
         <div class="scroll item">
             <div class="scroll_f">
@@ -744,8 +516,7 @@
             <a href=""><i class="fab fa-facebook-f"></i></a>
             <a href=""><i class="fab fa-instagram"></i></a>
             <a href=""><i class="fab fa-youtube"></i></a>
-        </div>
-        
+        </div>      
     </aside>
     <aside class="r_aside">
         <ul>
@@ -866,55 +637,11 @@
             </div>
         </section>
     </div>
-    <footer>
-        <div class="f_content">
-            <div class="f_quarter"><h2>Unibella</h2></div>
-            <div class="f_quarter between">
-                <ul>
-                    <li><a href="">品牌介紹</a></li>
-                    <li><a href="">產品</a></li>
-                    <li><a href="">最新消息</a></li>
-                    <li><a href="">顧客服務</a></li>
-                </ul>
-                <ul>
-                    <li><a href="">會員中心</a></li>
-                    <li><a href="">聯絡我們</a></li>
-                    <li><a href="">相關連結</a></li>
-                    <li><a href="">Q&amp;A</a></li>
-                </ul>
-            </div>
-            <div class="f_quarter">
-                <div>
-                    <p>社群</p>
-                    <a href="" class="aicon fb"><i class="fab fa-facebook-f"></i></a>
-                    <a href="" class="aicon"><i class="fab fa-instagram"></i></a>
-                    <a href="" class="aicon"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="f_quarter border_none">
-                <div>
-                    <p>取得最新消息</p>
-                    <div class="mail">
-                        <input type="text" name="" class="einput">
-                        <a href="" class="eput"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        <div class="foot">COPYRIGHT &COPY; Unibella ALL RIGHTS RESERVED</div>
-    </footer>
-
-    <script src="http://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
+    <?php include __DIR__.'/module_footer.php' ?>
     <script>
         var $Header=$("header"),
             $Laside=$(".l_aside"),
             $Raside=$(".r_aside"),
-            $Nav=$("nav"),
-            $Hamburger=$(".hamburger"),
-            $Close=$(".close"),
             $Half=$(".half"),
             $Back=$(".back"),
             $Totop=$(".toTop");
@@ -966,7 +693,7 @@
         function hideNav(){
             $(window).scroll(function(){
                 var scrollNow=$(this).scrollTop();
-                console.log(scrollNow);
+                // console.log(scrollNow);
                 if(scrollNow>=position[1]-65){
                     addBlack();
                 }else{
@@ -992,7 +719,7 @@
                 e.preventDefault();
                 log=e.originalEvent.wheelDelta || -e.originalEvent.detail;
                 if(log<0 && !ifact){
-                    console.log("down");
+                    // console.log("down");
                     nowPosition++;
                     ifact=true;
                     if(nowPosition>4) {
@@ -1002,7 +729,7 @@
                         fullpageScroll(nowPosition);
                     }
                 }else if(log>0 && !ifact){
-                    console.log("up");
+                    // console.log("up");
                     nowPosition--;
                     ifact=true;
                     if(nowPosition<0) {
@@ -1015,7 +742,7 @@
             });
         }
         $(document).ready(function(){ 
-            console.log($(window).width());
+            // console.log($(window).width());
             /*目前位置*/
             switch (nowscrollTop) {
                 case Ttop:
@@ -1049,13 +776,6 @@
                 mouseWheel();
             }
         });
-        /*Hamburger*/
-        $Hamburger.click(function(){
-            $Nav.removeClass("navhide");
-        });
-        $Close.click(function(){
-            $Nav.addClass("navhide");
-        });
         /*Top*/
         $Half.click(function(){
             $(this).addClass("halfTofull").siblings().addClass("halfTonull");
@@ -1079,5 +799,4 @@
             fullpageScroll(nowPosition);
         });
     </script>
-</body>
-</html>
+<?php include __DIR__.'/module_foot.php' ?>
