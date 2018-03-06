@@ -172,5 +172,9 @@
         .toTop {
             right:20px;
             bottom: -525px;
-        }   
+        }
+        /*navHide*/
+        .phone_hide_f{
+        background-color: #666 !important;
+        }
 }

@@ -256,6 +256,12 @@
         .l_aside_y ul li:hover{
             background: #e6e6e6;
         }
+        .fa-angle-down{
+            display: none;
+        }
+        .l_p_ul_y{
+            display: none;
+        }
         .topMain_ul_y{
             display: flex;
         }
@@ -327,7 +333,7 @@
         .memberInput_y:focus{
             outline:none;
         }
-        .memberBtn_y{
+        /* .memberBtn_y{
             background-color: transparent;
             font-size: 1em;
             color: #1f5572;
@@ -340,8 +346,79 @@
             background-color: #1f5572;
             color: #fff;           
             border: 2px solid #1f5572;        
+        } */
+        /*Q-button---------*/
+        button {
+            margin:80px 45px;
+            border-radius: 28px;
+            padding:10px 40px;
+            border: 2px solid #302f3a;
+            background: transparent;
+            color:  #302f3a;
+            font-size: 1rem;
+            position: relative;
+        }
+        button:hover {
+            color: #fff;
+            transition: color 200ms linear 200ms;
+            -webkit-transition: color 200ms linear 200ms;
+            z-index: 3;
+        }
+        .memberBtn_y::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: -.6rem;
+            top: -.7rem;
+            z-index: -1;
+            background-color: #5b8095;
+            border-radius: 28px;
+            transition: all 200ms ease-out;
+        }
+        button:hover::before {
+            top: 0;
+            left: 0;
+        }
+        button:active {
+            transform: translateY(3px);
+        }
+        button:focus {
+            outline: none;
+        }
+        /*-------toTop--------*/
+        .toTop{
+            color: #1F5572 ;
+            position: absolute;
+            right: 50px;
+            bottom: -300px ;  /*y改*/
+            cursor: pointer ;
+        }
+        .toTop .tr{
+            width: 20px;
+            height: 20px;
+            margin: 5px auto;
+            position: relative ;
+            left: -2px ;
+            transform: rotate(180deg) ;
+            -webkit-mask-image: url(images/icon_scroll.svg) ;
+            background-color:#1F5572;
+            animation: scroll_top .5s linear infinite;
+            animation-direction: alternate;
+            animation-delay: .1s;
+        }
+        .toTop h5{
+            font-size: 16px ;
+            color: #1F5572 ;
+            text-align: center;
+        }
+        @keyframes scroll_top {
+            0%   { opacity: .2; top: 2px; }
+            50%  { opacity: .5; }
+            100% { opacity: 1; top: -4px ;}
         }
     </style>
+    <link rel="stylesheet" href="css/member_center_infor_phone.css">
 </head>
 <body>	
     <header>
@@ -374,8 +451,15 @@
         <div class="mainBox_y">
             <aside class="l_aside_y">
                 <div class="asideListBox_y">
-                    <h2 class="asideListTitle_y">會員專區</h2>
+                    <h2 class="asideListTitle_y">會員專區<i class="fas fa-angle-down"></i></h2>
                     <ul class="l_ul_y">
+                        <li><a href="" class="asideA_y">修改會員資料</a></li>
+                        <li><a href="" class="asideA_y">訂購紀錄</a></li>
+                        <li><a href="" class="asideA_y">密碼修改</a></li>
+                        <li><a href="" class="asideA_y">收藏列表</a></li>
+                        <li><a href="" class="asideA_y">會員優惠</a></li>
+                    </ul>
+                    <ul class="l_p_ul_y">
                         <li><a href="" class="asideA_y">修改會員資料</a></li>
                         <li><a href="" class="asideA_y">訂購紀錄</a></li>
                         <li><a href="" class="asideA_y">密碼修改</a></li>
@@ -422,8 +506,12 @@
                     </div>
                     <button type="submit" class="memberBtn_y">確認送出</button>
                 </form> 
+            </div> <!--main_y-->
+            <div class="toTop">
+                <div class="tr"></div>
+                <h5>TOP</h5>
             </div>
-        </div>
+        </div> <!--mainBox_y-->
     </div>
     <footer>
         <div class="f_content">
@@ -477,6 +565,18 @@
         });
         $(".close").click(function(){
             $("nav").addClass("navhide");
+        });
+        /*to top*/
+        $(".toTop").click(function () {
+            $("html,body").animate({
+                scrollTop: 0
+            }, 1000);
+        });
+        /*手機375_memberList*/
+        $(".l_p_ul_y").hide();
+        $(".fa-angle-down").click(function () {
+            $(".fa-angle-down").toggleClass("rotate");
+            $(".l_p_ul_y").slideToggle();
         });
     </script>
 </body>

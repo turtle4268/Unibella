@@ -330,6 +330,14 @@
             50%  { opacity: .5; }
             100% { opacity: 1; top: -4px ;}
         }
+        /*navHide------*/
+        .hide {
+            transform: translateY(-100px);
+            transition: all .5s;
+        }
+        .bg {
+            background: rgba(255, 255, 255, .8);
+        }
     </style>
     <link rel="stylesheet" href="css/store_phone.css">
 </head>
@@ -453,7 +461,25 @@
                 $("html,body").animate({
                     scrollTop: 0
                 }, 1000);
-            });
+        });
+        /*navHide*/
+        var scrollHeaderLast;
+        $(window).scroll(function () {
+            //header
+            var scrollHeader = $(this).scrollTop();
+            if (scrollHeader < 350) {
+                $("header").removeClass("hide, bg")
+                $("header h1, .h_ul li a").removeClass("phone_hide_f")
+            } else {
+                if (scrollHeader > scrollHeaderLast) {
+                    $("header").addClass("hide").removeClass("bg")
+                    $("header h1, .h_ul li a").addClass("phone_hide_f")
+                } else {
+                    $("header").removeClass("hide").addClass("bg")
+                };
+            };
+            scrollHeaderLast = scrollHeader;
+        });
     </script>
 </body>
 </html>
