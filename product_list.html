@@ -39,10 +39,15 @@
             width: 100% ;
             display: flex ;
             justify-content: space-between ;
-            color: #666 ;
+            color: #FFF ;
             padding: 0 40px ;
             padding-top: 28px ;
             box-sizing: border-box ;
+            transition: 0.5s ;
+            top: 0 ;
+        }
+        header a{
+            transition: 0.5s ;
         }
         header h1{
             font-family: "Nyala" ;
@@ -59,7 +64,7 @@
             width: 25px ;
             height: 25px ;
             cursor: pointer ;
-            background-color: #666 ;
+            background-color: #FFF ;
             -webkit-mask-repeat: no-repeat ;
             -webkit-mask-position: center ;
         }
@@ -71,6 +76,17 @@
         }
         .hamburger{
             -webkit-mask-image: url(images/icon_MENU.svg) ;
+        }
+        header.hide{
+            top: -80px ;
+        }
+        /*Black*/
+        header.black{
+            color: #666 ;
+            background-color: #ffffffcc ;
+        }
+        header.black a{
+            background-color: #666 ;
         }
     /*Footer-------------------------------------------------------------*/
         footer{
@@ -233,6 +249,7 @@
             overflow: hidden ;
         }
         .banner .bn h2{
+            margin-top: -8% ;
             font-size: 30px ;
             font-weight: bold ;
             color: #FFF ;
@@ -383,7 +400,7 @@
             min-width: 100% ;
             display: flex ;
             justify-content: center ;
-            margin: 60px 0 ;
+            margin: 60px 0 20px;
         }
         .pagelist .pageitem a{
             display: block ;
@@ -393,6 +410,36 @@
         }
         .pagelist .pageitem a.act{
             border-bottom: 1px solid #666 ;
+        }
+        /*toTop*/
+        .toTop{
+            color: #1F5572 ;
+            position: relative ;
+            top: -15px ;
+            margin-left: 94% ;
+            cursor: pointer ;
+        }
+        .toTop .tr{
+            width: 20px;
+            height: 20px;
+            margin: 5px auto;
+            position: relative ;
+            left: -2px ;
+            transform: rotate(180deg) ;
+            -webkit-mask-image: url(images/icon_scroll.svg) ;
+            background-color:#1F5572;
+            animation: scroll_top .5s linear infinite;
+            animation-direction: alternate;
+            animation-delay: .1s;
+        }
+        .toTop h5{
+            font-size: 16px ;
+            color: #1F5572 ;
+        }
+        @keyframes scroll_top {
+            0%   { opacity: .2; top: 2px; }
+            50%  { opacity: .5; }
+            100% { opacity: 1; top: -4px ;}
         }
     </style>
     <link rel="stylesheet" href="css/productList_phone.css">
@@ -522,8 +569,11 @@
                 <li class="pageitem"><a>3</a></li>
                 <li class="pageitem"><a><i class="fas fa-angle-double-right"></i></a></li>
             </ul>
+            <div class="toTop">
+                <div class="tr"></div>
+                <h5>TOP</h5>
+            </div>
         </div>
- 
     </div>
     <footer>
         <div class="f_content">
@@ -568,6 +618,7 @@
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
     <script>
+        var scrolllast;
         $(".hamburger").click(function(){
             $("nav").removeClass("navhide");
         });
@@ -581,7 +632,31 @@
         $(".radio p").click(function(){
             $(this).closest(".radio").toggleClass("show");
         });
-
+        /*hideNav*/
+        
+            $(window).scroll(function(){
+                var scrollNow=$(this).scrollTop();
+                // console.log(scrollNow);
+                if (scrollNow < 300) {
+                    $("header").removeClass("hide");
+                    $("header").removeClass("black");
+                } else {
+                    if (scrollNow > scrolllast) {
+                        $("header").addClass("hide");
+                        $("header").addClass("black");
+                    } else {
+                        $("header").removeClass("hide");
+                    }
+                }
+                scrolllast=scrollNow;
+            });
+        
+        /*to top*/
+        $(".toTop").click(function(){
+            $("html,body").animate({
+                    scrollTop:0
+                },1000,);
+        });
     </script>
 </body>
 </html>
