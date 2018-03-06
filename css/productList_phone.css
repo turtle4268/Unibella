@@ -1,77 +1,12 @@
+@import url("sample_phone.css");
 @media screen and (max-width:375px){
-    *{
-        letter-spacing: 2px ;
-    }
-    /*Header------------------------------------------------------------------------*/
-    header{
-        padding: 0 20px ;
-        padding-top: 28px ;
-        top: 0px ;
-        transition: 0.5s ;
-    }
-    header h1{
-        left: 0 ;
-    }
-    .h_ul li{
-        padding: 0 8px ;
-    }
-    header.hide{
-        top: -70px ;
-    }
-    /*Footer---------------------------------------------------------------------*/
-    .f_content{
-        flex-wrap: wrap ;
-        padding: 20px 40px ;
-    }
-    .f_quarter{
-        min-width: 100% ;
-        border-right: none ;
-        padding: 20px 0 ;
-        position: relative ;
-    }
-    .f_quarter::before{
-        content: "" ;
-        border-bottom: 1px solid #FFF ;
-        width: 40% ;
-        height: 100% ;
-        position: absolute ;
-        margin: 0 auto ;
-    }
-    .f_quarter.border_none::before{
-        content: "" ;
-        border-bottom: 1px solid transparent ;
-        width: 50% ;
-        height: 100% ;
-        position: absolute ;
-        margin: 0 auto ;
-    }
-    .f_quarter p{
-        text-align: center ;
-    }
-    .f_quarter a.aicon{
-        width: 36px ;
-        margin: 0 ;
-        text-align: center ;
-        margin: 15px ;
-    }
-    .foot{
-        padding: 12px 0 ;
-        letter-spacing: 2px ;
-    }
-    /*Nav----------------------------------------------------------------------*/
-    nav{
-        width: 100% ;
-    }
-    nav.navhide{
-        right: -100% ;
-    }
     /*Container-------------------------------------------------------------------*/
     /*Banner*/
     .banner img{
         width: 450% ;
     }
     .banner .bn{
-        height: 50% ;
+        height: 60% ;
         margin-top: 5% ;
     }
     .banner .bn h2{
@@ -115,6 +50,7 @@
         width: 50% ;
         border-radius: 20px 20px 0 0 ;
         position: relative ;
+        z-index: 3 ;
     }
     .select .um.sun a{
         position: relative ;
@@ -131,17 +67,34 @@
         width: 34% ;
         margin: 8px 5px ;
     }
-    .select .um.act a{
-        padding: 10px ;
-        top: -4px ;
-    }
     .select .um.act .check{
         display: flex ;
     }
     .radio{
         margin-top: 50% ;
-        border-top: 2px solid #1F5572 ;
-        padding-top: 20px ;
+        border-top: none ;
+        padding-top: 10px ;
+    }
+    .radio p{
+        color: #FFF ;
+        background-color: #1F5572 ;
+        margin-bottom: 0 ;
+        padding: 8px ;
+        display: flex ;
+        justify-content: space-between ;
+        cursor: pointer ;
+    }
+    .radio p i{
+        display: inline-block ;
+    }
+    .radio .radio_box{
+        max-height: 0 ;
+        overflow: hidden ;
+        transition: 0.5s ;
+        padding-left: 8px ;
+    }
+    .radio.show .radio_box{
+        max-height: 90px ;
     }
     /*List*/
     .list{
@@ -149,5 +102,56 @@
     }
     .list .card{
         width: 100% ;
+        min-width: unset ;
+    }
+    .list .card.has{
+        background: none ;
+    }
+    .card .content{
+        position: relative ;
+        top: 0;
+        left: 0 ;
+        background-color: #808080cb ;
+        height: 51px ;
+        margin-top: -51px ;
+        overflow: hidden ;
+    }
+    .card .content::before{
+        width: 72%;
+        height: 300%;
+        top: 0;
+        left: 0;
+        content: '';
+        background-color: #161414;
+        opacity: 0.5 ;
+        position: absolute;
+        transform: rotate(25deg) translateY(-63%) translateX(64%);
+    }
+    .card p{
+        font-size: 16px ;
+        font-weight: normal ;
+        display: inline-block ;
+        position: absolute ;
+    }
+    .card p.name{
+        font-size: 16px ;
+        left: 10% ;
+    }
+    .card p.price{
+        right: 10% ;
+    }
+    .card.has:hover::before{
+        transform: rotate(16deg) translateY(-16%) translateX(110%);
+    }
+    .card.has:hover img{
+        opacity: 1 ;
+    }
+    .card.has:hover .content{
+        left: 0 ;
+    }
+    /*toTop*/
+    .toTop{
+        top: -15px ;
+        margin-left: 0 ;
     }
 }
