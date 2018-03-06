@@ -654,6 +654,10 @@
         width: 75%;
         max-width: 75%;
     }
+    .payNotive_a {
+        width: 80%;
+        max-width: 80%;
+    }
     /*choose container*/
     .choose-container_a {
         flex-wrap: wrap;
@@ -667,9 +671,9 @@
         padding-top:40px;
     }
     /*--table2--*/
-    .table2_a {
+    /* .table2_a {
         margin-top: 20%;
-    }
+    } */
     /*--button--*/
     .btn_a {
         display: block;
@@ -1038,7 +1042,6 @@
     $( ".payWay_a" ).change(function() {
     console.log($(this).val());
     payWayVal=$(this).val();
-    shipWayVal=$(".shipWayVal option").atrr("data-a");
     if(payWayVal==1){
         $(".seven11_a").addClass('hide');
         $(".atm_a").removeClass('hide');
