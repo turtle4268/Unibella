@@ -99,6 +99,7 @@
     /*List*/
     .list{
         width: 100% ;
+        margin-top: 20px ;
     }
     .list .card{
         width: 100% ;
