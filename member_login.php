@@ -387,7 +387,6 @@
                             </form>
                         </div>
                     </div>
-                    <!-- <h1>1</h1> -->
                     <div class="back_r back">BACK</div>
                     <div class="h_register_y"></div>
                     </div>
@@ -476,6 +475,7 @@
             $("html,body").animate({
                 scrollTop: 0
             }, 1);
+            $(".full, .half, .half_unanimate_y").addClass("half_sun_hide_y");
             // alert($.browser.mobile);
             $(this).closest(".half").removeClass("halfTofull").siblings().removeClass("halfTonull");
             e.stopPropagation();    //不讓父元素動作(阻止事件冒泡)
