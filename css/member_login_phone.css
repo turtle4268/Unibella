@@ -3,7 +3,6 @@
     *{
         letter-spacing: 2px ;
     }
-    
     /*Container-------------------------------------------------------------------*/
     /*login_y--------------------------------------------------------------*/
     .loginBox_y{
@@ -98,17 +97,13 @@
         text-align: center;
         letter-spacing: 3px;
         margin:0 auto;
-        padding: 10vh 0;
-        /* flex: 2; */           
+        padding: 10vh 0;          
     }
     .f_registerTitle_y{
         font-size: 18px;
         color: #f8cf4e;
         margin-bottom: 1em;
     }
-    .f_register_y{
-        
-    }  
     .f_register_y p{
         color:#f8cf4e;
     }    
@@ -123,7 +118,6 @@
         font-size: 16px;
         width: 8%;
         text-align: left;
-        
     }
     .registerInput_y{
         background-color:transparent;
@@ -138,7 +132,6 @@
         font-size: 16px;
         width: 13%;
         text-align: left;
-        
     }
     .registerInput1111_y{
         background-color:transparent;
@@ -162,7 +155,6 @@
     .registerLabel2_y{
         color: #f8cf4e;
         font-size: 16px;
-        /* flex: 0.5; */
         width: 16%;
         text-align: left;
     }
@@ -171,15 +163,12 @@
         color: #f8cf4e;
         border: none;
         border-bottom: 1px solid #f8cf4e;
-        /* padding-right: 10%; */
-        /* flex: 2;     */
         width:100%;
         height: 30px;     
     }
     .registerLabel2222_y{
         color: #f8cf4e;
         font-size: 16px;
-        /* flex: 0.5; */
         width: 27%;
         text-align: left;
     }
@@ -188,8 +177,6 @@
         color: #f8cf4e;
         border: none;
         border-bottom: 1px solid #f8cf4e;
-        /* padding-right: 10%; */
-        /* flex: 2;     */
         width:100%;
         height: 30px;     
     }
@@ -252,9 +239,10 @@
         position: absolute;
         transition: 1s ;
     }
-    /* .half_sun_hide_y{
+    .half_sun_hide_y{
          height: 100vh ;
-    } */
+         overflow: hidden ;
+    }
     .halfTofull{ 
         width:100%;
     }
