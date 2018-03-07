@@ -1,41 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Unibella</title>
+<?php include __DIR__.'/module_head.php' ?>
     <style>
-         /*
-        blue:#1F5572
-        yellow:#F8CF4E
-        black: #666
-        logo-font:Nyala
-    */
-        *{
-            margin: 0 ;
-            padding: 0 ;
-            font-family: "微軟正黑體" ;
-        }
-        /* .clearfix:after{
-            content: " "; 
-            display: block; 
-            height: 0; 
-            clear: right; 
-            visibility: hidden;
-        }
-        .clear{
-            clear: both ;
-        } */
         section{
-            width: 100vw ;
-            max-width: 100% ;
-            height: 100vh ;
             text-align: center ;
         }
-        section h1{
-            font-size: 72px ;
-        }
+        /**/
         .full{
             width: 100vw ;
             height: 100vh ;
@@ -96,103 +64,6 @@
             transform-origin: left top ;
             cursor: pointer ;
             right: -15%;
-        }
-        /*Header--------------------------------------------------------*/
-        header{
-            position: fixed ;
-            z-index: 5;
-            width: 100% ;
-            display: flex ;
-            justify-content: space-between ;
-            color: #fff ; 
-            padding: 0 40px ;
-            padding-top: 28px ;
-            box-sizing: border-box ;
-            transition: 0.5s ;
-            filter: drop-shadow(0 0 1px #0000004d) ;
-        }
-        header h1{
-            font-family: "Nyala" ;
-            font-size: 36px ;
-            position: relative ;
-            left: 30px ;
-        }
-         .h_ul li{
-            display: inline-block ;
-            padding: 0 15px ;
-        }
-        .h_ul li a{
-            display: block ;
-            width: 25px ;
-            height: 25px ;
-            cursor: pointer ;
-            background-color: #fff ;
-            -webkit-mask-repeat: no-repeat ;
-            -webkit-mask-position: center ;
-            transition: 0.5s ;
-        }
-        .member{
-            -webkit-mask-image: url(images/icon_MEMBER.svg) ;
-        }
-        .cart{
-            -webkit-mask-image: url(images/icon_CART.svg) ;
-        }
-        .hamburger{
-            -webkit-mask-image: url(images/icon_MENU.svg) ;
-        }
-         /*Black*/
-        header.black{
-            color: #666 ;
-            background-color: hsla(0, 0%, 100%, 0.6) ;
-        }
-        header.black .h_ul li a{
-            background-color: #666 ;
-        }
-        /*Nav--------------------------------------------------------------*/
-        nav{
-            position: fixed ;
-            z-index: 10 ;
-            display: flex ;
-            width: 20% ;
-            height: 100vh ;
-            top: 0 ;
-            right: 0 ;
-            text-align: center ;
-            background-color: #ffffffcc ;
-            transition: 1s ;
-        }
-        nav.navhide{
-            right: -20% ;
-        }
-        nav .close{
-            width: 25px ;
-            height: 25px ;
-            position: absolute ;
-            top: 28px ;
-            right: 40px ;
-            cursor: pointer ;
-            background: url(images/X.svg) center center no-repeat ;
-        }
-        .n_ul{
-            width: 100% ;
-            margin: 0 auto ;
-            align-self: center ;
-        }
-        .n_ul li{
-            display: flex ;
-            align-content: center ;
-            margin: 4px 0 ; 
-        }
-        .n_ul li a{
-            display: block ;
-            width: 100% ;
-            padding: 12px ;
-            color: #666 ;
-            font-size: 18px ;
-            transition: 0.4s ;
-        }
-        .n_ul li a:hover{
-            background-color: #CCC;
         }
         /*login_y--------------------------------------------------------------*/
         .loginBox_y{
@@ -438,36 +309,11 @@
             font-size: 12px;
         }
     </style>
-    <link rel="stylesheet" href="css/member_login_phone.css">
-</head>
-<body>
-<header>
-    <h1>Unibella</h1>
-    <ul class="h_ul">
-        <ul class="h_ul">
-            <li><a class="member"></a></li>
-            <li><a class="cart"></a></li>
-            <li><a class="hamburger"></a></li>
-        </ul>
-    </ul>
-</header>
-<nav class="navhide">
-    <div class="close"></div>
-    <ul class="n_ul">
-        <li><a href="">品牌介紹</a></li>
-        <li><a href="">專利技術</a></li>
-        <li><a href="">產品</a></li>
-        <li><a href="">最新消息</a></li>
-        <li><a href="">顧客服務</a></li>
-        <li><a href="">會員中心</a></li>
-        <li><a href="">聯絡我們</a></li>
-        <li><a href="">相關連結</a></li>
-        <li><a href="">Q&amp;A</a></li>
-    </ul>
-</nav>
-
-    <div id="container">
-        
+    <style>
+        @import url("css/member_login_phone.css");
+    </style>
+    <?php include __DIR__.'/module_nav.php' ?>
+    <div id="container">   
         <section>
             <div class="half">
                 <div class="rain full">
@@ -479,7 +325,7 @@
                             <p>系統將自動將您升級為會員</p>
                             <button type="submit" class="h_registerBtn_y">註冊</button>
                         </div>
-                                        
+               
                     <div class="full_register_y">
                         <div class="f_register_y">
                             <h2 class="f_registerTitle_y">會員註冊</h2>
@@ -579,16 +425,7 @@
                 </div>
             </div>
         </section>
-        
-        <!-- <section class="clear"></section> -->
-
     </div>
-    <footer></footer>
-
-    <script src="http://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
-    <script src="lib/detectmobilebrowser.js"></script>
     <script>
         $(".full_register_y").hide();
         $(".h_registerBtn_y").click(function(){
@@ -618,16 +455,8 @@
             $(this).closest(".half").removeClass("halfTofull").siblings().removeClass("halfTonull");
             e.stopPropagation();    //不讓父元素動作(阻止事件冒泡)    
         });
-        $(".hamburger").click(function () {
-                $("nav").removeClass("navhide");
-            });
-            $(".close").click(function () {
-                $("nav").addClass("navhide");
-            });
         /*手機375*/
-        $(".full, .half, .half_unanimate_y").addClass("half_sun_hide_y");
         $(".registerPBtn_y").click(function () {
-            $(".full, .half, .half_unanimate_y").removeClass("half_sun_hide_y");
             $(".half_unanimate_y").addClass("halfTonull")
             $(".h_register_y").animate(
                 { opacity: 0 }
@@ -645,12 +474,26 @@
             $("html,body").animate({
                 scrollTop: 0
             }, 1);
-            $(".full, .half, .half_unanimate_y").addClass("half_sun_hide_y");
             // alert($.browser.mobile);
             $(this).closest(".half").removeClass("halfTofull").siblings().removeClass("halfTonull");
             e.stopPropagation();    //不讓父元素動作(阻止事件冒泡)
         });
-        
+        /*hideNav*/
+        var scrolllast;
+        $(window).scroll(function(){
+            var scrollNow=$(this).scrollTop();
+            // console.log(scrollNow);
+            if (scrollNow < 100) {
+                $("header").removeClass("hide");
+            } else {
+                if (scrollNow > scrolllast) {
+                    $("header").addClass("hide");
+                } else {
+                    $("header").removeClass("hide");
+                }
+            }
+            scrolllast=scrollNow;
+        });
     </script>
 </body>
 </html>

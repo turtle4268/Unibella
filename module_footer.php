@@ -1,18 +1,18 @@
     <footer>
         <div class="f_content">
-            <div class="f_quarter"><h2><a href=""></a></h2></div>
+            <div class="f_quarter"><h2><a href="home.php"></a></h2></div>
             <div class="f_quarter between">
                 <ul>
-                    <li><a href="">品牌介紹</a></li>
+                    <li><a href="introduce.php">品牌介紹</a></li>
                     <li><a href="product_list.php">產品</a></li>
-                    <li><a href="">最新消息</a></li>
+                    <li><a href="new.php">最新消息</a></li>
                     <li><a href="">顧客服務</a></li>
                 </ul>
                 <ul>
-                    <li><a href="">會員中心</a></li>
-                    <li><a href="">聯絡我們</a></li>
-                    <li><a href="">相關連結</a></li>
-                    <li><a href="">Q&amp;A</a></li>
+                    <li><a href="member_center.php">會員中心</a></li>
+                    <li><a href="contact.php">聯絡我們</a></li>
+                    <li><a href="store.php">門市資訊</a></li>
+                    <li><a href="qa.php">Q&amp;A</a></li>
                 </ul>
             </div>
             <div class="f_quarter">

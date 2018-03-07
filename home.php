@@ -20,14 +20,6 @@
         header a{
             transition: 0.5s ;
         }
-        /*Black*/
-        header.black{
-            color: #666 ;
-            background-color: #ffffffcc ;
-        }
-        header.black a{
-            background-color: #666 ;
-        }
         /*Left aside--------------------------------------------------------------------*/
         .l_aside{
             position: fixed ;
