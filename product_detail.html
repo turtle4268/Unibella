@@ -199,8 +199,8 @@
         .n_ul li a:hover{
             background-color: #CCC;
         }
-        /*Container-------------------------------------------------------------------*/
-        /*section1---productMain_y---------------------------------------------------------------*/
+    /*Container-------------------------------------------------------------------*/
+    /*section1---productMain_y---------------------------------------------------------------*/
         .productMain_y{          
             display: flex;
         	justify-content:center;
@@ -325,7 +325,52 @@
         .productPrice_y{
             /* flex: ; */
             width: 33.3%;
-           padding: 0 5%;
+            padding: 0 5%;
+            background:#d7d7d7;
+        }
+        .productPrice_y p{
+            font-size: 30px;
+            font-weight: bold;
+            color:#1F5572;
+        }
+        /*Q-button---------*/
+        button {
+            /* margin:25px 10px; */
+            border-radius: 28px;
+            /* padding:5px 50px; */
+            border: 2px solid #302f3a;
+            background: transparent;
+            color:  #302f3a;
+            font-size: 1rem;
+            position: relative;
+        }
+        button:hover {
+            color: #fff;
+            transition: color 200ms linear 200ms;
+            -webkit-transition: color 200ms linear 200ms;
+            z-index: 3;
+        }
+        .cartBtn_y::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: -.6rem;
+            top: -.7rem;
+            z-index: -1;
+            background-color: #5b8095;
+            border-radius: 28px;
+            transition: all 200ms ease-out;
+        }
+        button:hover::before {
+            top: 0;
+            left: 0;
+        }
+        button:active {
+            transform: translateY(3px);
+        }
+        button:focus {
+            outline: none;
         }
         /*section2---productTag_y---------------------------------------------------------------*/
         .productTag_y{
@@ -593,7 +638,8 @@
                         <option value="">5</option>            
                     </select>
                     <br>
-                    <button class="">
+                    <button class="buyBtn_y">立即購買</button>
+                    <button class="cartBtn_y">
                         <img src="" alt="">加入購物車
                     </button>
                 </div>
@@ -622,7 +668,7 @@
                 <div class="productPrice_y">
                     <p class="">NT. 2180</p>
                     <br>
-                    <button class="">
+                    <button class="addBtn_y">
                         <img src="" alt="">加入收藏
                     </button>
                 </div>
@@ -752,18 +798,6 @@
             });
             $(".close").click(function () {
                 $("nav").addClass("navhide");
-            });
-            /*Top*/
-            $(".half").click(function () {
-                $(this).addClass("halfTofull").siblings().addClass("halfTonull");
-                $(".half h2").addClass("fadeOut");
-                $(this).find(".intro").removeClass("fadeOut");
-            });
-            $(".back").click(function (e) {
-                $(this).closest(".half").removeClass("halfTofull").siblings().removeClass("halfTonull");
-                $(".half h2").removeClass("fadeOut");
-                $(this).closest(".half").find(".intro").addClass("fadeOut");
-                e.stopPropagation();    //不讓父元素動作(阻止事件冒泡)
             });
             /*to top*/
             $(".toTop").click(function () {
