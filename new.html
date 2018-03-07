@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="fontawesome/css/fontawesome-all.css" rel="stylesheet">
     <title>New</title>
     <style>
     *{
@@ -18,11 +19,11 @@
 /*Header--------------------------------------------------------*/
     header{
         position: fixed ;
-        z-index: 5 ;
+        z-index: 5;
         width: 100% ;
         display: flex ;
         justify-content: space-between ;
-        color: #FFF ;
+        color: #666666 ; /*y改*/
         padding: 0 40px ;
         padding-top: 28px ;
         box-sizing: border-box ;
@@ -42,7 +43,7 @@
         width: 25px ;
         height: 25px ;
         cursor: pointer ;
-        background-color: #FFF ;
+        background-color: #666 ; /*y改*/
         -webkit-mask-repeat: no-repeat ;
         -webkit-mask-position: center ;
     }
@@ -208,7 +209,6 @@
     .timeline ul li {
         list-style-type: none;
         position: relative;
-        /* top:12px; */
         width: 6px;
         margin: 0 auto;
         padding-top: 45px;
@@ -224,6 +224,7 @@
         height: 22px;
         border-radius: 50%;
         background: inherit;
+        cursor: pointer;
     }
     .blue_a {
         background: #1f5572;
@@ -302,6 +303,7 @@
         position: absolute;
         top:17%;
         left: 30%;
+        height: 100%;
     }
     .newLink_a a {
         display: block;
@@ -310,6 +312,7 @@
         left: 40px;
         width: 400px;
         color: #fff;
+        cursor: pointer;
     }
     .scale {
         transform: scale(1.5) !important;
@@ -337,6 +340,7 @@
         align-items: center ;
         border-right: 1px solid #FFF ;
         flex: 1 ;
+        font-size: 16px ;
     }
     .f_quarter h2{
         font-family: "Nyala" ;
@@ -348,11 +352,55 @@
     .f_quarter.border_none{
         border: none ;
         flex: 1.5 ;
+        flex-wrap: wrap ;
+    }
+    .f_quarter.border_none .mail{
+        width: 265px ;
+        height: 30px ;
+        border: 2px solid #FFF ;
+        border-radius: 28px ;
+        margin: 16px 0 ;
+        display: flex ;
+        justify-content: center ;
+        align-items: center ;
+    }
+    .mail .einput{
+        width: 210px ;
+        height: 24px ;
+        margin-left: 5px ;
+        font-size: 16px ;
+        letter-spacing: normal ;
+        border: none ;
+        background: #CCC ;
+    }
+    .mail .einput:focus{
+        color: #FFF ;
+        outline: none ;
+    }
+    .mail .eput{
+        display: inline-block ;
+        padding: 0 5px ;
+    }
+    .mail .eput i{
+        font-size: 26px ;
     }
     .f_quarter a{
         display: block ;
         color: #FFF ;
         padding: 9px 0px ;
+    }
+    .f_quarter a.aicon{
+        display: inline-block ;
+        margin: 20px ;
+    }
+    .f_quarter a.aicon i{
+        font-size: 28px ;
+    }
+    .f_quarter a.fb{
+        margin-left: 0 ;
+    }
+    .f_quarter a.fb i{
+        font-size: 24px ;
     }
     .foot{
         text-align: center ;
@@ -364,32 +412,35 @@
 /*Nav--------------------------------------------------------------*/
     nav{
         position: fixed ;
+        z-index: 10 ;
         display: flex ;
         width: 20% ;
         height: 100vh ;
-        top:0;
+        top: 0 ;
         right: 0 ;
         text-align: center ;
         background-color: #ffffffcc ;
-        transition: 1s ; 
-        
+        transition: 1s ;
     }
     nav.navhide{
         right: -20% ;
         
     }
     nav .close{
-        width: 50px ;
-        height: 50px ;
-        background-color: #333 ;
+        width: 30px ;
+        height: 30px ;
         position: absolute ;
         top: 40px ;
         right: 40px ;
+        cursor: pointer ;
+        background: url(images/X.svg) center center no-repeat ;
+        
     }
     .n_ul{
         width: 100% ;
         margin: 0 auto ;
         align-self: center ;
+        
     }
     .n_ul li{
         display: flex ;
@@ -432,6 +483,7 @@
         left:40%;
         top: 20%;
         letter-spacing: 3px;
+        text-align: initial;
     }
     .headerBg_a img {
         width: 300%;
@@ -443,24 +495,29 @@
     .sec1_a {
         padding-top:15px;
     }
+    .active_a {
+        padding-top: 25px;
+    }
     .active_a ul li.squarePhone_a {
-        visibility: hidden;
+        display: none;
         width: 0;
         height: 0;
+    }
+    .active_a ul li {
+        width: 250px;
+        height: 250px;
     }
     .active_a ul .square_a:before {
         width: 140%;
         height:113%;
-        visibility: hidden;
+        display: none;
     }
     .active_a ul .square_a img {
         opacity: 1;
         filter:brightness(.5);
     }
     /*--sec2New--*/
-    .active_a {
-        padding-top: 25px;
-    }
+    
     .new_a {
         display: block;
     }
@@ -479,10 +536,10 @@
     .timeline ul li {
         width:100%;
         background: none;
-        padding-top:30px;
+        top: 100px;
     }
     .timeline ul li::after {
-        visibility: hidden;
+        display: none;
     }
     .newLink_a {
         width: 100%;
@@ -491,9 +548,8 @@
     }
     .newLink_a li a {
         display: block;
-        width:90%;
-        top:90px;
-        left: 8%;
+        width:92%;
+        left: 5%;
     }
     .newContent_a figure.newspaper1_a {
         top: 46%;
@@ -616,7 +672,7 @@
     <div class="container_a">
         <div class="headerBg_a">
             <img src="images/banner_NEWS.jpg" alt="">
-            <p>Be Your Unique Unbrella</p>
+            <p>Be Your Unique Umbrella</p>
         </div>
         <section class="sec1_a">
             <h1>最新活動</h1>
@@ -624,22 +680,24 @@
                 <ul>
                     <li class="squarePhone_a"><img src="images/news_square1.jpg" alt=""></li>
                     <li class="square_a blue" >
+                            <a href="#">
                             <img class="images" src="images/news_squre2_light.jpg" alt="">
                             <p class="p2">梅雨季<br>全館雨傘88折</p>
-                            <a href=""></a>   
+                            </a>   
                     </li>
                     <li class="squarePhone_a"><img src="images/news_square3.jpg" alt=""></li>
                     <li class="square_a orange">
-                        
+                            <a href="#">
                             <img class="images" src="images/news_squre4_light.jpg" alt="">
                             <p class="p4">自動傘新品上架</p>
-                            <a href=""></a>
+                            </a>
                     </li>
                     <li class="squarePhone_a"><img src="images/news_square5.jpg" alt=""></li>
                     <li class="square_a orange">
+                            <a href="#">
                             <img class="images" src="images/news_squre6_light.jpg" alt="">
                             <p class="p6">陽傘新色上架</p>
-                            <a href=""></a>
+                            </a>
                     </li>
                 </ul>
             </div>
@@ -688,11 +746,27 @@
                     <li><a href="">Q&amp;A</a></li>
                 </ul>
             </div>
-            <div class="f_quarter"><p>社群</p></div>
-            <div class="f_quarter border_none"><p>取得最新消息</p></div>
+            <div class="f_quarter">
+                <div>
+                    <p>社群</p>
+                    <a href="" class="aicon fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="" class="aicon"><i class="fab fa-instagram"></i></a>
+                    <a href="" class="aicon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="f_quarter border_none">
+                <div>
+                    <p>取得最新消息</p>
+                    <div class="mail">
+                        <input type="text" name="" class="einput">
+                        <a href="" class="eput"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+            </div>
         </div>
         <div class="foot">COPYRIGHT &COPY; Unibella ALL RIGHTS RESERVED</div>
-    </footer> 
+    </footer>
     <script src="http://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
