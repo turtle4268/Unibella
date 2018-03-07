@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="fontawesome/css/fontawesome-all.css" rel="stylesheet">
     <title>QA</title>
     <style>
     *{
@@ -22,7 +23,7 @@
         width: 100% ;
         display: flex ;
         justify-content: space-between ;
-        color: #FFF ;
+        color: #666 ;
         padding: 0 40px ;
         padding-top: 28px ;
         box-sizing: border-box ;
@@ -42,7 +43,7 @@
         width: 25px ;
         height: 25px ;
         cursor: pointer ;
-        background-color: #FFF ;
+        background-color: #666 ;
         -webkit-mask-repeat: no-repeat ;
         -webkit-mask-position: center ;
     }
@@ -115,23 +116,22 @@
         padding: 40px;
         display: block;
     }
-    .page_a {
-        padding-top: 50px;
-        padding-bottom: 100px;
-        width: 100%;
-        text-align: center;
+    /*Pagelist*/
+    .pagelist{
+        min-width: 100% ;
+        display: flex ;
+        justify-content: center ;
+        margin: 50px 0 50px;
     }
-    .page_a ul {
-        display: flex;
-        justify-content: center;
+    .pagelist .pageitem a{
+        display: block ;
+        margin: 8px ;
+        border-bottom: 1px solid transparent ;
+        text-align: center ;
+        cursor: pointer;
     }
-    .page_a ul li {
-        border: 1px solid #000;
-        padding: 10px;
-        border-right: none;
-    }
-    .page_a ul li.page-itemN_a {
-        border-right: 1px solid #000;
+    .pagelist .pageitem a.act{
+        border-bottom: 1px solid #666 ;
     }
 
 
@@ -151,6 +151,7 @@
         align-items: center ;
         border-right: 1px solid #FFF ;
         flex: 1 ;
+        font-size: 16px ;
     }
     .f_quarter h2{
         font-family: "Nyala" ;
@@ -162,11 +163,55 @@
     .f_quarter.border_none{
         border: none ;
         flex: 1.5 ;
+        flex-wrap: wrap ;
+    }
+    .f_quarter.border_none .mail{
+        width: 265px ;
+        height: 30px ;
+        border: 2px solid #FFF ;
+        border-radius: 28px ;
+        margin: 16px 0 ;
+        display: flex ;
+        justify-content: center ;
+        align-items: center ;
+    }
+    .mail .einput{
+        width: 210px ;
+        height: 24px ;
+        margin-left: 5px ;
+        font-size: 16px ;
+        letter-spacing: normal ;
+        border: none ;
+        background: #CCC ;
+    }
+    .mail .einput:focus{
+        color: #FFF ;
+        outline: none ;
+    }
+    .mail .eput{
+        display: inline-block ;
+        padding: 0 5px ;
+    }
+    .mail .eput i{
+        font-size: 26px ;
     }
     .f_quarter a{
         display: block ;
         color: #FFF ;
         padding: 9px 0px ;
+    }
+    .f_quarter a.aicon{
+        display: inline-block ;
+        margin: 20px ;
+    }
+    .f_quarter a.aicon i{
+        font-size: 28px ;
+    }
+    .f_quarter a.fb{
+        margin-left: 0 ;
+    }
+    .f_quarter a.fb i{
+        font-size: 24px ;
     }
     .foot{
         text-align: center ;
@@ -200,6 +245,7 @@
         right: 40px ;
         cursor: pointer ;
         background: url(images/X.svg) center center no-repeat ;
+        
     }
     .n_ul{
         width: 100% ;
@@ -244,10 +290,14 @@
     /*--banner--*/
     .headerBg_a p {
         width: 58%;
-        font-size: 18px;
-        right:1px;
-        top: 7%;
+        font-size: 20px;
+        left:40%;
+        top: 20%;
         letter-spacing: 3px;
+        text-align: initial;
+    }
+    .headerBg_a img {
+        width: 300%;
     }
     /*--sec1--*/
     .sec1_a {
@@ -256,7 +306,7 @@
     .qaTitle_a {
         padding-top:20px;
     }
-     /*--Nav--*/
+    /*--Nav--*/
      nav{
         width: 100% ;
     }
@@ -372,7 +422,7 @@
                     <br>
                     <br>螢幕產生之色差。
                     <br>
-                    <br> 退換貨注意事項
+                    <br>退換貨注意事項
                     <br>
                     <br>退換貨的商品必須保留完整包裝 ( 包含商品本體、附件、內外包裝等 )，並且為全新狀態。
                     <br>
@@ -382,15 +432,13 @@
                     <span class="space_a"></span>
                 </p>
             </div>
-            <div class="page_a">
-                <ul class="pagination_a">
-                    <li class="page-item_a"><a class="page-link_a" href="#">Previous</a></li>
-                    <li class="page-item_a"><a class="page-link_a" href="#">1</a></li>
-                    <li class="page-item_a"><a class="page-link_a" href="#">2</a></li>
-                    <li class="page-item_a"><a class="page-link_a" href="#">3</a></li>
-                    <li class="page-itemN_a"><a class="page-link_a" href="#">Next</a></li>
-                </ul>
-            </div>
+            <ul class="pagelist">
+                <li class="pageitem"><a><i class="fas fa-angle-double-left"></i></a></li>
+                <li class="pageitem"><a class="act">1</a></li>
+                <li class="pageitem"><a>2</a></li>
+                <li class="pageitem"><a>3</a></li>
+                <li class="pageitem"><a><i class="fas fa-angle-double-right"></i></a></li>
+            </ul>
         </section>
     </div>
     <footer>
@@ -410,8 +458,23 @@
                     <li><a href="">Q&amp;A</a></li>
                 </ul>
             </div>
-            <div class="f_quarter"><p>社群</p></div>
-            <div class="f_quarter border_none"><p>取得最新消息</p></div>
+            <div class="f_quarter">
+                <div>
+                    <p>社群</p>
+                    <a href="" class="aicon fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="" class="aicon"><i class="fab fa-instagram"></i></a>
+                    <a href="" class="aicon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="f_quarter border_none">
+                <div>
+                    <p>取得最新消息</p>
+                    <div class="mail">
+                        <input type="text" name="" class="einput">
+                        <a href="" class="eput"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="foot">COPYRIGHT &COPY; Unibella ALL RIGHTS RESERVED</div>
     </footer>

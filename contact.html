@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="fontawesome/css/fontawesome-all.css" rel="stylesheet">
     <title>contactt</title>
     <style>
     *{
@@ -25,9 +26,9 @@
         width: 100% ;
         display: flex ;
         justify-content: space-between ;
-        color: #6f7d80 ;
+        color: #666 ;
         padding: 0 40px ;
-        padding-top: 50px ;
+        padding-top: 28px ;
         box-sizing: border-box ;
     }
     header h1{
@@ -42,21 +43,26 @@
     }
     .h_ul li a{
         display: block ;
-        width: 35px ;
-        height: 35px ;
+        width: 25px ;
+        height: 25px ;
         cursor: pointer ;
-        background-color: #6f7d80 ;
+        background-color: #666 ;
         -webkit-mask-repeat: no-repeat ;
         -webkit-mask-position: center ;
     }
     .member{
-        -webkit-mask-image: url(images/icon_MEMBER_gray.svg) ;
+        -webkit-mask-image: url(images/icon_MEMBER.svg) ;
     }
     .cart{
-        -webkit-mask-image: url(images/icon_CART_gray.svg) ;
+        -webkit-mask-image: url(images/icon_CART.svg) ;
     }
     .hamburger{
-        -webkit-mask-image: url(images/icon_MENU_gray.svg) ;
+        -webkit-mask-image: url(images/icon_MENU.svg) ;
+    }
+    
+/*container-------------------------------------------------------------*/
+    #container {
+        width: 100%;  
     }
     .headerBg_a {
         width: 100%;
@@ -80,16 +86,10 @@
         position: absolute;
         text-align: center;
     }
-    .headerBg_a p:hover{
-        color: #3b6ae9;
-    }
+
     .hideHeader {
         opacity: 0;
     }
-/*container-------------------------------------------------------------*/
-    #container {
-        width: 100%;  
-    }       
 /*Sec1-------------------------------------------------------------*/
     .sec1_a {
         width: 100%;  
@@ -128,21 +128,23 @@
         color:#666666;
         transition: all .5s linear;
     }
-    .usCotent_a p iframe {
+    .usCotent_a iframe {
         height: 180px;
+        margin: 0px 12%;
+        width: 75%;
     }
     .usForm_a {
         border:3px solid #1f5572;
         width: 100%;
-        height: 100%;
+        /* height: 100%; */
         position: absolute;
-        top:28%;
+        top:25%;
         left: -5%;
         box-shadow: 1px 1px 4px rgb(197, 197, 197);
     }
     .usFormCon_a {
-        width: 73%;
-        margin:0 auto;
+        width: 75%;
+        margin: 0 16%;
         padding-top: 70px;
         color:#666666;
     }
@@ -153,21 +155,34 @@
     }
     .usFormCon_a select {
         width: 67%;
-        height: 30px;
+        /* height: 30px; */
         color:#666666;
         border:none;
         border-bottom: 1px solid #666;
+        font-size: 16px;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
     .usFormCon_a textarea {
-        margin-left: 23%;
-        width: 67%;
+        width: 90%;
         color:#666666;
+        font-size: 16px;
+        margin-top: 20px;
     }
     .usFormCon_a input {
         width: 66%;
-        height: 30px;
+        /* height: 30px; */
         border:none;
         border-bottom: 1px solid #666;
+        font-size: 16px;
+        margin-top: 15px;
+    }
+    .usFormCon_a select:focus, .usFormCon_a input:focus {
+        outline:none;
+        border-bottom: 1px solid#302f3a;
+    }
+    .usFormCon_a textarea:focus {
+        outline:none;  
     }
     button {
         width: 25%;
@@ -177,9 +192,11 @@
         border: 2px solid #302f3a;
         color: #302f3a;
         position: relative;
+        border-radius: 28px;
     }
     button::before {
         content: '';
+        border-radius: 28px;
         position: absolute;
         width: 100%;
         height: 100%;
@@ -193,13 +210,22 @@
         top: 0;
         left: 0;
     }
+    button:hover {
+        color: #fff;
+        transition: color 200ms linear 200ms;
+        -webkit-transition: color 200ms linear 200ms;
+        z-index: 3;
+    }
+    button:focus {
+        outline: none;
+    }
     button:hover:active {
         transform: translateY(3px);
     }
     .usFormCon_a .btn {
         width: 100%;
         text-align: center;
-        padding-top: 20px;
+        padding: 25px 0;
     }
     
     .usCotent_a:hover p {
@@ -229,6 +255,7 @@
         align-items: center ;
         border-right: 1px solid #FFF ;
         flex: 1 ;
+        font-size: 16px ;
     }
     .f_quarter h2{
         font-family: "Nyala" ;
@@ -240,11 +267,55 @@
     .f_quarter.border_none{
         border: none ;
         flex: 1.5 ;
+        flex-wrap: wrap ;
+    }
+    .f_quarter.border_none .mail{
+        width: 265px ;
+        height: 30px ;
+        border: 2px solid #FFF ;
+        border-radius: 28px ;
+        margin: 16px 0 ;
+        display: flex ;
+        justify-content: center ;
+        align-items: center ;
+    }
+    .mail .einput{
+        width: 210px ;
+        height: 24px ;
+        margin-left: 5px ;
+        font-size: 16px ;
+        letter-spacing: normal ;
+        border: none ;
+        background: #CCC ;
+    }
+    .mail .einput:focus{
+        color: #FFF ;
+        outline: none ;
+    }
+    .mail .eput{
+        display: inline-block ;
+        padding: 0 5px ;
+    }
+    .mail .eput i{
+        font-size: 26px ;
     }
     .f_quarter a{
         display: block ;
         color: #FFF ;
         padding: 9px 0px ;
+    }
+    .f_quarter a.aicon{
+        display: inline-block ;
+        margin: 20px ;
+    }
+    .f_quarter a.aicon i{
+        font-size: 28px ;
+    }
+    .f_quarter a.fb{
+        margin-left: 0 ;
+    }
+    .f_quarter a.fb i{
+        font-size: 24px ;
     }
     .foot{
         text-align: center ;
@@ -278,13 +349,13 @@
         right: 40px ;
         cursor: pointer ;
         background: url(images/X.svg) center center no-repeat ;
+        
     }
 
     .n_ul{
         width: 100% ;
         margin: 0 auto ;
         align-self: center ;
-        padding: 50px ;
         
     }
     .n_ul li{
@@ -302,6 +373,141 @@
     }
     .n_ul li a:hover{
         background-color: #CCC;
+    }
+    @media screen and (max-width: 376px) {
+    /*--header--*/
+    *{
+        letter-spacing: 2px ;
+    }
+    header {
+        padding-right: 5px;
+        padding-left: 5px;
+        padding-top: 10px ;
+    }
+    header h1 {
+        left: 10px;
+        top:0;
+        font-size:26px;
+    }
+    .h_ul li {
+        padding: 0 10px;
+    }
+    /*--banner--*/
+    .headerBg_a p {
+        width: 60%;
+        font-size: 24px;
+        left:27%;
+        top: 20%;
+        letter-spacing: 3px;
+        text-align: initial;
+    }
+    .headerBg_a img {
+        width: 300%;
+    }
+    /*--sec1--*/
+    .sec1_a {
+        padding-top:0;
+        margin-bottom: 8px;
+    }
+    .contact_a {
+        flex-wrap: wrap;
+        height: auto;
+        padding-top: 0;
+    }
+    .usCotent_a {
+        width: 98%;
+        height: auto;
+        position: relative;
+        border: none;
+        box-shadow: none;
+    }
+    .usCotent_a p {
+        width: 80%;
+    }
+    .usCotent_a iframe {
+        margin: 0px 10%;
+        width: 80%;
+    }
+    .formP_a {
+        width:100%;
+        height: auto;
+        position: relative;
+    }
+    .usForm_a {
+        width: 98%;
+        position: relative;
+        top: 0;
+        left: 0;
+        border: none;
+        box-shadow:none;
+    }
+    .usFormCon_a input {
+        margin-top: 15px;
+    }
+    .usFormCon_a select {
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+    .usFormCon_a textarea {
+        margin-left: 0;
+        width: 96%;
+        margin-top: 20px;
+    }
+    .usFormCon_a {
+        padding-top: 80px;
+        width: 75%;
+        margin: 0 13%;
+    }
+    .usFormCon_a .btn {
+        padding: 25px 0;
+    }
+    /*--Nav--*/
+    nav{
+        width: 100% ;
+    }
+    nav.navhide{
+        right: -100% ;
+    }
+    /*footer*/
+    .f_content{
+        flex-wrap: wrap ;
+        padding: 20px 40px ;
+    }
+    .f_quarter{
+        min-width: 100% ;
+        border-right: none ;
+        padding: 20px 0 ;
+        position: relative ;
+    }
+    .f_quarter::before{
+        content: "" ;
+        border-bottom: 1px solid #FFF ;
+        width: 40% ;
+        height: 100% ;
+        position: absolute ;
+        margin: 0 auto ;
+    }
+    .f_quarter.border_none::before{
+        content: "" ;
+        border-bottom: 1px solid transparent ;
+        width: 50% ;
+        height: 100% ;
+        position: absolute ;
+        margin: 0 auto ;
+    }
+    .f_quarter p{
+        text-align: center ;
+    }
+    .f_quarter a.aicon{
+        width: 36px ;
+        margin: 0 ;
+        text-align: center ;
+        margin: 15px ;
+    }
+    .foot{
+        padding: 12px 0 ;
+        letter-spacing: 2px ;
+    }
     }
     </style>
 </head>
@@ -331,7 +537,7 @@
 <div id="container">
     <div class="headerBg_a">
         <img src="images/banner_CONNECT.jpg" alt="">
-        <p>Be Your Unique Unbrella</p>
+        <p>Be Your Unique Umbrella</p>
     </div>   
     <section class="sec1_a">
         <h1>聯絡我們</h1>
@@ -356,9 +562,9 @@
                 <br>門市地址:台北市
                 <br>
                 <br>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3614.7793272233334!2d121.54095541492293!3d25.041561894142443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z5b-g5a2d5b6p6IiI!5e0!3m2!1szh-TW!2stw!4v1519710831739" 
-                width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.2696960638596!2d121.53978071492276!3d25.024919944809607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aa29379b8db9%3A0xd64e16f1fa2db70b!2zMTA25Y-w5YyX5biC5aSn5a6J5Y2A5ZKM5bmz5p2x6Lev5LqM5q61MTA26Jmf!5e0!3m2!1szh-TW!2stw!4v1520403990040" 
+                width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
   
             <div class="formP_a">
@@ -372,10 +578,12 @@
                         <br>
                         <label for="">問題類型</label>
                         <select class="form-control form-control-lg">
-                                <option>Large select</option>
-                                <option>Large select</option>
-                                <option>Large select</option>
-                                <option>Large select</option>
+                                <option>請選擇</option>
+                                <option>關於訂購</option>
+                                <option>關於配送</option>
+                                <option>關於退換貨</option>
+                                <option>電子發票相關</option>
+                                <option>其它</option>
                         </select>
                         <br>
                         <br>
@@ -390,28 +598,44 @@
         </div>
     </section>
 </div>        
-    <footer>
-        <div class="f_content">
-            <div class="f_quarter"><h2>Unibella</h2></div>
-            <div class="f_quarter between">
-                <ul>
-                    <li><a href="">品牌介紹</a></li>
-                    <li><a href="">產品</a></li>
-                    <li><a href="">最新消息</a></li>
-                    <li><a href="">顧客服務</a></li>
-                </ul>
-                <ul>
-                    <li><a href="">會員中心</a></li>
-                    <li><a href="">聯絡我們</a></li>
-                    <li><a href="">相關連結</a></li>
-                    <li><a href="">Q&amp;A</a></li>
-                </ul>
-            </div>
-            <div class="f_quarter"><p>社群</p></div>
-            <div class="f_quarter border_none"><p>取得最新消息</p></div>
+<footer>
+    <div class="f_content">
+        <div class="f_quarter"><h2>Unibella</h2></div>
+        <div class="f_quarter between">
+            <ul>
+                <li><a href="">品牌介紹</a></li>
+                <li><a href="">產品</a></li>
+                <li><a href="">最新消息</a></li>
+                <li><a href="">顧客服務</a></li>
+            </ul>
+            <ul>
+                <li><a href="">會員中心</a></li>
+                <li><a href="">聯絡我們</a></li>
+                <li><a href="">相關連結</a></li>
+                <li><a href="">Q&amp;A</a></li>
+            </ul>
         </div>
-        <div class="foot">COPYRIGHT &COPY; Unibella ALL RIGHTS RESERVED</div>
-    </footer>   
+        <div class="f_quarter">
+            <div>
+                <p>社群</p>
+                <a href="" class="aicon fb"><i class="fab fa-facebook-f"></i></a>
+                <a href="" class="aicon"><i class="fab fa-instagram"></i></a>
+                <a href="" class="aicon"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="f_quarter border_none">
+            <div>
+                <p>取得最新消息</p>
+                <div class="mail">
+                    <input type="text" name="" class="einput">
+                    <a href="" class="eput"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="foot">COPYRIGHT &COPY; Unibella ALL RIGHTS RESERVED</div>
+</footer>
     <script src="http://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"></script>
