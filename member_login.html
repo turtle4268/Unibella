@@ -625,7 +625,9 @@
                 $("nav").addClass("navhide");
             });
         /*手機375*/
+        $(".full, .half, .half_unanimate_y").addClass("half_sun_hide_y");
         $(".registerPBtn_y").click(function () {
+            $(".full, .half, .half_unanimate_y").removeClass("half_sun_hide_y");
             $(".half_unanimate_y").addClass("halfTonull")
             $(".h_register_y").animate(
                 { opacity: 0 }
@@ -643,10 +645,12 @@
             $("html,body").animate({
                 scrollTop: 0
             }, 1);
+            $(".full, .half, .half_unanimate_y").addClass("half_sun_hide_y");
             // alert($.browser.mobile);
             $(this).closest(".half").removeClass("halfTofull").siblings().removeClass("halfTonull");
             e.stopPropagation();    //不讓父元素動作(阻止事件冒泡)
         });
+        
     </script>
 </body>
 </html>
