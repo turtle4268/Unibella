@@ -125,6 +125,9 @@
         width: 200px;
         height: 130px;
     }
+    .step_a span{
+        color: #666;
+    }
     .step-content_a {
         width: 30px;
         height: 30px;
@@ -210,6 +213,7 @@
         margin: 0 auto;
         margin-top: 20px;
         border-collapse: collapse;
+        color: #666;
     }
     table thead tr th {
         background:#666666;
@@ -249,10 +253,12 @@
     .table2_a tbody tr td p {
         width: 90%;
         margin: 10px auto;
+
     }
     .table3_a tbody tr td p {
         width: 90%;
         margin: 0 auto;
+       
     }
     /*----*/
     .payNotive_a {
@@ -273,6 +279,7 @@
     .seven11_a p, .atm_a p, .visa_a p {
         width: 99%;
         margin: 0 auto;
+        color: #666;
     }
     .title_a {
         width: 98%;
@@ -298,6 +305,7 @@
         justify-content: center;
         margin: 0 auto;
         overflow: hidden;
+        color: #666;
     }
     .choose_a {
         width: 120px;
@@ -558,11 +566,13 @@
     }
     /*--banner--*/
     .headerBg_a p {
-        width: 58%;
-        font-size: 20px;
-        left:40%;
-        top: 20%;
-        letter-spacing: 3px;
+        width: 70%;
+        font-size: 24px;
+        left: 10%;
+        top: 30%;
+        font-weight: 400;
+        text-align: inherit;
+        letter-spacing: 5px;
     }
     .headerBg_a img {
         width: 300%;
@@ -576,6 +586,7 @@
         width: 88px;
         height: auto;
     }
+    
     .desUp_a {
         padding-bottom: 4px;
     }
@@ -646,10 +657,6 @@
         padding:0;
         padding-top:40px;
     }
-    /*--table2--*/
-    /* .table2_a {
-        margin-top: 20%;
-    } */
     /*--button--*/
     .btn_a {
         display: block;
@@ -724,7 +731,7 @@
 <div id="container">
     <div class="headerBg_a">
         <img src="images/banner_CART.jpg" alt="">
-        <p>Be Your Unique Umbrella</p>
+        <p>Be Your Unique Umbrella.</p>
     </div>
     <section class="sec1_a" >
 
@@ -785,9 +792,8 @@
                 </div>
                 <select name="" id="" class="payWay_a">
                     <option value="0" class="payWayO_a">--</option>
-                    <option value="1" class="payWayO_a">7-11貨到付款</option>
-                    <option value="2" class="payWayO_a">ATM</option>
-                    <option value="3" class="payWayO_a">信用卡付款</option>
+                    <option value="1" class="payWayO_a">ATM</option>
+                    <option value="2" class="payWayO_a">信用卡付款</option>
                 </select>
             </div>
             <div class="choose_a">
@@ -853,8 +859,8 @@
          </div>
          <div class="visa_a">
             <p>
-            我們會給您一組繳款的虛擬帳號，每筆交易所產生的虛擬帳號均不相同，所以請留意金額務必正確，也請勿重複匯入喔！
-            該虛擬帳號以三天為期限，請務必於三天內完成匯款，超過期限該筆訂單與虛擬帳號將自動作廢，若仍須購買只能重新填單喔
+            為確保網路交易安全，您了解本公司得就本件交易資料向發卡銀行及持卡人照會是否屬實，核對無誤後付款才算完成。
+            提醒您，如有冒用他人信用卡或其他個人資料而為交易者，經查獲必移送法辦。
             </p>
         </div>
         
@@ -981,28 +987,18 @@
     payWayVal=$(this).val();
     shipWayVal=$(" shipWay_a").index();
     if(payWayVal==1){
-        $(".seven11_a").addClass('show');
-        $(".atm_a").removeClass('show');
+        $(".atm_a").addClass('show'); 
         $(".visa_a").removeClass('show');
-        $("body").find(".shipWayO_a").eq(1).css("display","none");
-    } else{
-        if(payWayVal==2){
-            $(".atm_a").addClass('show'); 
-            $(".seven11_a").removeClass('show');
-            $(".visa_a").removeClass('showe');
-            $("body").find(".shipWayO_a").eq(1).css("display","block");
-            
-            
-        }else if(payWayVal==3) {
-            $(".visa_a").addClass('show');
-            $(".seven11_a").removeClass('show');
-            $(".atm_a").removeClass('show');
-            $("body").find(".shipWayO_a").eq(1).css("display","block");
-        }else {
-            $(".visa_a").removeClass('show');
-            $(".seven11_a").removeClass('show');
-            $(".atm_a").removeClass('show');
-        }
+        // $("body").find(".shipWayO_a").eq(1).css("display","block");
+    } else if(payWayVal==2){
+        $(".visa_a").addClass('show');
+        $(".atm_a").removeClass('show');
+        // $("body").find(".shipWayO_a").eq(1).css("display","block");
+    }else {
+        $(".visa_a").removeClass('show');
+        $(".seven11_a").removeClass('show');
+        $(".atm_a").removeClass('show');
+
     }
    });
 

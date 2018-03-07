@@ -109,8 +109,9 @@
     .sec1_a h1 {
         text-align: center;
         font-size: 24pt;  
+        color:#666;
     }
-    /*----步驟-------*/
+     /*----步驟-------*/
     .steps-container_a {
         width: 100%;
         text-align: center;
@@ -122,6 +123,9 @@
     .step_a {
         width: 200px;
         height: 130px;
+    }
+    .step_a span{
+        color:#666;
     }
     .step-content_a {
         width: 30px;
@@ -207,6 +211,7 @@
         margin: 0 auto;
         margin-top: 20px;
         border-collapse: collapse;
+        color:#666;
     }
     table thead tr th {
         background:#666666;
@@ -531,11 +536,13 @@
     }
     /*--banner--*/
     .headerBg_a p {
-        width: 58%;
-        font-size: 20px;
-        left:40%;
-        top: 20%;
-        letter-spacing: 3px;
+        width: 70%;
+        font-size: 24px;
+        left: 10%;
+        top: 30%;
+        font-weight: 400;
+        text-align: inherit;
+        letter-spacing: 5px;
     }
     .headerBg_a img {
         width: 300%;
@@ -713,6 +720,7 @@
         letter-spacing: 2px ;
     }
     }
+    
     </style>
 </head>
 <body>
@@ -727,7 +735,7 @@
 <div id="container">
     <div class="headerBg_a">
         <img src="images/banner_CART.jpg" alt="">
-        <p>Be Your Unique Umbrella</p>
+        <p>Be Your Unique Umbrella.</p>
     </div>
     <section class="sec1_a" >
         <div class="steps-container_a">
@@ -756,10 +764,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="btn_a">
-            <button class="goCart_a disabled">回購物車</button>
-            <button class="next_a">下一步</button>
-        </div> -->
         <div class="total_a" data-val="">共 X 件，總金額 NT$. 2400</div>
         <table class="table_a">
                 <thead class="thead-dark_a">
@@ -791,17 +795,6 @@
                     <td>
                         <p>帳號
                             <span>121345</span>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class="store_a">門市
-                            <select name="" id="">
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                            </select>
                         </p>
                     </td>
                 </tr>
