@@ -199,8 +199,8 @@
             width: 25px ;
             height: 25px ;
             position: absolute ;
-            top: 40px ;
-            right: 40px ;
+            top: 28px ;
+            right: 56px ;
             cursor: pointer ;
             background: url(images/X.svg) center center no-repeat ;
         }

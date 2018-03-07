@@ -334,20 +334,20 @@
                                 <div class="registerInfor1_y">
                                     <label for="email" class="registerLabel1111_y"><span class="yellow_star">*</span>電子郵件:</label>
                                     <input type="text" class="registerInput1111_y" name="email" id="email" value="" placeholder="">
-                                    <!-- <small id="emailWarning" class="form-text text-muted warning">請填寫正確的電郵</small>
-                                                                                                             -->
+                                    <small id="emailWarning" class="form-text text-muted warning">請填寫正確的電郵</small>
+                                                                                                            
                                 </div>
                                 <div class="registerInfor2_y">   
                                 <div class="registerInfor22_y">
                                     <label for="password" class="registerLabel2_y"><span class="yellow_star">*</span>密碼:</label>
                                     <input type="password" class="registerInput2_y" name="password" id="password" value="" placeholder="請輸入6~12位字元之密碼">
-                                    <!-- <small id="passwordWarning" class="form-text text-muted warning">請輸入六個字元以上的密碼</small> -->
+                                    <small id="passwordWarning" class="form-text text-muted warning">請輸入六個字元以上的密碼</small>
                             
                                 </div>
                                 <div class="registerInfor22_y">
-                                    <label for="password" class="registerLabel2222_y"><span class="yellow_star">*</span>密碼確認:</label>
-                                    <input type="password" class="registerInput2222_y" name="password" id="password" value="" placeholder="">
-                                    <!-- <small id="passwordWarning" class="form-text text-muted warning">請輸入六個字元以上的密碼</small> -->
+                                    <label for="password_sure" class="registerLabel2222_y"><span class="yellow_star">*</span>密碼確認:</label>
+                                    <input type="password" class="registerInput2222_y" name="password_sure" id="password_sure" value="" placeholder="">
+                                    <small id="passwordWarning" class="form-text text-muted warning">請輸入六個字元以上的密碼</small>
                                 
                                 </div>
                                 </div><!--<div class="registerInfor2_y">-->
@@ -358,8 +358,8 @@
                                     <!-- <small id="nicknameWarning" class="form-text text-muted warning">請填寫兩個字以上的暱稱</small> -->
                                 </div>
                                 <div class="registerInfor22_y">
-                                    <label for="nickname" class="registerLabel2_y">&nbsp;性別:</label>
-                                    <select class="registerSelect_y" id="registerGender_y">
+                                <label for="gender" class="registerLabel2_y">&nbsp;性別:</label>
+                                    <select class="registerSelect_y" name="gender" id="registerGender_y">
                                         <option value="1"></option>
                                         <option value="2">男</option>
                                         <option value="3">女</option>
@@ -400,14 +400,14 @@
                             <h2 class="loginTitle_y">會員登入</h2>
                             <form name="form_login" method="post" action="" onsubmit="">
                                 <div class="loginInfor_y">
-                                    <label for="email" class="loginLabel_y">電子郵件:</label>
-                                    <input type="text" class="loginInput_y" name="email" id="email" value="" placeholder="">
+                                    <label for="email_login" class="loginLabel_y">電子郵件:</label>
+                                    <input type="text" class="loginInput_y" name="email_login" id="email_login" value="" placeholder="">
                                     <!-- <small id="emailWarning" class="form-text text-muted warning">請填寫正確的電郵</small>
                                                                                  -->
                                 </div>
                                 <div class="loginInfor_y">
-                                    <label for="password" class="loginLabel_y">密碼:</label>
-                                    <input type="password" class="loginInput_y" name="password" id="password" value="" placeholder="">
+                                    <label for="password_login" class="loginLabel_y">密碼:</label>
+                                    <input type="password" class="loginInput_y" name="password_login" id="password_login" value="" placeholder="">
                                     <!-- <small id="passwordWarning" class="form-text text-muted warning">請輸入六個字元以上的密碼</small> -->
                     
                                 </div>
@@ -496,6 +496,28 @@
             }
             scrolllast=scrollNow;
         });
+
+        /*register form check*/
+        function registerCheck(){
+            var isPass = true;
+            if(! document.form_register.email.value){
+                isPass = false;
+                alert('email沒填');
+            }
+            if(! document.form_register.email.value){
+                isPass = false;
+                alert('密碼沒填');
+            }
+            if(! document.form_register.email.value){
+                isPass = false;
+                alert('email 沒填');
+            }
+            if(! document.form_register.email.value){
+                isPass = false;
+                alert('email 沒填');
+            }
+        }
+        /*login form check*/
     </script>
 </body>
 </html>
