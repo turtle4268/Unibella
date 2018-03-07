@@ -6,7 +6,7 @@
                     <li><a href="introduce.php">品牌介紹</a></li>
                     <li><a href="product_list.php">產品</a></li>
                     <li><a href="new.php">最新消息</a></li>
-                    <li><a href="">顧客服務</a></li>
+                    <li><a href="fix.php">顧客服務</a></li>
                 </ul>
                 <ul>
                     <li><a href="member_center.php">會員中心</a></li>
