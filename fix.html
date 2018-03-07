@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Unibella</title>
+    <link href="fontawesome/css/fontawesome-all.css" rel="stylesheet">
+    <style>
+    /*
+        blue:#1F5572
+        yellow:#F8CF4E
+        black: #4d4d4d
+        logo-font:Nyala
+    */
+        *{
+            margin: 0 ;
+            padding: 0 ;
+            list-style-type: none ;
+            text-decoration-line: none ;
+            font-family: "微軟正黑體" ;
+            font-weight: normal ;
+            letter-spacing: 3px ;
+        }
+        section{
+            width: 100vw ;
+            max-width: 100% ;
+            /* height: 100vh ; */
+            /* background-color: #1F5572 ; */
+        }
+     /*Header--------------------------------------------------------*/
+        header{
+            position: fixed ;
+            z-index: 5 ;
+            width: 100% ;
+            display: flex ;
+            justify-content: space-between ;
+            color: #FFF ;
+            padding: 0 40px ;
+            padding-top: 28px ;
+            box-sizing: border-box ;
+            height: 80px;
+            transition: all .5s;
+        }
+        .hide {
+            transform: translateY(-100px);
+            transition: all .5s;
+        }
+        .bg {
+            background: rgba(255, 255, 255, .8);
+        }
+        header h1 {
+            -webkit-mask-image: url(images/logo_new.svg);
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            width: 145px;
+            height: 45px;
+            background-color: #fff;
+            margin-top: -12px;
+        }
+        .phone_hide_f{
+            background-color: #666 !important;
+        }
+        .h_ul li{
+            display: inline-block ;
+            padding: 0 15px ;
+        }
+        .h_ul li a{
+            display: block ;
+            width: 25px ;
+            height: 25px ;
+            cursor: pointer ;
+            background-color: #FFF ;
+            -webkit-mask-repeat: no-repeat ;
+            -webkit-mask-position: center ;
+        }
+        .member{
+            -webkit-mask-image: url(images/icon_MEMBER.svg) ;
+        }
+        .cart{
+            -webkit-mask-image: url(images/icon_CART.svg) ;
+        }
+        .hamburger{
+            -webkit-mask-image: url(images/icon_MENU.svg) ;
+        }
+    /*Footer-------------------------------------------------------------*/
+        footer{
+            background-color: #CCC ;
+            color: #FFF ;
+        }
+        .f_content{
+            display: flex ;
+            padding: 40px ;
+        }
+        .f_quarter{
+            width: 25% ;
+            display: flex ;
+            justify-content: center ;
+            align-items: center ;
+            border-right: 1px solid #FFF ;
+            flex: 1 ;
+            font-size: 16px ;
+        }
+        .f_quarter h2{
+            font-family: "Nyala" ;
+            font-size: 32px ;
+        }
+        .f_quarter.between{
+            justify-content: space-around ;
+        }
+        .f_quarter.border_none{
+            border: none ;
+            flex: 1.5 ;
+            flex-wrap: wrap ;
+        }
+        .f_quarter.border_none .mail{
+            width: 265px ;
+            height: 30px ;
+            border: 2px solid #FFF ;
+            border-radius: 28px ;
+            margin: 16px 0 ;
+            display: flex ;
+            justify-content: center ;
+            align-items: center ;
+        }
+        .mail .einput{
+            width: 210px ;
+            height: 24px ;
+            margin-left: 5px ;
+            font-size: 16px ;
+            letter-spacing: normal ;
+            border: none ;
+            background: #CCC ;
+        }
+        .mail .einput:focus{
+            color: #FFF ;
+            outline: none ;
+        }
+        .mail .eput{
+            display: inline-block ;
+            padding: 0 5px ;
+        }
+        .mail .eput i{
+            font-size: 26px ;
+        }
+        .f_quarter a{
+            display: block ;
+            color: #FFF ;
+            padding: 9px 0px ;
+        }
+        .f_quarter a.aicon{
+            display: inline-block ;
+            margin: 20px ;
+        }
+        .f_quarter a.aicon i{
+            font-size: 28px ;
+        }
+        .f_quarter a.fb{
+            margin-left: 0 ;
+        }
+        .f_quarter a.fb i{
+            font-size: 24px ;
+        }
+        .foot{
+            text-align: center ;
+            font-size: 12px ;
+            background-color: #999 ;
+            padding: 12px ;
+            border-top: 1px solid #FFF ;
+        }
+    /*Nav--------------------------------------------------------------*/
+        nav{
+            position: fixed ;
+            z-index: 10 ;
+            display: flex ;
+            width: 20% ;
+            height: 100vh ;
+            top: 0 ;
+            right: 0 ;
+            text-align: center ;
+            background-color: #ffffffcc ;
+            transition: 1s ;
+        }
+        nav.navhide{
+            right: -20% ;
+        }
+        nav .close{
+            width: 25px ;
+            height: 25px ;
+            position: absolute ;
+            top: 40px ;
+            right: 40px ;
+            cursor: pointer ;
+            background: url(images/X.svg) center center no-repeat ;
+        }
+        .n_ul{
+            width: 100% ;
+            margin: 0 auto ;
+            align-self: center ;
+        }
+        .n_ul li{
+            display: flex ;
+            align-content: center ;
+            margin: 4px 0 ; 
+        }
+        .n_ul li a{
+            display: block ;
+            width: 100% ;
+            padding: 12px ;
+            color: #666 ;
+            font-size: 18px ;
+            transition: 0.4s ;
+        }
+        .n_ul li a:hover{
+            background-color: #CCC;
+        }
+        /*Container-------------------------------------------------------------------*/
+        .headerBg_f{
+            width: 100% ; 
+            display: flex;
+            align-items: center;
+            object-fit: fill;
+            position: relative;
+        }
+        .headerBg_f img{
+            width: 100%;
+        }
+        .headerBg_f p{
+            font-size: 30px;
+            font-weight: bold;
+            color:#fff;
+            position: absolute;
+            left: 50%;
+            margin-left: -250px;
+            letter-spacing: 5px;
+        }
+        
+        /*parallax-cloud--------------------------------------------*/
+        /* body{
+            background-color: black;
+        } */
+        section{
+            height: 100vh;
+        }
+        .clouds1_f {
+            position: absolute;
+            left: 50%;
+            width: 100%;
+            margin-left: -50%;
+            top: 50vh;
+        }
+        .parallax_f {
+            position: fixed;
+            width: 100%;
+        }
+        #parallax1_f {
+            z-index: 5;
+        }
+        #parallax2_f {
+            z-index: 2
+        }
+        #parallax3_f {
+            z-index: 1;
+        }
+        #parallax4_f {
+            z-index: 3;
+        }
+        #parallax5_f {
+            z-index: 4;
+        }
+        #parallax6_f {
+            z-index: 6;
+        }
+        .cloud_f {
+            position: absolute;
+            display: block;
+            width: 450px;
+            height: 300px;
+        }
+        .cloud1_f {
+            background: url(images/cloud1.png) no-repeat;
+            left: -100px;
+        }
+        .cloud1-2_f {
+            left: 600px;
+        }
+        .cloud2_f {
+            background: url(images/cloud2.png) no-repeat;
+            left: 200px;
+        }
+        .cloud2-2_f {
+            left: 900px;
+        }
+        .cloud3_f {
+            background: url(images/cloud3.png) no-repeat;
+            left: 500px;
+        }
+        .cloud3-2_f {
+            left: 1200px;
+        }
+        .cloud4_f {
+            background: url(images/cloud4.png) no-repeat;
+            left: 700px;
+        }
+        .cloud4-2_f {
+            left: 1400px;
+        }
+        .cloud5_f {
+            background: url(images/cloud5.png) no-repeat;
+            left: 1000px;
+        }
+        .cloud5-2_f {
+            left: 20px;
+        }
+        .cloud6_f {
+            background: url(images/cloud6.png) no-repeat;
+            left: 1300px;
+        }
+        .cloud6-2_f {
+            left: 320px;
+        }
+    </style>
+    <link rel="stylesheet" href="css/cartNone_phone.css">
+</head>
+<body>
+    <header>
+        <h1></h1>
+        <ul class="h_ul">
+            <li><a class="member"></a></li>
+            <li><a class="cart"></a></li>
+            <li><a class="hamburger"></a></li>
+        </ul>
+    </header>
+    <nav class="navhide">
+        <div class="close"></div>
+        <ul class="n_ul">
+            <li><a href="">品牌介紹</a></li>
+            <li><a href="">專利技術</a></li>
+            <li><a href="">產品</a></li>
+            <li><a href="">最新消息</a></li>
+            <li><a href="">顧客服務</a></li>
+            <li><a href="">會員中心</a></li>
+            <li><a href="">聯絡我們</a></li>
+            <li><a href="">相關連結</a></li>
+            <li><a href="">Q&amp;A</a></li>
+        </ul>
+    </nav>
+    <aside class="l_aside">
+
+    </aside>
+    <aside class="r_aside">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </aside>
+    <div id="container">
+        <div class="headerBg_f">
+            <img src="images/banner_FIX.jpg" alt="">
+            <p>Be Your Unique Unbrella.</p>
+        </div>
+        <section>
+            <!-- 飄動的雲 -->
+            <div class="clouds1_f">
+                        <div id="parallax1_f" class="parallax_f">
+                            <div class="cloud1_f cloud_f"></div>
+                            <div class="cloud1_f cloud1-2_f cloud_f"></div>
+                        </div>
+                        <div id="parallax2_f" class="parallax_f">
+                            <div class="cloud2_f cloud_f"></div>
+                            <div class="cloud2_f cloud2-2_f cloud_f"></div>
+                        </div>
+                        <div id="parallax3_f" class="parallax_f">
+                            <div class="cloud3_f cloud_f"></div>
+                            <div class="cloud3_f cloud3-2_f cloud_f"></div>
+                        </div>
+                        <div id="parallax4_f" class="parallax_f">
+                            <div class="cloud4_f cloud_f"></div>
+                            <div class="cloud4_f cloud4-2_f cloud_f"></div>
+                        </div>
+                        <div id="parallax5_f" class="parallax_f">
+                            <div class="cloud5_f cloud_f"></div>
+                            <div class="cloud5_f cloud5-2_f cloud_f"></div>
+                        </div>
+                        <div id="parallax6_f" class="parallax_f">
+                            <div class="cloud6_f cloud_f"></div>
+                            <div class="cloud6_f cloud6-2_f cloud_f"></div>
+                        </div>
+                    </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="f_content">
+            <div class="f_quarter"><h2>Unibella</h2></div>
+            <div class="f_quarter between">
+                <ul>
+                    <li><a href="">品牌介紹</a></li>
+                    <li><a href="">產品</a></li>
+                    <li><a href="">最新消息</a></li>
+                    <li><a href="">顧客服務</a></li>
+                </ul>
+                <ul>
+                    <li><a href="">會員中心</a></li>
+                    <li><a href="">聯絡我們</a></li>
+                    <li><a href="">相關連結</a></li>
+                    <li><a href="">Q&amp;A</a></li>
+                </ul>
+            </div>
+            <div class="f_quarter">
+                <div>
+                    <p>社群</p>
+                    <a href="" class="aicon fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="" class="aicon"><i class="fab fa-instagram"></i></a>
+                    <a href="" class="aicon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="f_quarter border_none">
+                <div>
+                    <p>取得最新消息</p>
+                    <div class="mail">
+                        <input type="text" name="" class="einput">
+                        <a href="" class="eput"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+  
+            </div>
+        </div>
+        <div class="foot">COPYRIGHT &COPY; Unibella ALL RIGHTS RESERVED</div>
+    </footer>
+
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script>
+        $(".hamburger").click(function(){
+            $("nav").removeClass("navhide");
+        });
+        $(".close").click(function(){
+            $("nav").addClass("navhide");
+        });
+        var scrollHeaderLast;
+        $(window).scroll(function(){
+             //header
+             var scrollHeader = $(this).scrollTop();
+            if (scrollHeader < 200) {
+                $("header").removeClass("hide, bg")
+                $("header h1, .h_ul li a").removeClass("phone_hide_f")
+            } else {
+                if (scrollHeader > scrollHeaderLast) {
+                    $("header").addClass("hide").removeClass("bg")
+                    $("header h1, .h_ul li a").addClass("phone_hide_f")
+                } else {
+                    $("header").removeClass("hide").addClass("bg")
+                };
+            };
+            scrollHeaderLast = scrollHeader;
+            //console.log(scrollHeader);
+            
+            //第一層雲
+            var scrollC1 = $(window).scrollTop();
+            $(".clouds1_f #parallax1_f").css('top', (50 - (scrollC1 * .45)) + 'vh');
+            $(".clouds1_f #parallax2_f").css('top', (50 - (scrollC1 * .35)) + 'vh');
+            $(".clouds1_f #parallax3_f").css('top', (50 - (scrollC1 * .3)) + 'vh');
+            $(".clouds1_f #parallax4_f").css('top', (50 - (scrollC1 * .25)) + 'vh');
+            $(".clouds1_f #parallax5_f").css('top', (50 - (scrollC1 * .5)) + 'vh');
+            $(".clouds1_f #parallax6_f").css('top', (50 - (scrollC1 * .4)) + 'vh');
+        });
+    </script>
+</body>
+</html>

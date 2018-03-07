@@ -456,7 +456,9 @@
             e.stopPropagation();    //不讓父元素動作(阻止事件冒泡)    
         });
         /*手機375*/
+        $(".full, .half, .half_unanimate_y").addClass("half_sun_hide_y");
         $(".registerPBtn_y").click(function () {
+            $(".full, .half, .half_unanimate_y").removeClass("half_sun_hide_y");
             $(".half_unanimate_y").addClass("halfTonull")
             $(".h_register_y").animate(
                 { opacity: 0 }
