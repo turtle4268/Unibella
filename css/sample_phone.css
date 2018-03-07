@@ -11,9 +11,6 @@
     .h_ul li{
         padding: 0 8px ;
     }
-    header.hide{
-        top: -80px ;
-    }
     /*Footer---------------------------------------------------------------------*/
     .f_content{
         flex-wrap: wrap ;

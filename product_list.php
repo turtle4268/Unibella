@@ -358,12 +358,10 @@
             var scrollNow=$(this).scrollTop();
             // console.log(scrollNow);
             if (scrollNow < 300) {
-                $("header").removeClass("hide");
-                $("header").removeClass("black");
+                $("header").removeClass("hide black");
             } else {
                 if (scrollNow > scrolllast) {
-                    $("header").addClass("hide");
-                    $("header").addClass("black");
+                    $("header").addClass("hide black");
                 } else {
                     $("header").removeClass("hide");
                 }

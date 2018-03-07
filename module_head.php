@@ -48,12 +48,15 @@
             transition: 0.5s ;
             top: 0 ;
         }
+        header a{
+            background-color: #FFF ;
+            transition: 0.5s ;
+        }
         header h1 a{
             display: block ;
             width: 145px ;
             height: 43px ;
             -webkit-mask-image: url(images/logo_new.svg) ;
-            background-color: #FFF ;
             margin-top: -12px ;
         }
         .h_ul li{
@@ -65,7 +68,6 @@
             width: 25px ;
             height: 25px ;
             cursor: pointer ;
-            background-color: #FFF ;
             -webkit-mask-repeat: no-repeat ;
             -webkit-mask-position: center ;
         }
@@ -78,6 +80,9 @@
         .hamburger{
             -webkit-mask-image: url(images/icon_MENU.svg) ;
         }
+        header.hide{
+        top: -80px ;
+    }
     /*Footer-------------------------------------------------------------*/
         footer{
             background-color: #CCC ;
