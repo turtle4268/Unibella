@@ -1,14 +1,5 @@
 <?php include __DIR__.'/module_head.php' ?>
     <style>
-    /*Header--------------------------------------------------------*/
-        /*Black*/
-        header.black{
-            color: #666 ;
-            background-color: #ffffffcc ;
-        }
-        header.black a{
-            background-color: #666 ;
-        }
         /*Container-------------------------------------------------------------------*/
         #container{
             width: 100% ;
@@ -345,8 +336,7 @@
         </div>
     </div>
     <?php include __DIR__.'/module_footer.php' ?>
-    <script>
-        var scrolllast;  
+    <script>  
         $(".btn_um").click(function(){
             $(this).closest(".um").addClass("act").siblings().removeClass("act");
         });
@@ -354,10 +344,11 @@
             $(this).closest(".radio").toggleClass("show");
         });
         /*hideNav*/
+        var scrolllast;
         $(window).scroll(function(){
             var scrollNow=$(this).scrollTop();
             // console.log(scrollNow);
-            if (scrollNow < 300) {
+            if (scrollNow < 350) {
                 $("header").removeClass("hide black");
             } else {
                 if (scrollNow > scrolllast) {

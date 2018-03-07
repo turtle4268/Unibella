@@ -11,7 +11,7 @@
                 <ul>
                     <li><a href="member_center.php">會員中心</a></li>
                     <li><a href="contact.php">聯絡我們</a></li>
-                    <li><a href="store.php">相關連結</a></li>
+                    <li><a href="store.php">門市資訊</a></li>
                     <li><a href="qa.php">Q&amp;A</a></li>
                 </ul>
             </div>

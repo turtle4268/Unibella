@@ -81,8 +81,16 @@
             -webkit-mask-image: url(images/icon_MENU.svg) ;
         }
         header.hide{
-        top: -80px ;
-    }
+            top: -80px ;
+        }
+        /*Black*/
+        header.black{
+            color: #666 ;
+            background-color: #ffffffcc ;
+        }
+        header.black a{
+            background-color: #666 ;
+        }
     /*Footer-------------------------------------------------------------*/
         footer{
             background-color: #CCC ;
