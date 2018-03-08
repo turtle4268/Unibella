@@ -309,7 +309,7 @@
             text-align:left;
             margin-top:2em;
         }
-        .agreeLabel_y a{
+        .agreeBox_y a{
             color:#f8cf4e;
             text-decoration:none; 
             border-bottom:1px solid #f8cf4e;  
@@ -323,9 +323,6 @@
             text-align:right;
             color:#1f5572;
             margin-top:1em;
-        }
-        input[type='checkbox'] {
-        display: none;
         }
         /*small_warning--------------------*/
         small{
@@ -359,6 +356,20 @@
             background:transparent;
             width:6px;
             height:6px;
+        }
+        /*check-----*/
+        input[type='checkbox'] {
+            display: none;
+        }
+        .checktext{
+            display: inline-block ;
+        }
+        .check .box{
+            width: 16px ;
+            height: 16px ;
+            display: inline-block ;
+            position: relative ;
+            top: 2px ;
         }
     </style>
     <style>
@@ -438,8 +449,13 @@
                                     <small id="addressWarning" class="labelTow_y warning">請填寫十個字以上的地址</small>
                                 </div>
                                 <div class="agreeBox_y">
-                                    <input type="checkbox" class="agreeCheckbox_y" name="agree" id="agree" value=""/>
-                                    <label for="agree" class="agreeLabel_y"><span class="yellow_star">*</span>已詳閱及同意會員權益之<a href="">相關條款</a></label>
+                                    <div class="check">
+                                        <div class="box">
+                                            <img src="images/member_uncheck_yellow.svg" alt="">
+                                        </div>
+                                        <input type="checkbox" class="agreeCheckbox_y" name="agree" id="agree" value=""/>
+                                        <div class="checktext"><span class="yellow_star">*</span>已詳閱及同意會員權益之<a href="">相關條款</a></div>
+                                    </div>
                                 </div>
                                 <button type="submit" class="f_registerBtn_y" >送出</button>
                             </form>
@@ -470,13 +486,16 @@
                     
                                 </div>
                                 <div class="rememberBox_y">
-                                    <input type="checkbox" class="rememberCheckbox_y" name="remember" id="remember" value=""/>
-                                    <label for="remember" class="rememberLabel_y">記住我</label>
+                                    <div class="check">
+                                        <div class="checktext">記住我</div>
+                                        <div class="box">
+                                            <img src="images/member_uncheck_blue.svg" alt="">
+                                        </div>
+                                        <input type="checkbox" class="agreeCheckbox_y" name="agree" id="agree" value=""/>
+                                    </div>
                                 </div>
                                 <div class="forgetBox_y">
- 
-                                    <input type="checkbox" class="forgetCheckbox_y" name="forget" id="forget" value=""/>
-                                    <label for="forget" class="forgetLabel_y">忘記密碼</label>  
+                                    <a class="checktext">忘記密碼</a>
                                 </div>
                                 <button type="submit" class="loginBtn_y">登入</button>
                             </form>

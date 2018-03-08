@@ -227,7 +227,7 @@
     .noneSmall_y{
         padding:10px 0 0 0;
     }
-    .agreeLabel_y{
+    .agreeBox_y .checktext{
         font-size: 14px;
     } 
     .rememberBox_y, .forgetBox_y { 
