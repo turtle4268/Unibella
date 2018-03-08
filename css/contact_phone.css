@@ -1,0 +1,73 @@
+@import url("sample_phone.css");
+@media screen and (max-width: 375px) {
+    /*--banner--*/
+    .headerBg_a p {
+        width: 70%;
+        font-size: 24px;
+        font-weight: 400;
+        left:25%;
+        top: 25%;
+        letter-spacing: 5px;
+        text-align: initial;
+    }
+    .headerBg_a img {
+        width: 300%;
+    }
+    /*--sec1--*/
+    .sec1_a {
+        padding-top:0;
+        margin-bottom: 8px;
+    }
+    .contact_a {
+        flex-wrap: wrap;
+        height: auto;
+        padding-top: 0;
+    }
+    .usCotent_a {
+        width: 98%;
+        height: auto;
+        position: relative;
+        border: none;
+        box-shadow: none;
+    }
+    .usCotent_a p {
+        width: 80%;
+    }
+    .usCotent_a iframe {
+        margin: 0px 10%;
+        width: 80%;
+    }
+    .formP_a {
+        width:100%;
+        height: auto;
+        position: relative;
+    }
+    .usForm_a {
+        width: 98%;
+        position: relative;
+        top: 0;
+        left: 0;
+        border: none;
+        box-shadow:none;
+    }
+    .usFormCon_a input {
+        margin-top: 15px;
+    }
+    .usFormCon_a select {
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+    .usFormCon_a textarea {
+        margin-left: 0;
+        width: 96%;
+        margin-top: 20px;
+    }
+    .usFormCon_a {
+        padding-top: 80px;
+        width: 75%;
+        margin: 0 13%;
+    }
+    .usFormCon_a .btn {
+        padding: 25px 0;
+    }
+}
