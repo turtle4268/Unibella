@@ -3,6 +3,9 @@
         section{
             text-align: center ;
         }
+        :focus{
+            outline:none ;
+        }
         /**/
         .full{
             width: 100vw ;
@@ -374,6 +377,16 @@
             display: inline-block ;
             position: relative ;
             top: 2px ;
+            -webkit-mask-image: url(images/member_uncheck_yellow.svg) ;
+        }
+        .agree.box{
+            background-color: #F8CF4E ;
+        }
+        .remember.box{
+            background-color: #1F5572 ;
+        }
+        .check .box.checked{
+            -webkit-mask-image: url(images/member_checked_yellow.svg) ;
         }
     </style>
     <style>
@@ -454,10 +467,10 @@
                                 </div>
                                 <div class="agreeBox_y">
                                     <div class="check">
-                                        <div class="box">
-                                            <img src="images/member_uncheck_yellow.svg" alt="">
-                                        </div>
-                                        <input type="checkbox" class="agreeCheckbox_y" name="agree" id="agree" value=""/>
+                                        <label for="agree" class="box agree">
+                                            <input type="checkbox" class="agreeCheckbox_y" name="agree" id="agree" value=""/>
+                                        </label>
+                                        
                                         <div class="checktext"><span class="yellow_star">*</span>已詳閱及同意會員權益之<a href="">相關條款</a></div>
                                     </div>
                                 </div>
@@ -491,11 +504,11 @@
                                 </div>
                                 <div class="rememberBox_y">
                                     <div class="check">
-                                        <div class="checktext">記住我</div>
-                                        <div class="box">
-                                            <img src="images/member_uncheck_blue.svg" alt="">
-                                        </div>
-                                        <input type="checkbox" class="agreeCheckbox_y" name="agree" id="agree" value=""/>
+                                        <label class="checktext" for="remember">記住我</label>
+                                        <label for="remember" class="box remember">
+                                            <input type="checkbox" class="rememberCheckbox_y" name="remember" id="remember" value=""/>
+                                        </label>
+                                        
                                     </div>
                                 </div>
                                 <div class="forgetBox_y">
@@ -586,7 +599,16 @@
             }
             scrolllast=scrollNow;
         });
-
+        /*Checkbox*/
+        $(".box").click(function(){
+            var checkbox=$(this).find("input[type='checkbox']");
+            if(!checkbox.prop("checked")){
+                $(this).removeClass("checked"); //沒勾
+            }else{
+                $(this).addClass("checked");
+            }
+            
+        });
         /*register form check*/
         function registerCheck(){
             var isPass = true;
