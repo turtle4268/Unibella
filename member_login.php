@@ -152,9 +152,13 @@
             letter-spacing: 3px;
             /* flex: 2; */
         }
-        .h_registerTitle_y, .f_registerTitle_y{
+        .h_registerTitle_y{
             color: #f8cf4e;
             margin-bottom: 3em;
+        }
+        .f_registerTitle_y{
+            color: #f8cf4e;
+            margin-bottom: 2em;
         }
         .h_register_y p{
             color: #f8cf4e;
@@ -189,7 +193,7 @@
              flex-wrap:wrap;
              justify-content: space-between;
              align-content: center;
-             margin-top:3em; 
+             margin-top:1.5em; 
              /* padding: 0 3%; */
              overflow: hidden;
         }
@@ -233,7 +237,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top:3em; 
+            margin-top:1.5em; 
             /* padding: 0 3%; */
             text-align: left;
         }
@@ -332,16 +336,16 @@
             /* display:none; */
         }
         .labelFour_y{
-            padding:10px 0 0 13%;
+            padding:5px 0 0 13%;
         }
         .labelTow_y{
-            padding:10px 0 0 8%;
+            padding:5px 0 0 8%;
         }
         .labelTowFour_y{
-            padding:10px 0 0 27%;
+            padding:5px 0 0 27%;
         }
         .labelTowTow_y{
-            padding:10px 0 0 16%;
+            padding:5px 0 0 16%;
         }
         .noneSmall_y{
             padding:10px 0 0 16%;
