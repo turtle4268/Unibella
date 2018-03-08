@@ -213,6 +213,7 @@
         margin: 0 auto;
         padding-top: 45px;
         background: #fff;
+        height: 25px;
     }
     .timeline ul li::after {
         content: '';
@@ -243,7 +244,7 @@
         z-index: 3;
         overflow: hidden;
     }
-    .newContent_a figure {
+    .newContent_a a.newspaper_a {
         position: absolute;
         top: 0;
         left: 0;
@@ -251,48 +252,49 @@
         width: 230px;
         height: 250px;
         transition: all 1s;
+        display: block;
     }
-    .newContent_a figure img {
+    .newContent_a .newspaper_a img {
         width:100%;
         transition: all 1s;
     }
-    .newContent_a figure.newspaper1_a {
-        top: 44%;
+    .newContent_a a.newspaper1_a {
+        top: 41%;
         left: -7%;
         transform: rotate(-30deg);
     }
-    .newContent_a figure.newspaper2_a {
-        top: -11%;
-        left: -5%;
+    .newContent_a a.newspaper2_a {
+        top: -7%;
+        left: -10%;
         transform: rotate(30deg);
     }
-    .newContent_a figure.newspaper3_a {
+    .newContent_a a.newspaper3_a {
         top: 40%;
         left: 48%;
         transform: rotate(-8deg);
     }
-    .newContent_a figure.newspaper4_a {
+    .newContent_a a.newspaper4_a {
         top: 43%;
         left: 76%;
     }
-    .newContent_a figure.newspaper5_a {
+    .newContent_a a.newspaper5_a {
         top: -5%;
         left: 16%;
         transform: rotate(-15deg);
         
     }
-    .newContent_a figure.newspaper6_a {
+    .newContent_a a.newspaper6_a {
         top: -9%;
         left: 35%;
         transform: rotate(-7deg);
     }
-    .newContent_a figure.newspaper7_a {
+    .newContent_a a.newspaper7_a {
         top: 43%;
         left: 22%;
         transform: rotate(-4deg);
         
     }
-    .newContent_a figure.newspaper8_a {
+    .newContent_a a.newspaper8_a {
         top: -10%;
         left: 69%;
         transform: rotate(83deg);
@@ -301,7 +303,7 @@
     
     .newLink_a {
         position: absolute;
-        top:17%;
+        top:15%;
         left: 30%;
         height: 100%;
     }
@@ -313,6 +315,7 @@
         width: 400px;
         color: #fff;
         cursor: pointer;
+        text-align: justify;
     }
     .scale {
         transform: scale(1.5) !important;
@@ -552,44 +555,44 @@
         width:92%;
         left: 5%;
     }
-    .newContent_a figure.newspaper1_a {
+    .newContent_a a.newspaper1_a {
         top: 46%;
         left: -23%;
         transform: rotate(-30deg);
     }
-    .newContent_a figure.newspaper2_a {
+    .newContent_a a.newspaper2_a {
         top: 1%;
         left: -22%;
         transform: rotate(30deg);
     }
-    .newContent_a figure.newspaper3_a {
+    .newContent_a a.newspaper3_a {
         top: 40%;
         left: 48%;
         transform: rotate(-8deg);
         display: none;
     }
-    .newContent_a figure.newspaper4_a {
+    .newContent_a a.newspaper4_a {
         top: 45%;
         left: 65%;
     }
-    .newContent_a figure.newspaper5_a {
+    .newContent_a a.newspaper5_a {
         top: -5%;
         left: 20%;
         transform: rotate(-15deg);
         
     }
-    .newContent_a figure.newspaper6_a {
+    .newContent_a a.newspaper6_a {
         top: -5%;
         left: 55%;
         transform: rotate(-7deg);
     }
-    .newContent_a figure.newspaper7_a {
+    .newContent_a a.newspaper7_a {
         top: 51%;
         left: 15%;
         transform: rotate(-10deg);
         
     }
-    .newContent_a figure.newspaper8_a {
+    .newContent_a a.newspaper8_a {
         top: -10%;
         left: 69%;
         transform: rotate(83deg);
@@ -708,23 +711,25 @@
             <section class="new_a">
                 <div class="yellow_a">
                     <div class="newContent_a">
-                    <figure class="newspaper_a newspaper1_a" id="img1"><img src="images/newspaper1.jpg" alt=""></figure> 
-                    <figure class="newspaper_a newspaper2_a" id="img2"><img src="images/newspaper2.jpg" alt=""></figure>
-                    <figure class="newspaper_a newspaper3_a" id="img3"><img src="images/newspaper3.jpg" alt=""></figure>
-                    <figure class="newspaper_a newspaper4_a" id="img4"><img src="images/newspaper4.jpg" alt=""></figure>
-                    <figure class="newspaper_a newspaper5_a" id="img5"><img src="images/newspaper5.jpg" alt=""></figure>
-                    <figure class="newspaper_a newspaper6_a" id="img6"><img src="images/newspaper1.jpg" alt=""></figure> 
-                    <figure class="newspaper_a newspaper7_a" id="img7"><img src="images/newspaper2.jpg" alt=""></figure>
-                    <figure class="newspaper_a newspaper8_a" id="img8"><img src="images/newspaper3.jpg" alt=""></figure>
+                    <a href="" class="newspaper_a newspaper1_a" id="img1"><img src="images/newspaper1.jpg" alt=""></a> 
+                    <a class="newspaper_a newspaper2_a" id="img2"><img src="images/newspaper2.jpg" alt=""></a>
+                    <a class="newspaper_a newspaper3_a" id="img3"><img src="images/newspaper3.jpg" alt=""></a>
+                    <a href="" class="newspaper_a newspaper4_a" id="img4"><img src="images/newspaper4.jpg" alt=""></a>
+                    <a href="" class="newspaper_a newspaper5_a" id="img5"><img src="images/newspaper5.jpg" alt=""></a>
+                    <a href="" class="newspaper_a newspaper6_a" id="img6"><img src="images/newspaper1.jpg" alt=""></a> 
+                    <a href="" class="newspaper_a newspaper7_a" id="img7"><img src="images/newspaper2.jpg" alt=""></a>
+                    <a class="newspaper_a newspaper8_a" id="img8"><img src="images/newspaper3.jpg" alt=""></a>
                     </div>
+                    
+                    
                 </div>
                 <div class="blue_a timeline">
                     <ul class="newLink_a">
-                        <li data-img="img1"><a>2018.03.05 智能雨傘正夯，讓你與傘不散</a></li>
-                        <li data-img="img2"><a>2018.03.05 智能雨傘正夯，讓你與傘不散</a></li>
-                        <li data-img="img6"><a>2018.03.05 智能雨傘正夯，讓你與傘不散</a></li>
-                        <li data-img="img7"><a>2018.03.05 智能雨傘正夯，讓你與傘不散</a></li>
-                        <li data-img="img5"><a>2018.03.05 智能雨傘正夯，讓你與傘不散</a></li>
+                        <li data-img="img1"><a>2018.02.05 智能雨傘正夯，讓你與傘不散</a></li>
+                        <li data-img="img4"><a>2017.11.16 Unibella 97公克羽量級折傘</a></li>
+                        <li data-img="img6"><a>2017.03.05 Unibella：製造持久耐用的雨傘</a></li>
+                        <li data-img="img7"><a>2016.11.16 Unibella教你玩轉雨傘成為雨天焦點</a></li>
+                        <li data-img="img5"><a>2016.07.05 Unibella x 北藝風特展商品開始預購</a></li>
                     </ul>
                 </div>
             </section>
@@ -801,7 +806,7 @@
         console.log(scaleImg);
         // var rotate=$(".yellow_a figure").css("transform");
         // console.log(rotate);
-        $(".yellow_a figure").removeClass("scale");
+        $(".yellow_a .newspaper_a").removeClass("scale");
         $("#" + scaleImg).addClass("scale");
         // $("#" + scaleImg).css({
         //         transform: 'rotate' + rotate
