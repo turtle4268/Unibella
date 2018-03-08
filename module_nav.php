@@ -1,7 +1,11 @@
 <header>
     <h1><a href="home.php"></a></h1>
     <ul class="h_ul">
-        <li><a class="member" href="member_center.php"></a></li>
+<?php if(isset($_SESSION['user'])): ?>
+        <li><a class="logout" href="logout.php"></a></li>
+<?php else: ?>
+        <li><a class="member" href="member_login.php"></a></li>
+<?php endif; ?>
         <li><a class="cart" href="cartList.php"></a></li>
         <li><a class="hamburger"></a></li>
     </ul>

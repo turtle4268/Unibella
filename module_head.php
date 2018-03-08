@@ -71,6 +71,9 @@
             -webkit-mask-repeat: no-repeat ;
             -webkit-mask-position: center ;
         }
+        .logout{
+            -webkit-mask-image: url(images/logout.svg) ;
+        }
         .member{
             -webkit-mask-image: url(images/icon_MEMBER.svg) ;
         }
