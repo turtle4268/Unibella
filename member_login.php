@@ -3,6 +3,9 @@
         section{
             text-align: center ;
         }
+        :focus{
+            outline:none ;
+        }
         /**/
         .full{
             width: 100vw ;
@@ -329,28 +332,39 @@
             margin-top:1em;
         }
         /*small_warning--------------------*/
-        small{
+        small.warning{
             color:#ed1c24;
-            width:100%;
+            /* width:100%; */
             text-align:left;
             /* display:none; */
         }
         .labelFour_y{
-            padding:5px 0 0 13%;
+            padding:4px 0 0 0;
+            /* margin-left: 50% ; */
         }
         .labelTow_y{
-            padding:5px 0 0 8%;
+            padding:4px 24% 0 0;
+            /* margin-left: 13% ; */
         }
         .labelTowFour_y{
-            padding:5px 0 0 27%;
+            padding:4px 0 0 34%;
+            /* margin-left: 27% ; */
         }
         .labelTowTow_y{
-            padding:5px 0 0 16%;
+            padding:4px 0 0 20%;
+            /* margin-left: 16% ; */
+        }
+        .noneSmall1_y{
+            /* padding:10px 0 0 16%; */
+            margin-top: 5px ;
+            width:400px;
+            height:21px;
         }
         .noneSmall_y{
-            padding:10px 0 0 16%;
-            width:12px;
-            height:12px;
+            /* padding:10px 0 0 16%; */
+            margin-top: 5px ;
+            width:300px;
+            height:14px;
         }
         /*datepicker--------------------*/
         input[type=date]::-webkit-inner-spin-button { 
@@ -374,6 +388,16 @@
             display: inline-block ;
             position: relative ;
             top: 2px ;
+            -webkit-mask-image: url(images/member_uncheck_yellow.svg) ;
+        }
+        .agree.box{
+            background-color: #F8CF4E ;
+        }
+        .remember.box{
+            background-color: #1F5572 ;
+        }
+        .check .box.checked{
+            -webkit-mask-image: url(images/member_checked_yellow.svg) ;
         }
     </style>
     <style>
@@ -401,63 +425,72 @@
                                 <div class="registerInfor1_y">
                                     <label for="email" class="registerLabel1111_y"><span class="yellow_star">*</span>電子郵件:</label>
                                     <input type="text" class="registerInput1111_y" name="email" id="email" value="" placeholder="">
-                                    <small id="emailWarning" class="labelFour_y warning">請輸入正確格式的電子郵件</small>
-                                                                                                            
+                                    <div class="noneSmall1_y">
+                                        <small id="emailWarning" class="labelFour_y warning">請輸入正確格式的電子郵件</small>
+                                    </div>                                                                       
                                 </div>
+
                                 <div class="registerInfor2_y">   
-                                <div class="registerInfor22_y">
-                                    <label for="password" class="registerLabel22_y"><span class="yellow_star">*</span>密碼:</label>
-                                    <input type="password" class="registerInput22_y" name="password" id="password" value="" placeholder="請輸入密碼(6~12位字元)">
-                                    <small id="passwordWarning" class="labelTowTow_y warning">請輸入6~12位字元之密碼</small>
-                            
-                                </div>
-                                <div class="registerInfor22_y">
-                                    <label for="password_sure" class="registerLabel2222_y"><span class="yellow_star">*</span>密碼確認:</label>
-                                    <input type="password" class="registerInput2222_y" name="password_sure" id="password_sure" value="" placeholder="請輸入密碼(6~12位字元)">
-                                    <small id="password_sureWarning" class="labelTowFour_y warning">請再次確認密碼</small>
-                                
-                                </div>
+                                    <div class="registerInfor22_y">
+                                        <label for="password" class="registerLabel22_y"><span class="yellow_star">*</span>密碼:</label>
+                                        <input type="password" class="registerInput22_y" name="password" id="password" value="" placeholder="請輸入密碼(6~12位字元)">
+                                        <div class="noneSmall_y">
+                                            <small id="passwordWarning" class="labelTowTow_y warning">請輸入6~12位字元之密碼</small>
+                                        </div>
+                                    </div>
+                                    <div class="registerInfor22_y">
+                                        <label for="password_sure" class="registerLabel2222_y"><span class="yellow_star">*</span>密碼確認:</label>
+                                        <input type="password" class="registerInput2222_y" name="password_sure" id="password_sure" value="" placeholder="請輸入密碼(6~12位字元)">
+                                        <div class="noneSmall_y">
+                                            <small id="password_sureWarning" class="labelTowFour_y warning">請再次確認密碼</small>
+                                        </div>
+                                    </div>
                                 </div><!--<div class="registerInfor2_y">-->
                                 <div class="registerInfor2_y">
-                                <div class="registerInfor22_y">
-                                    <label for="name" class="registerLabel22_y"><span class="yellow_star">*</span>姓名:</label>
-                                    <input type="text" class="registerInput22_y" name="name" id="name" value="" placeholder="">
-                                    <small id="nameWarning" class="labelTowTow_y warning">請填寫兩個字以上的姓名</small>
-                                </div>
-                                <div class="registerInfor22_y">
-                                <label for="gender" class="registerLabel22_y">&nbsp;性別:</label>
-                                    <select class="registerSelect_y" name="gender" id="gender">
-                                        <option value="1"></option>
-                                        <option value="2">男</option>
-                                        <option value="3">女</option>
-                                    </select>
-                                    <small id="" class="noneSmall_y warning"></small>
-                                </div>
+                                    <div class="registerInfor22_y">
+                                        <label for="name" class="registerLabel22_y"><span class="yellow_star">*</span>姓名:</label>
+                                        <input type="text" class="registerInput22_y" name="name" id="name" value="" placeholder="">
+                                        <div class="noneSmall_y">
+                                            <small id="nameWarning" class="labelTowTow_y warning">請填寫兩個字以上的姓名</small>
+                                        </div>
+                                    </div>
+                                    <div class="registerInfor22_y">
+                                        <label for="gender" class="registerLabel22_y">&nbsp;性別:</label>
+                                        <select class="registerSelect_y" name="gender" id="gender">
+                                            <option value="0"></option>
+                                            <option value="1">男</option>
+                                            <option value="2">女</option>
+                                        </select>
+                                        <div class="noneSmall_y"></div>
+                                    </div>
                                 </div><!--<div class="registerInfor2_y">-->
                                 <div class="registerInfor2_y">
-                                <div class="registerInfor22_y">
-                                    <label for="mobile" class="registerLabel2222_y"><span class="yellow_star">*</span>手機號碼:</label>
-                                    <input type="text" class="registerInput2222_y" name="mobile" id="mobile" value="" placeholder="">
-                                    <small id="mobileWarning" class="labelTowFour_y warning">請輸入十位數的手機號碼</small>
-                                
-                                </div>
-                                <div class="registerInfor22_y">
-                                    <label for="birthday" class="registerLabel22_y"><span class="yellow_star">*</span>生日:</label>
-                                    <input type="date" class="registerInput22_y datepicker" name="birthday" id="birthday" value="" placeholder="">
-                                    <small id="birthdayWarning" class="labelTowTow_y warning">請輸入生日的西元年月日</small>
-                                </div>
+                                    <div class="registerInfor22_y">
+                                        <label for="mobile" class="registerLabel2222_y"><span class="yellow_star">*</span>手機號碼:</label>
+                                        <input type="text" class="registerInput2222_y" name="mobile" id="mobile" value="" placeholder="">
+                                        <div class="noneSmall_y">
+                                            <small id="mobileWarning" class="labelTowFour_y warning">請輸入十位數的手機號碼</small>
+                                        </div>
+                                    </div>
+                                    <div class="registerInfor22_y">
+                                        <label for="birthday" class="registerLabel22_y">&nbsp;生日:</label>
+                                        <input type="date" class="registerInput22_y datepicker" name="birthday" id="birthday" value="" placeholder="">
+                                        <div class="noneSmall_y"></div>
+                                    </div>
                                 </div><!--<div class="registerInfor2_y">-->
                                 <div class="registerInfor1_y">
                                     <label for="address" class="registerLabel_y"><span class="yellow_star">*</span>地址:</label>
                                     <input type="text" class="registerInput_y regAddress_y" name="address" id="address" value="" placeholder="">
-                                    <small id="addressWarning" class="labelTow_y warning">請填寫十個字以上的地址</small>
+                                    <div class="noneSmall1_y">
+                                        <small id="addressWarning" class="labelTow_y warning">請填寫十個字以上的地址</small>
+                                    </div>
                                 </div>
                                 <div class="agreeBox_y">
                                     <div class="check">
-                                        <div class="box">
-                                            <img src="images/member_uncheck_yellow.svg" alt="">
-                                        </div>
-                                        <input type="checkbox" class="agreeCheckbox_y" name="agree" id="agree" value=""/>
+                                        <label for="agree" class="box agree">
+                                            <input type="checkbox" class="agreeCheckbox_y" name="agree" id="agree" value=""/>
+                                        </label>
+                                        
                                         <div class="checktext"><span class="yellow_star">*</span>已詳閱及同意會員權益之<a href="">相關條款</a></div>
                                     </div>
                                 </div>
@@ -491,11 +524,11 @@
                                 </div>
                                 <div class="rememberBox_y">
                                     <div class="check">
-                                        <div class="checktext">記住我</div>
-                                        <div class="box">
-                                            <img src="images/member_uncheck_blue.svg" alt="">
-                                        </div>
-                                        <input type="checkbox" class="agreeCheckbox_y" name="agree" id="agree" value=""/>
+                                        <label class="checktext" for="remember">記住我</label>
+                                        <label for="remember" class="box remember">
+                                            <input type="checkbox" class="rememberCheckbox_y" name="remember" id="remember" value=""/>
+                                        </label>
+                                        
                                     </div>
                                 </div>
                                 <div class="forgetBox_y">
@@ -586,7 +619,16 @@
             }
             scrolllast=scrollNow;
         });
-
+        /*Checkbox*/
+        $(".box").click(function(){
+            var checkbox=$(this).find("input[type='checkbox']");
+            if(!checkbox.prop("checked")){
+                $(this).removeClass("checked"); //沒勾
+            }else{
+                $(this).addClass("checked");
+            }
+            
+        });
         /*register form check*/
         function registerCheck(){
             var isPass = true;
@@ -600,11 +642,19 @@
             }
             if(! document.form_register.email.value){
                 isPass = false;
-                alert('email 沒填');
+                alert('姓名 沒填');
             }
             if(! document.form_register.email.value){
                 isPass = false;
-                alert('email 沒填');
+                alert('手機號碼 沒填');
+            }
+            if(! document.form_register.email.value){
+                isPass = false;
+                alert('地址 沒填');
+            }
+            if(! document.form_register.email.value){
+                isPass = false;
+                alert('條款 沒填');
             }
         }
         /*login form check*/
