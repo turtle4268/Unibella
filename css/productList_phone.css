@@ -14,16 +14,17 @@
         font-size: 24px ;
         margin: 0 auto ;
         position: relative ;
-        top: 8% ;
+        top: 6% ;
     }
     .banner .bn .b_umbrella{
         width: 90% ;
+        margin-top: -10%
     }
     .b_umbrella img{
         width: 100% ;
     }
     .banner .bn .b_cloud{
-        bottom: -8% ;
+        bottom: -6% ;
     }
     .b_cloud img{
         width: 100% ;

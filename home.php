@@ -15,7 +15,7 @@
         /*Header--------------------------------------------------------*/
         header{
             transition: 0.5s ;
-            filter: drop-shadow(0 0 1px #0000004d) ;
+            /* filter: drop-shadow(0 0 1px #0000004d) ; */
         }
         header a{
             transition: 0.5s ;
