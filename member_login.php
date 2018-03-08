@@ -339,25 +339,31 @@
             /* display:none; */
         }
         .labelFour_y{
-            /* padding:5px 0 0 13%; */
-            margin-left: 50% ;
+            padding:4px 0 0 0;
+            /* margin-left: 50% ; */
         }
         .labelTow_y{
-            /* padding:5px 0 0 8%; */
-            margin-left: 13% ;
+            padding:4px 24% 0 0;
+            /* margin-left: 13% ; */
         }
         .labelTowFour_y{
-            /* padding:5px 0 0 27%; */
-            margin-left: 27% ;
+            padding:4px 0 0 34%;
+            /* margin-left: 27% ; */
         }
         .labelTowTow_y{
-            /* padding:5px 0 0 16%; */
-            margin-left: 16% ;
+            padding:4px 0 0 20%;
+            /* margin-left: 16% ; */
+        }
+        .noneSmall1_y{
+            /* padding:10px 0 0 16%; */
+            margin-top: 5px ;
+            width:400px;
+            height:21px;
         }
         .noneSmall_y{
             /* padding:10px 0 0 16%; */
-            margin-top: 10px ;
-            /* width:12px; */
+            margin-top: 5px ;
+            width:300px;
             height:14px;
         }
         /*datepicker--------------------*/
@@ -419,7 +425,7 @@
                                 <div class="registerInfor1_y">
                                     <label for="email" class="registerLabel1111_y"><span class="yellow_star">*</span>電子郵件:</label>
                                     <input type="text" class="registerInput1111_y" name="email" id="email" value="" placeholder="">
-                                    <div class="noneSmall_y">
+                                    <div class="noneSmall1_y">
                                         <small id="emailWarning" class="labelFour_y warning">請輸入正確格式的電子郵件</small>
                                     </div>                                                                       
                                 </div>
@@ -475,7 +481,7 @@
                                 <div class="registerInfor1_y">
                                     <label for="address" class="registerLabel_y"><span class="yellow_star">*</span>地址:</label>
                                     <input type="text" class="registerInput_y regAddress_y" name="address" id="address" value="" placeholder="">
-                                    <div class="noneSmall_y">
+                                    <div class="noneSmall1_y">
                                         <small id="addressWarning" class="labelTow_y warning">請填寫十個字以上的地址</small>
                                     </div>
                                 </div>
