@@ -332,28 +332,33 @@
             margin-top:1em;
         }
         /*small_warning--------------------*/
-        small{
+        small.warning{
             color:#ed1c24;
-            width:100%;
+            /* width:100%; */
             text-align:left;
             /* display:none; */
         }
         .labelFour_y{
-            padding:5px 0 0 13%;
+            /* padding:5px 0 0 13%; */
+            margin-left: 50% ;
         }
         .labelTow_y{
-            padding:5px 0 0 8%;
+            /* padding:5px 0 0 8%; */
+            margin-left: 13% ;
         }
         .labelTowFour_y{
-            padding:5px 0 0 27%;
+            /* padding:5px 0 0 27%; */
+            margin-left: 27% ;
         }
         .labelTowTow_y{
-            padding:5px 0 0 16%;
+            /* padding:5px 0 0 16%; */
+            margin-left: 16% ;
         }
         .noneSmall_y{
-            padding:10px 0 0 16%;
-            width:12px;
-            height:12px;
+            /* padding:10px 0 0 16%; */
+            margin-top: 10px ;
+            /* width:12px; */
+            height:14px;
         }
         /*datepicker--------------------*/
         input[type=date]::-webkit-inner-spin-button { 
@@ -414,56 +419,65 @@
                                 <div class="registerInfor1_y">
                                     <label for="email" class="registerLabel1111_y"><span class="yellow_star">*</span>電子郵件:</label>
                                     <input type="text" class="registerInput1111_y" name="email" id="email" value="" placeholder="">
-                                    <small id="emailWarning" class="labelFour_y warning">請輸入正確格式的電子郵件</small>
-                                                                                                            
+                                    <div class="noneSmall_y">
+                                        <small id="emailWarning" class="labelFour_y warning">請輸入正確格式的電子郵件</small>
+                                    </div>                                                                       
                                 </div>
+
                                 <div class="registerInfor2_y">   
-                                <div class="registerInfor22_y">
-                                    <label for="password" class="registerLabel22_y"><span class="yellow_star">*</span>密碼:</label>
-                                    <input type="password" class="registerInput22_y" name="password" id="password" value="" placeholder="請輸入密碼(6~12位字元)">
-                                    <small id="passwordWarning" class="labelTowTow_y warning">請輸入6~12位字元之密碼</small>
-                            
-                                </div>
-                                <div class="registerInfor22_y">
-                                    <label for="password_sure" class="registerLabel2222_y"><span class="yellow_star">*</span>密碼確認:</label>
-                                    <input type="password" class="registerInput2222_y" name="password_sure" id="password_sure" value="" placeholder="請輸入密碼(6~12位字元)">
-                                    <small id="password_sureWarning" class="labelTowFour_y warning">請再次確認密碼</small>
-                                
-                                </div>
+                                    <div class="registerInfor22_y">
+                                        <label for="password" class="registerLabel22_y"><span class="yellow_star">*</span>密碼:</label>
+                                        <input type="password" class="registerInput22_y" name="password" id="password" value="" placeholder="請輸入密碼(6~12位字元)">
+                                        <div class="noneSmall_y">
+                                            <small id="passwordWarning" class="labelTowTow_y warning">請輸入6~12位字元之密碼</small>
+                                        </div>
+                                    </div>
+                                    <div class="registerInfor22_y">
+                                        <label for="password_sure" class="registerLabel2222_y"><span class="yellow_star">*</span>密碼確認:</label>
+                                        <input type="password" class="registerInput2222_y" name="password_sure" id="password_sure" value="" placeholder="請輸入密碼(6~12位字元)">
+                                        <div class="noneSmall_y">
+                                            <small id="password_sureWarning" class="labelTowFour_y warning">請再次確認密碼</small>
+                                        </div>
+                                    </div>
                                 </div><!--<div class="registerInfor2_y">-->
                                 <div class="registerInfor2_y">
-                                <div class="registerInfor22_y">
-                                    <label for="name" class="registerLabel22_y"><span class="yellow_star">*</span>姓名:</label>
-                                    <input type="text" class="registerInput22_y" name="name" id="name" value="" placeholder="">
-                                    <small id="nameWarning" class="labelTowTow_y warning">請填寫兩個字以上的姓名</small>
-                                </div>
-                                <div class="registerInfor22_y">
-                                <label for="gender" class="registerLabel22_y">&nbsp;性別:</label>
-                                    <select class="registerSelect_y" name="gender" id="gender">
-                                        <option value="1"></option>
-                                        <option value="2">男</option>
-                                        <option value="3">女</option>
-                                    </select>
-                                    <small id="" class="noneSmall_y warning"></small>
-                                </div>
+                                    <div class="registerInfor22_y">
+                                        <label for="name" class="registerLabel22_y"><span class="yellow_star">*</span>姓名:</label>
+                                        <input type="text" class="registerInput22_y" name="name" id="name" value="" placeholder="">
+                                        <div class="noneSmall_y">
+                                            <small id="nameWarning" class="labelTowTow_y warning">請填寫兩個字以上的姓名</small>
+                                        </div>
+                                    </div>
+                                    <div class="registerInfor22_y">
+                                        <label for="gender" class="registerLabel22_y">&nbsp;性別:</label>
+                                        <select class="registerSelect_y" name="gender" id="gender">
+                                            <option value="0"></option>
+                                            <option value="1">男</option>
+                                            <option value="2">女</option>
+                                        </select>
+                                        <div class="noneSmall_y"></div>
+                                    </div>
                                 </div><!--<div class="registerInfor2_y">-->
                                 <div class="registerInfor2_y">
-                                <div class="registerInfor22_y">
-                                    <label for="mobile" class="registerLabel2222_y"><span class="yellow_star">*</span>手機號碼:</label>
-                                    <input type="text" class="registerInput2222_y" name="mobile" id="mobile" value="" placeholder="">
-                                    <small id="mobileWarning" class="labelTowFour_y warning">請輸入十位數的手機號碼</small>
-                                
-                                </div>
-                                <div class="registerInfor22_y">
-                                    <label for="birthday" class="registerLabel22_y"><span class="yellow_star">*</span>生日:</label>
-                                    <input type="date" class="registerInput22_y datepicker" name="birthday" id="birthday" value="" placeholder="">
-                                    <small id="birthdayWarning" class="labelTowTow_y warning">請輸入生日的西元年月日</small>
-                                </div>
+                                    <div class="registerInfor22_y">
+                                        <label for="mobile" class="registerLabel2222_y"><span class="yellow_star">*</span>手機號碼:</label>
+                                        <input type="text" class="registerInput2222_y" name="mobile" id="mobile" value="" placeholder="">
+                                        <div class="noneSmall_y">
+                                            <small id="mobileWarning" class="labelTowFour_y warning">請輸入十位數的手機號碼</small>
+                                        </div>
+                                    </div>
+                                    <div class="registerInfor22_y">
+                                        <label for="birthday" class="registerLabel22_y">&nbsp;生日:</label>
+                                        <input type="date" class="registerInput22_y datepicker" name="birthday" id="birthday" value="" placeholder="">
+                                        <div class="noneSmall_y"></div>
+                                    </div>
                                 </div><!--<div class="registerInfor2_y">-->
                                 <div class="registerInfor1_y">
                                     <label for="address" class="registerLabel_y"><span class="yellow_star">*</span>地址:</label>
                                     <input type="text" class="registerInput_y regAddress_y" name="address" id="address" value="" placeholder="">
-                                    <small id="addressWarning" class="labelTow_y warning">請填寫十個字以上的地址</small>
+                                    <div class="noneSmall_y">
+                                        <small id="addressWarning" class="labelTow_y warning">請填寫十個字以上的地址</small>
+                                    </div>
                                 </div>
                                 <div class="agreeBox_y">
                                     <div class="check">
@@ -622,11 +636,19 @@
             }
             if(! document.form_register.email.value){
                 isPass = false;
-                alert('email 沒填');
+                alert('姓名 沒填');
             }
             if(! document.form_register.email.value){
                 isPass = false;
-                alert('email 沒填');
+                alert('手機號碼 沒填');
+            }
+            if(! document.form_register.email.value){
+                isPass = false;
+                alert('地址 沒填');
+            }
+            if(! document.form_register.email.value){
+                isPass = false;
+                alert('條款 沒填');
             }
         }
         /*login form check*/
