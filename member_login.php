@@ -74,7 +74,7 @@
             align-items: center;
         }
         .login1_y, .login2_y{
-            width: 16%;
+            width: 18%;
             /* height: 100%; */
             text-align: center;
             letter-spacing: 3px;
@@ -82,7 +82,7 @@
         }
         .loginTitle_y{
             color: #1f5572;
-            margin-bottom: 4em;
+            margin-bottom: 3em;
         }
         .loginLabel_y{
             color: #1f5572;
@@ -107,7 +107,7 @@
             border: 2px solid #1f5572;
             border-radius: 50px;
             padding: 1% 30%;
-            margin-top: 4em;
+            margin-top: 1.5em;
         }
         .loginBtn_y:hover, .registerPBtn_y:hover{
             background-color: #1f5572;
@@ -147,17 +147,11 @@
             align-items: center;
         }
         .h_register_y{
-            width: 16%;
+            width: 18%;
             text-align: center;
             letter-spacing: 3px;
             /* flex: 2; */
         }
-        /* .e_register_y{
-            flex: 1;
-        }
-        .full_register_y{
-            flex: 2;
-        } */
         .h_registerTitle_y, .f_registerTitle_y{
             color: #f8cf4e;
             margin-bottom: 3em;
@@ -192,6 +186,7 @@
         }    
         .registerInfor1_y{
              display: flex;
+             flex-wrap:wrap;
              justify-content: space-between;
              align-content: center;
              margin-top:3em; 
@@ -244,18 +239,19 @@
         }
         .registerInfor22_y{
             display: flex;
+            flex-wrap:wrap;
             justify-content: space-between;
             align-items: center;
             width: 48%; 
         }
-        .registerLabel2_y{
+        .registerLabel22_y{
             color: #f8cf4e;
             font-size: 16px;
             /* flex: 0.5; */
             width: 16%;
             text-align: left;
         }
-        .registerInput2_y{
+        .registerInput22_y{
             background-color:transparent;
             color: #f8cf4e;
             border: none;
@@ -287,7 +283,7 @@
             color: #f8cf4e;
             border: none;
             border-bottom: 1px solid #f8cf4e;
-            width:300px;
+            width:84%;
             height: 30px; 
         }
         .f_registerBtn_y{
@@ -297,7 +293,7 @@
             border: 2px solid #f8cf4e;
             border-radius: 50px;
             padding: 0.5% 10%;
-            margin-top: 4em;
+            margin-top: 2em;
         }
         .f_registerBtn_y:hover{
             background-color: #f8cf4e;
@@ -307,6 +303,62 @@
         ::placeholder { 
             color: #b3b3b3;
             font-size: 12px;
+        }
+        .agreeBox_y{
+            color:#f8cf4e;
+            text-align:left;
+            margin-top:2em;
+        }
+        .agreeLabel_y a{
+            color:#f8cf4e;
+            text-decoration:none; 
+            border-bottom:1px solid #f8cf4e;  
+        }
+        .rememberBox_y{
+            text-align:right;
+            color:#1f5572;
+            margin-top:2em;
+        }
+        .forgetBox_y{
+            text-align:right;
+            color:#1f5572;
+            margin-top:1em;
+        }
+        input[type='checkbox'] {
+        display: none;
+        }
+        /*small_warning--------------------*/
+        small{
+            color:#ed1c24;
+            width:100%;
+            text-align:left;
+            /* display:none; */
+        }
+        .labelFour_y{
+            padding:10px 0 0 13%;
+        }
+        .labelTow_y{
+            padding:10px 0 0 8%;
+        }
+        .labelTowFour_y{
+            padding:10px 0 0 27%;
+        }
+        .labelTowTow_y{
+            padding:10px 0 0 16%;
+        }
+        .noneSmall_y{
+            padding:10px 0 0 16%;
+            width:12px;
+            height:12px;
+        }
+        /*datepicker--------------------*/
+        input[type=date]::-webkit-inner-spin-button { 
+            visibility: hidden; 
+        }
+        input[type=date]::-webkit-calendar-picker-indicator{
+            background:transparent;
+            width:6px;
+            height:6px;
         }
     </style>
     <style>
@@ -334,56 +386,60 @@
                                 <div class="registerInfor1_y">
                                     <label for="email" class="registerLabel1111_y"><span class="yellow_star">*</span>電子郵件:</label>
                                     <input type="text" class="registerInput1111_y" name="email" id="email" value="" placeholder="">
-                                    <small id="emailWarning" class="form-text text-muted warning">請輸入正確格式的電子郵件</small>
+                                    <small id="emailWarning" class="labelFour_y warning">請輸入正確格式的電子郵件</small>
                                                                                                             
                                 </div>
                                 <div class="registerInfor2_y">   
                                 <div class="registerInfor22_y">
-                                    <label for="password" class="registerLabel2_y"><span class="yellow_star">*</span>密碼:</label>
-                                    <input type="password" class="registerInput2_y" name="password" id="password" value="" placeholder="請輸入密碼(6~12位字元)">
-                                    <small id="passwordWarning" class="form-text text-muted warning">請輸入6~12位字元之密碼</small>
+                                    <label for="password" class="registerLabel22_y"><span class="yellow_star">*</span>密碼:</label>
+                                    <input type="password" class="registerInput22_y" name="password" id="password" value="" placeholder="請輸入密碼(6~12位字元)">
+                                    <small id="passwordWarning" class="labelTowTow_y warning">請輸入6~12位字元之密碼</small>
                             
                                 </div>
                                 <div class="registerInfor22_y">
                                     <label for="password_sure" class="registerLabel2222_y"><span class="yellow_star">*</span>密碼確認:</label>
                                     <input type="password" class="registerInput2222_y" name="password_sure" id="password_sure" value="" placeholder="請輸入密碼(6~12位字元)">
-                                    <small id="password_sureWarning" class="form-text text-muted warning">請再次確認密碼</small>
+                                    <small id="password_sureWarning" class="labelTowFour_y warning">請再次確認密碼</small>
                                 
                                 </div>
                                 </div><!--<div class="registerInfor2_y">-->
                                 <div class="registerInfor2_y">
                                 <div class="registerInfor22_y">
-                                    <label for="name" class="registerLabel2_y"><span class="yellow_star">*</span>姓名:</label>
-                                    <input type="text" class="registerInput2_y" name="name" id="name" value="" placeholder="">
-                                    <small id="nameWarning" class="form-text text-muted warning">請填寫兩個字以上的姓名</small>
+                                    <label for="name" class="registerLabel22_y"><span class="yellow_star">*</span>姓名:</label>
+                                    <input type="text" class="registerInput22_y" name="name" id="name" value="" placeholder="">
+                                    <small id="nameWarning" class="labelTowTow_y warning">請填寫兩個字以上的姓名</small>
                                 </div>
                                 <div class="registerInfor22_y">
-                                <label for="gender" class="registerLabel2_y">&nbsp;性別:</label>
-                                    <select class="registerSelect_y" name="gender" id="registerGender_y">
+                                <label for="gender" class="registerLabel22_y">&nbsp;性別:</label>
+                                    <select class="registerSelect_y" name="gender" id="gender">
                                         <option value="1"></option>
                                         <option value="2">男</option>
                                         <option value="3">女</option>
                                     </select>
-                                    
+                                    <small id="" class="noneSmall_y warning"></small>
                                 </div>
                                 </div><!--<div class="registerInfor2_y">-->
                                 <div class="registerInfor2_y">
                                 <div class="registerInfor22_y">
                                     <label for="mobile" class="registerLabel2222_y"><span class="yellow_star">*</span>手機號碼:</label>
                                     <input type="text" class="registerInput2222_y" name="mobile" id="mobile" value="" placeholder="">
-                                    <small id="mobileWarning" class="form-text text-muted warning">請輸入十位數的手機號碼</small>
+                                    <small id="mobileWarning" class="labelTowFour_y warning">請輸入十位數的手機號碼</small>
                                 
                                 </div>
                                 <div class="registerInfor22_y">
-                                    <label for="birthday" class="registerLabel2_y"><span class="yellow_star">*</span>生日:</label>
-                                    <input type="date" class="registerInput2_y datepicker" name="birthday" id="birthday" value="" placeholder="">
-                                    <small id="birthdayWarning" class="form-text text-muted warning">請輸入生日的西元年月日</small>
+                                    <label for="birthday" class="registerLabel22_y"><span class="yellow_star">*</span>生日:</label>
+                                    <input type="date" class="registerInput22_y datepicker" name="birthday" id="birthday" value="" placeholder="">
+                                    <small id="birthdayWarning" class="labelTowTow_y warning">請輸入生日的西元年月日</small>
                                 </div>
                                 </div><!--<div class="registerInfor2_y">-->
                                 <div class="registerInfor1_y">
                                     <label for="address" class="registerLabel_y"><span class="yellow_star">*</span>地址:</label>
                                     <input type="text" class="registerInput_y regAddress_y" name="address" id="address" value="" placeholder="">
-                                    <small id="addressWarning" class="form-text text-muted warning">請輸入生日的西元年月日</small>
+                                    <small id="addressWarning" class="labelTow_y warning">請填寫十個字以上的地址</small>
+                                </div>
+                                <div class="agreeBox_y">
+                                    <input type="checkbox" class="agreeCheckbox_y" name="agree" id="agree" value=""/>
+                                    <label for="agree" class="agreeLabel_y"><span class="yellow_star">*</span>已詳閱及同意會員權益之<a href="">相關條款</a></label>
                                 </div>
                                 <button type="submit" class="f_registerBtn_y" >送出</button>
                             </form>
@@ -403,7 +459,7 @@
                             <form name="form_login" method="post" action="" onsubmit="">
                                 <div class="loginInfor_y">
                                     <label for="email_login" class="loginLabel_y">電子郵件:</label>
-                                    <input type="text" class="loginInput_y" name="email_login" id="email_login" value="" placeholder="">
+                                    <input type="text" class="loginInput_y" name="email_login" id="email_login" value="" placeholder="" width:100px;>
                                     <!-- <small id="emailWarning" class="form-text text-muted warning">請填寫正確的電郵</small>
                                                                                  -->
                                 </div>
@@ -412,6 +468,15 @@
                                     <input type="password" class="loginInput_y" name="password_login" id="password_login" value="" placeholder="">
                                     <!-- <small id="passwordWarning" class="form-text text-muted warning">請輸入六個字元以上的密碼</small> -->
                     
+                                </div>
+                                <div class="rememberBox_y">
+                                    <input type="checkbox" class="rememberCheckbox_y" name="remember" id="remember" value=""/>
+                                    <label for="remember" class="rememberLabel_y">記住我</label>
+                                </div>
+                                <div class="forgetBox_y">
+ 
+                                    <input type="checkbox" class="forgetCheckbox_y" name="forget" id="forget" value=""/>
+                                    <label for="forget" class="forgetLabel_y">忘記密碼</label>  
                                 </div>
                                 <button type="submit" class="loginBtn_y">登入</button>
                             </form>
