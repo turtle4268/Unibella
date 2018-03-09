@@ -6,14 +6,6 @@
         header a{
             background-color: #666;
         }
-        /*Black*/
-        header.black{
-            color: #666 ;
-            background-color: #ffffffcc ;
-        }
-        header.black a{
-            background-color: #666 ;
-        }
         /*section1-----------------------------------------------------------*/
         section {
             color: #666;
