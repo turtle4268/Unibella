@@ -191,6 +191,7 @@
         width: 100%;
         /* height: 100vh; */
         margin-top: 10%;
+        position: relative;
     }
     .sec2_a h1 {
         text-align: center;
@@ -199,6 +200,36 @@
     .new_a {
         display: flex;
         padding-top: 50px;
+    }
+    .newText_a {
+        position: absolute;
+        top: 92px;
+        left: 0;
+        z-index: 3;
+        height: 85%;
+        width:100%;
+        /* background: #999; */
+        transform: translateX(-100%);
+        transition: all .5s;
+        color: #fff;
+        font-size: 20px;
+    }
+    .newText_a .newClose_a {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: url(images/X.svg) center center no-repeat ;
+    }
+    .newText_a p {
+        width: 85%;
+        margin: 15% 8%;
+        
+    }
+    .textShow_a {
+        transform: translateX(0);
+        
     }
     .yellow_a {
         background: #ffdb54;
@@ -243,6 +274,9 @@
         border: 3px solid #fff;
         z-index: 3;
         overflow: hidden;
+    }
+    .newConHide {
+        display: none;
     }
     .newContent_a a.newspaper_a {
         position: absolute;
@@ -711,13 +745,13 @@
             <section class="new_a">
                 <div class="yellow_a">
                     <div class="newContent_a">
-                    <a href="" class="newspaper_a newspaper1_a" id="img1"><img src="images/newspaper1.jpg" alt=""></a> 
+                    <a class="newspaper_a newspaper1_a paperText" id="img1" data-text="text1"><img src="images/newspaper1.jpg" alt=""></a> 
                     <a class="newspaper_a newspaper2_a" id="img2"><img src="images/newspaper2.jpg" alt=""></a>
                     <a class="newspaper_a newspaper3_a" id="img3"><img src="images/newspaper3.jpg" alt=""></a>
-                    <a href="" class="newspaper_a newspaper4_a" id="img4"><img src="images/newspaper4.jpg" alt=""></a>
-                    <a href="" class="newspaper_a newspaper5_a" id="img5"><img src="images/newspaper5.jpg" alt=""></a>
-                    <a href="" class="newspaper_a newspaper6_a" id="img6"><img src="images/newspaper1.jpg" alt=""></a> 
-                    <a href="" class="newspaper_a newspaper7_a" id="img7"><img src="images/newspaper2.jpg" alt=""></a>
+                    <a class="newspaper_a newspaper4_a paperText" id="img4" data-text="text2"><img src="images/newspaper4.jpg" alt=""></a>
+                    <a class="newspaper_a newspaper5_a paperText" id="img5" data-text="text3"><img src="images/newspaper5.jpg" alt=""></a>
+                    <a class="newspaper_a newspaper6_a paperText" id="img6" data-text="text4"><img src="images/newspaper1.jpg" alt=""></a> 
+                    <a class="newspaper_a newspaper7_a paperText" id="img7" data-text="text5"><img src="images/newspaper2.jpg" alt=""></a>
                     <a class="newspaper_a newspaper8_a" id="img8"><img src="images/newspaper3.jpg" alt=""></a>
                     </div>
                     
@@ -733,6 +767,37 @@
                     </ul>
                 </div>
             </section>
+            <section class="newText_a"  id="text1">
+                <div class="newClose_a" ></div>
+                <p>，台灣製傘業不再是夕陽工業，台北一家製傘工廠業者改革出新，研發出一款超小防風­傘，收起來時直徑只有2.5公分，
+                    比一枚五十元硬幣還要小；而另一款超輕量傘支架由碳­纖維製成，重量只有97公克，比一支手機還要輕，雨傘雖小，不僅防雨還能防風，
+                    輕巧造­型還能直接塞進口袋。</p>
+            </section>
+            <section class="newText_a"  id="text2">
+                <div class="newClose_a"></div>
+                <p>，台灣製傘業不再是夕陽工業，台北一家製傘工廠業者改革出新，研發出一款超小防風­傘，收起來時直徑只有2.5公分，
+                    比一枚五十元硬幣還要小；而另一款超輕量傘支架由碳­纖維製成，重量只有97公克，比一支手機還要輕，雨傘雖小，不僅防雨還能防風，
+                    輕巧造­型還能直接塞進口袋</p>
+            </section>
+            <section class="newText_a"  id="text3">
+                <div class="newClose_a"></div>
+                <p>，台灣製傘業不再是夕陽工業，台北一家製傘工廠業者改革出新，研發出一款超小防風­傘，收起來時直徑只有2.5公分，
+                    比一枚五十元硬幣還要小；而另一款超輕量傘支架由碳­纖維製成，重量只有97公克，比一支手機還要輕，雨傘雖小，不僅防雨還能防風，
+                    輕巧造­型還能直接塞進口</p>
+            </section>
+            <section class="newText_a"  id="text4">
+                <div class="newClose_a"></div>
+                <p>，台灣製傘業不再是夕陽工業，台北一家製傘工廠業者改革出新，研發出一款超小防風­傘，收起來時直徑只有2.5公分，
+                比一枚五十元硬幣還要小；而另一款超輕量傘支架由碳­纖維製成，重量只有97公克，比一支手機還要輕，雨傘雖小，不僅防雨還能防風，
+                輕巧造­型還能直接塞進</p>
+            </section>
+            <section class="newText_a"  id="text5">
+                <div class="newClose_a"></div>
+                <p>，台灣製傘業不再是夕陽工業，台北一家製傘工廠業者改革出新，研發出一款超小防風­傘，收起來時直徑只有2.5公分，
+                    比一枚五十元硬幣還要小；而另一款超輕量傘支架由碳­纖維製成，重量只有97公克，比一支手機還要輕，雨傘雖小，不僅防雨還能防風，
+                    輕巧造­型還能直接塞</p>
+            </section>
+            
         </div>
     </div>
     <footer>
@@ -802,15 +867,29 @@
         });
 
         $(".newLink_a li").click(function () {
-        var scaleImg = $(this).attr("data-img");
-        console.log(scaleImg);
+            var scaleImg = $(this).attr("data-img");
+        // console.log(scaleImg);
         // var rotate=$(".yellow_a figure").css("transform");
         // console.log(rotate);
-        $(".yellow_a .newspaper_a").removeClass("scale");
-        $("#" + scaleImg).addClass("scale");
+            $(".yellow_a .newspaper_a").removeClass("scale");
+            $("#" + scaleImg).addClass("scale");
         // $("#" + scaleImg).css({
         //         transform: 'rotate' + rotate
         //     });
+        });
+
+        //newText
+        $(".paperText").click(function () {
+            var text = $(this).attr("data-text");
+        // console.log(text);
+            $("#" + text).addClass("textShow_a");
+            $(".newContent_a").addClass("newConHide");
+            $(".newLink_a").addClass("newConHide");
+        });
+        $(".newClose_a").click(function(){
+            $(".newText_a").removeClass("textShow_a");
+            $(".newContent_a").removeClass("newConHide");
+            $(".newLink_a").removeClass("newConHide");
         });
 
     </script> 
