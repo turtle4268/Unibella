@@ -618,12 +618,6 @@
             $(this).closest(".half").removeClass("halfTofull").siblings().removeClass("halfTonull");
             e.stopPropagation();    //不讓父元素動作(阻止事件冒泡)    
         });
-        $(".hamburger").click(function () {
-                $("nav").removeClass("navhide");
-            });
-            $(".close").click(function () {
-                $("nav").addClass("navhide");
-            });
         /*手機375*/
         $(".full, .half, .half_unanimate_y").addClass("half_sun_hide_y");
         $(".registerPBtn_y").click(function () {
