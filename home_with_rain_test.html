@@ -707,37 +707,32 @@
             position: absolute;
             left: 20px;
         }
-        /* .umbrella .mask_f{
-            background-color: rgb(255, 255, 255) ;
-            width: 100%;
-            height: 300px;
-        } */
         /*太陽動畫--------------------------*/
        .sun svg{
             position: absolute;
             left: -80px;
             top: -86px; 
         }
-        .light{
+        .sunlight_f{
             opacity: 0;
             height:0;
         }
-        .light1{
+        .sunlight1_f{
             animation: shine 1.5s linear  2.5s infinite alternate;
         }
-        .light2{
+        .sunlight2_f{
             animation: shine 1.5s linear  3.1s infinite alternate;
         }
-        .light3{
+        .sunlight3_f{
             animation: shine 1.5s linear  2.7s infinite alternate;
         }
-        .light4{
+        .sunlight4_f{
             animation: shine 1.5s linear  2.9s infinite alternate;
         }
-        .light5{
+        .sunlight5_f{
             animation: shine 1.5s linear  2.5s infinite alternate;
         }
-        .light6{
+        .sunlight6_f{
             animation: shine 1.5s linear  2.8s infinite alternate;
         }
     @keyframes shine{
@@ -991,15 +986,15 @@
                         width="1570" height="880" viewBox="0 0 1570 833" style="enable-background:new 0 0 1580 833;" xml:space="preserve">
                             <defs><style>.cls-3{fill:#fff8b8;}</style></defs>
                             <g id="sun">
-                                <rect class="cls-3 light1 light" x="415.27" y="-216.12" width="22.82" height="950.52" transform="translate(445.24 -239.72) rotate(60.86)"/>
-                                <rect class="cls-3 light1 light" x="438.84" y="-212.11" width="2.42" height="972.31" transform="translate(413 -211) rotate(59.5)"/>
-                                <rect class="cls-3 light2 light" x="490.14" y="-194.81" width="36.78" height="1329.43" transform="translate(521.08 -222.37) rotate(48.3)"/>
-                                <rect class="cls-3 light3 light" x="866.89" y="-134.78" width="6.44" height="877.85" transform="translate(492.65 -536.76) rotate(46.56)"/>
-                                <rect class="cls-3 light4 light" x="979.46" y="-76.73" width="5.8" height="759.48" transform="translate(418.33 -556.47) rotate(39.58)"/>
-                                <rect class="cls-3 light4 light" x="1002.28" y="-60.98" width="20" height="721.46" transform="translate(423.11 -576.29) rotate(39.58)"/>
-                                <rect class="cls-3 light5 light" x="1125.91" y="-10.67" width="36.78" height="658.56" transform="translate(301.98 -495.79) rotate(28.03)"/>
-                                <rect class="cls-3 light6 light" x="1389.8" y="30.68" width="22.82" height="892.87" transform="translate(86.42 -202.86) rotate(8.54)"/>
-                                <rect class="cls-3 light6 light" x="1419.38" y="33.7" width="2.26" height="894.81" transform="translate(82 -200) rotate(8)"/>
+                                <rect class="cls-3 sunlight1_f sunlight_f" x="415.27" y="-216.12" width="22.82" height="950.52" transform="translate(445.24 -239.72) rotate(60.86)"/>
+                                <rect class="cls-3 sunlight1_f sunlight_f" x="438.84" y="-212.11" width="2.42" height="972.31" transform="translate(413 -211) rotate(59.5)"/>
+                                <rect class="cls-3 sunlight2_f sunlight_f" x="490.14" y="-194.81" width="36.78" height="1329.43" transform="translate(521.08 -222.37) rotate(48.3)"/>
+                                <rect class="cls-3 sunlight3_f sunlight_f" x="866.89" y="-134.78" width="6.44" height="877.85" transform="translate(492.65 -536.76) rotate(46.56)"/>
+                                <rect class="cls-3 sunlight4_f sunlight_f" x="979.46" y="-76.73" width="5.8" height="759.48" transform="translate(418.33 -556.47) rotate(39.58)"/>
+                                <rect class="cls-3 sunlight4_f sunlight_f" x="1002.28" y="-60.98" width="20" height="721.46" transform="translate(423.11 -576.29) rotate(39.58)"/>
+                                <rect class="cls-3 sunlight5_f sunlight_f" x="1125.91" y="-10.67" width="36.78" height="658.56" transform="translate(301.98 -495.79) rotate(28.03)"/>
+                                <rect class="cls-3 sunlight6_f sunlight_f" x="1389.8" y="30.68" width="22.82" height="892.87" transform="translate(86.42 -202.86) rotate(8.54)"/>
+                                <rect class="cls-3 sunlight6_f sunlight_f" x="1419.38" y="33.7" width="2.26" height="894.81" transform="translate(82 -200) rotate(8)"/>
                                 
                             </g>
                         </svg>
@@ -1321,12 +1316,8 @@
   
            function light (){
                
-                tl.to(".light1",1.5, {opacity:1,height:1200, ease:Linear.easeNone})
-                    .to(".light2",1.5, {opacity:1,height:1500, ease:Linear.easeNone},1)
-                    .to(".light3",1.5, {opacity:1,height:700, ease:Linear.easeNone},0)
-                    .to(".light4",1.5, {opacity:1,height:600, ease:Linear.easeNone},1)
-                    .to(".light5",1.5, {opacity:1,height:580, ease:Linear.easeNone},0)
-                    .to(".light6",1.5, {opacity:1,height:1000, ease:Linear.easeNone},1)
+                tl.to(".sunlight1_f, .sunlight3_f, .sunlight5_f",1.8, {opacity:1,height:1300, ease:Linear.easeNone})
+                  .to(".sunlight2_f, .sunlight4_f, .sunlight6_f",1.8, {opacity:1,height:1300, ease:Linear.easeNone},1.2)
             }    
             light ();
     </script>
