@@ -1,27 +1,15 @@
+@import url("sample_phone.css");
 @media screen and (max-width: 376px) {
     /*--header--*/
     *{
         letter-spacing: 2px ;
     }
-    header {
-        padding-right: 5px;
-        padding-left: 5px;
-        padding-top: 10px ;
-    }
-    header h1 {
-        left: 10px;
-        top:0;
-        font-size:26px;
-    }
-    .h_ul li {
-        padding: 0 10px;
-    }
     /*--banner--*/
     .headerBg_a p {
-        width: 58%;
-        font-size: 20px;
+        width: 66%;
+        font-size: 24px;
         font-weight: 400;
-        left:35%;
+        left:28%;
         top: 25%;
         letter-spacing: 5px;
         text-align: initial;
@@ -67,6 +55,9 @@
     }
     .blue_a {
         width: 100%;
+    }
+    .newText_a {
+        height: 46%;
     }
     .newContent_a {
         left: 7%;
@@ -135,53 +126,4 @@
         transform: rotate(83deg);
         display: none;
     }
-        
-    
-    /*--Nav--*/
-    nav{
-        width: 100% ;
-    }
-    nav.navhide{
-        right: -100% ;
-    }
-    /*footer*/
-    .f_content{
-        flex-wrap: wrap ;
-        padding: 20px 40px ;
-    }
-    .f_quarter{
-        min-width: 100% ;
-        border-right: none ;
-        padding: 20px 0 ;
-        position: relative ;
-    }
-    .f_quarter::before{
-        content: "" ;
-        border-bottom: 1px solid #FFF ;
-        width: 40% ;
-        height: 100% ;
-        position: absolute ;
-        margin: 0 auto ;
-    }
-    .f_quarter.border_none::before{
-        content: "" ;
-        border-bottom: 1px solid transparent ;
-        width: 50% ;
-        height: 100% ;
-        position: absolute ;
-        margin: 0 auto ;
-    }
-    .f_quarter p{
-        text-align: center ;
-    }
-    .f_quarter a.aicon{
-        width: 36px ;
-        margin: 0 ;
-        text-align: center ;
-        margin: 15px ;
-    }
-    .foot{
-        padding: 12px 0 ;
-        letter-spacing: 2px ;
-    }
-    }
+}

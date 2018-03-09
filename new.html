@@ -495,9 +495,194 @@
     .n_ul li a:hover{
         background-color: #CCC;
     }
+    @media screen and (max-width: 376px) {
+    /*--header--*/
+    *{
+        letter-spacing: 2px ;
+    }
+    header {
+        padding-right: 5px;
+        padding-left: 5px;
+        padding-top: 10px ;
+    }
+    header h1 {
+        left: 10px;
+        top:0;
+        font-size:26px;
+    }
+    .h_ul li {
+        padding: 0 10px;
+    }
+    /*--banner--*/
+    .headerBg_a p {
+        width: 58%;
+        font-size: 20px;
+        font-weight: 400;
+        left:35%;
+        top: 25%;
+        letter-spacing: 5px;
+        text-align: initial;
+    }
+    .headerBg_a img {
+        width: 300%;
+    }
+    .square_a .p2 {
+        margin-left: -80px;
+    }
+    /*--sec1Active--*/
+    .sec1_a {
+        padding-top:15px;
+    }
+    .active_a {
+        padding-top: 25px;
+    }
+    .active_a ul li.squarePhone_a {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+    .active_a ul li {
+        width: 250px;
+        height: 250px;
+    }
+    .active_a ul .square_a:before {
+        width: 140%;
+        height:113%;
+        display: none;
+    }
+    .active_a ul .square_a img {
+        opacity: 1;
+        filter:brightness(.5);
+    }
+    /*--sec2New--*/
     
+    .new_a {
+        display: block;
+    }
+    .yellow_a {
+        width: 100%;
+    }
+    .blue_a {
+        width: 100%;
+    }
+    .newContent_a {
+        left: 7%;
+        width: 85%;
+        height: 90%;
+        top:20%;
+    }
+    .timeline ul li {
+        width:100%;
+        background: none;
+        top: 100px;
+    }
+    .timeline ul li::after {
+        display: none;
+    }
+    .newLink_a {
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+    .newLink_a li a {
+        display: block;
+        width:92%;
+        left: 5%;
+    }
+    .newContent_a a.newspaper1_a {
+        top: 46%;
+        left: -23%;
+        transform: rotate(-30deg);
+    }
+    .newContent_a a.newspaper2_a {
+        top: 1%;
+        left: -22%;
+        transform: rotate(30deg);
+    }
+    .newContent_a a.newspaper3_a {
+        top: 40%;
+        left: 48%;
+        transform: rotate(-8deg);
+        display: none;
+    }
+    .newContent_a a.newspaper4_a {
+        top: 45%;
+        left: 65%;
+    }
+    .newContent_a a.newspaper5_a {
+        top: -5%;
+        left: 20%;
+        transform: rotate(-15deg);
+        
+    }
+    .newContent_a a.newspaper6_a {
+        top: -5%;
+        left: 55%;
+        transform: rotate(-7deg);
+    }
+    .newContent_a a.newspaper7_a {
+        top: 51%;
+        left: 15%;
+        transform: rotate(-10deg);
+        
+    }
+    .newContent_a a.newspaper8_a {
+        top: -10%;
+        left: 69%;
+        transform: rotate(83deg);
+        display: none;
+    }
+        
+    
+    /*--Nav--*/
+    nav{
+        width: 100% ;
+    }
+    nav.navhide{
+        right: -100% ;
+    }
+    /*footer*/
+    .f_content{
+        flex-wrap: wrap ;
+        padding: 20px 40px ;
+    }
+    .f_quarter{
+        min-width: 100% ;
+        border-right: none ;
+        padding: 20px 0 ;
+        position: relative ;
+    }
+    .f_quarter::before{
+        content: "" ;
+        border-bottom: 1px solid #FFF ;
+        width: 40% ;
+        height: 100% ;
+        position: absolute ;
+        margin: 0 auto ;
+    }
+    .f_quarter.border_none::before{
+        content: "" ;
+        border-bottom: 1px solid transparent ;
+        width: 50% ;
+        height: 100% ;
+        position: absolute ;
+        margin: 0 auto ;
+    }
+    .f_quarter p{
+        text-align: center ;
+    }
+    .f_quarter a.aicon{
+        width: 36px ;
+        margin: 0 ;
+        text-align: center ;
+        margin: 15px ;
+    }
+    .foot{
+        padding: 12px 0 ;
+        letter-spacing: 2px ;
+    }
+    }
     </style>
-    <link rel="stylesheet" href="css/new_phone.css">
 </head>
 <body>
     <header>
