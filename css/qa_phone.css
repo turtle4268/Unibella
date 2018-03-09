@@ -1,0 +1,30 @@
+@import url("sample_phone.css");
+@media screen and (max-width: 375px) {
+    /*--header--*/
+    *{
+        letter-spacing: 2px ;
+    }
+    header a{
+        background-color: #FFF;
+    }
+    /*--banner--*/
+    .headerBg_a p {
+        width: 70%;
+        font-size: 24px;
+        left: 23%;
+        top: 25%;
+        font-weight: 400;
+        text-align: inherit;
+        letter-spacing: 5px;
+    }
+    .headerBg_a img {
+        width: 300%;
+    }
+    /*--sec1--*/
+    .sec1_a {
+        padding-top:0;
+    }
+    .qaTitle_a {
+        padding-top:20px;
+    }
+}
