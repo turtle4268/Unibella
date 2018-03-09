@@ -250,10 +250,15 @@
         }
         .l_aside_y ul li{
             list-style: none;
-            padding: 15px 10px;
-            margin: 40px 0;
+            padding: 20px 10px;/*f改*/
+            margin: 30px 0;/*f改*/
+            transition: all .4s;/*f改*/
         }
         .l_aside_y ul li:hover{
+            background: #e6e6e6;
+            transition: all .4s;/*f改*/
+        }
+        .l_aside_y ul .change_f{ /*f加 顯示目前頁面li的顏色*/
             background: #e6e6e6;
         }
         .fa-angle-down{
@@ -261,6 +266,9 @@
         }
         .l_p_ul_y{
             display: none;
+        }
+        .topMain_y{
+            margin-left: 5%;
         }
         .topMain_ul_y{
             display: flex;
@@ -277,6 +285,7 @@
         .main_y{
             text-align: center;
             color: #666;
+            position: relative;/*f改*/
         }
         .main_y h2{
             margin: 50px auto;
@@ -369,8 +378,8 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            left: -.6rem;
-            top: -.7rem;
+            left: -.5rem;
+            top: -.5rem;
             z-index: -1;
             background-color: #5b8095;
             border-radius: 28px;
@@ -390,8 +399,8 @@
         .toTop{
             color: #1F5572 ;
             position: absolute;
-            right: 50px;
-            bottom: -300px ;  /*y改*/
+            right: -20px;
+            bottom:30px;
             cursor: pointer ;
         }
         .toTop .tr{
@@ -416,6 +425,14 @@
             0%   { opacity: .2; top: 2px; }
             50%  { opacity: .5; }
             100% { opacity: 1; top: -4px ;}
+        }
+        /*navHide------*/
+        .hide {
+            transform: translateY(-100px);
+            transition: all .5s;
+        }
+        .bg {
+            background: rgba(255, 255, 255, .8);
         }
     </style>
     <link rel="stylesheet" href="css/member_center_infor_phone.css">
@@ -453,18 +470,18 @@
                 <div class="asideListBox_y">
                     <h2 class="asideListTitle_y">會員專區<i class="fas fa-angle-down"></i></h2>
                     <ul class="l_ul_y">
-                        <li><a href="" class="asideA_y">修改會員資料</a></li>
-                        <li><a href="" class="asideA_y">訂購紀錄</a></li>
-                        <li><a href="" class="asideA_y">密碼修改</a></li>
-                        <li><a href="" class="asideA_y">收藏列表</a></li>
-                        <li><a href="" class="asideA_y">會員優惠</a></li>
+                        <li class="change_f"><a href="" class="asideA_y">修改會員資料</a></li>
+                        <li class="history_f"><a href="" class="asideA_y">訂購紀錄</a></li>
+                        <li class="password_f"><a href="" class="asideA_y">密碼修改</a></li>
+                        <li class="save_f"><a href="" class="asideA_y">收藏列表</a></li>
+                        <li class="sale_f"><a href="" class="asideA_y">會員優惠</a></li>
                     </ul>
                     <ul class="l_p_ul_y">
-                        <li><a href="" class="asideA_y">修改會員資料</a></li>
-                        <li><a href="" class="asideA_y">訂購紀錄</a></li>
-                        <li><a href="" class="asideA_y">密碼修改</a></li>
-                        <li><a href="" class="asideA_y">收藏列表</a></li>
-                        <li><a href="" class="asideA_y">會員優惠</a></li>
+                        <li class="change_f"><a href="" class="asideA_y">修改會員資料</a></li>
+                        <li class="history_f"><a href="" class="asideA_y">訂購紀錄</a></li>
+                        <li class="password_f"><a href="" class="asideA_y">密碼修改</a></li>
+                        <li class="save_f"><a href="" class="asideA_y">收藏列表</a></li>
+                        <li class="sale_f"><a href="" class="asideA_y">會員優惠</a></li>
                     </ul>
                 </div>
             </aside>
@@ -506,11 +523,11 @@
                     </div>
                     <button type="submit" class="memberBtn_y">確認送出</button>
                 </form> 
+                <div class="toTop">
+                    <div class="tr"></div>
+                    <h5>TOP</h5>
+                </div>
             </div> <!--main_y-->
-            <div class="toTop">
-                <div class="tr"></div>
-                <h5>TOP</h5>
-            </div>
         </div> <!--mainBox_y-->
     </div>
     <footer>
@@ -571,6 +588,25 @@
             $("html,body").animate({
                 scrollTop: 0
             }, 1000);
+        });
+        /*navHide*/
+        var scrollHeaderLast;
+        $(window).scroll(function () {
+            //header
+            var scrollHeader = $(this).scrollTop();
+            // console.log(scrollHeader);
+            if (scrollHeader < 350) {
+                $("header").removeClass("hide, bg")
+                $("header h1, .h_ul li a").removeClass("phone_hide_f")
+            } else {
+                if (scrollHeader > scrollHeaderLast) {
+                    $("header").addClass("hide").removeClass("bg")
+                    $("header h1, .h_ul li a").addClass("phone_hide_f")
+                } else {
+                    $("header").removeClass("hide").addClass("bg")
+                };
+            };
+            scrollHeaderLast = scrollHeader;
         });
         /*手機375_memberList*/
         $(".l_p_ul_y").hide();
