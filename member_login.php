@@ -1,3 +1,4 @@
+<?php require __DIR__. '/_db_connect.php'; ?>
 <?php include __DIR__.'/module_head.php' ?>
     <style>
         section{
@@ -5,6 +6,9 @@
         }
         :focus{
             outline:none ;
+        }
+        button{
+            cursor: pointer ;
         }
         /**/
         .full{
@@ -77,7 +81,7 @@
             align-items: center;
         }
         .login1_y, .login2_y{
-            width: 18%;
+            width: 20%;
             /* height: 100%; */
             text-align: center;
             letter-spacing: 3px;
@@ -184,6 +188,7 @@
         /*f_register_y--------------------------------------------------------------*/
         .full_register_y{
             width: 48%;
+            min-width:720px ;
             text-align: center;
             letter-spacing: 3px;
             /* flex: 2; */           
@@ -336,7 +341,7 @@
             color:#ed1c24;
             /* width:100%; */
             text-align:left;
-            /* display:none; */
+            display:none;
         }
         .labelFour_y{
             padding:4px 0 0 0;
@@ -421,7 +426,7 @@
                         <div class="f_register_y">
                             <h2 class="f_registerTitle_y">會員註冊</h2>
                             <p style="text-align:right">(*為必填)</p>
-                            <form name="form_register" method="post" action="" onsubmit="">
+                            <form name="form_register" method="post" action="" onsubmit="return registerCheck()">
                                 <div class="registerInfor1_y">
                                     <label for="email" class="registerLabel1111_y"><span class="yellow_star">*</span>電子郵件:</label>
                                     <input type="text" class="registerInput1111_y" name="email" id="email" value="" placeholder="">
@@ -509,7 +514,7 @@
                         <div class="login1_y"></div>
                         <div class="login2_y">
                             <h2 class="loginTitle_y">會員登入</h2>
-                            <form name="form_login" method="post" action="" onsubmit="">
+                            <form name="form_login" method="post" action="" onsubmit="return loginCheck()">
                                 <div class="loginInfor_y">
                                     <label for="email_login" class="loginLabel_y">電子郵件:</label>
                                     <input type="text" class="loginInput_y" name="email_login" id="email_login" value="" placeholder="" width:100px;>
@@ -631,33 +636,100 @@
         });
         /*register form check*/
         function registerCheck(){
-            var isPass = true;
-            if(! document.form_register.email.value){
-                isPass = false;
-                alert('email沒填');
+            $(".warning").hide();
+            var pattern = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+            var email = document.form_register.email.value;
+            var password = document.form_register.password.value;
+            var passSure = document.form_register.password_sure.value;
+            var name = document.form_register.name.value;
+            var mobile = document.form_register.mobile.value;
+            var address = document.form_register.address.value;
+            var agree=$("#agree");
+            mobile=mobile.trim() ;
+            var isRePass = true;
+            if(! pattern.test(email)){
+                isRePass = false;
+                $('#emailWarning').show();
             }
-            if(! document.form_register.email.value){
-                isPass = false;
-                alert('密碼沒填');
+            if(password.length<6 || password.length>12){
+                isRePass = false;
+                $('#passwordWarning').show();
             }
-            if(! document.form_register.email.value){
-                isPass = false;
-                alert('姓名 沒填');
+            if(!(password==passSure)){
+                isRePass = false;
+                $('#password_sureWarning').show();
             }
-            if(! document.form_register.email.value){
-                isPass = false;
-                alert('手機號碼 沒填');
+            if(name.length<2){
+                isRePass = false;
+                $('#nameWarning').show();
             }
-            if(! document.form_register.email.value){
-                isPass = false;
-                alert('地址 沒填');
+            if(! /^09\d{8}$/.test(mobile)){
+                isRePass = false;
+                $('#mobileWarning').show();
             }
-            if(! document.form_register.email.value){
-                isPass = false;
-                alert('條款 沒填');
+            if(address.length<10){
+                isRePass = false;
+                $('#addressWarning').show();
             }
+            if(! agree.prop("checked")){
+                isRePass = false;
+                alert('條款 未同意');
+            }
+            if(isRePass){
+                $(".f_registerBtn_y").hide();
+                $.post('register_api.php',$(document.form_register).serialize(),function(data){
+                    console.log(data);
+                    switch (data) {
+                        case 1:
+                            alert("註冊成功! 請登入會員");
+                            $('.f_register_y input').val('');
+                            break;
+
+                        case -1:
+                            alert("註冊失敗! email已被註冊");
+                            break;
+                    
+                        default:
+                            alert("註冊失敗! 請稍後再試");
+                            break;
+                    }
+                },"json")
+            }
+            return false;
+
         }
         /*login form check*/
+        function loginCheck(){
+            var pattern = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+            var email_login = document.form_login.email_login.value;
+            var password_login = document.form_login.password_login.value;
+            var isLoPass = true;
+            var ss=2 ;
+            if(! pattern.test(email_login)){
+                isLoPass = false;
+            }
+            if(password_login.length<6 || password_login.length>12){
+                isLoPass = false;
+            }
+            
+            if(isLoPass){
+                $.post("login_api.php",$(form_login).serialize(),function(data){
+                    // console.log(data);
+                    switch (data) {
+                        case 1:
+                        ss=<?= isset($_SESSION['user'])?1:0 ?>;
+                        console.log(ss);
+                            alert("登入成功!");
+                            break;
+                    
+                        default:
+                            alert("登入失敗!");
+                            break;
+                    }
+                },"json");
+            }
+            return false;
+        }
     </script>
 </body>
 </html>
