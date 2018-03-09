@@ -6,10 +6,10 @@
     }
     /*--banner--*/
     .headerBg_a p {
-        width: 58%;
-        font-size: 20px;
+        width: 66%;
+        font-size: 24px;
         font-weight: 400;
-        left:35%;
+        left:28%;
         top: 25%;
         letter-spacing: 5px;
         text-align: initial;
@@ -55,6 +55,9 @@
     }
     .blue_a {
         width: 100%;
+    }
+    .newText_a {
+        height: 46%;
     }
     .newContent_a {
         left: 7%;

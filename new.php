@@ -155,11 +155,13 @@
         z-index: 3;
         height: 85%;
         width:100%;
-        /* background: #999; */
+        font-size: 20px;
         transform: translateX(-100%);
         transition: all .5s;
-        color: #fff;
-        font-size: 20px;
+        display:flex;
+        align-items:center;
+        background:#fff;
+       
     }
     .newText_a .newClose_a {
         width: 20px;
@@ -168,11 +170,20 @@
         top: 20px;
         right: 20px;
         background: url(images/X.svg) center center no-repeat ;
+       
     }
-    .newText_a p {
-        width: 85%;
-        margin: 15% 8%;
+    .newP_a {
+        position: absolute;
+        transition: all .5s;
+        margin:0 5%;
+        opacity:0;
+    }
+    .newP_a p {
         
+        color:#666;
+    }
+    .newPShow_a {
+        opacity:1; 
     }
     .textShow_a {
         transform: translateX(0);
@@ -191,7 +202,7 @@
         margin: 0 auto;
         padding-top: 45px;
         background: #fff;
-        height: 25px;
+        height: 68px;
     }
     .timeline ul li::after {
         content: '';
@@ -368,36 +379,35 @@
                     </ul>
                 </div>
             </section>
-            <section class="newText_a"  id="text1">
+            <section class="newText_a">
                 <div class="newClose_a" ></div>
-                <p>，台灣製傘業不再是夕陽工業，台北一家製傘工廠業者改革出新，研發出一款超小防風­傘，收起來時直徑只有2.5公分，
+                <div class="newP_a" id="text1">
+                    <p>，台灣製傘業不再是夕陽工業，台北一家製傘工廠業者改革出新，研發出一款超小防風­傘，收起來時直徑只有2.5公分，
                     比一枚五十元硬幣還要小；而另一款超輕量傘支架由碳­纖維製成，重量只有97公克，比一支手機還要輕，雨傘雖小，不僅防雨還能防風，
                     輕巧造­型還能直接塞進口袋。</p>
-            </section>
-            <section class="newText_a"  id="text2">
-                <div class="newClose_a"></div>
-                <p>，台灣製傘業不再是夕陽工業，台北一家製傘工廠業者改革出新，研發出一款超小防風­傘，收起來時直徑只有2.5公分，
+                </div>
+                <div class="newP_a" id="text2">
+                    <p>，台灣製傘業不再是夕陽工業，台北一家製傘工廠業者改革出新，研發出一款超小防風­傘，收起來時直徑只有2.5公分，
                     比一枚五十元硬幣還要小；而另一款超輕量傘支架由碳­纖維製成，重量只有97公克，比一支手機還要輕，雨傘雖小，不僅防雨還能防風，
-                    輕巧造­型還能直接塞進口袋</p>
-            </section>
-            <section class="newText_a"  id="text3">
-                <div class="newClose_a"></div>
-                <p>，台灣製傘業不再是夕陽工業，台北一家製傘工廠業者改革出新，研發出一款超小防風­傘，收起來時直徑只有2.5公分，
+                    輕巧造­型還能直接塞進口袋。</p>
+                </div>
+                <div class="newP_a" id="text3">
+                    <p>，台灣製傘業不再是夕陽工業，台北一家製傘工廠業者改革出新，研發出一款超小防風­傘，收起來時直徑只有2.5公分，
                     比一枚五十元硬幣還要小；而另一款超輕量傘支架由碳­纖維製成，重量只有97公克，比一支手機還要輕，雨傘雖小，不僅防雨還能防風，
-                    輕巧造­型還能直接塞進口</p>
-            </section>
-            <section class="newText_a"  id="text4">
-                <div class="newClose_a"></div>
-                <p>，台灣製傘業不再是夕陽工業，台北一家製傘工廠業者改革出新，研發出一款超小防風­傘，收起來時直徑只有2.5公分，
-                比一枚五十元硬幣還要小；而另一款超輕量傘支架由碳­纖維製成，重量只有97公克，比一支手機還要輕，雨傘雖小，不僅防雨還能防風，
-                輕巧造­型還能直接塞進</p>
-            </section>
-            <section class="newText_a"  id="text5">
-                <div class="newClose_a"></div>
-                <p>，台灣製傘業不再是夕陽工業，台北一家製傘工廠業者改革出新，研發出一款超小防風­傘，收起來時直徑只有2.5公分，
+                    輕巧造­型還能直接塞進口袋。</p>
+                </div>
+                <div class="newP_a" id="text4">
+                    <p> ，台灣製傘業不再是夕陽工業，台北一家製傘工廠業者改革出新，研發出一款超小防風­傘，收起來時直徑只有2.5公分，
                     比一枚五十元硬幣還要小；而另一款超輕量傘支架由碳­纖維製成，重量只有97公克，比一支手機還要輕，雨傘雖小，不僅防雨還能防風，
-                    輕巧造­型還能直接塞</p>
+                    輕巧造­型還能直接塞進口袋。</p>
+                </div>
+                <div class="newP_a" id="text5">
+                    <p>，台灣製傘業不再是夕陽工業，台北一家製傘工廠業者改革出新，研發出一款超小防風­傘，收起來時直徑只有2.5公分，
+                    比一枚五十元硬幣還要小；而另一款超輕量傘支架由碳­纖維製成，重量只有97公克，比一支手機還要輕，雨傘雖小，不僅防雨還能防風，
+                    輕巧造­型還能直接塞進口袋。</p>
+                </div>
             </section>
+
             
         </div>
     </div>
@@ -422,28 +432,22 @@
 
         $(".newLink_a li").click(function () {
             var scaleImg = $(this).attr("data-img");
-        // console.log(scaleImg);
-        // var rotate=$(".yellow_a figure").css("transform");
-        // console.log(rotate);
             $(".yellow_a .newspaper_a").removeClass("scale");
             $("#" + scaleImg).addClass("scale");
-        // $("#" + scaleImg).css({
-        //         transform: 'rotate' + rotate
-        //     });
         });
 
         //newText
         $(".paperText").click(function () {
             var text = $(this).attr("data-text");
         // console.log(text);
-            $("#" + text).addClass("textShow_a");
+            $("#" + text).addClass("newPShow_a");
+            $(".newText_a").addClass("textShow_a");
             $(".newContent_a").addClass("newConHide");
-            $(".newLink_a").addClass("newConHide");
         });
         $(".newClose_a").click(function(){
             $(".newText_a").removeClass("textShow_a");
             $(".newContent_a").removeClass("newConHide");
-            $(".newLink_a").removeClass("newConHide");
+
         });
 
     </script> 
