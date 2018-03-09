@@ -1,18 +1,20 @@
-<?php /*
+<?php 
     require __DIR__. '/_db_connect.php';
     $page_name = 'product_list';
 
     $q_string=[];
-    $per_page=6;
-    $page=isset($_GET['page'])?intval($_GET['page']):1;
+    $per_page=12;
+    $realpage=isset($_GET['page'])?intval($_GET['page']):1;
     $cate=isset($_GET['cate'])?intval($_GET['cate']):1;     //分類(預設雨傘:1 ,陽傘:2)
+    $page=$realpage-1;
 
-    $where=" WHERE `category_sid`=$cate ";     //分類內清單
+    $where=" WHERE `category_id`=$cate ";     //分類內清單
     if(!empty($cate)){
-        $where.="AND `category_sid`=$cate ";
+        $where.="AND `category_id`=$cate ";
         $q_string['cate']=$cate ;   //丟分類項進去
         //http_build_query($q_string)     產生cate=n&page=n的字串
     }
+    $order=" `sid` ASC ";
     $t_sql = "SELECT COUNT(1) FROM `products` $where";
 
     $t_result = $mysqli->query($t_sql);
@@ -21,12 +23,12 @@
     $t_pages = ceil($t_rows/$per_page); //總頁數
 
 
-    $c_sql = sprintf("SELECT * FROM `products` $where LIMIT %s, %s", ($page-1)*$per_page, $per_page);
+    $c_sql = sprintf("SELECT * FROM `products` $where ORDER BY $order LIMIT %s, %s", ($page)*$per_page, $per_page);
     $c_result = $mysqli->query($c_sql);
 
-    $m_sql = "SELECT * FROM categories WHERE parent_sid=0 ORDER BY sid DESC";
-    $m_result = $mysqli->query($m_sql);     //分類清單
-*/?>
+    /*$m_sql = "SELECT * FROM categories WHERE parent_sid=0 ORDER BY sid DESC";
+    $m_result = $mysqli->query($m_sql);  */   //分類清單
+?>
 <?php include __DIR__.'/module_head.php' ?>
     <style>
         /*Container-------------------------------------------------------------------*/
@@ -119,19 +121,12 @@
             background-color: #1F5572 ;
             color: #FFF ;
         }
-        .select .um.act .check{
-            opacity: 1 ;
-            max-height: 110px ;
-        }
         .check{
-            max-height: 0px ;
             margin-top: 20px ;
             padding-left: 8px ;
             display: flex ;
             flex-wrap: wrap ;
             justify-content: space-between ;
-            opacity: 0 ;
-            overflow: hidden ;
         }
         .check .label_group{
             width: 42% ;
@@ -188,6 +183,8 @@
             transition: 0.3s ;
         }
         .card .content{
+            width: 140px ;
+            margin-left: -70px ;
             position: absolute ;
             top: 27% ;
             left: -55% ;
@@ -210,7 +207,7 @@
             opacity: 0.3 ;
         }
         .card.has:hover .content{
-            left: 25% ;
+            left: 50% ;
         }
         /*Pagelist*/
         .pagelist{
@@ -224,6 +221,7 @@
             margin: 8px ;
             border-bottom: 1px solid transparent ;
             text-align: center ;
+            color: #666 ;
         }
         .pagelist .pageitem a.act{
             border-bottom: 1px solid #666 ;
@@ -234,6 +232,7 @@
             position: relative ;
             top: -15px ;
             margin-left: 94% ;
+            margin-bottom: 15px ;
             cursor: pointer ;
         }
         .toTop .tr{
@@ -283,19 +282,19 @@
                         <a class="btn_um">雨傘</a>
                         <div class="check">
                             <div class="label_group">
-                                <input type="checkbox" name="plain" id="plain" class="color"><label for="plain" class="color">素色</label>
+                                <input type="checkbox" name="plain" id="plain" class="color" value="1"><label for="plain">素色</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="pattern" id="pattern" class="color"><label for="pattern" class="color">花色</label>
+                                <input type="checkbox" name="pattern" id="pattern" class="color" value="2"><label for="pattern">花色</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="straight" id="straight" class="skeleton"><label for="straight" class="skeleton">直傘</label>
+                                <input type="checkbox" name="straight" id="straight" class="skeleton" value="1"><label for="straight">直傘</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="folding" id="folding" class="skeleton"><label for="folding" class="skeleton">折傘</label>
+                                <input type="checkbox" name="folding" id="folding" class="skeleton" value="2"><label for="folding">折傘</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="auto" id="auto" class="auto"><label for="auto" class="auto">自動傘</label>
+                                <input type="checkbox" name="auto" id="auto"><label for="auto" value="2">自動傘</label>
                             </div>
                         </div>
                     </div>
@@ -303,16 +302,16 @@
                         <a class="btn_um">陽傘</a>
                         <div class="check">
                             <div class="label_group">
-                                <input type="checkbox" name="plain" id="plain" class="color"><label for="plain">素色</label>
+                                <input type="checkbox" name="plain" id="plain" class="color" value="1"><label for="plain">素色</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="pattern" id="pattern" class="color"><label for="pattern">花色</label>
+                                <input type="checkbox" name="pattern" id="pattern" class="color" value="2"><label for="pattern">花色</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="straight" id="straight" class="skeleton"><label for="straight">直傘</label>
+                                <input type="checkbox" name="straight" id="straight" class="skeleton" value="1"><label for="straight">直傘</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="folding" id="folding" class="skeleton"><label for="folding">折傘</label>
+                                <input type="checkbox" name="folding" id="folding" class="skeleton" value="2"><label for="folding">折傘</label>
                             </div>
                         </div>
                     </div>
@@ -321,50 +320,71 @@
                     <p>排序<i class="fas fa-plus"></i></p>
                     <div class="radio_box">
                         <div class="label_group">
-                            <input type="radio" name="Sort" id="pop" checked="checked"> <label for="pop">人氣排序</label>
+                            <input type="radio" name="Sort" id="pop" checked="checked" data-order=" `sid` ASC "> <label for="pop">人氣排序</label>
                         </div>
                         <div class="label_group">
-                            <input type="radio" name="Sort" id="pricedown"> <label for="pricedown">價格由高到低</label>
+                            <input type="radio" name="Sort" id="pricedown" data-order=" `price` DESC "> <label for="pricedown">價格由高到低</label>
                         </div>
                         <div class="label_group">
-                            <input type="radio" name="Sort" id="priceup"> <label for="priceup">價格由低到高</label>
+                            <input type="radio" name="Sort" id="priceup" data-order=" `price` ASC "> <label for="priceup">價格由低到高</label>
                         </div>
                     </div>
                 </div>
             </aside>
             <div class="list">
-                <div class="card has"> 
-                    <img src="images/town-navy.png" alt="">
+<?php while($row=$c_result->fetch_array(MYSQLI_BOTH)): ?>
+                <div class="card has" data-sid="<?= $row['sid'] ?>"> 
+                    <img src="images/list/<?= $row['umbrella_id'] ?>.png" alt="">
                     <div class="content">
-                        <p class="name">橋上的卡耶伯特</p>
-                        <p class="price">NT 2180</p> 
+                        <p class="name"><?= $row['umbrellaname'] ?></p>
+                        <p class="price">NT <?= $row['price'] ?></p> 
                     </div>
                 </div>
                 <div class="card none"> </div>
-                <div class="card has"> 
-                    <img src="images/town-navy.png" alt="">
-                    <div class="content">
-                        <p class="name">我是品名</p>
-                        <p class="price">NT 2180</p> 
-                    </div>
-                </div>
-                <div class="card none"> </div>
-                <div class="card has"> <img src="images/town-navy.png" alt=""></div>
-                <div class="card none"> </div>
-                <div class="card has"> <img src="images/town-navy.png" alt=""></div>
-                <div class="card none"> </div>
-                <div class="card has"> <img src="images/town-navy.png" alt=""></div>
-                <div class="card none"> </div>
-                <div class="card has"> <img src="images/town-navy.png" alt=""></div>
-                <div class="card none"> </div>
+<?php endwhile; ?>
             </div>
             <ul class="pagelist">
-                <li class="pageitem"><a><i class="fas fa-angle-double-left"></i></a></li>
-                <li class="pageitem"><a class="act">1</a></li>
-                <li class="pageitem"><a>2</a></li>
-                <li class="pageitem"><a>3</a></li>
-                <li class="pageitem"><a><i class="fas fa-angle-double-right"></i></a></li>
+<?php $i=floor($page/10); $tens=floor($t_pages/10); $ones=$t_pages%10; ?>
+                <li class="pageitem">
+            <?php /*if($i>0) $i--;*/
+                $thispage=($i-1)*10+1;
+                $q_string['page']=$thispage;
+            ?>
+                    <a href="?<?= http_build_query($q_string) ?>"><i class="fas fa-angle-double-left"></i></a>
+                </li>
+    <?php if($i==$tens): ?>
+        <?php for($j=0;$j<$ones;$j++): 
+            $thispage=$i*10+($j+1); 
+            $q_string['page']=$thispage; ?>
+                <li class="pageitem">
+                    <a href="?<?= http_build_query($q_string) ?>" class=<?= $thispage==$realpage ? "act" : "" ?>><?= $thispage ?></a>
+                </li>
+        <?php endfor; ?>
+    <?php else: ?>
+        <?php for($j=0;$j<10;$j++): 
+            $thispage=$i*10+($j+1); 
+            $q_string['page']=$thispage; ?>
+                <li class="pageitem">
+                    <a href="?<?= http_build_query($q_string) ?>" class=<?= $thispage==$realpage ? "act" : "" ?>><?= $thispage ?></a>
+                </li>
+        <?php endfor; ?>
+    <?php endif; ?>
+                <li class="pageitem"> 
+            <?php /*if($i<$tens) $i++;*/
+                $thispage=($i+1)*10+1; 
+                $q_string['page']=$thispage;
+            ?>                
+                    <a href="?<?= http_build_query($q_string) ?>"><i class="fas fa-angle-double-right"></i></a>
+                </li>
             </ul>
+            <?php /*
+                $i=0 ; $tens=$t_pages/10; $ones=$t_pages%10; $thispage=$i*10+$j;
+                if($i==$tens){
+                    for($j=1;$j<=$ones;$j++){}
+                }else{
+                    for($j=1;$j<=10;$j++){}
+                }*/
+            ?>
             <div class="toTop">
                 <div class="tr"></div>
                 <h5>TOP</h5>
@@ -372,7 +392,9 @@
         </div>
     </div>
     <?php include __DIR__.'/module_footer.php' ?>
-    <script>  
+    <script> 
+    var total=<?= floor($page/10) ?> ;
+    console.log(total) ; 
         $(".btn_um").click(function(){
             $(this).closest(".um").addClass("act").siblings().removeClass("act");
         });
@@ -422,12 +444,18 @@
             }
         });
         $("#auto").click(function(){
+            var auto=0;
             if($(this).prop("checked")){
+                auto=2;
                 $("#straight").attr("disabled", true);
-                $("#folding").prop("checked", true);
             }else if(!$("#folding").prop("checked")){
+                auto=1;
                 $("#straight").removeAttr("disabled");
             }
+        });
+        $("input[name='Sort']").click(function(){
+            
+            console.log($(this).data("order"));
         });
     </script>
 <?php include __DIR__.'/module_foot.php' ?>
