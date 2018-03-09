@@ -1,0 +1,11 @@
+@import url("sample_phone.css");
+@media screen and (max-width: 375px) {
+    /*--header--*/
+    *{
+        letter-spacing: 2px ;
+    }
+
+    
+  
+    
+}
