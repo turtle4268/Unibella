@@ -110,6 +110,8 @@
         background: none ;
     }
     .card .content{
+        width: unset ;
+        margin-left: 0 ;
         position: relative ;
         top: 0;
         left: 0 ;
@@ -151,9 +153,12 @@
     .card.has:hover .content{
         left: 0 ;
     }
+    .pagelist .pageitem a{
+        margin: 8px 10px ;;
+    }
     /*toTop*/
     .toTop{
-        top: -15px ;
+        top: 0 ;
         margin-left: 0 ;
     }
 }
