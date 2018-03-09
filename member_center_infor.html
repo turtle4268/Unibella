@@ -252,6 +252,7 @@
             list-style: none;
             padding: 15px 10px;
             margin: 40px 0;
+            transition: 0.4s;
         }
         .l_aside_y ul li:hover{
             background: #e6e6e6;
@@ -261,6 +262,9 @@
         }
         .l_p_ul_y{
             display: none;
+        }
+        .topMain_y{
+            margin-left: 5%;
         }
         .topMain_ul_y{
             display: flex;
@@ -369,8 +373,8 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            left: -.6rem;
-            top: -.7rem;
+            left: -.5rem;
+            top: -.5rem;
             z-index: -1;
             background-color: #5b8095;
             border-radius: 28px;
@@ -390,8 +394,8 @@
         .toTop{
             color: #1F5572 ;
             position: absolute;
-            right: 50px;
-            bottom: -300px ;  /*y改*/
+            right: 20px;
+            bottom: -500px ;  /*y改*/
             cursor: pointer ;
         }
         .toTop .tr{
@@ -416,6 +420,14 @@
             0%   { opacity: .2; top: 2px; }
             50%  { opacity: .5; }
             100% { opacity: 1; top: -4px ;}
+        }
+        /*navHide------*/
+        .hide {
+            transform: translateY(-100px);
+            transition: all .5s;
+        }
+        .bg {
+            background: rgba(255, 255, 255, .8);
         }
     </style>
     <link rel="stylesheet" href="css/member_center_infor_phone.css">
@@ -571,6 +583,25 @@
             $("html,body").animate({
                 scrollTop: 0
             }, 1000);
+        });
+        /*navHide*/
+        var scrollHeaderLast;
+        $(window).scroll(function () {
+            //header
+            var scrollHeader = $(this).scrollTop();
+            // console.log(scrollHeader);
+            if (scrollHeader < 350) {
+                $("header").removeClass("hide, bg")
+                $("header h1, .h_ul li a").removeClass("phone_hide_f")
+            } else {
+                if (scrollHeader > scrollHeaderLast) {
+                    $("header").addClass("hide").removeClass("bg")
+                    $("header h1, .h_ul li a").addClass("phone_hide_f")
+                } else {
+                    $("header").removeClass("hide").addClass("bg")
+                };
+            };
+            scrollHeaderLast = scrollHeader;
         });
         /*手機375_memberList*/
         $(".l_p_ul_y").hide();
