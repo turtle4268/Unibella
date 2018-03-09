@@ -120,4 +120,11 @@
          margin-top: 10px ;
          position: static ;
      }
+     /*太陽------------------------------*/
+     .sun svg{
+        position: absolute;
+        top: -100px; 
+        transform: rotate(-20deg);
+        left:-600px;
+    }
 }

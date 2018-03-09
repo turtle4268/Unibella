@@ -52,7 +52,7 @@
     }
     .formP_a {
         width: 32%; 
-        height: 75%;
+        height: 100%;
         position: relative;
     }
     .usCotent_a {
@@ -79,9 +79,8 @@
     .usForm_a {
         border:3px solid #1f5572;
         width: 100%;
-        /* height: 100%; */
         position: absolute;
-        top:25%;
+        top:10%;
         left: -5%;
         box-shadow: 1px 1px 4px rgb(197, 197, 197);
     }
@@ -191,7 +190,7 @@
             <img src="images/banner_CONNECT.jpg" alt="">
             <p>Be Your Unique Umbrella.</p>
         </div>   
-        <section class="sec1_a">
+        <div class="sec1_a">
             <h1>聯絡我們</h1>
             <div class="contact_a">
                 <div id="shadow"></div>
@@ -248,7 +247,7 @@
                     </form>
                 </div>
             </div>
-        </section>
+        </div>
     </div>        
     <?php include __DIR__.'/module_footer.php' ?>
     <script>

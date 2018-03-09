@@ -93,6 +93,7 @@
     /*f_register_y--------------------------------------------------------------*/
     .full_register_y{
         width: 80%;
+        min-width: unset ;
         height: 100vh;
         text-align: center;
         letter-spacing: 3px;
