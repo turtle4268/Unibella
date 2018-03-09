@@ -148,6 +148,11 @@
             transition: 0.5s ;
             cursor: pointer ;
         }
+        .r_aside ul li.smallcircle{
+            width: 10px ;
+            height: 10px ;
+            margin: 18px auto ;
+        }
         .r_aside ul li.act{
             opacity: 1 ;
         }
@@ -516,6 +521,7 @@
             <li></li>
             <li></li>
             <li></li>
+            <li class="smallcircle"></li>
         </ul>
     </aside>
     <div id="container">
