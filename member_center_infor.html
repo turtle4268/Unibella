@@ -250,12 +250,13 @@
         }
         .l_aside_y ul li{
             list-style: none;
-            padding: 15px 10px;
-            margin: 40px 0;
-            transition: 0.4s;
+            padding: 20px 10px;/*f改*/
+            margin: 30px 0;/*f改*/
+            transition: all .4s;/*f改*/
         }
         .l_aside_y ul li:hover{
             background: #e6e6e6;
+            transition: all .4s;/*f改*/
         }
         .fa-angle-down{
             display: none;
@@ -281,6 +282,7 @@
         .main_y{
             text-align: center;
             color: #666;
+            position: relative;/*f改*/
         }
         .main_y h2{
             margin: 50px auto;
@@ -394,8 +396,8 @@
         .toTop{
             color: #1F5572 ;
             position: absolute;
-            right: 20px;
-            bottom: -500px ;  /*y改*/
+            right: -20px;
+            bottom:30px;
             cursor: pointer ;
         }
         .toTop .tr{
@@ -518,11 +520,11 @@
                     </div>
                     <button type="submit" class="memberBtn_y">確認送出</button>
                 </form> 
+                <div class="toTop">
+                    <div class="tr"></div>
+                    <h5>TOP</h5>
+                </div>
             </div> <!--main_y-->
-            <div class="toTop">
-                <div class="tr"></div>
-                <h5>TOP</h5>
-            </div>
         </div> <!--mainBox_y-->
     </div>
     <footer>

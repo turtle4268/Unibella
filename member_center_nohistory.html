@@ -250,15 +250,18 @@
         }
         .l_aside_y ul li{
             list-style: none;
-            padding: 15px 10px;
-            margin: 40px 0;
+            padding: 20px 10px;/*f改*/
+            margin: 30px 0;/*f改*/
+            transition: all .4s;/*f改*/
         }
         .l_aside_y ul li:hover{
             background: #e6e6e6;
+            transition: all .4s;/*f改*/
         }
         /*main_y-------------------------------------*/
         .main_y{
             text-align: center;
+            position: relative;/*f改*/
         }
         .main_y h2{
             margin: 50px auto;
@@ -278,6 +281,7 @@
         }
         .dateRange_y ul li{
             padding: 10px 30px 0 30px;
+            color: #666;/*f改*/
         }
         /* input[type="radio"]{
         visibility: hidden;
@@ -415,6 +419,37 @@
         .active_a ul .orange {
             background:#e0a340;
         }
+       /*-------toTop--------*/
+       .toTop{
+        color: #1F5572 ;
+        position: absolute;
+        right: -20px;
+        bottom:30px;
+        cursor: pointer ;
+    }
+    .toTop .tr{
+        width: 20px;
+        height: 20px;
+        margin: 5px auto;
+        position: relative ;
+        left: -2px ;
+        transform: rotate(180deg) ;
+        -webkit-mask-image: url(images/icon_scroll.svg) ;
+        background-color:#1F5572;
+        animation: scroll_top .5s linear infinite;
+        animation-direction: alternate;
+        animation-delay: .1s;
+    }
+    .toTop h5{
+        font-size: 16px ;
+        color: #1F5572 ;
+        text-align: center;
+    }
+    @keyframes scroll_top {
+        0%   { opacity: .2; top: 2px; }
+        50%  { opacity: .5; }
+        100% { opacity: 1; top: -4px ;}
+    }
     </style>
 </head>
 <body>	
@@ -493,6 +528,10 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="toTop"><!--f加-->
+                        <div class="tr"></div>
+                        <h5>TOP</h5>
+                    </div>
                 </div> <!--active_y-->
             </div> <!--main_y-->
         </div> <!--mainBox_y-->
@@ -549,6 +588,12 @@
         });
         $(".close").click(function(){
             $("nav").addClass("navhide");
+        });
+        /*to top*//*f加*/
+        $(".toTop").click(function () {
+            $("html,body").animate({
+                scrollTop: 0
+            }, 1000);
         });
     </script>
 </body>
