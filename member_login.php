@@ -720,6 +720,9 @@
                         ss=<?= isset($_SESSION['user'])?1:0 ?>;
                         console.log(ss);
                             alert("登入成功!");
+                            setTimeout(function(){
+                                location.href='home.php';
+                            }, 1000);
                             break;
                     
                         default:
