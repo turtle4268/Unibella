@@ -294,14 +294,16 @@
         }
         .form_infor_y{
             width: 50%;
+            min-width:500px ;
             margin: 0 auto;
             padding-left: 5%; 
         }
         .memberInfor_y{
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-content: center;
-            margin-top:3em;
+            margin-top:2em;
         }
         .memberLabel1_y{
             color: #666;
@@ -394,6 +396,18 @@
         }
         button:focus {
             outline: none;
+        }
+        /*small_warning--------------------*/
+        small.warning{
+            color:#ed1c24;
+            /* width:100%; */
+            padding:5px 0 0 25px;
+            /* display:none; */
+        }
+        .noneSmall_y{
+            margin-top: 5px ;
+            width:300px;
+            height:14px;
         }
         /*-------toTop--------*/
         .toTop{
@@ -498,7 +512,9 @@
                     <div class="memberInfor_y">
                         <label for="nickname" class="memberLabel_y"><span class="yellow_star">*</span>姓名: </label>
                         <input type="text" class="memberInput_y" name="nickname" id="nickname" value="" placeholder="">
-                            <!-- <small id="nicknameWarning" class="form-text text-muted warning">請填寫兩個字以上的暱稱</small> -->
+                        <div class="noneSmall_y">
+                            <small id="nameWarning" class="labelTowTow_y warning">請填寫兩個字以上的姓名</small>
+                        </div>
                     </div>
                     <div class="memberInfor_y">
                         <label for="nickname" class="memberLabel_y">&nbsp;性別: </label>
@@ -507,19 +523,26 @@
                             <option value="2">男</option>
                             <option value="3">女</option>
                         </select>
+                        <div class="noneSmall_y"></div>
                     </div>
                     <div class="memberInfor_y">
-                        <label for="birthday" class="memberLabel_y"><span class="yellow_star">*</span>生日: </label>
+                        <label for="birthday" class="memberLabel_y">&nbsp;生日: </label>
                         <input type="text" class="memberInput_y datepicker" name="birthday" id="birthday" value="" placeholder="">
+                        <div class="noneSmall_y"></div>
                     </div>
                     <div class="memberInfor_y">
                         <label for="mobile" class="memberLabel_y"><span class="yellow_star">*</span>手機: </label>
-                            <input type="text" class="memberInput_y" name="mobile" id="mobile" value="" placeholder="">
-                            <!-- <small id="mobileWarning" class="form-text text-muted warning">請輸入十位數的手機號碼</small> -->
+                        <input type="text" class="memberInput_y" name="mobile" id="mobile" value="" placeholder="">
+                        <div class="noneSmall_y">
+                            <small id="mobileWarning" class="labelTowFour_y warning">請輸入十位數的手機號碼</small>
+                        </div>
                     </div>       
                     <div class="memberInfor_y">
                         <label for="address" class="memberLabel_y"><span class="yellow_star">*</span>地址: </label>
                         <input type="text" class="memberInput_y" name="address" id="address" value="" placeholder="">
+                        <div class="noneSmall_y">
+                            <small id="addressWarning" class="labelTow_y warning">請填寫十個字以上的地址</small>
+                        </div>
                     </div>
                     <button type="submit" class="memberBtn_y">確認送出</button>
                 </form> 
