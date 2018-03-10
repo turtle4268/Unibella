@@ -79,12 +79,10 @@
     .questionP_a span {
         color:red;
     }
-    .qashow {
-        display:block;
+    .qaChange {
+        color:red;
     }
-    .qahide {
-        display:none;
-    }
+
     .qaContent_a p {
         padding-left: 45px;
         padding-right: 45px;
@@ -287,15 +285,15 @@
 
         //qa 
        $(".questionT_a").click(function(){
-           var $questionP_a=$(this).next('.questionP_a');
-           if(!$questionP_a.is(':visible')){
+            var $questionP_a=$(this).next('.questionP_a');
+            if(!$questionP_a.is(':visible')){
 				$('.qaContent_a ul li.questionP_a:visible').slideUp();
 			}
-           $questionP_a.slideToggle();
-           $(this).css("color","red").siblings().css("color","black");
+            $questionP_a.slideToggle();
+            $(this).addClass("qaChange").siblings().removeClass("qaChange");
+           
         })
         
-        // $('.questionP_a:first').show();
             
   
 
