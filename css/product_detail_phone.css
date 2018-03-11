@@ -22,16 +22,26 @@
             width:620%;
             margin:-50px;          
         }
-        .box_y{
+        .productBg_phone_y{
             display: block;
+        }
+        .box_phone_y{
             background-color: #fff;
-            width: 180px;
-            height: 180px;
+            width: 175px;
+            height: 175px;
             border-radius: 50%;
             position: absolute;
-            top: 12%;
+            top: 11%;
             left: 50%;
             margin-left:-90px;
+        }
+        @keyframes ripple {
+            0% {
+                box-shadow: 0 0 0 0px rgba(31, 85, 114, 0.09), 0 0 0 0px rgba(255, 255, 255, 0.4);
+            }
+            100% {
+                box-shadow: 0 0 0 150px rgba(216, 216, 216, 0), 0 0 0 50px rgba(255, 255, 255, 0);
+            }
         }
         .b_cloud img{
             width: 100%;
@@ -72,17 +82,20 @@
             align-items: center;
             justify-content:center;  
             text-align: center;   
-            margin-top: 1em;     
+            margin-top: 1.5em;     
         }
         .buyBtn_y{
-            width: 80%;
-            padding: 2% 10%;
-            margin-top: 1em;
+            width: 230px;
+            padding: 10px 25px;
+            margin-top: .5em;
         }
         .cartBtn_y, .addBtn_y{
-            width: 80%;
-            padding: 2% 10%;
+            width: 230px;
+            padding: 10px 25px;
             margin-top: 1em;
+        }
+        .cartBtnPic_y{
+            margin: 0 15px 0 30px;
         }
     /*productSlideBox_y-----------------------------------------*/
         .productSlideBox_y{        
@@ -130,6 +143,9 @@
         .tagLocal_y{
             flex-grow: 1;
         }
+        .caution_y h3{
+            font-size: 18px;
+        }
     /*tagTxtBox_y----------------------------------------------*/
         .tagTxtBox_y{
             width: 80%;
@@ -148,18 +164,21 @@
             height: 100%;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-between;
         }
-        .tagDetail_y{
+        .detail_y{
             font-size:16px;
             color:#1F5572;
         }
-        .tagTxt_y img{
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+        .sizePic_y{
+            flex: 100%;
+            margin-top:50px;
         }
-        .tagFeatureContent_y{
+        .sizeWord_y{
+            flex: 100%;
+            margin-top:10px;
+        }
+        .feature_y{
             width: 100%;
             overflow: hidden;
             display: flex;
@@ -167,18 +186,16 @@
             padding: 0;
             margin-top:20px;
         }
-        .tagFeatureContent_y li{
+        .feature_y li{
             width: 60%;
             padding: 0;
         }
-        .tagFeatureContent_y p{
+        .feature_y p{
             color: #666;
             padding: 10px 0 0 0;
         }
-        .tagFeatureContent_y img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .video_y{
+            align-self: center;
         }
         .phone_none_y{
             display: none;

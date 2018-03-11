@@ -200,7 +200,7 @@
             background-color: #CCC;
         }
     /*Container-------------------------------------------------------------------*/
-    /*section1---productMain_y---------------------------------------------------------------*/
+    /*section1---productMain_y-----------------------------------------------------------------------------------*/
         .productMain_y{          
             display: flex;
         	justify-content:center;
@@ -220,6 +220,29 @@
         .productBg_phone_y{
             display: none;
         }
+        .box_y{
+            position: absolute;
+            top: 50%;
+            background: #fff;
+            left: 50%;
+            width: 320px;
+            height: 320px;
+            margin-left: -185px;
+            margin-top: -180px;
+            border-radius: 50%;
+        }
+        .ripple_y{
+            transition: all 1s ease ;
+            animation: ripple 1s linear ;
+        }
+        @keyframes ripple {
+            0% {
+                box-shadow: 0 0 0 0px rgba(31, 85, 114, 0.09), 0 0 0 0px rgba(255, 255, 255, 0.4);
+            }
+            100% {
+                box-shadow: 0 0 0 250px rgba(216, 216, 216, 0), 0 0 0 100px rgba(255, 255, 255, 0);
+            }
+        }
         /*productInfor_y---------------------------------------------*/
          .productInforBox_y{
             width: 100%;
@@ -233,8 +256,10 @@
             width: 20%;
             background: #d8d8d8;
             color: #808080;
-            padding: 1% 4% 2% 5%;
+            padding: 1% 0 2% 6%;
             margin-top: 2%;
+            margin-right: 3%;
+            text-align: center;
         }
         .productTxt_y{
         	color: #808080;
@@ -253,8 +278,7 @@
         .qtyBox_y{
             display: flex;
             align-items: center;
-            justify-content: center;  
-            text-align: center;   
+            justify-content: center;    
             margin-top: .5em;     
         }
         .qtyLable_y{
@@ -267,9 +291,9 @@
             font-size: 16px;
             border: none;
             border-bottom: 1px solid #666;
-            width:220px;
+            width:200px;
             height: 30px; 
-            padding: 0 0 0 32%; 
+            padding: 0 0 0 29%; 
             cursor: pointer;       
         }
         Select:focus{
@@ -313,23 +337,23 @@
             border: 2px solid #1f5572;        
         }
         .blueBtn_y p{
-            display: inline-block;
+            display:block;
             text-align:center;
             font-size: 18px;
             font-weight: bold;
             letter-spacing: 3px;
+            float: left;
         }
         .cartBtnPic_y{
-            display: inline-block;
+            display: block;
             width:25px;
             height: 25px;
-            margin: 3px 15px;
+            margin: 3px 15px 3px 30px;
             background-color: #1f5572 ;
             -webkit-mask-repeat: no-repeat ;
             -webkit-mask-position: center ;
             transition: 0.5s ;
-        }
-        .cartBtnPic_y{
+            float: left;
             -webkit-mask-image: url(images/icon_cart_blue.svg) ;
         }
         .cartBtn_y:hover .cartBtnPic_y{
@@ -337,26 +361,29 @@
             -webkit-mask-repeat: no-repeat ;
             -webkit-mask-position: center ;
             transition: 0.5s ;
-            animation: bright .7s infinite ease;
+            animation: rotate .5s infinite ease;
         }
-        @keyframes bright{
+        @keyframes rotate{
             0%{
                 transform: rotate(0deg);
             }
-            50%{
+            25%{
                 transform: rotate(15deg);
+            }
+            75%{
+                transform: rotate(-15deg);
             }
             100%{
                 transform: rotate(0deg);
             }
         }
         .addBtn_y{
-            width: 95%;
+            width:230px;
             background-color: transparent;
             color: #1f5572;
             border: 2px solid #1f5572;
             border-radius: 50px;
-            padding: 3% 15%;
+            padding: 13px 30px;
             margin-top: 1em;
             cursor: pointer;
             transition: 0.5s ;
@@ -367,16 +394,15 @@
             border: 2px solid #1f5572;        
         }
         .addBtnPic_y{
-            display: inline-block;
+            display: block;
             width:25px;
             height: 25px;
-            margin: 5px 15px;
+            margin: 0 15px 0 30px;
             background-color: #1f5572 ;
             -webkit-mask-repeat: no-repeat ;
             -webkit-mask-position: center ;
             transition: 0.5s ;
-        }
-        .addBtnPic_y{
+            float: left;
             -webkit-mask-image: url(images/icon_heart_blue.svg) ;
         }
         .addBtn_y:hover .addBtnPic_y{
@@ -384,7 +410,7 @@
             -webkit-mask-repeat: no-repeat ;
             -webkit-mask-position: center ;
             transition: 0.5s ;
-            animation: pulse .7s infinite alternate;
+            animation: pulse .5s infinite alternate;
         }
         @keyframes pulse{
             0%{
@@ -409,10 +435,11 @@
             position: relative;
             /* padding: 3% 5%; */
             margin: 0 6% 2% 0;
+            /* display: none; */
 		} 
 		.productSlide_y{			
             overflow: hidden;
-            transition: all .5s;
+            transition: all .8s;
         }
         .SlidePic_y{
             width:300%;
@@ -421,7 +448,7 @@
 	        justify-content: center;
             position: relative;
             left:0;
-            transition: all .5s; 
+            transition: all .8s; 
            
         }
 		.SlidePic_y li{
@@ -552,7 +579,7 @@
             font-weight: bold;
             color:#1F5572;
         }  
-    /*section2---productTag_y---------------------------------------------------------------*/
+    /*section2---productTag_y------------------------------------------------------------------------------*/
         .productTag_y{
             width: 70%;
             height: 100%;
@@ -602,6 +629,7 @@
             display: flex;
             align-content: center;
             justify-content: center;
+            overflow: hidden;
         }
         .tagTxt1_y{
             width: 80%;
@@ -610,16 +638,24 @@
             align-content: center;
             justify-content: space-around;
         }
-        .tagDetail_y{
+        .detail_y{
             font-size:16px;
             color:#1F5572;
         }
+        .sizePic_y{
+            flex: 2;
+            margin-top:50px;
+        }
+        .sizeWord_y{
+            flex: 1.5;
+            margin-top:50px;
+        }
         .tagTxt_y img{
-            width: 100%;
-            height: 100%;
+            max-width: 100%;
+            height: auto;
             object-fit: cover;
         }
-        .tagFeatureContent_y{
+        .feature_y{
             width: 100%;
             overflow: hidden;
             display: flex;
@@ -629,20 +665,15 @@
             /* padding: 50px 0; */
             margin-top:50px;
         }
-        .tagFeatureContent_y li{
+        .feature_y li{
             width: 33.3%;
             /* margin: 25px; */
             padding: 25px;
         }
-        .tagFeatureContent_y p{
+        .feature_y p{
             color: #666;
             /* margin: 25px; */
             padding: 50px 0 50px 10px ;
-        }
-        .tagFeatureContent_y img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
         .caution_y{
             width: 80%;
@@ -666,7 +697,7 @@
             text-align: left;
             padding: 50px 0;
         }
-        /*Popular-----------------------*/
+        /*Popular------------------------------------------------------------------------------------------*/
         #popular{
             display: flex ;
             flex-wrap: wrap ;
@@ -829,12 +860,13 @@
         </ul>
     </aside>
     <div id="container">
-        <section class="productMain_y">       
+        <section class="productMain_y"> 
+            <div class="box_y"></div>
             <div class="productBg_y">
                 <img src="images/products_bg.jpg" alt="product_background">
             </div>
             <div class="productBg_phone_y">
-                <div class="box_y"></div>
+                <div class="box_phone_y"></div>
                 <img src="images/products_bg_none.jpg" alt="product_background">
                 <div class="b_cloud">
                     <img src="images/all_clouds.png" alt="">
@@ -930,16 +962,16 @@
                 <div class="tagTxtBox_y">
                     <div class="tagTxt_y" id="tag1">
                         <div class="tagTxt1_y">
-                            <div class="tagDetail_y">品名&nbsp;:&nbsp;未知的冒險</div>
-                            <div class="tagDetail_y">傘骨&nbsp;:&nbsp;7支傘骨<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;超堅固耐用鋼製+電鍍黑鋁骨<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;塑膠紋路防滑手把</div>
+                            <div class="detail_y">品名&nbsp;:&nbsp;未知的冒險</div>
+                            <div class="detail_y">傘骨&nbsp;:&nbsp;7支傘骨<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;超堅固耐用鋼製+電鍍黑鋁骨<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;塑膠紋路防滑手把</div>
                         </div>
                     </div>
                     <div class="tagTxt_y" id="tag2">
-                        <img src="images/size_fold_pic.svg" alt="">
-                        <img src="images/size_fold_word.svg" alt="">
+                            <div class="sizePic_y"><img src="images/size_fold_pic.svg" alt=""></div>
+                            <div class="sizeWord_y"><img src="images/size_fold_word.svg" alt=""></div>
                     </div>
                     <div class="tagTxt_y" id="tag3">
-                        <ul class="tagFeatureContent_y">
+                        <ul class="feature_y">
                             <li>
                                 <img src="images/icon_location.svg" alt="">
                                 <p>傘定位系統</p>
@@ -1056,20 +1088,24 @@
             });
             /*Slider*/
             var nowSlide = 0; 
-            $(".SlidePic_y img").first().addClass("imgBright");
             $(".slidePage_y li").first().css("opacity", 1);
+            $(".SlidePic_y li").first().addClass("imgBright");  
+            $(".box_y, .box_phone_y").addClass("ripple_y");
             $(".slidePage_y li").click(function () {
                 // console.log($(this).index());
                 $(".SlidePic_y img").first().removeClass("imgBright");
-                
                 nowSlide = $(this).index();
                 moveSlide(nowSlide);                
             });
-           function moveSlide(nowSlide) {
-                
+           function moveSlide(nowSlide) {            
                 $(".slidePage_y li").eq(nowSlide).css("opacity", 1).siblings().css("opacity", .5);
                 $(".SlidePic_y").css("left", 0 - ($(".slidePage_y li").eq(nowSlide).index() * (300/3))+ "%");
-                $(".SlidePic_y img").all().addClass("imgBright");
+                $(".SlidePic_y li").eq(nowSlide).addClass("imgBright").siblings().removeClass("imgBright");
+                // $(".box_y").addClass("ripple_y");
+                $('.box_y, .box_phone_y').removeClass('ripple_y');
+                    setTimeout(function () {
+                        $('.box_y, .box_phone_y').addClass('ripple_y');
+                    }, 1);
                 
             }
             $(".slideArrow_left_y").click(function () {
