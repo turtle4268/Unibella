@@ -421,7 +421,8 @@
 	        justify-content: center;
             position: relative;
             left:0;
-            transition:.5s; 
+            transition: all .5s; 
+           
         }
 		.SlidePic_y li{
 			list-style: none;
@@ -431,8 +432,29 @@
 			display: block;
 			width: 100%;
 			height: 100%;
-			object-fit: cover;
-		}
+            object-fit: cover;
+            filter:drop-shadow(0 0 5px #0000004d);
+        }
+        .imgBright{
+            transition: all 1s ease ;
+            animation: bright 1.3s alternate;
+        }
+        @keyframes bright{
+            0%{
+                filter: brightness(100%);
+                filter: contrast(1);
+                transform: scale(.8);
+            }
+            50%{
+                filter: brightness(150%);
+                filter: contrast(1.2);
+            }
+            100%{
+                filter: brightness(100%);
+                filter: contrast(1);
+                transform: scale(1);
+            }
+        }
         .slidePage_y{
             /* width: 50%;
             height: 15%; */
@@ -604,8 +626,8 @@
             align-items: center;
 	        justify-content: space-around;
             text-align: center;
-            padding: 50px 0;
-            margin-top:20px;
+            /* padding: 50px 0; */
+            margin-top:50px;
         }
         .tagFeatureContent_y li{
             width: 33.3%;
@@ -1034,15 +1056,20 @@
             });
             /*Slider*/
             var nowSlide = 0; 
+            $(".SlidePic_y img").first().addClass("imgBright");
             $(".slidePage_y li").first().css("opacity", 1);
             $(".slidePage_y li").click(function () {
                 // console.log($(this).index());
+                $(".SlidePic_y img").first().removeClass("imgBright");
+                
                 nowSlide = $(this).index();
                 moveSlide(nowSlide);                
             });
            function moveSlide(nowSlide) {
+                
                 $(".slidePage_y li").eq(nowSlide).css("opacity", 1).siblings().css("opacity", .5);
                 $(".SlidePic_y").css("left", 0 - ($(".slidePage_y li").eq(nowSlide).index() * (300/3))+ "%");
+                $(".SlidePic_y img").all().addClass("imgBright");
                 
             }
             $(".slideArrow_left_y").click(function () {
