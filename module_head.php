@@ -44,7 +44,7 @@
             color: #FFF ;
             padding: 0 40px ;
             padding-top: 28px ;
-            box-sizing: border-box ;
+            /* box-sizing: border-box ; */
             transition: 0.5s ;
             top: 0 ;
         }
@@ -84,7 +84,7 @@
             -webkit-mask-image: url(images/icon_MENU.svg) ;
         }
         header.hide{
-            top: -80px ;
+            top: -100px ;
         }
         /*Black*/
         header.black{
