@@ -186,17 +186,7 @@
         }
         /*--toTop--*/
         .toTop {
-<<<<<<< HEAD
-            right:20px;
-            bottom: 20px;
-        }
-        /*navHide*/
-        .phone_hide_f{
-        background-color: #666 !important;
-        }      
-=======
             top: 0 ;
             margin-left: 0 ;
         }     
->>>>>>> 7d81759baf54cd4b84e49e4371cac8f48958cbe4
 }

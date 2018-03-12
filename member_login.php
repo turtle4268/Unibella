@@ -82,6 +82,7 @@
         }
         .login1_y, .login2_y{
             width: 20%;
+            min-width:280px ;
             /* height: 100%; */
             text-align: center;
             letter-spacing: 3px;
@@ -94,7 +95,8 @@
         .loginLabel_y{
             color: #1f5572;
             font-size: 16px;
-            flex: 2;
+            /* flex: 2; */
+            margin-right:5px;
         }
         .loginInput_y{
             background-color:transparent;
@@ -102,8 +104,12 @@
             border: none;
             border-bottom: 1px solid #1f5572;
             /* padding-right: 10%; */
-             flex: 3;
+             /* flex: 3.5; */
+             width: 200px;
         }
+        .loginPass_y{
+            width: 220px;
+    }
         input:focus{
             outline:none!important;
         }
@@ -113,7 +119,7 @@
             color: #1f5572;
             border: 2px solid #1f5572;
             border-radius: 50px;
-            padding: 1% 30%;
+            padding: 3px 90px;
             margin-top: 1.5em;
         }
         .loginBtn_y:hover, .registerPBtn_y:hover{
@@ -122,11 +128,10 @@
             border: 2px solid #1f5572;        
         }
         .loginInfor_y{
-             display: flex;
+             /* display: flex;
              justify-content: space-between;
-             align-items: center;
-             margin-top:2em; 
-             padding: 0 3%;
+             align-items: center; */
+             margin: 40px 20px; 
              text-align: left;
         }
         .registerP_Title_y{
@@ -135,12 +140,12 @@
             margin-bottom: 1em;
         }
         .registerPBtn_y{
-             background-color: transparent;
+            background-color: transparent;
             font-size: 1.5em;
             color: #1f5572;
             border: 2px solid #1f5572;
             border-radius: 50px;
-            padding: 1% 30%;
+            padding: 3px 90px;
         }
         .loginP_y{
             display: none;
@@ -155,6 +160,7 @@
         }
         .h_register_y{
             width: 18%;
+            min-width:280px ;
             text-align: center;
             letter-spacing: 3px;
             /* flex: 2; */
@@ -177,8 +183,8 @@
             color: #f8cf4e;
             border: 2px solid #f8cf4e;
             border-radius: 50px;
-            padding: 1% 30%;
-            margin-top: 4em;
+            padding: 3px 90px;
+            margin-top: 4.5em;
         }
         .h_registerBtn_y:hover{
             background-color: #f8cf4e;
@@ -210,8 +216,7 @@
             font-size: 16px;
             /* flex: 1; */
             width: 8%;
-            text-align: left;
-            
+            text-align: left;           
         }
         .registerInput_y{
             background-color:transparent;
@@ -229,6 +234,7 @@
             /* flex: 1; */
             width: 13%;
             text-align: left;
+            margin-right:-5px;
             
         }
         .registerInput1111_y{
@@ -304,7 +310,7 @@
             color: #f8cf4e;
             border: 2px solid #f8cf4e;
             border-radius: 50px;
-            padding: 0.5% 10%;
+            padding: 5px 75px;
             margin-top: 2em;
         }
         .f_registerBtn_y:hover{
@@ -329,19 +335,25 @@
         .rememberBox_y{
             text-align:right;
             color:#1f5572;
-            margin-top:2em;
+            margin-right:22px;
+            margin-top:-15px;
         }
         .forgetBox_y{
             text-align:right;
             color:#1f5572;
-            margin-top:1em;
+            margin-right:22px;
+            margin-top:10px;
+        }
+        .checktextF{
+            letter-spacing:6px; 
+            margin-right: -6px;
         }
         /*small_warning--------------------*/
         small.warning{
             color:#ed1c24;
             /* width:100%; */
             text-align:left;
-            display:none;
+            /* display:none; */
         }
         .labelFour_y{
             padding:4px 0 0 0;
@@ -385,7 +397,7 @@
             display: none;
         }
         .checktext{
-            display: inline-block ;
+            display: inline-block ;          
         }
         .check .box{
             width: 16px ;
@@ -428,7 +440,7 @@
                             <p style="text-align:right">(*為必填)</p>
                             <form name="form_register" method="post" action="" onsubmit="return registerCheck()">
                                 <div class="registerInfor1_y">
-                                    <label for="email" class="registerLabel1111_y"><span class="yellow_star">*</span>電子郵件:</label>
+                                    <label for="email" class="registerLabel1111_y"><span class="yellow_star">*</span>Email:</label>
                                     <input type="text" class="registerInput1111_y" name="email" id="email" value="" placeholder="">
                                     <div class="noneSmall1_y">
                                         <small id="emailWarning" class="labelFour_y warning">請輸入正確格式的電子郵件</small>
@@ -516,14 +528,14 @@
                             <h2 class="loginTitle_y">會員登入</h2>
                             <form name="form_login" method="post" action="" onsubmit="return loginCheck()">
                                 <div class="loginInfor_y">
-                                    <label for="email_login" class="loginLabel_y">電子郵件:</label>
+                                    <label for="email_login" class="loginLabel_y">Email:</label>
                                     <input type="text" class="loginInput_y" name="email_login" id="email_login" value="" placeholder="" width:100px;>
                                     <!-- <small id="emailWarning" class="form-text text-muted warning">請填寫正確的電郵</small>
                                                                                  -->
                                 </div>
                                 <div class="loginInfor_y">
                                     <label for="password_login" class="loginLabel_y">密碼:</label>
-                                    <input type="password" class="loginInput_y" name="password_login" id="password_login" value="" placeholder="">
+                                    <input type="password" class="loginInput_y loginPass_y" name="password_login" id="password_login" value="" placeholder="">
                                     <!-- <small id="passwordWarning" class="form-text text-muted warning">請輸入六個字元以上的密碼</small> -->
                     
                                 </div>
@@ -537,7 +549,7 @@
                                     </div>
                                 </div>
                                 <div class="forgetBox_y">
-                                    <a class="checktext">忘記密碼</a>
+                                    <a class="checktext checktextF">忘記密碼</a>
                                 </div>
                                 <button type="submit" class="loginBtn_y">登入</button>
                             </form>
