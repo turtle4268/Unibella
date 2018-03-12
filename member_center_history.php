@@ -132,7 +132,7 @@
             border: 1px solid #666;/*f改*/
             padding: 10px 0;
         }
-        tbody button {
+        tbody a{
             border: none;
             text-align: center;
             text-decoration: none;
@@ -142,6 +142,9 @@
             cursor: pointer;
             color: #1F5572;
             border-bottom: 1px solid #1F5572;
+        }
+        .tablePhone_a {
+            display:none;
         }
         /*-------toTop--------*//*f加*/
         .toTop{
@@ -177,7 +180,7 @@
         }
     </style>
     <style>
-        @import url("css/member_center_phone.css");
+        @import url("css/member_center_history_phone.css");
     </style>	
     <?php include __DIR__.'/module_nav.php' ?>    
     <div id="container" >
@@ -186,14 +189,13 @@
             <h1 class="bannerTxt_y">Be Your Unique Umbrella.</h1>
         </div>
         <div class="mainBox_y">
-        <?php include __DIR__.'/module_member_aside.php' ?>
-        
+        <?php include __DIR__.'/module_member_aside.php' ?>   
             <div class="main_y">
                 <h2>查詢訂購紀錄</h2>
                 <div class="dateRange_y">
                     <form action="">
                     <ul>
-                        <li><input type="radio" name="radio-btn" value="now" checked="checked" />&nbsp;最近</li>
+                        <li class="now_y"><input type="radio" name="radio-btn" value="now" checked="checked"/>&nbsp;最近</li>
                         <li><input type="radio" name="radio-btn" value="one" />&nbsp;一個月內</li>
                         <li><input type="radio" name="radio-btn" value="tree"/>&nbsp;三個月內</li>
                         <li><input type="radio" name="radio-btn" value="six"/>&nbsp;六個月內</li>
@@ -217,13 +219,13 @@
                     <tbody>
                         <tr class="buyList_y">
                             <td>2018/02/15</td>
-                            <td><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></td>
+                            <td class="history_pic_f"><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></td>
                             <td>我是商品</td>
                             <td>1</td>
                             <td>NT$.1000</td>
                             <td>NT$.2000</td>
                             <td>出貨中</td>
-                            <td><button>取消訂單</button></td>
+                            <td><a href="">取消訂單</a></td>
                         </tr>
                         <tr class="buyList_y">
                             <td>2018/02/15</td>
@@ -233,7 +235,7 @@
                             <td>NT$.1000</td>
                             <td>NT$.2000</td>
                             <td>出貨中</td>
-                            <td><button>取消訂單</button></td>
+                            <td><a href="">取消訂單</a></td>
                         </tr>
                         <tr class="total_y">
                             <td colspan="5"></td>
@@ -270,6 +272,105 @@
                         </tr>
                     </tbody>
                 </table>
+                <table class="tablePhone_a">
+                     <thead class="thead-dark_a">
+                        <tr>
+                        <th scope="col">日期</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>2018/02/15</td>
+                        </tr>
+                    </tbody>
+                    <thead class="thead-dark_a">
+                        <tr>
+                        <th scope="col">商品圖片</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
+                        </tr>
+                        <tr class="producCotent_a">
+                        <td><p>商品名稱<span>我是商品</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>數量<span>1</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>單價<span>NT$.1850</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>小計<span>NT$.1850</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>狀態<span>出貨中</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a  producCotentL_a">
+                            <td><a href="">取消訂單</a></td>
+                        </tr>
+                    </tbody>
+                     <thead class="thead-dark_a">
+                        <tr>
+                        <th scope="col">商品圖片</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
+                        </tr>
+                        <tr class="producCotent_a">
+                        <td><p>商品名稱<span>我是商品</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>數量<span>1</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>單價<span>NT$.1850</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>小計<span>NT$.1850</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>狀態<span>出貨中</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a  producCotentL_a">
+                            <td><a href="">取消訂單</a></td>
+                        </tr>
+                    </tbody>
+                 </table>
+                 <table class="tablePhone_a">
+                    <thead class="thead-dark_a">
+                        <tr>
+                        <th scope="col">商品圖片</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
+                        </tr>
+                        <tr class="producCotent_a">
+                        <td><p>商品名稱<span>我是商品</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>數量<span>1</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>單價<span>NT$.1850</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>小計<span>NT$.1850</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>備註<span></span></p></td>
+                        </tr>
+                        <tr class="producCotent_a  producCotentL_a">
+                            <td><p>刪除<span></span></p></td>
+                        </tr>
+
+                    </tbody>
+                </table>
                 
             </div> <!--main_y-->
         </div> <!--mainBox_y-->
@@ -301,6 +402,12 @@
                 }
             }
             scrolllast=scrollNow;
+        });
+        /*手機375_memberList*/
+        $(".l_p_ul_y").hide();
+        $(".fa-angle-down").click(function () {
+            $(".fa-angle-down").toggleClass("rotate");
+            $(".l_p_ul_y").slideToggle();
         });
     </script>
 <?php include __DIR__.'/module_foot.php' ?>
