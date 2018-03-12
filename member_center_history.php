@@ -65,6 +65,9 @@
         .l_aside_y ul .history_f{ /*f加 顯示目前頁面li的顏色*/
             background: #e6e6e6;
         }
+        .l_p_ul_y{
+            display:none;
+        }
         /*main_y-------------------------------------*/
         .main_y{
             text-align: center;
@@ -89,20 +92,15 @@
         visibility: hidden;
         } */
         /*table---------------------------*/
-        .table_history_y{
-            width:100%;
-            margin: 100px auto 100px auto;
-            color: #666; 
-        }
         table caption{
             text-align: left;
         }
         table {
-            width: 80%; /*y改*/
-            max-width: 80%; /*y改*/
-            margin: 0 auto;
-            margin-top: 30px;
+            width: 90%; /*f改*/
+            max-width: 90%; /*f改*/
+            margin: 100px auto 0;
             border-collapse: collapse;
+            color: #666; 
         }
         table thead tr th {
             background: #666;/*f改*/
@@ -111,19 +109,36 @@
             border: 1px solid #666;/*f改*/
             border-right: 1px solid #fff;
         }
-        .delect_a {
-            border-right: 1px solid #666;/*f改*/
-        }
         .buyList_y td {
             text-align: center;
             height: 200px;
             border: 1px solid #666;/*f改*/
         }
+        .buyList_y .history_pic_f{
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+        }
+        .buyList_y .history_pic_f img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
         .total_y td{
             text-align: center;
-            /* height: 50px; */
             border: 1px solid #666;/*f改*/
             padding: 10px 0;
+        }
+        tbody button {
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            background: #FFF;
+            cursor: pointer;
+            color: #1F5572;
+            border-bottom: 1px solid #1F5572;
         }
         /*-------toTop--------*//*f加*/
         .toTop{
@@ -193,33 +208,33 @@
                             <th scope="col">單價</th>
                             <th scope="col">小計</th>
                             <th scope="col">狀態</th>
-                            <th class="delect_a" scope="col"></th>
+                            <th class="delect_a" scope="col" style="border-right: 1px solid #666;">取消訂單</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="buyList_y">
-                            <td>111</td>
-                            <td>1111</td>
-                            <td>111</td>
-                            <td>111</td>
-                            <td>111</td>
-                            <td>111</td>
-                            <td>111</td>
-                            <td><a href="">取消訂單</a></td>
+                            <td>2018/02/15</td>
+                            <td><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></td>
+                            <td>我是商品</td>
+                            <td>1</td>
+                            <td>NT$.1000</td>
+                            <td>NT$.2000</td>
+                            <td>出貨中</td>
+                            <td><button>取消訂單</button></td>
                         </tr>
                         <tr class="buyList_y">
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>@fat</td>
-                            <td>@fat</td>
-                            <td>@fat</td>
-                            <td>@fat</td>
-                            <td><a href="">取消訂單</a></td>
+                            <td>2018/02/15</td>
+                            <td class="history_pic_f"><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></td>
+                            <td>我是商品</td>
+                            <td>1</td>
+                            <td>NT$.1000</td>
+                            <td>NT$.2000</td>
+                            <td>出貨中</td>
+                            <td><button>取消訂單</button></td>
                         </tr>
                         <tr class="total_y">
-                            <td colspan="6"></td>
-                            <td colspan="2">總金額 : </td>
+                            <td colspan="5"></td>
+                            <td colspan="3">總金額 : </td>
                         </tr>
                     </tbody>
                 </table>
@@ -234,24 +249,20 @@
                             <th scope="col">單價</th>
                             <th scope="col">小計</th>
                             <th scope="col">狀態</th>
-                            <th class="delect_a" scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="buyList_y">
-                            <td>111</td>
-                            <td>1111</td>
-                            <td>111</td>
-                            <td>111</td>
-                            <td>111</td>
-                            <td>111</td>
-                            <td>111</td>
-                            <td>
-                                <a href="">取消訂單</a>
-                            </td>
+                            <td>2018/01/16</td>
+                            <td class="history_pic_f"><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></td>
+                            <td>我是商品</td>
+                            <td>3</td>
+                            <td>NT$.1200</td>
+                            <td>NT$.3600</td>
+                            <td>已取貨</td>
                         </tr>
                         <tr class="total_y">
-                            <td colspan="6"></td>
+                            <td colspan="5"></td>
                             <td colspan="2">總金額 : </td>
                         </tr>
                     </tbody>

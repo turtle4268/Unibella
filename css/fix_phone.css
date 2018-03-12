@@ -4,6 +4,28 @@
     *{
         letter-spacing: 2px ;
     }
+    /*--banner--*/
+    .headerBg_a p {
+        width: 70%;
+        letter-spacing: 5px;
+        text-align: initial;
+        font-size: 24px;
+        left: 85%;
+        bottom: 30%;
+        font-weight: 400;
+    }
+    .headerBg_a img {
+        width: 300%;
+    }
+    .return_a, .warranty_a {
+        width: 75%;
+    }
+    .notice_a {
+        width: 75%;
+    }
+    .fix_a h1 {
+        padding-top: 30px;
+    }
 
     
   

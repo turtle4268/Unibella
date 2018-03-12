@@ -218,8 +218,8 @@
             height: 50px;
         }
         /*--toTop--*/
-        .toTop{
-            margin-top: 20px ;
-            position: static ;
-         }
+        .toTop {
+            top: 0 ;
+            margin-left: 0 ;
+        }
 }

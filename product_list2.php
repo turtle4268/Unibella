@@ -5,16 +5,35 @@
     $q_string=[];
     $per_page=12;
     $realpage=isset($_GET['page'])?intval($_GET['page']):1;
+        if($realpage<1) $realpage= 1;
+        $page=$realpage-1;
     $cate=isset($_GET['cate'])?intval($_GET['cate']):1;     //分類(預設雨傘:1 ,陽傘:2)
-    $page=$realpage-1;
+    $color=isset($_GET['color'])?intval($_GET['color']):0;
+    $skeleton=isset($_GET['skeleton'])?intval($_GET['skeleton']):0;
+    $auto=isset($_GET['auto'])?intval($_GET['auto']):0;
+    $order=isset($_GET['order'])?$_GET['order']:" `sid` ASC ";
+
 
     $where=" WHERE `category_id`=$cate ";     //分類內清單
-    if(!empty($cate)){
-        $where.="AND `category_id`=$cate ";
-        $q_string['cate']=$cate ;   //丟分類項進去
-        //http_build_query($q_string)     產生cate=n&page=n的字串
-    }
-    $order=" `sid` ASC ";
+        if(!empty($cate)){
+            $where.="AND `category_id`=$cate ";
+            $q_string['cate']=$cate ;   //丟分類項進去
+            //http_build_query($q_string)     產生cate=n&page=n的字串
+        }
+        if(!empty($color)){
+            $where.="AND `color_id`=$color ";
+            $q_string['color']=$color ;   //丟分類項進去
+        }
+        if(!empty($skeleton)){
+            $where.="AND `function_id`=$skeleton ";
+            $q_string['skeleton']=$skeleton ;   //丟分類項進去
+        }
+        if(!empty($auto)){
+            $where.="AND `auto_id`=$auto ";
+            $q_string['auto']=$auto ;   //丟分類項進去
+        }
+
+    // $order=" `sid` ASC ";
     $t_sql = "SELECT COUNT(1) FROM `products` $where";
 
     $t_result = $mysqli->query($t_sql);
@@ -121,12 +140,19 @@
             background-color: #1F5572 ;
             color: #FFF ;
         }
+        .select .um.act .check{
+            opacity: 1 ;
+            max-height: 110px ;
+        }
         .check{
+            max-height: 0px ;
             margin-top: 20px ;
             padding-left: 8px ;
             display: flex ;
             flex-wrap: wrap ;
             justify-content: space-between ;
+            opacity: 0 ;
+            overflow: hidden ;
         }
         .check .label_group{
             width: 42% ;
@@ -183,8 +209,8 @@
             transition: 0.3s ;
         }
         .card .content{
-            width: 140px ;
-            margin-left: -70px ;
+            width: 162px ;
+            margin-left: -81px ;
             position: absolute ;
             top: 27% ;
             left: -55% ;
@@ -222,9 +248,14 @@
             border-bottom: 1px solid transparent ;
             text-align: center ;
             color: #666 ;
+            letter-spacing: 1px ;
         }
         .pagelist .pageitem a.act{
             border-bottom: 1px solid #666 ;
+        }
+        .pagelist .pageitem a.none{
+            width: 17px ;
+            height:22px ;
         }
         /*toTop*/
         .toTop{
@@ -282,19 +313,23 @@
                         <a class="btn_um">雨傘</a>
                         <div class="check">
                             <div class="label_group">
-                                <input type="checkbox" name="plain" id="plain" class="color" value="1"><label for="plain">素色</label>
+                                <label for="plain"><input type="checkbox" name="plain" id="plain" class="color" value="1">素色</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="pattern" id="pattern" class="color" value="2"><label for="pattern">花色</label>
+                                <label for="pattern"><input type="checkbox" name="pattern" id="pattern" class="color" value="2">花色</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="straight" id="straight" class="skeleton" value="1"><label for="straight">直傘</label>
+                            
+                                <label for="straight"><input type="checkbox" name="straight" id="straight" class="skeleton" value="1">直傘</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="folding" id="folding" class="skeleton" value="2"><label for="folding">折傘</label>
+                                <label for="folding"><input type="checkbox" name="folding" id="folding" class="skeleton" value="2">折傘</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="auto" id="auto"><label for="auto" value="2">自動傘</label>
+                                <label for="auto"><input type="checkbox" name="auto" id="auto" class="auto" value="2">自動傘</label>
+                            </div>
+                            <div class="label_group">
+                                <label for="notauto"><input type="checkbox" name="notauto" id="notauto" class="auto" value="1">非自動</label>
                             </div>
                         </div>
                     </div>
@@ -302,16 +337,16 @@
                         <a class="btn_um">陽傘</a>
                         <div class="check">
                             <div class="label_group">
-                                <input type="checkbox" name="plain" id="plain" class="color" value="1"><label for="plain">素色</label>
+                                <label for="plain"><input type="checkbox" name="plain" id="plain" class="color" value="1">素色</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="pattern" id="pattern" class="color" value="2"><label for="pattern">花色</label>
+                                <label for="pattern"><input type="checkbox" name="pattern" id="pattern" class="color" value="2">花色</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="straight" id="straight" class="skeleton" value="1"><label for="straight">直傘</label>
+                                <label for="straight"><input type="checkbox" name="straight" id="straight" class="skeleton" value="1">直傘</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="folding" id="folding" class="skeleton" value="2"><label for="folding">折傘</label>
+                                <label for="folding"><input type="checkbox" name="folding" id="folding" class="skeleton" value="2">折傘</label>
                             </div>
                         </div>
                     </div>
@@ -345,6 +380,7 @@
             </div>
             <ul class="pagelist">
 <?php $i=floor($page/10); $tens=floor($t_pages/10); $ones=$t_pages%10; ?>
+        <?php if($i>0):?> 
                 <li class="pageitem">
             <?php /*if($i>0) $i--;*/
                 $thispage=($i-1)*10+1;
@@ -352,6 +388,11 @@
             ?>
                     <a href="?<?= http_build_query($q_string) ?>"><i class="fas fa-angle-double-left"></i></a>
                 </li>
+        <?php else: ?>
+                <li class="pageitem">
+                    <a class="none"></a>
+                </li>
+        <?php endif; ?>
     <?php if($i==$tens): ?>
         <?php for($j=0;$j<$ones;$j++): 
             $thispage=$i*10+($j+1); 
@@ -368,7 +409,8 @@
                     <a href="?<?= http_build_query($q_string) ?>" class=<?= $thispage==$realpage ? "act" : "" ?>><?= $thispage ?></a>
                 </li>
         <?php endfor; ?>
-    <?php endif; ?>
+        <?php endif; ?>
+            <?php if($i<$tens):?>
                 <li class="pageitem"> 
             <?php /*if($i<$tens) $i++;*/
                 $thispage=($i+1)*10+1; 
@@ -376,15 +418,12 @@
             ?>                
                     <a href="?<?= http_build_query($q_string) ?>"><i class="fas fa-angle-double-right"></i></a>
                 </li>
+            <?php else: ?>
+                <li class="pageitem">
+                    <a class="none"></a>
+                </li>
+            <?php endif; ?>
             </ul>
-            <?php /*
-                $i=0 ; $tens=$t_pages/10; $ones=$t_pages%10; $thispage=$i*10+$j;
-                if($i==$tens){
-                    for($j=1;$j<=$ones;$j++){}
-                }else{
-                    for($j=1;$j<=10;$j++){}
-                }*/
-            ?>
             <div class="toTop">
                 <div class="tr"></div>
                 <h5>TOP</h5>
@@ -425,36 +464,57 @@
         });
         /*Check*/
         $(".color").click(function(){
+            var color="";
             if($(this).prop("checked")){
+                color=$(this).attr("value");
+                console.log(color);
                 $(".color").not(this).attr("disabled", true);
             }else{
+                console.log(color);
                 $(".color").removeAttr("disabled");
             }
         });
         $(".skeleton").click(function(){
             var c=$(this).attr("name");
+            var skeleton="";
             if($(this).prop("checked")){
+                skeleton=$(this).attr("value");
+                console.log(skeleton);
                 $(".skeleton").not(this).attr("disabled", true);
                 if(c=="straight") {
                     $("#auto").attr("disabled", true);
                 }
             }else{
+                console.log(skeleton);
                 $(".skeleton").removeAttr("disabled");
                 $("#auto").removeAttr("disabled");
             }
         });
-        $("#auto").click(function(){
-            var auto=0;
+        $(".auto").click(function(){
+            var c=$(this).attr("name");
+            var auto="";
             if($(this).prop("checked")){
-                auto=2;
-                $("#straight").attr("disabled", true);
+                auto=$(this).attr("value");
+                console.log(auto);
+                $(".auto").not(this).attr("disabled", true);
+                if(c=="auto") {
+                    $("#straight").attr("disabled", true);
+                }
             }else if(!$("#folding").prop("checked")){
-                auto=1;
+                console.log(auto);
+                $(".auto").removeAttr("disabled");
                 $("#straight").removeAttr("disabled");
+            }else{
+                console.log(auto);
+                $(".auto").removeAttr("disabled");
+                // $("#straight").removeAttr("disabled");
             }
         });
+        $("input[type='checkbox']").click(function(){
+            $("label").css("color","#666");
+            $("input[disabled='disabled']").closest("label").css("color","#ccc");
+        });
         $("input[name='Sort']").click(function(){
-            
             console.log($(this).data("order"));
         });
     </script>

@@ -372,7 +372,8 @@
         </div>
     </div>
     <?php include __DIR__.'/module_footer.php' ?>
-    <script>  
+    <script>
+        /*雨傘陽傘*/
         $(".btn_um").click(function(){
             $(this).closest(".um").addClass("act").siblings().removeClass("act");
         });
