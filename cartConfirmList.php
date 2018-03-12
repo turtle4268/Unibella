@@ -1,12 +1,13 @@
 <?php require __DIR__. '/_db_connect.php'; ?>
 <?php include __DIR__.'/module_head.php' ?>
-<style>
+    <style>
     section{
         height: auto ;
     }
     /*container-------------------------------------------------------------*/
     #container {
         width: 100%;  
+        /* height: 180vh;    */
     }
     .headerBg_a {
         width: 100%;
@@ -23,33 +24,117 @@
 
     }
     .headerBg_a p {
+        /* width: 100%; */
         font-size: 30px;
         font-weight: bold;
         color:#fff;
         position: absolute;
+        /* text-align: center; */
         right: 13%;
         letter-spacing: 5px;
-    }
-    .hideHeader {
-        opacity: 0;
     }
     /*Sec1-------------------------------------------------------------*/
     .sec1_a {
         width: 100%;   
         padding-top: 50px;
     }
-    .sec1_a h1 {
+    /*----步驟-------*/
+    .steps-container_a {
+        width: 100%;
         text-align: center;
-        font-size: 24pt;  
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .step_a {
+        width: 200px;
+        height: 130px;
+    }
+    .step_a span{
         color:#666;
     }
+    .step-content_a {
+        width: 30px;
+        height: 30px;
+        background: #fff;
+        display: inline-block;
+        border-radius: 100%;
+        border: 3px solid #1F5572;
+        position: relative;
+    }
+    .stepDown-content_a {
+        top:40px;
+    }
+    .step_a:first-child .step-content_a {
+        top:2px;
+    }
+    .step_a:nth-child(3) .step-content_a {
+        top:1px;
+    }
+    .step-content_a::after {
+        content: "";
+        display: block;
+        width: 155px;
+        height: 3px;
+        position: relative;
+        background: #1F5572;
+        margin-left: 37px;
+        margin-top: 50%;
+        transform: translateY(-50%);
+    }
+    .step_a:last-child .step-content_a::after {
+        width: 100px;
+    }
+    .step1-content_a::before {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 3px;
+        position: relative;
+        background: #1F5572;
+        margin-left: -108px;
+        top: 14px;
+        transform: translateY(-50%);
+    }
+    .step1-content_a::after {
+        margin-top: 36%;
+    }
+    .des_a {
+        font-size: 18px;
+    }
+    .desUp_a {
+        padding-bottom: 15px;
+    }
+    .desDown_a {
+        padding-top: 55px;
+    }
+    .step-content_a.active {
+        background: #F8CF4E;
+        border-color: #F8CF4E;
+        animation: blob 0.3s ease-out;
+    }
+    .step-content_a i {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        line-height: 0;
+        font-size: 18px;
+        color: #fff;
+        font-weight: bold;
+    }
+    /*form1*/
     table {
-        width: 60%;
-        max-width: 60%;
+        width: 55%;
+        max-width: 55%;
         margin: 0 auto;
         margin-top: 30px;
         border-collapse: collapse;
-        color:#666;
+        color: #666;
+    }
+    .table_a {
+        margin-top: 60px;
     }
     table tbody tr td i.far {
         font-size: 20px;
@@ -64,10 +149,11 @@
     .delect_a {
         border-right: 1px solid #999;
     }
-    table tbody tr td {
+    .table_a tbody tr td {
         text-align: center;
         height: 200px;
         border: 1px solid #999;
+        
     }
     .table_a tbody tr .productCom_A {
         width: 300px;
@@ -85,9 +171,48 @@
         object-fit: contain;
         
     }
-    
     .tablePhone_a {
-        display:none;
+        display: none;
+    }
+    
+    /*form2*/
+    .table2_a {
+        width: 55%;
+        max-width: 55%;
+        margin: 0 auto;
+        border-collapse: collapse;
+    }
+    .table2_a tbody tr td {
+        border: 1px solid #999;
+        position: relative;
+        height: 200px;
+    }
+    .table2_a tbody tr td p span {
+       padding: 0 9%;
+    }
+    .formContent_a {
+        width: 100%;
+        position: absolute;
+        left: 34%;
+        top: 20%;
+    }
+    .formContent2_a {
+        width: 100%;
+        position: absolute;
+        left: 34%;
+        top: 45%;
+    }
+    .formContent3_a {
+        width: 100%;
+        position: absolute;
+        left: 34%;
+        top: 70%;
+    }
+    .formSelect_a{
+        height: 30px;
+    }
+    .formText {
+        height: 25px;   
     }
     .total_a {
         padding: 85px;
@@ -95,13 +220,26 @@
         margin:0 auto;
         text-align: center; 
         color: #C1272D;
-        
     }
+    /*form3*/
+    .table3_a .formContent_a {
+        width: 100%;
+        position: absolute;
+        left: 34%;
+        top: 30%;
+    }
+    .table3_a .formContent2_a {
+        width: 100%;
+        position: absolute;
+        left: 34%;
+        top: 56%;
+    }
+    /*按鈕*/
     .btn_a {
         display: flex;
         justify-content: center;
-        position: relative;
         margin-bottom: 5%;
+        position: relative;
     }
     .btn_a button {
         margin:15px 45px;
@@ -187,17 +325,41 @@
     }
     </style>
     <style>
-        @import url("css/cartList_phone.css");
+        @import url("css/member_center_phone.css");
     </style>
-<?php include __DIR__.'/module_nav.php' ?>
+    <?php include __DIR__.'/module_nav.php' ?>
 <div id="container">
     <div class="headerBg_a">
         <img src="images/banner_CART.jpg" alt="">
         <p>Be Your Unique Umbrella.</p>
     </div>
     <section class="sec1_a" >
-        
-        <h1>購物車列表</h1>
+        <div class="steps-container_a">
+            <div class="step_a ">
+                <div class="des_a desUp_a">
+                    <span>選擇付款方式</span>
+                </div>
+                <span class="step-content_a step1-content_a "></span> 
+            </div>
+            <div class="step_a">
+                <span class="step-content_a stepDown-content_a"></span>
+                <div class="des_a desDown_a">
+                    <span>填寫運送資料</span>
+                </div>
+            </div>
+            <div class="step_a">
+                <div class="des_a  desUp_a">
+                    <span>確認購物清單</span>
+                </div>
+                <span class="step-content_a"></span>
+            </div>
+            <div class="step_a">
+                <span class="step-content_a stepDown-content_a"></span>
+                <div class="des_a desDown_a">
+                    <span>購物完成</span>
+                </div>
+            </div>
+        </div>
         <table class="table_a">
             <thead class="thead-dark_a">
                 <tr>
@@ -213,15 +375,15 @@
             <tbody>
                 <tr>
                   <td class="productCom_A"><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
-                  <td>我是商品</td>
-                  <td>1</td>
-                  <td>NT$.1850</td>
-                  <td>NT$.1850</td>
-                  <td></td>
+                  <td>1111</td>
+                  <td>111</td>
+                  <td>111</td>
+                  <td>111</td>
+                  <td>111</td>
                   <td><i class="far fa-trash-alt"></i></td>
                 </tr>
                 <tr>
-                  <td class="productCom_A"><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
+                  <td>Jacob</td>
                   <td>Thornton</td>
                   <td>@fat</td>
                   <td>@fat</td>
@@ -262,16 +424,57 @@
 
                 </tbody>
         </table>
+        <table class="table2_a">
+            <thead>
+                <tr>
+                    <th scope="col">付款資料</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p class="formContent_a">付款方式
+                            <span>7-11貨到付款</span>
+                        </p>
+                        <p class="formContent2_a">應付金額
+                            <span>2400</span>
+                        </p> 
+                        <p class="formContent3_a">超商門市
+                            <span>大安門市</span>
+                        </p>    
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table2_a table3_a">
+                <thead>
+                    <tr>
+                        <th scope="col">訂購人資訊</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p class="formContent_a">訂購人姓名
+                                <span>王大明</span>
+                            </p>
+                            <p class="formContent2_a">訂購人手機
+                                <span>0916335177</span>
+                            </p>     
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         <div class="total_a" data-val="">共 X 件，總金額 NT$. 2400</div>
         <div class="btn_a">
             <button class="shop_a">繼續購物</button>
             <button class="buy_a">立即購買</button>
-            
         </div>
         <div class="toTop">
             <div class="tr"></div>
             <h5>TOP</h5>
         </div>
+
     </section>
 </div>
 <?php include __DIR__.'/module_footer.php' ?>
@@ -299,5 +502,9 @@
         },1000);
     });
 
+   
+    
+
+    
     </script> 
 <?php include __DIR__.'/module_foot.php' ?>
