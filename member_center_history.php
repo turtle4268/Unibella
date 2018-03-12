@@ -65,6 +65,9 @@
         .l_aside_y ul .history_f{ /*f加 顯示目前頁面li的顏色*/
             background: #e6e6e6;
         }
+        .fa-angle-down{
+            display: none;
+        }
         .l_p_ul_y{
             display:none;
         }
