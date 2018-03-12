@@ -292,7 +292,7 @@
 				$('.qaContent_a ul li.questionP_a:visible').slideUp();
 			}
             $questionP_a.slideToggle();
-            $(this).addClass("qaChange");
+            $(this).toggleClass("qaChange");
             $(".qaContent_a .questionT_a").not(this).removeClass("qaChange");
            
         })

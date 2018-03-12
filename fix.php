@@ -4,17 +4,17 @@
             height: auto ;
         }
         /*Container-------------------------------------------------------------------*/
-        .headerBg_f{
+        .headerBg_a{
             width: 100% ; 
             display: flex;
             align-items: center;
             object-fit: fill;
             position: relative;
         }
-        .headerBg_f img{
+        .headerBg_a img{
             width: 100%;
         }
-        .headerBg_f p{
+        .headerBg_a p{
             font-size: 30px;
             font-weight: bold;
             color:#fff;
@@ -123,7 +123,7 @@
             padding: 50px 0 60px 0;
         }
         .fixNotice_a {
-            padding-left:4%;
+            padding-left:20px;
         }
         .warranty_a span {
             padding-bottom:20px;
@@ -137,12 +137,12 @@
             padding:10px 0 10px 0;
         }
         .notice_a {
-            padding: 50px 0 60px 0;
+            padding: 30px 0 60px 0;
             width:48%;
             margin:0 auto;
         }
         .notice_a ul {
-            padding-left: 4%;
+            padding-left: 20px;
         }
         .notice_a ul li {
             padding:20px 0 20px 0px;
@@ -156,7 +156,7 @@
     </style>
 <?php include __DIR__.'/module_nav.php' ?>
     <div id="container">
-        <div class="headerBg_f">
+        <div class="headerBg_a">
             <img src="images/banner_FIX.jpg" alt="">
             <p>Be Your Unique Unbrella.</p>
         </div>
