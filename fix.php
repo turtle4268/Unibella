@@ -206,10 +206,10 @@
                 <p class="returnCon_a">    
                     <span>如果您購買的傘有損壞，我們提供以下服務:</span>
                     <br>
-                    <br><span>1. 7天內無條件退換貨:</span>
-                    <br><span>限虛擬通路，7天內購買可直接退換貨。</span>
+                    <br><span>1. 10天內無條件退換貨:</span>
+                    <br><span>限虛擬通路，10天內購買可直接退換貨。</span>
                     <br>
-                    <br><span>2. 購買超過7天:</span>
+                    <br><span>2. 購買超過10天:</span>
                     <br><span>依損壞狀況酌收工本費，您可選擇：</span>
                     <br>
                     <br><span>(1) 將商品連同工本費一同寄到我司(單程運費由買家支付)，</span>
@@ -231,6 +231,7 @@
 
             </div>    
         </section>
+        <div class="gyn"></div>
 
 
     <?php include __DIR__.'/module_footer.php' ?>
