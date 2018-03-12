@@ -45,6 +45,7 @@
             max-width: 60%;
             margin: 30px auto;
             border-collapse: collapse;
+            box-sizing: content-box;
         }
         table thead tr th {
             background: #666;
@@ -52,19 +53,21 @@
             padding: 6px 0;
             border: 1px solid #666;
             border-right: 1px solid #fff;
+            box-sizing: content-box;
         }
         table tbody tr td {
             /* text-align: center; */
             height: 60px;
             border: 1px solid #666;
             padding-left: 50px;
+            box-sizing: content-box;
         }
             /*button-------------------------------------------------*/
             .btn_a {
             display: flex;
             justify-content: center;
             position: relative;
-            margin-bottom: 5%;
+            margin-bottom: 18pxs;
         }
         .btn_a button {
             margin:15px 45px;
@@ -177,17 +180,16 @@
                     </tr>
                 </tbody>
             </table>
-            
-            <div class="btn_a">
-                <!-- <button class="shop_a">上一頁</button> -->
-                <button class="buy_a">送出</button>
-                
-            </div>
-            <div class="toTop">
-                <div class="tr"></div>
-                <h5>TOP</h5>
-            </div>
         </section>
+        <div class="btn_a">
+            <!-- <button class="shop_a">上一頁</button> -->
+            <button class="buy_a">送出</button>
+            
+        </div>
+        <div class="toTop">
+            <div class="tr"></div>
+            <h5>TOP</h5>
+        </div>
     </div>
     <?php include __DIR__.'/module_footer.php' ?>
     <script>

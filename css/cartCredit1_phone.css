@@ -54,6 +54,13 @@
     .card_f input{
         width: 55px;
     }
+    /*按鈕---------------------*/
+    .btn_a {
+        flex-direction: column;
+        width: 230px;
+        margin: 0 auto;
+        padding-bottom: 20px;
+    }
     /*toTop*/
     .toTop{
         top: 0 ;

@@ -353,7 +353,7 @@
             color:#ed1c24;
             /* width:100%; */
             text-align:left;
-            /* display:none; */
+            display:none;
         }
         .labelFour_y{
             padding:4px 0 0 0;

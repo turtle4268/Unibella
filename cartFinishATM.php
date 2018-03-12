@@ -434,9 +434,10 @@
         /*-------toTop--------*/
         .toTop{
             color: #1F5572 ;
-            position: absolute;
-            right: 50px;
-            top: 10px ;
+            position: relative ;
+            top: -15px ;
+            margin-left: 94% ;
+            margin-bottom: 15px ;
             cursor: pointer ;
         }
         .toTop .tr{
@@ -556,11 +557,11 @@
             <div class="btn_a">
                     <button class="shop_a">回首頁</button>
                     <button class="buy_a">回商品頁</button>
-                    <div class="toTop">
-                        <div class="tr"></div>
-                        <h5>TOP</h5>
-                    </div>
-                </div>
+            </div>
+            <div class="toTop">
+                <div class="tr"></div>
+                <h5>TOP</h5>
+            </div>
         </section>
     </div>
 
