@@ -143,8 +143,8 @@
             width:88%;
             height: 30px;
         }
-        .memberInput_y:focus{
-            outline:none;
+        input:focus{
+            outline:none!important;
         }
         /* .memberBtn_y{
             background-color: transparent;
