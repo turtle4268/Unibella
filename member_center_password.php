@@ -245,28 +245,9 @@
             <h1 class="bannerTxt_y">Be Your Unique Umbrella.</h1>
         </div>
         <div class="mainBox_y">
-            <aside class="l_aside_y">
-                <div class="asideListBox_y">
-                    <h2 class="asideListTitle_y">會員專區<i class="fas fa-angle-down"></i></h2>
-                    <ul class="l_ul_y">
-                        <li class="change_f"><a href="" class="asideA_y">修改會員資料</a></li>
-                        <li class="history_f"><a href="" class="asideA_y">訂購紀錄</a></li>
-                        <li class="password_f"><a href="" class="asideA_y">密碼修改</a></li>
-                        <li class="save_f"><a href="" class="asideA_y">收藏列表</a></li>
-                        <li class="sale_f"><a href="" class="asideA_y">會員優惠</a></li>
-                    </ul>
-                    <ul class="l_p_ul_y">
-                        <li class="change_f"><a href="" class="asideA_y">修改會員資料</a></li>
-                        <li class="history_f"><a href="" class="asideA_y">訂購紀錄</a></li>
-                        <li class="password_f"><a href="" class="asideA_y">密碼修改</a></li>
-                        <li class="save_f"><a href="" class="asideA_y">收藏列表</a></li>
-                        <li class="sale_f"><a href="" class="asideA_y">會員優惠</a></li>
-                    </ul>
-                </div>
-            </aside>
-        
+            <?php include __DIR__.'/module_member_aside.php' ?>
             <div class="main_y">
-                <h2>修改密碼</h2>      
+                <h2>密碼修改</h2>      
                 <form name="form_password" class="form_password_y" method="post" action="" onsubmit="">
                     <div class="passwordInfor_y">
                         <label for="email" class="memberLabel1_y">電子郵件 </label>
