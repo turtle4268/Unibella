@@ -104,23 +104,25 @@
             color: #666;
         }
         .form_infor_y{
-            width: 50%;
+            width: 60%;
+            min-width:500px ;
             margin: 0 auto;
             padding-left: 5%; 
         }
         .memberInfor_y{
-            display: flex;
+            /* display: flex;
             justify-content: space-between;
-            align-content: center;
-            margin-top:3em;
+            align-content: center; */
+            margin-top:2em;
         }
         .memberLabel1_y{
             color: #666;
             font-size: 16px;
             text-align: left;
-            flex: 1;
-            padding-right: 5%;
+            /* flex: 1; */
+            padding-right: 2%;
             margin-bottom: 3em;
+            width: 26%;
         }
         .memberInput1_y{
             /* width: 60%;
@@ -129,15 +131,20 @@
             color: #666;
             border: none;
             border-bottom: 1px solid #666;
-            flex: 3;
+            /* flex: 3; */
             margin-bottom: 3em;
+            width: 72%;
+        }
+        .p_y{
+            text-align:right;
+            margin-right: 30px;
         }
         .memberLabel_y{
             color: #666;
             font-size: 16px;
             text-align: left;
             /* flex: 1; */
-            width: 12%;
+            width: 20%;
         }
         .memberInput_y, .memberSelect_y{
             /* width: 60%;
@@ -147,7 +154,7 @@
             border: none;
             border-bottom: 1px solid #666;
             /* flex: 3; */
-            width:88%;
+            width:80%;
             height: 30px;
         }
         input:focus{
@@ -206,6 +213,18 @@
         button:focus {
             outline: none;
         }
+        /*small_warning--------------------*/
+        small.warning{
+            color:#ed1c24;
+            /* width:100%; */
+            padding:5px 0 0 65px;
+            display:none;
+        }
+        .noneSmall_y{
+            margin-top: 5px ;
+            width:300px;
+            height:14px;
+        }
         /*-------toTop--------*/
         .toTop{
             color: #1F5572 ;
@@ -258,11 +277,13 @@
                         <input type="text" class="memberInput1_y" name="email" id="email" value="<?= $_SESSION['user']['email'] ?>" placeholder="" disabled="disabled">
                         <!-- <small id="emailWarning" class="form-text text-muted warning">請填寫正確的電郵</small>                                                                                                                             -->
                     </div>
-                    <p style="text-align:right">(*為必填)</p>       
+                    <p class="p_y">(*為必填)</p>       
                     <div class="memberInfor_y">
                         <label for="name" class="memberLabel_y"><span class="yellow_star">*</span>姓名: </label>
                         <input type="text" class="memberInput_y" name="name" id="name" value="<?= $_SESSION['user']['name'] ?>" placeholder="">
-                            <small id="nameWarning" class="form-text text-muted warning">請填寫兩個字以上的暱稱</small>
+                         <div class="noneSmall_y">
+                            <small id="nameWarning" class="labelTowTow_y warning">請填寫兩個字以上的姓名</small>
+                        </div>
                     </div>
                     <div class="memberInfor_y">
                         <label for="nickname" class="memberLabel_y">&nbsp;性別: </label>
@@ -271,19 +292,26 @@
                             <option value="1"<?= $_SESSION['user']['gender']==1?' selected="selected"':'' ?>>男</option>
                             <option value="2"<?= $_SESSION['user']['gender']==2?' selected="selected"':'' ?>>女</option>
                         </select>
+                        <div class="noneSmall_y"></div>
                     </div>
                     <div class="memberInfor_y">
                         <label for="birthday" class="memberLabel_y"><span class="yellow_star">*</span>生日: </label>
                         <input type="text" class="memberInput_y datepicker" name="birthday" id="birthday" value="<?= $_SESSION['user']['birthday'] ?>" placeholder="">
+                        <div class="noneSmall_y"></div>                    
                     </div>
                     <div class="memberInfor_y">
                         <label for="mobile" class="memberLabel_y"><span class="yellow_star">*</span>手機: </label>
-                            <input type="text" class="memberInput_y" name="mobile" id="mobile" value="<?= $_SESSION['user']['mobile'] ?>" placeholder="">
-                            <small id="mobileWarning" class="form-text text-muted warning">請輸入十位數的手機號碼</small>
+                        <input type="text" class="memberInput_y" name="mobile" id="mobile" value="<?= $_SESSION['user']['mobile'] ?>" placeholder="">
+                        <div class="noneSmall_y">
+                            <small id="mobileWarning" class="labelTowFour_y warning">請輸入十位數的手機號碼</small>
+                        </div>
                     </div>       
                     <div class="memberInfor_y">
                         <label for="address" class="memberLabel_y"><span class="yellow_star">*</span>地址: </label>
                         <input type="text" class="memberInput_y" name="address" id="address" value="<?= $_SESSION['user']['address'] ?>" placeholder="">
+                        <div class="noneSmall_y">
+                            <small id="addressWarning" class="labelTow_y warning">請填寫十個字以上的地址</small>
+                        </div>
                     </div>
                     <button type="submit" class="memberBtn_y">確認送出</button>
                 </form> 

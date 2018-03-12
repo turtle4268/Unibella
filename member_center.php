@@ -108,13 +108,13 @@
             width:32%;
             height: 30px; 
             text-align: left;
-            padding-top:2.5em;
+            padding-top:3em;
         }
         .r_td_y{
             width:68%;
             height: 30px;
             text-align: left;
-            padding-top:2.5em;
+            padding-top:3em;
             border-bottom: 1px solid #000;
         }
         .l_td1_y{
