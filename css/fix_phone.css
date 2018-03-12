@@ -7,12 +7,12 @@
     /*--banner--*/
     .headerBg_a p {
         width: 70%;
-        font-size: 24px;
-        font-weight: 400;
-        left:25%;
-        top: 25%;
         letter-spacing: 5px;
         text-align: initial;
+        font-size: 24px;
+        left: 85%;
+        bottom: 30%;
+        font-weight: 400;
     }
     .headerBg_a img {
         width: 300%;
@@ -22,10 +22,9 @@
     }
     .notice_a {
         width: 75%;
-        padding: 30px 0 60px 0;
     }
-    .fixNotice_a, .notice_a ul {
-        padding-left: 7%;
+    .fix_a h1 {
+        padding-top: 30px;
     }
 
     
