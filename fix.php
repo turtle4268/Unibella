@@ -264,43 +264,6 @@
             $(".clouds1_f #parallax6_f").css('top', (50 - (scrollC1 * .4)) + 'vh');
         });
 
-        //svg line
-        $('.box1').mouseenter(function(){
-      $('.counter1 path').addClass("active");
-      $('.outline1 path').addClass("active");
-    })
-
-    $('.box1').mouseleave(function(){
-      $('.outline1 path').removeClass('active');
-      $('.counter1 path').removeClass('active');
-    })
-    $('.box2').mouseenter(function(){
-      $('.counter2 path').addClass("active");
-      $('.outline2 path').addClass("active");
-    })
-
-    $('.box2').mouseleave(function(){
-      $('.outline2 path').removeClass('active');
-      $('.counter2 path').removeClass('active');
-    })
-    $('.box3').mouseenter(function(){
-      $('.counter3 path').addClass("active");
-      $('.outline3 path').addClass("active");
-    })
-
-    $('.box3').mouseleave(function(){
-      $('.outline3 path').removeClass('active');
-      $('.counter3 path').removeClass('active');
-    })
-    $('.box4').mouseenter(function(){
-      $('.counter4 path').addClass("active");
-      $('.outline4 path').addClass("active");
-    })
-
-    $('.box4').mouseleave(function(){
-      $('.outline4 path').removeClass('active');
-      $('.counter4 path').removeClass('active');
-    })
 
 
     </script>

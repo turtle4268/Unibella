@@ -439,6 +439,7 @@
         //newText
         $(".paperText").click(function () {
             var text = $(this).attr("data-text");
+            $(".yellow_a .newspaper_a").removeClass("scale");
         // console.log(text);
             $("#" + text).addClass("newPShow_a");
             $(".newText_a").addClass("textShow_a");
