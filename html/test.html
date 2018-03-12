@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        /* body {
+            width: 100%;
+            font-size: 0;
+            text-align: center;
+        }
+
+        div {
+            display: inline-block;
+            width: 20%;
+            background: green;
+            font-size: 12px;
+            position: relative;
+            vertical-align: middle;
+        }
+        div:nth-child(2n) {
+            background: orange;
+        }
+        div:before {
+            content: "";
+            display: inline-block;
+            padding-bottom: 100%;
+            width: .1px;
+            vertical-align: middle;
+        }
+        div span {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 4em;
+            color: #fff;
+        } */
+        .father {
+            width: 100%;
+        }
+        .daughter {
+            width: 20%; height: 0;
+            max-width: 120px;
+            padding-top: 20%;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+        <div class="label_group">
+                <input type="checkbox" name="plain" id="plain" class="color"><label for="plain">素色</label>
+            </div>
+            <div class="label_group">
+                <input type="checkbox" name="pattern" id="pattern" class="color"><label for="pattern">花色</label>
+            </div>
+            <script>
+                $(".color").click(function() {
+                    var c=$(this).attr("name");
+                    if($(this).prop("checked")){
+                        // console.log(c);
+                        $(".color").not(this).attr("disabled", true);
+                    }else{
+                        // console.log("none");
+                        $(".color").removeAttr("disabled");
+                    }
+                });
+            </script>
+    <!-- <div>
+        <span>1</span>
+    </div> -->
+    <div class = "father">
+            <div class = "daughter"></div>    // 父女情深
+         </div>
+</body>
+</html>

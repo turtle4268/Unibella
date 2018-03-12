@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Unibella</title>
+    <style>
+        *{
+            margin: 0 ;
+            padding: 0 ;
+            font-family: "微軟正黑體" ;
+        }
+        #container{
+            position: relative ;
+        }
+        section{
+            width: 100% ;
+            height: 100vh ;
+        }
+        #bg{
+            width: 100% ;
+            height: 100vh ;
+            position: absolute ;
+            z-index: 5;
+            overflow: hidden ;
+        }
+        .half{
+            width: 50% ;
+            height: 100% ;
+            transition: 1s ;
+            transform: translateX(0);
+        }
+        #bg_rain{
+            background-color: #1F5572 ;
+            float: left ;
+            
+            
+        }
+        #bg_sun{
+            background-color: #F8CF4E ;
+            float: left ;
+            
+        }
+        #index_rain{
+            background-color: #1F5572 ;
+            position: absolute ;
+            top: 0 ;
+        }
+        #index_sun{
+            background-color: #F8CF4E ;
+            position: absolute ;
+            top: 0 ;
+            
+        }
+        .s{
+            background-color: aquamarine ;
+        }
+        .sunfadeout.sun{
+            transform: translateX(100%);
+            
+        }
+        .rainfadeout.rain{
+            transform: translateX(-100%);
+            
+        }
+        .back_l{
+            width: 25%;
+            height: 40% ;
+            background-color: #FFF ;
+            color: #000 ;
+            text-align: center ;
+            padding-top: 10px ;
+            box-sizing: border-box ;
+            position: fixed ;
+            
+            transform: rotateZ(60deg) ;
+            transform-origin: right top ;
+            bottom: -45% ;
+            left: -15%;
+            cursor: pointer ;
+        }
+        .back_r{
+            width: 25%;
+            height: 40% ;
+            background-color: #FFF ;
+            color: #000 ;
+            text-align: center ;
+            padding-top: 10px ;
+            box-sizing: border-box ;
+            position: fixed ;
+            
+            transform: rotateZ(-60deg) ;
+            transform-origin: left top ;
+            bottom: -45% ;
+            right: -15%;
+            cursor: pointer ;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+
+        </nav>
+    </header>
+    <!--<div class="back">BACK</div>-->
+    <div id="container">
+        <div id="bg">
+            <div id="bg_rain" class="half rain"></div>
+            <div id="bg_sun" class="half sun"></div>
+        </div>
+        <!--main-->
+        <section id="index">
+
+        </section>
+        <section class="s"></section>
+        <section class="s"></section>
+        <!--rain-->
+        <section id="index_rain">
+            <div class="back_r back">BACK</div>
+        </section>
+        <!--sun-->
+        <section id="index_sun">
+            <div class="back_l back">BACK</div>
+        </section>
+    </div>
+    <footer></footer>
+
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script>
+        $bgSun=$("#bg_sun");
+        $bgRain=$("#bg_rain");
+
+        $bgRain.click(function(){
+            $bgSun.addClass("sunfadeout");
+            $("#index_rain").css("z-index",2);
+            $bgRain.css("z-index",0);
+        });
+        $("#bg_sun").click(function(){
+            $bgRain.addClass("rainfadeout");
+            $("#index_sun").css("z-index",2);
+            $bgSun.css("z-index",0);
+        });
+        $(".back").click(function(){
+            $bgSun.removeClass("sunfadeout rainfadeout").css("z-index",2);
+            $bgRain.removeClass("sunfadeout rainfadeout").css("z-index",2);
+            $("#index_rain").css("z-index",0);
+            $("#index_sun").css("z-index",0);
+        });
+
+        var BGfadeout=function(){
+
+        };
+        // $(".half").click(function(){
+        //     $(this).siblings().addClass("sunfadeout rainfadeout");
+        // });
+    </script>
+</body>
+</html>
