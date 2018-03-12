@@ -13,18 +13,19 @@ $result = array(
 );
 
 if(!empty($_POST['oldpassword'])) {
-    // $oldpass = sha1($_POST['oldpassword']); //破壞性加密
+    $oldpass = sha1($_POST['oldpassword']); //破壞性加密
     $pass = sha1($_POST['password']);
     $sql = "UPDATE `members` SET 
                 `password`=?
-                 WHERE `id`=?"; 
+                 WHERE `id`=? AND `password`=?"; 
 
     $stmt = $mysqli->prepare($sql);
     //echo $mysqli->error; //除錯
 
-    $stmt->bind_param('ss',
+    $stmt->bind_param('sss',
         $pass,
-        $_SESSION['user']['id']
+        $_SESSION['user']['id'],
+        $oldpass
         );
 
     $stmt->execute();

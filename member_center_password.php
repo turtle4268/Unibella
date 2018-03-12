@@ -309,12 +309,12 @@
             var oldpassword = document.form_password.oldpassword.value;
             var password = document.form_password.password.value;
             var passSure = document.form_password.password_sure.value;
-            var isPaPass = true;
-            if(oldpassword!=<?= $_SESSION['user']['password'] ?> ){
+            var isPaPass = true; 
+            if(oldpassword.length<6 || oldpassword.length>12){
                 isPaPass = false;
                 $('#oldpasswordWarning').show();
             }
-            if(password.length<6 || password.length>12 || ){
+            if(password.length<6 || password.length>12 || password==oldpassword){
                 isPaPass = false;
                 $('#passwordWarning').show();
             }
