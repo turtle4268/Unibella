@@ -47,7 +47,7 @@
     
     .qaContent_a {
         width: 80%;
-        border:1px solid #000;
+        /* border:1px solid #000; */
         margin: 0 auto;
         margin-top: 4%;
         text-align: justify;
@@ -61,12 +61,14 @@
         font-size:20px;
     }
     .questionT_a {
-        padding-left: 45px;
-        padding-right:45px;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding:10px 45px;
+        margin-top: 5px;
+        margin-bottom: 5px;
         cursor: pointer;
         font-size:18px;
+        background:#ccc;
+        color:#fff;
+        /* height:30px; */
 
         
     }
@@ -80,7 +82,7 @@
         color:red;
     }
     .qaChange {
-        color:red;
+        color:#1f5572;
     }
 
     .qaContent_a p {
@@ -290,7 +292,8 @@
 				$('.qaContent_a ul li.questionP_a:visible').slideUp();
 			}
             $questionP_a.slideToggle();
-            $(this).addClass("qaChange").siblings().removeClass("qaChange");
+            $(this).addClass("qaChange");
+            $(".qaContent_a .questionT_a").not(this).removeClass("qaChange");
            
         })
         

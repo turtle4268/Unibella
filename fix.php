@@ -123,7 +123,7 @@
             padding: 50px 0 60px 0;
         }
         .fixNotice_a {
-            padding-left:3%;
+            padding-left:4%;
         }
         .warranty_a span {
             padding-bottom:20px;
@@ -142,136 +142,11 @@
             margin:0 auto;
         }
         .notice_a ul {
-            padding-left: 3%;
+            padding-left: 4%;
         }
         .notice_a ul li {
             padding:20px 0 20px 0px;
             list-style:disc;   
-        }
-        /*svg--------------------------------------------*/
-        @keyframes svg_outline {
-        to {
-            stroke-dashoffset: 0;
-        }
-        from {
-            stroke-dashoffset: 880;
-        }
-        }
-        @keyframes svg_outline_hide {
-        0% {
-            stroke-dashoffset: 0;
-        }
-        100% {
-            stroke-dashoffset: 880;
-        }
-        }
-        @keyframes svg_fill_active {
-        100% {
-            fill: #e25027;
-            fill-opacity: 1;
-        }
-        }
-        @keyframes svg_fill_inactive {
-        100% {
-            fill: #ebebeb;
-            fill-opacity: 1;
-        }
-        }
-        @keyframes svg_stroke_active {
-        100% {
-            stroke: #e25027;
-        }
-        }
-        .outline path.active {
-        animation-name: svg_outline;
-        animation-duration: 3s;
-        animation-timing-function: linear;
-        animation-iteration-count: initial;
-        animation-direction: normal;
-        animation-fill-mode: forwards; 
-        stroke:#e25027;
-        }
-        .outline path.inactive {
-        animation-name: svg_outline_hide;
-        animation-duration: 3s;
-        animation-timing-function: linear;
-        animation-iteration-count: initial;
-        animation-direction: normal;
-        animation-fill-mode: forwards; 
-        stroke:#e25027;
-        }
-        .counter path.active {
-        animation-name: svg_fill_active;
-        animation-duration: 3s;
-        animation-timing-function: linear;
-        animation-iteration-count: initial;
-        animation-direction: normal;
-        animation-fill-mode: forwards; 
-        stroke:#e25027;
-        }
-        .counter path.inactive {
-        animation-name: svg_fill_inactive;
-        animation-duration: 3s;
-        animation-timing-function: linear;
-        animation-iteration-count: initial;
-        animation-direction: normal;
-        animation-fill-mode: forwards; 
-        stroke:#e25027;
-        }
-        .process_a {
-            margin:0 auto;
-            width:50%;
-        } 
-        .box {
-        width: 200px;
-        height: 200px;
-        position: relative;
-        background: white;
-        display: block;
-        margin-bottom: -12px;
-        cursor: pointer;
-        box-shadow: inset 8px 0 0 #ebebeb, inset 0 -8px 0 #ebebeb, inset 0 8px 0 #ebebeb;
-        }
-        .box svg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
-        width: 100%;
-        }
-        .box svg.counter {
-        margin: auto;
-        right: -85px;
-        left: auto;
-        top: -85px;
-        height: 170px;
-        width: 170px;
-        }
-        .box path {
-        stroke-dasharray: 883;
-        }
-        .box svg.counter text {
-        font-size: 85px;
-        font-family: "Advent Pro", sans-serif;
-        text-anchor: "middle";
-        dominant-baseline: "central";
-        text-align: center;
-        }
-        .box2 {
-        margin-left:200px;;
-        box-shadow: inset -8px 0 0 #ebebeb, inset 0 -8px 0 #ebebeb, inset 0 8px 0 #ebebeb;
-        }
-        svg.counter.counter_even {
-        position: absolute;
-        margin: 0;
-        right: auto;
-        left: -85px;
-        top: -85px;
-        }
-        .box4 {
-        margin-left:200px;
-        box-shadow:none;
         }
 
 
@@ -356,96 +231,6 @@
 
             </div>    
         </section>
-        <!-- <section>
-        <div class="process_a">
-        <div class="box box1">
-            <svg class="outline outline1" xmlns="http://www.w3.org/2000/svg" version="2.0" width="100" height="100" viewBox="0 0 100 100"  preserveAspectRatio="none meet">
-                <path
-                d="M100,0
-                L0,0
-                L0,100
-                L100,100"
-                stroke="#ebebeb"
-                stroke-width="8"
-                fill="none"/>
-            </svg>
-            <svg class="counter counter1" xmlns="http://www.w3.org/2000/svg" version="1.1" width="170" height="170" viewBox="0 0 170 170" preserveAspectRatio="none meet">
-                <path
-                d="M 85, 85
-                m 50, 0
-                a 50,50 0 1,0 -100,0
-                a 50,50 0 1,0 100,0"
-                stroke="#ebebeb"
-                stroke-width="8"
-                fill="#e25027"/>
-               
-                <text x="85" y="85" fill="#fff" stroke="#fff" stroke-width="1" text-anchor="middle" dominant-baseline="central">1</text>
-            </svg>
-        </div>
-        <div class="box box2">
-          <svg class="outline outline2" xmlns="http://www.w3.org/2000/svg" version="2.0" width="100" height="100" viewBox="0 0 100 100"  preserveAspectRatio="none meet">
-            <path
-            d="M0,0
-            L100,0
-            L100,100
-            L0,100"
-            stroke="#ebebeb"
-            stroke-width="8"
-            fill="none"/>
-          </svg>
-          <svg class="counter counter_even counter2" xmlns="http://www.w3.org/2000/svg" version="1.1" width="170" height="170" viewBox="0 0 170 170" preserveAspectRatio="none meet">
-            <path
-            d="M 85, 85
-            m 50, 0
-            a 50,50 0 1,0 -100,0
-            a 50,50 0 1,0 100,0"
-            stroke="#ebebeb"
-            stroke-width="8"
-            fill="#e25027"/>
-             
-              <text x="85" y="85" fill="#fff" stroke="#fff" stroke-width="1" text-anchor="middle" dominant-baseline="central">1</text>
-          </svg>
-      </div>
-      <div class="box box3">
-        <svg class="outline outline3" xmlns="http://www.w3.org/2000/svg" version="2.0" width="100" height="100" viewBox="0 0 100 100"  preserveAspectRatio="none meet">
-            <path
-            d="M100,0
-            L0,0
-            L0,100
-            L100,100"
-            stroke="#ebebeb"
-            stroke-width="8"
-            fill="none"/>
-        </svg>
-        <svg class="counter counter3" xmlns="http://www.w3.org/2000/svg" version="1.1" width="170" height="170" viewBox="0 0 170 170" preserveAspectRatio="none meet">
-            <path
-            d="M 85, 85
-            m 50, 0
-            a 50,50 0 1,0 -100,0
-            a 50,50 0 1,0 100,0"
-            stroke="#ebebeb"
-            stroke-width="8"
-            fill="#e25027"/>
-
-            <text x="85" y="85" fill="#fff" stroke="#fff" stroke-width="1" text-anchor="middle" dominant-baseline="central">1</text>
-        </svg>
-    </div>
-    <div class="box box4">
-      <svg class="counter counter_even counter4  " xmlns="http://www.w3.org/2000/svg" version="1.1" width="170" height="170" viewBox="0 0 170 170" preserveAspectRatio="none meet">
-        <path
-        d="M 85, 85
-        m 50, 0
-        a 50,50 0 1,0 -100,0
-        a 50,50 0 1,0 100,0"
-        stroke="#ebebeb"
-        stroke-width="8"
-        fill="#e25027"/>
-        
-        <text x="85" y="85" fill="#fff" stroke="#fff" stroke-width="1" text-anchor="middle" dominant-baseline="central">1</text>
-      </svg>  
-    </div>  
-    </div>
-    </section> -->
 
 
     <?php include __DIR__.'/module_footer.php' ?>
