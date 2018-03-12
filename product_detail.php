@@ -61,10 +61,10 @@
         }
         .productInfor_y{
             /* flex: ; */
-            width: 20%;
+            width: 25%;
             background: #d8d8d8;
             color: #808080;
-            padding: 1% 0 2% 6%;
+            padding: 1% 0 2% 5%;
             margin-top: 2%;
             margin-right: 3%;
             text-align: center;
@@ -242,7 +242,7 @@
 			/* background: #000; */
             position: relative;
             /* padding: 3% 5%; */
-            margin: 0 6% 2% 0;
+            margin: 0 5% 2% 0;
             /* display: none; */
 		} 
 		.productSlide_y{			
@@ -378,8 +378,8 @@
     /*productPrice_y----------------------------------------------*/
         .productPrice_y{
             /* flex: ; */
-            width: 15%;
-            padding: 2% 10% 2% 0;
+            width: 25%;
+            padding: 2% 0 2% 0;
             background:#d8d8d8;
         }
         .price_y{
@@ -427,7 +427,7 @@
     /*tagTxtBox_y----------------------------------------------*/
         .tagTxtBox_y{
             width: 80%;
-            height: 50vh;
+            height: 450px;
             margin: 5% auto;
             overflow: hidden;
         }

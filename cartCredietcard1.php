@@ -26,7 +26,7 @@
         /*信用卡交易步驟一------------------------------------*/
         section{
             color: #666;
-            margin-top: 50px;
+            margin-top: 50px;    
         }
         .credit_f h6{
             text-align: center;
@@ -41,6 +41,7 @@
             max-width: 60%;
             margin: 30px auto;
             border-collapse: collapse;
+            box-sizing: content-box;
         }
         table thead tr th {
             background: #666;
@@ -48,6 +49,7 @@
             padding: 6px 0;
             border: 1px solid #666;
             border-right: 1px solid #fff;
+            box-sizing: content-box;
         }
         table tbody tr td {
             /* text-align: center; */
@@ -55,23 +57,27 @@
             border: 1px solid #666;
             /* max-width: 80px; */
             padding-left: 50px;
+            box-sizing: content-box;
         }
         .small_f{
             max-width: 90px;
+            box-sizing: content-box;
         }
         .card_f input{
             width: 60px;
             height: 30px;
+            box-sizing: content-box;
         }
         table input{
             letter-spacing: 1px;
+            box-sizing: content-box;
         } 
         /*button-------------------------------------------------*/
         .btn_a {
             display: flex;
             justify-content: center;
             position: relative;
-            margin-bottom: 5%;
+            margin-bottom: 18px;
         }
         .btn_a button {
             margin:15px 45px;
@@ -243,15 +249,15 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="btn_a">
-                <button class="shop_a">上一頁</button>
-                <button class="buy_a">送出</button>  
-            </div>
-                <div class="toTop">
-                    <div class="tr"></div>
-                    <h5>TOP</h5>
-                </div>
         </section>
+        <div class="btn_a">
+            <button class="shop_a">上一頁</button>
+            <button class="buy_a">送出</button>  
+        </div>
+        <div class="toTop">
+            <div class="tr"></div>
+            <h5>TOP</h5
+        </div>
     </div>
     <?php include __DIR__.'/module_footer.php' ?>
     <script>

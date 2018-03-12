@@ -206,10 +206,10 @@
                 <p class="returnCon_a">    
                     <span>如果您購買的傘有損壞，我們提供以下服務:</span>
                     <br>
-                    <br><span>1. 7天內無條件退換貨:</span>
-                    <br><span>限虛擬通路，7天內購買可直接退換貨。</span>
+                    <br><span>1. 10天內無條件退換貨:</span>
+                    <br><span>限虛擬通路，10天內購買可直接退換貨。</span>
                     <br>
-                    <br><span>2. 購買超過7天:</span>
+                    <br><span>2. 購買超過10天:</span>
                     <br><span>依損壞狀況酌收工本費，您可選擇：</span>
                     <br>
                     <br><span>(1) 將商品連同工本費一同寄到我司(單程運費由買家支付)，</span>
@@ -231,6 +231,7 @@
 
             </div>    
         </section>
+        <div class="gyn"></div>
 
 
     <?php include __DIR__.'/module_footer.php' ?>
@@ -264,43 +265,6 @@
             $(".clouds1_f #parallax6_f").css('top', (50 - (scrollC1 * .4)) + 'vh');
         });
 
-        //svg line
-        $('.box1').mouseenter(function(){
-      $('.counter1 path').addClass("active");
-      $('.outline1 path').addClass("active");
-    })
-
-    $('.box1').mouseleave(function(){
-      $('.outline1 path').removeClass('active');
-      $('.counter1 path').removeClass('active');
-    })
-    $('.box2').mouseenter(function(){
-      $('.counter2 path').addClass("active");
-      $('.outline2 path').addClass("active");
-    })
-
-    $('.box2').mouseleave(function(){
-      $('.outline2 path').removeClass('active');
-      $('.counter2 path').removeClass('active');
-    })
-    $('.box3').mouseenter(function(){
-      $('.counter3 path').addClass("active");
-      $('.outline3 path').addClass("active");
-    })
-
-    $('.box3').mouseleave(function(){
-      $('.outline3 path').removeClass('active');
-      $('.counter3 path').removeClass('active');
-    })
-    $('.box4').mouseenter(function(){
-      $('.counter4 path').addClass("active");
-      $('.outline4 path').addClass("active");
-    })
-
-    $('.box4').mouseleave(function(){
-      $('.outline4 path').removeClass('active');
-      $('.counter4 path').removeClass('active');
-    })
 
 
     </script>

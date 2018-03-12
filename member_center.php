@@ -89,8 +89,6 @@
         .li_span_y{
             color: #1f5572;
         }
-        /*fixAside---------*/
-        
         /*main_y-------------------------------------*/
         .main_y{
             text-align: center;
