@@ -226,14 +226,6 @@
             50%  { opacity: .5; }
             100% { opacity: 1; top: -4px ;}
         }
-        /*navHide------*/
-        .hide {
-            transform: translateY(-100px);
-            transition: all .5s;
-        }
-        .bg {
-            background: rgba(255, 255, 255, .8);
-        }
     </style>
     <style>
         @import url("css/member_center_password_phone.css");
@@ -270,27 +262,27 @@
                 <form name="form_password" class="form_password_y" method="post" action="" onsubmit="">
                     <div class="passwordInfor_y">
                         <label for="email" class="memberLabel1_y">電子郵件 </label>
-                        <input type="text" class="memberInput1_y" name="email" id="email" value="" placeholder="" disabled="disabled">
+                        <input type="text" class="memberInput1_y" name="email" id="email" value="<?= $_SESSION['user']['email'] ?>" placeholder="" disabled="disabled">
                         <!-- <small id="emailWarning" class="form-text text-muted warning">請填寫正確的電郵</small>                                                                                                                             -->
                     </div>
                     <p style="text-align:right">(*為必填)</p>       
                     <div class="passwordInfor_y">
-                        <label for="password" class="passwordLabel_y">
+                        <label for="oldpassword" class="passwordLabel_y">
                             <span class="yellow_star">*</span>原始密碼:</label>
-                        <input type="password" class="passwordInput_y" name="password" id="password" value="" placeholder="請輸入密碼(6~12位字元)">
-                        <!-- <small id="passwordWarning" class="form-text text-muted warning">請輸入六個字元以上的密碼</small> -->        
+                        <input type="password" class="passwordInput_y" name="oldpassword" id="oldpassword" value="" placeholder="請輸入密碼(6~12位字元)">
+                        <small id="oldpasswordWarning" class="form-text text-muted warning">密碼錯誤</small>        
                     </div>
                     <div class="passwordInfor_y">
                         <label for="password" class="passwordLabel_y">
                             <span class="yellow_star">*</span>輸入新密碼:</label>
                         <input type="password" class="passwordInput_y" name="password" id="password" value="" placeholder="請輸入密碼(6~12位字元)">
-                        <!-- <small id="passwordWarning" class="form-text text-muted warning">請輸入六個字元以上的密碼</small> -->     
+                        <small id="passwordWarning" class="form-text text-muted warning">請輸入6~12位字元的密碼</small>     
                     </div>
                     <div class="passwordInfor_y">
-                        <label for="password" class="passwordLabel_y">
+                        <label for="password_sure" class="passwordLabel_y">
                             <span class="yellow_star">*</span>新密碼確認:</label>
-                        <input type="password" class="passwordInput_y" name="password" id="password" value="" placeholder="請輸入密碼(6~12位字元)">
-                        <!-- <small id="passwordWarning" class="form-text text-muted warning">請輸入六個字元以上的密碼</small> -->                    
+                        <input type="password" class="passwordInput_y" name="password_sure" id="paspassword_suresword" value="" placeholder="請輸入密碼(6~12位字元)">
+                        <small id="password_sureWarning" class="form-text text-muted warning">請再次確認密碼</small>                    
                     </div>
                     <button type="submit" class="passwordBtn_y">確認送出</button>
                 </form>
@@ -314,7 +306,7 @@
         $(window).scroll(function(){
             var scrollNow=$(this).scrollTop();
             // console.log(scrollNow);
-            if (scrollNow < 350) {
+            if (scrollNow < 240) {
                 $("header").removeClass("hide black");
             } else {
                 if (scrollNow > scrolllast) {
@@ -331,5 +323,39 @@
             $(".fa-angle-down").toggleClass("rotate");
             $(".l_p_ul_y").slideToggle();
         });
+        /*editpassword form check*/
+        function loginCheck(){
+            var oldpassword = document.form_password.oldpassword.value;
+            var password = document.form_password.password.value;
+            var passSure = document.form_password.password_sure.value;
+            var isPaPass = true;
+            if(oldpassword!=<?= $_SESSION['user']['password'] ?> ){
+                isPaPass = false;
+                $('#oldpasswordWarning').show();
+            }
+            if(password.length<6 || password.length>12 || ){
+                isPaPass = false;
+                $('#passwordWarning').show();
+            }
+            if(!(password==passSure)){
+                isPaPass = false;
+                $('#password_sureWarning').show();
+            }
+            if(isPaPass){
+                $.post("edit_pass_api.php",$(form_password).serialize(),function(data){
+                    // console.log(data);
+                    switch (data) {
+                        case 1:
+                            alert("修改成功!");
+                            break;
+                    
+                        default:
+                            alert("修改失敗!");
+                            break;
+                    }
+                },"json");
+            }
+            return false;
+        }
     </script>
 <?php include __DIR__.'/module_foot.php' ?>
