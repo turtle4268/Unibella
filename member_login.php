@@ -1,4 +1,7 @@
 <?php require __DIR__. '/_db_connect.php'; ?>
+<?php 
+    $_SESSION['come_from'] = $_SERVER['HTTP_REFERER'];
+?>
 <?php include __DIR__.'/module_head.php' ?>
     <style>
         section{
@@ -733,7 +736,11 @@
                         console.log(ss);
                             alert("登入成功!");
                             setTimeout(function(){
+                                <?php if(empty($_SESSION['come_from'])): ?>
                                 location.href='home.php';
+                                <?php else: ?>
+                                location.href = "<?= $_SESSION['come_from'] ?>";
+                                <?php endif; ?>
                             }, 1000);
                             break;
                     

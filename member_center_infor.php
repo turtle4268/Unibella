@@ -286,11 +286,11 @@
                         </div>
                     </div>
                     <div class="memberInfor_y">
-                        <label for="nickname" class="memberLabel_y">&nbsp;性別: </label>
-                        <select class="memberSelect_y" id="registerGender_y">
-                            <option value="0"<?= $_SESSION['user']['gender']==0?' selected="selected"':'' ?>></option>
-                            <option value="1"<?= $_SESSION['user']['gender']==1?' selected="selected"':'' ?>>男</option>
-                            <option value="2"<?= $_SESSION['user']['gender']==2?' selected="selected"':'' ?>>女</option>
+                        <label for="gender" class="memberLabel_y">&nbsp;性別: </label>
+                        <select class="memberSelect_y" id="gender"  name="gender">
+                            <option value="0"<?= $_SESSION['user']['gender']=="0"?' selected="selected"':'' ?>></option>
+                            <option value="1"<?= $_SESSION['user']['gender']=="1"?' selected="selected"':'' ?>>男</option>
+                            <option value="2"<?= $_SESSION['user']['gender']=="2"?' selected="selected"':'' ?>>女</option>
                         </select>
                         <div class="noneSmall_y"></div>
                     </div>
@@ -373,6 +373,7 @@
                 isEdPass = false;
                 $('#addressWarning').show();
             }
+            console.log(name,mobile,address);
             if(isEdPass){
                 $(".f_registerBtn_y").hide();
                 $.post('edit_user_api.php',$(document.form_infor).serialize(),function(data){

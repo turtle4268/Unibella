@@ -1,7 +1,7 @@
 <?php require __DIR__. '/_db_connect.php'; ?>
 <?php 
     if(!isset($_GET['sid'])) {
-        header("Location:product_list2.php");
+        header("Location:product_list3.php");
         exit;
     }
     $sid=intval($_GET['sid']);
@@ -211,7 +211,7 @@
             color: #1f5572;
             border: 2px solid #1f5572;
             border-radius: 50px;
-            padding: 13px 30px;
+            padding: 13px 23px;
             margin-top: 1em;
             cursor: pointer;
             transition: 0.5s ;
@@ -235,10 +235,18 @@
         }
         .addBtn_y:hover .addBtnPic_y{
             background-color: #f8cf4e ;
-            -webkit-mask-repeat: no-repeat ;
+            /* -webkit-mask-repeat: no-repeat ;
             -webkit-mask-position: center ;
-            transition: 0.5s ;
+            transition: 0.5s ; */
             animation: pulse .5s infinite alternate;
+        }
+        .addBtn_y.act{
+            background-color: #1f5572;
+            color: #f8cf4e;           
+            border: 2px solid #1f5572;
+        }
+        .addBtn_y.act .addBtnPic_y{
+            background-color: #f8cf4e ;
         }
         @keyframes pulse{
             0%{
@@ -715,9 +723,9 @@
                 <div class="productPrice_y">
                     <p class="price_y">NT. <?= $row['price'] ?></p>
                     <br>
-                    <a class="addBtn_y blueBtn_y">
+                    <a class="addBtn_y blueBtn_y <?= isset($_SESSION['love'][$row['sid']])?'act':'' ?>">
                         <div class="addBtnPic_y"></div>
-                        <p>加入收藏</p>
+                        <p><?= isset($_SESSION['love'][$row['sid']])?'已加入收藏':'加入收藏' ?></p>
                     </a>
                     <div class="buyForm2_y">
                         <form action="">
@@ -909,13 +917,26 @@
             var combo=form.find("select");  
             var qty=combo.val();
 
-            alert(sid+" : "+qty);
+            // alert(sid+" : "+qty);
 
-            // $.get('add_to_cart.php',{sid:sid,qty:qty},function(data){
-            //     console.log(data);
-            //     alert("商品已加入購物車");
-            //     // countItems(data);
-            // },"json");
+            $.get('add_to_cart.php',{sid:sid,qty:qty},function(data){
+                console.log(data);
+                alert("商品已加入購物車");
+                // countItems(data);
+            },"json");
+        });
+        /*add to love*/
+        $(".addBtn_y").click(function(){
+            var card=$(this).closest(".productInforBox_y");
+            var sid=card.data('sid');
+            // alert(sid+" : "+qty);
+
+            $.get('add_to_love.php',{sid:sid},function(data){
+                console.log(data);
+                alert("商品已加入收藏");
+                location.href=location.href;
+                // countItems(data);
+            },"json");
         });
     </script>
 <?php include __DIR__.'/module_foot.php' ?>

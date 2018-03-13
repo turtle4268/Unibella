@@ -407,18 +407,18 @@
             var c=$(this).attr("name");
             cauto="";
             if($(this).prop("checked")){
-                auto=$(this).attr("value");
-                console.log(auto);
+                cauto=$(this).attr("value");
+                console.log(cauto);
                 $(".auto").not(this).attr("disabled", true);
                 if(c=="auto") {
                     $("#straight").attr("disabled", true);
                 }
             }else if(!$("#folding").prop("checked")){
-                console.log(auto);
+                console.log(cauto);
                 $(".auto").removeAttr("disabled");
                 $("#straight").removeAttr("disabled");
             }else{
-                console.log(auto);
+                console.log(cauto);
                 $(".auto").removeAttr("disabled");
                 // $("#straight").removeAttr("disabled");
             }cpage=1;

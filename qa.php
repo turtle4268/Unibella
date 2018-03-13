@@ -2,6 +2,7 @@
     <style>
     section{
         height: auto ;
+        color:#666;
     }
     header a{
         background-color: #666;
@@ -69,8 +70,16 @@
         background:#ccc;
         color:#fff;
         /* height:30px; */
-
-        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;   
+    }
+    .questionT_a span{
+        transition: .6s;
+        -webkit-mask-image:url(images/pluse.svg);
+        background:#fff;
+        width:18px;
+        height:18px;
     }
     .questionP_a {
         display:none;
@@ -84,7 +93,11 @@
     .qaChange {
         color:#1f5572;
     }
-
+    .qaChange span{
+        transform:rotate(-135deg);
+        transition: .6s;
+        background-color:#1f5572;
+    }
     .qaContent_a p {
         padding-left: 45px;
         padding-right: 45px;
@@ -110,25 +123,25 @@
                 <span class="space_a"></span>
                 <h3 class="qaGroup1_a">一、會員常見問題</h3>
                 <ul>
-                    <li class="questionT_a">Q1.如何加入會員</li>
+                    <li class="questionT_a">Q1.如何加入會員<span></span></li>
                     <li class="questionP_a">
                         <p>
                         您可點選上方的會員中心圖示，並點選「註冊」後即可加入會員哦！
                         </p>
                     </li>
-                    <li class="questionT_a">Q2.如何登入會員</li>
+                    <li class="questionT_a">Q2.如何登入會員<span></span></li>
                     <li class="questionP_a">
                         <p>
                         請點選網頁上方的會員中心圖示，輸入您的會員帳號(手機號碼)、密碼，及驗證圖碼即可登入
                         </p>
                     </li>
-                    <li class="questionT_a">Q3.如何修改個人資料及密碼？</li>
+                    <li class="questionT_a">Q3.如何修改個人資料及密碼？<span></span></li>
                     <li class="questionP_a">
                         <p>
                         請先點選網頁上方的會員中心圖示，登入會員後點選「會員中心」，點選「會員資料管理」 ，即可選擇您想要修改的個人資料或密碼。
                         </p>
                     </li>
-                    <li class="questionT_a">Q4.忘記密碼怎麼辦？</li>
+                    <li class="questionT_a">Q4.忘記密碼怎麼辦？<span></span></li>
                     <li class="questionP_a">
                         <p>
                         請點選上方「登入/註冊」，於「忘記密碼」欄輸入註冊的電話號碼按下發送簡訊，系統即會發送一組新密碼簡訊至手機。
@@ -139,7 +152,7 @@
                 </ul>
                 <h3 class="qaGroup2_a">二、訂購說明</h3>
                 <ul>
-                    <li class="questionT_a">Q1.如何訂購商品？</li>
+                    <li class="questionT_a">Q1.如何訂購商品？<span></span></li>
                     <li class="questionP_a">
                         <p>購物流程：
                         <br>① 選擇商品                   
@@ -150,7 +163,7 @@
                         <br>⑥ 完成購物
                         </p>
                     </li>
-                    <li class="questionT_a">Q1.訂單成立後，可以取消或修改訂單嗎？</li>
+                    <li class="questionT_a">Q1.訂單成立後，可以取消或修改訂單嗎？<span></span></li>
                     <li class="questionP_a">
                         <p>一、如要取消訂單，可於訂單剛送出，客服人員尚未處理訂單前，會員中心>消費訂單紀錄>訂單明細點選「取消訂單」即可。
                         <br>
@@ -159,12 +172,12 @@
                         三、若訂單出貨狀態已轉為揀貨中，便無法自行取消，請於服務時間內盡速來電客服協助處理
                         </p>
                     </li>
-                    <li class="questionT_a">Q2.如何刪除購物車內商品？</li>
+                    <li class="questionT_a">Q2.如何刪除購物車內商品？<span></span></li>
                     <li class="questionP_a">
                         <p>請先前往結帳，結帳時下方會顯示出購物車內所有商品，可點選商品金額右方垃圾桶圖示取消商品。
                         </p>
                     </li>
-                    <li class="questionT_a">Q3.如何查詢訂單進度？</li>
+                    <li class="questionT_a">Q3.如何查詢訂單進度？<span></span></li>
                     <li class="questionP_a">
                         <p>請登入會員中心>消費訂單紀錄，點選欲查詢的訂單右方「明細」即可查詢該訂單的處理狀態。
                         </p>
@@ -172,7 +185,7 @@
                 </ul>
                 <h3 class="qaGroup3_a">三、配送方式</h3>
                 <ul>
-                    <li class="questionT_a">Q1.目前提供哪些運送方式？</li>
+                    <li class="questionT_a">Q1.目前提供哪些運送方式？<span></span></li>
                     <li class="questionP_a">
                         <p>
                         貨運宅配:
@@ -181,7 +194,7 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="questionT_a">Q2.訂購商品後需幾天的時間才可以收到商品呢？</li>
+                    <li class="questionT_a">Q2.訂購商品後需幾天的時間才可以收到商品呢？<span></span></li>
                     <li class="questionP_a">
                         <p>
                         依存貨狀態，分為「現貨商品」及「預購商品」：
@@ -195,7 +208,7 @@
                 </ul>
                 <h3 class="qaGroup4_a">四、退換貨說明</h3>
                 <ul>
-                    <li class="questionT_a">Q1.商品鑑賞期</li>
+                    <li class="questionT_a">Q1.商品鑑賞期<span></span></li>
                     <li class="questionP_a">
                         <p>Unibella提供10天鑑賞期服務
                         <br>我們提供每筆訂單一次退換貨的免費服務
@@ -223,7 +236,7 @@
                         <span>※在收到退回商品時，如遇不符換貨規範，Unibella會將商品寄回，屆時運費尚須由消費者自行負擔。（來回運費為120元）</span>
                         </p>
                     </li>
-                    <li class="questionT_a">Q2.退款方式？</li>
+                    <li class="questionT_a">Q2.退款方式？<span></span></li>
                     <li class="questionP_a">
                         <p>
                         若訂購方式為【信用卡付款】
@@ -242,7 +255,7 @@
                         <br><span>退款帳戶請於退貨時自行登入會員中心填寫退款資訊，如因資料錯誤而造成退款時間延誤，本司概不負責。</span>
                         </p>
                     </li>
-                    <li class="questionT_a">Q3.退貨商品什麼時候會收走？</li>
+                    <li class="questionT_a">Q3.退貨商品什麼時候會收走？<span></span></li>
                     <li class="questionP_a">
                         <p>
                         至會員中心申請退貨後，下一個工作日會通知物流進行取件作業（遇六日及國定假日順延），

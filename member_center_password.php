@@ -284,7 +284,7 @@
             <?php include __DIR__.'/module_member_aside.php' ?>
             <div class="main_y">
                 <h2>密碼修改</h2>      
-                <form name="form_password" class="form_password_y" method="post" action="" onsubmit="">
+                <form name="form_password" class="form_password_y" method="post" action="" onsubmit="return passCheck()">
                     <div class="passwordInfor_y">
                         <label for="email" class="memberLabel1_y">電子郵件 </label>
                         <input type="text" class="memberInput1_y" name="email" id="email" value="<?= $_SESSION['user']['email'] ?>" placeholder="" disabled="disabled">
@@ -296,7 +296,7 @@
                             <span class="yellow_star">*</span>原始密碼:</label>
                         <input type="password" class="passwordInput1_y" name="oldpassword" id="oldpassword" value="" placeholder="請輸入密碼(6~12位字元)">
                         <div class="noneSmall_y">
-                            <small id="passwordWarning" class="labelTowTow_y warning">請輸入6~12位字元之密碼</small>
+                            <small id="oldpasswordWarning" class="labelTowTow_y warning">請輸入6~12位字元之密碼</small>
                         </div>        
                     </div>
                     <div class="passwordInfor_y">
@@ -305,6 +305,7 @@
                         <input type="password" class="passwordInput_y" name="password" id="password" value="" placeholder="請輸入密碼(6~12位字元)">
                         <div class="noneSmall_y">
                             <small id="passwordWarning" class="labelTowTow_y warning">請輸入6~12位字元之密碼</small>
+                            <small id="passwordWarning2" class="labelTowTow_y warning">與舊密碼相同</small>
                         </div>     
                     </div>
                     <div class="passwordInfor_y">
@@ -355,7 +356,8 @@
             $(".l_p_ul_y").slideToggle();
         });
         /*editpassword form check*/
-        function loginCheck(){
+        function passCheck(){
+            $(".warning").hide();
             var oldpassword = document.form_password.oldpassword.value;
             var password = document.form_password.password.value;
             var passSure = document.form_password.password_sure.value;
@@ -364,9 +366,12 @@
                 isPaPass = false;
                 $('#oldpasswordWarning').show();
             }
-            if(password.length<6 || password.length>12 || password==oldpassword){
+            if(password.length<6 || password.length>12){
                 isPaPass = false;
                 $('#passwordWarning').show();
+            }else if(password==oldpassword){
+                isPaPass = false;
+                $('#passwordWarning2').show();
             }
             if(!(password==passSure)){
                 isPaPass = false;
@@ -378,6 +383,7 @@
                     switch (data) {
                         case 1:
                             alert("修改成功!");
+                            $("input").val("");
                             break;
                     
                         default:

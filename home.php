@@ -432,6 +432,7 @@
             display: inline-block ;
             margin: 0 2% ;
             color: #000 ;
+            cursor: pointer ;
         }
         .card .product{
             width: 95% ;
@@ -456,10 +457,21 @@
         }
         .card .name{
             color: #808080 ;
-            border-bottom: 1px solid #808080 ;
-            width: 76px ;
+            text-align: center ;
+            /* width: 76px ; */
             margin: 20px auto ;
             line-height: 24px ;
+            position: relative ;
+        }
+        .card .name:before{ 
+            position :absolute ;
+            content: "" ;
+            width: 80px ;
+            height: 100% ;
+            margin: 0 auto ;
+            left: 50% ;
+            margin-left: -40px ;
+            border-bottom: 1px solid #808080 ;
         }
         .card .price{
             font-size: 18px ;
@@ -836,26 +848,26 @@
         <section id="popular">
             <h4>人氣商品</h4>
             <div class="cards">
-               <div class="card">
+               <div class="card" data-sid="136">
                     <div class="product">
-                        <img src="images/home_umbrella_b.png" alt="">
+                        <img src="images/detail/PCS002_1.png" alt="">
                     </div>
-                    <p class="name">夏日風情</p>
-                    <p class="price">NT. 1980</p>
+                    <p class="name">人魚的眼淚</p>
+                    <p class="price">NT. 4220</p>
                 </div>
-                <div class="card">
+                <div class="card" data-sid="132">
                     <div class="product">
-                        <img src="images/home_umbrella_b.png" alt="">
+                        <img src="images/detail/UCS022_1.png" alt="">
                     </div>
-                    <p class="name">夏日風情</p>
-                    <p class="price">NT. 1980</p>
+                    <p class="name">奢華宮殿</p>
+                    <p class="price">NT. 3280</p>
                 </div>
-                <div class="card">
+                <div class="card" data-sid="90">
                     <div class="product">
-                        <img src="images/home_umbrella_b.png" alt="">
+                        <img src="images/detail/UNS034_1.png" alt="">
                     </div>
-                    <p class="name">夏日風情</p>
-                    <p class="price">NT. 1980</p>
+                    <p class="name">熱情魅力紅</p>
+                    <p class="price">NT. 3300</p>
                 </div> 
             </div>
             <div class="toTop">
@@ -1020,6 +1032,12 @@
         $(".r_aside ul").on("click","li",function(){
             nowPosition=$(this).index();
             fullpageScroll(nowPosition);
+        });
+        /*to product*/
+        $(".card").click(function(){
+            var sid=$(this).data("sid");
+            console.log(sid);
+            location.href="product_detail.php?sid="+sid;
         });
         /*to top*/
         $Totop.click(function(){
