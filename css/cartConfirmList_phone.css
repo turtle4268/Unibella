@@ -157,7 +157,8 @@
     }
     /*--toTop--*/
     .toTop{
-        top: 0 ;
-        margin-left: 0 ;
+        width: 40px;
+        height: 25px;
+        margin: 20px auto;
     }
 }
