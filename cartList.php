@@ -98,7 +98,9 @@
         object-fit: contain;
         
     }
-    
+    .delet{
+        cursor: pointer ;
+    }
     .tablePhone_a {
         display:none;
     }
@@ -229,14 +231,14 @@
               </thead>
             <tbody>
             <?php foreach($_SESSION['cart'] as $sid =>$qty): ?>
-                <tr data-sid="<?= $sid ?>">
+                <tr>
                   <td class="productCom_A"><figure><img src="images/detail/<?= $cartdata[$sid]['umbrella_id'] ?>_1.png" alt=""></figure></td>
                   <td><?= $cartdata[$sid]['umbrellaname'] ?></td>
                   <td><?= $qty ?></td>
                   <td>NT$.<?= $cartdata[$sid]['price'] ?></td>
                   <td>NT$.<?= $cartdata[$sid]['price']*$qty ?></td>
                   <td></td>
-                  <td><i class="far fa-trash-alt"></i></td>
+                  <td><i class="far fa-trash-alt delet" data-sid="<?= $sid ?>"></i></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
@@ -268,7 +270,7 @@
                         <td><p>備註<span></span></p></td>
                     </tr>
                     <tr class="producCotent_a  producCotentL_a">
-                        <td><p>刪除<span><i class="far fa-trash-alt"></i></span></p></td>
+                        <td><p>刪除<span><i class="far fa-trash-alt delet" data-sid="<?= $sid ?>"></i></span></p></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -335,6 +337,13 @@
             $(".tprice").text(totalPrice);
         }
         count();
+        /*delet*/
+        $(".delet").click(function(){
+            var sid=$(this).data("sid");
+            $.get("add_to_cart.php",{sid:sid},function(data){
+                count();
+            },'json');
+        });
         /*add price to session*/
         $(".buynext").click(function(){
             var tqty=totalQty,

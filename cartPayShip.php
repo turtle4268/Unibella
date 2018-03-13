@@ -473,7 +473,7 @@
                 <div class="chooseDes_a">
                     <span>應付金額</span>
                 </div>
-                <input type="text" class="text_a price" data-price="<?= $_SESSION['totalPrice'] ?>">
+                <input type="text" class="text_a price" data-price="<?= $_SESSION['totalPrice'] ?>" disabled="disabled">
             </div>
         </div>
     <div class="payNotive_a">
@@ -579,6 +579,9 @@
                 $(".atm_a").removeClass('show');
             }
         });
+        /*price*/
+        var price=$(".price").data("price");
+        $(".price").val(price);
         /*hide next*/
         function hidenext(){
             var payway=$("#payWay").val(),shipway=$("#shipWay").val();
