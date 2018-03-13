@@ -46,7 +46,8 @@
         	z-index: 1;
         	width: 26%;
         	display: flex;
-        	flex-wrap: wrap;
+            flex-wrap: wrap;
+            position:relative;
         }
         .inforTxtBox_y{
         	/*position: absolute;
@@ -83,6 +84,9 @@
         /*.inforTitleBox_y a:hover{
         	border-bottom: 2px solid #fff;
         }*/
+        .lineHover_y{
+			cursor: pointer ;    
+        }
         .lineHover_y:after {
         	display:block;
   			content: '';
@@ -103,18 +107,67 @@
         }
         /*-------map--------*/
         .map_y{
+            width: 100%;
+            height: 372px;
+            padding:0 20px 0 50px;
+            background:#f8cf4e;
             position:absolute;
+            z-index:3;
             top:0;
             bottom:0;
             left:0;
             right:0;
+            transform: translateX(-100%);
+            transition: all 10s; 
             display:none;
-        }
+            opacity:0;      
+        } 
+        .mapi_y{
+            margin: 20px 0 20px -30px;    
+        } 
         .mapOpen_y{
-            width:69%;
+            transform: translateX(0);
+            transition: all 10s; 
+            display:block;
+            opacity:1;
         }
         .mapClose_y{
             width:0;
+        }
+        .close_y{
+            background:#f8cf4e;
+            /* border-radius:50%; */
+            width: 23px;
+            height: 23px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+            background: url(images/X.svg) center center no-repeat;
+        }
+        .mapText_y{
+            background:#1f5572;
+            /* position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0; */
+            z-index: 2;
+        	width: 100%;
+            /* transform: translateX(-100%); */
+            transition: all 10s;
+            color:#fff; 
+            flex: 1;
+        }
+        .mapTextA_y{
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        .mapTextB_y{
+            position:absolute;
+            bottom:0;
+            left:0;
         }
         /*-------toTop--------*/
         .toTop{
@@ -162,13 +215,22 @@
 	         <div class="infor_y">
 	         	<div class="inforImg_y">
 	         		<img src="images/store_1.png" alt="store_1">
-	         		<img src="images/store_2.png" alt="store_2">
+                    <img src="images/store_2.png" alt="store_2">
+                    <div class="mapText_y mapTextA_y">
+                        <p>電話&nbsp; 02 2588-5688</p>
+	         			<p>地址&nbsp; 106台北市大安區忠孝東路三段300號</p>
+                    </div>
+                    <div class="mapText_y mapTextB_y">
+	         			<p class="">門市營業時間</p>
+	         			<p>週日～週四 11:00 - 22:00</p>
+	         			<p>週五、週六 11:00 - 22:30</p>
+                    </div>
 	         	</div>
 	         	<div class="inforTxtBox_y">
 	         		<div class="inforTxt_y">
-                        <div class="inforTitleBox_y">
+                        <div class="inforTitleBox_y" id="text">
     	         			<h3 class="inforTitle_y">台北 | 大安門市 </h3>
-                            <a href="" class="lineHover_y">MAP</a>
+                            <a class="lineHover_y">MAP</a>
                         </div>
 	         			<br>
 	         			<p>電話&nbsp; 02 2588-5688</p>
@@ -179,9 +241,10 @@
 	         			<p>週五、週六 11:00 - 22:30</p>
                      </div>
                      <div class="map_y">
-                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.2696960638596!2d121.53978071492276!3d25.024919944809607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aa29379b8db9%3A0xd64e16f1fa2db70b!2zMTA25Y-w5YyX5biC5aSn5a6J5Y2A5ZKM5bmz5p2x6Lev5LqM5q61MTA26Jmf!5e0!3m2!1szh-TW!2stw!4v1520403990040" 
-                        width="600" height="372" frameborder="0" style="border:0" allowfullscreen></iframe>
-                     </div>
+                        <iframe class="mapi_y" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d639.0108433066861!2d121.54332318266957!3d25.041158932299425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd0b034e669%3A0x45ff6e257f47e4e3!2z6YGg5p2xU09HT-W-qeiIiOmkqA!5e0!3m2!1szh-TW!2stw!4v1520910706577" 
+                        width="105%" height="332" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        <div class="close_y"></div>
+                    </div>
                  </div> <!--inforTxtBox_y-->
                       	
              </div> <!--infor_y-->
@@ -217,8 +280,8 @@
         });
         /*map*/
         $(".lineHover_y").click(function () {
-                $(".map_y").show();
-                $(".inforTxt_y").hide();
+            // console.log($(".map_y"));
+            $(".map_y").addClass("mapOpen_y");
         });
     </script>
 </body>
