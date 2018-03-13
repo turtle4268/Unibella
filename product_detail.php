@@ -658,14 +658,14 @@
                     <img src="images/all_clouds.png" alt="">
                 </div>
             </div>
-            <div class="productInforBox_y">
+            <div class="productInforBox_y" data-sid="<?= $row['sid'] ?>">
                 <div class="productInfor_y">
                     <h2 class="productTxt_y"><?= $row['umbrellaname'] ?></h2>
                     <br>
                     <p><?= $row['introduction'] ?></p>  
                     <br> 
                     <div class="buyForm1_y">
-                        <form action="">
+                        <form>
                             <div class="qtyBox_y">
                                 <label for="" class="qtyLable_y">數量</label>
                                 <select class="qtySelect_y">
@@ -696,9 +696,9 @@
                     </div>
                     <div class="productSlide_y">
                     <ul class="SlidePic_y">
-                        <li class="slidePicLi_y slide1_y"><img src="images/AF001_1.png" alt=""></li>
-                        <li class="slidePicLi_y slide2_y"><img src="images/AF001_2.png" alt=""></li>
-                        <li class="slidePicLi_y slide3_y"><img src="images/AF001_3.png" alt=""></li>
+                        <li class="slidePicLi_y slide1_y"><img src="images/detail/<?= $row['umbrella_id'] ?>_1.png" alt=""></li>
+                        <li class="slidePicLi_y slide2_y"><img src="images/detail/<?= $row['umbrella_id'] ?>_2.png" alt=""></li>
+                        <li class="slidePicLi_y slide3_y"><img src="images/detail/<?= $row['umbrella_id'] ?>_3.png" alt=""></li>
                     </ul>
                     </div>
                     <ul class="slidePage_y">
@@ -897,19 +897,20 @@
             scrolllast=scrollNow;
         });
         /*add to cart*/
-        $("button.cartBtn_y").click(function(){
-            var card=$(this).closest(".card");
-            var combo=card.find("select");
+        $(".cartBtn_y").click(function(){
+            var card=$(this).closest(".productInforBox_y");
             var sid=card.data('sid');
+            var form=$(this).closest("form");
+            var combo=form.find("select");  
             var qty=combo.val();
 
-            //alert(sid+" : "+qty);
+            alert(sid+" : "+qty);
 
-            $.get('add_to_cart.php',{sid:sid,qty:qty},function(data){
-                console.log(data);
-                //alert("商品已加入購物車");
-                countItems(data);
-            },"json");
+            // $.get('add_to_cart.php',{sid:sid,qty:qty},function(data){
+            //     console.log(data);
+            //     alert("商品已加入購物車");
+            //     // countItems(data);
+            // },"json");
         });
     </script>
 <?php include __DIR__.'/module_foot.php' ?>
