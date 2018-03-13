@@ -305,6 +305,7 @@
                         <input type="password" class="passwordInput_y" name="password" id="password" value="" placeholder="請輸入密碼(6~12位字元)">
                         <div class="noneSmall_y">
                             <small id="passwordWarning" class="labelTowTow_y warning">請輸入6~12位字元之密碼</small>
+                            <small id="passwordWarning2" class="labelTowTow_y warning">與舊密碼相同</small>
                         </div>     
                     </div>
                     <div class="passwordInfor_y">
@@ -356,6 +357,7 @@
         });
         /*editpassword form check*/
         function passCheck(){
+            $(".warning").hide();
             var oldpassword = document.form_password.oldpassword.value;
             var password = document.form_password.password.value;
             var passSure = document.form_password.password_sure.value;
@@ -364,9 +366,12 @@
                 isPaPass = false;
                 $('#oldpasswordWarning').show();
             }
-            if(password.length<6 || password.length>12 || password==oldpassword){
+            if(password.length<6 || password.length>12){
                 isPaPass = false;
                 $('#passwordWarning').show();
+            }else if(password==oldpassword){
+                isPaPass = false;
+                $('#passwordWarning2').show();
             }
             if(!(password==passSure)){
                 isPaPass = false;
@@ -378,6 +383,7 @@
                     switch (data) {
                         case 1:
                             alert("修改成功!");
+                            $("input").val("");
                             break;
                     
                         default:
