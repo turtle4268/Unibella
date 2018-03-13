@@ -122,6 +122,9 @@
         tbody tr td i.far {
             font-size: 20px;
         }
+        .tablePhone_a {
+            display:none;
+        }
         /*tbody button樣式修改*/
         tbody button {
             border: none;
@@ -243,7 +246,7 @@
         
             <div class="main_y">
                 <h2>收藏列表</h2>
-                <table>
+                <table class="tableSave_y">
                     <thead>
                         <tr>
                             <th>商品圖片</th>
@@ -269,7 +272,7 @@
                             <td><button class="delete_f"><i class="far fa-trash-alt"></i></button></td>
                         </tr>
                     </tbody>
-                     <table class="tablePhone_a">
+                    <table class="tablePhone_a">
                     <thead class="thead-dark_a">
                         <tr>
                         <th scope="col">商品圖片</th>
@@ -283,19 +286,13 @@
                         <td><p>商品名稱<span>我是商品</span></p></td>
                         </tr>
                         <tr class="producCotent_a producCotentM_a">
-                            <td><p>數量<span>1</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
                             <td><p>單價<span>NT$.1850</span></p></td>
                         </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>小計<span>NT$.1850</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>狀態<span>出貨中</span></p></td>
-                        </tr>
                         <tr class="producCotent_a  producCotentL_a">
-                            <td><a href="">取消訂單</a></td>
+                            <td><a href="">加入購物車</a></td>
+                        </tr>
+                         <tr class="producCotent_a  producCotentL_a">
+                            <td><p>刪除<span></span></p></td>
                         </tr>
                     </tbody>
                      <thead class="thead-dark_a">
@@ -304,29 +301,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr class="phoneList_y">
                         <td><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
                         </tr>
                         <tr class="producCotent_a">
                         <td><p>商品名稱<span>我是商品</span></p></td>
                         </tr>
                         <tr class="producCotent_a producCotentM_a">
-                            <td><p>數量<span>1</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
                             <td><p>單價<span>NT$.1850</span></p></td>
                         </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>小計<span>NT$.1850</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>狀態<span>出貨中</span></p></td>
-                        </tr>
                         <tr class="producCotent_a  producCotentL_a">
-                            <td><a href="">取消訂單</a></td>
+                            <td><a href="">加入購物車</a></td>
                         </tr>
-                        <tr class="total_y">
-                            <td><p>總金額 : <span></span></p></td>
+                         <tr class="producCotent_a  producCotentD_a">
+                            <td><p>刪除<span></span></p></td>
                         </tr>
                     </tbody>
                  </table>
@@ -365,6 +353,12 @@
                 }
             }
             scrolllast=scrollNow;
+        });
+        /*手機375_memberList*/
+        $(".l_p_ul_y").hide();
+        $(".fa-angle-down").click(function () {
+            $(".fa-angle-down").toggleClass("rotate");
+            $(".l_p_ul_y").slideToggle();
         });
     </script>
 <?php include __DIR__.'/module_foot.php' ?>
