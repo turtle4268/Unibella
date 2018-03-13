@@ -1,4 +1,11 @@
 <?php require __DIR__. '/_db_connect.php'; ?>
+<?php 
+    if(!isset($_SESSION['user'])){
+        header('Location:member_login.php');
+        exit;
+    }
+
+?>
 <?php include __DIR__.'/module_head.php' ?>
     <style>
     header a{
