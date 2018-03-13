@@ -164,11 +164,16 @@
             height: 100%;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
+            margin-top: 0;
         }
         .detail_y{
             font-size:16px;
-            color:#1F5572;
+            color:#666;
+            margin-bottom: 25px;
+        }
+        .detailA_y{
+            margin-right: 54px;
         }
         .sizePic_y{
             flex: 100%;

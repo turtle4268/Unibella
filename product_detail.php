@@ -52,6 +52,7 @@
             margin-left: -185px;
             margin-top: -180px;
             border-radius: 50%;
+            box-shadow: 0 0 0 0px rgba(31, 85, 114, 0), 0 0 0 0px rgba(255, 255, 255, 0);
         }
         .ripple_y{
             transition: all 1s ease ;
@@ -441,7 +442,7 @@
     /*tagTxtBox_y----------------------------------------------*/
         .tagTxtBox_y{
             width: 80%;
-            height: 450px;
+            height: 470px;
             margin: 5% auto;
             overflow: hidden;
         }
@@ -459,10 +460,13 @@
             display: flex;
             align-content: center;
             justify-content: space-around;
+            margin-top:80px;
+            
         }
         .detail_y{
-            font-size:16px;
-            color:#1F5572;
+            font-size:18px;
+            color:#666;
+            line-height:36px;
         }
         .sizePic_y{
             flex: 2;
@@ -536,7 +540,7 @@
             display: flex ;
             justify-content: center ;
             min-width: 100% ;
-            /* margin-top: 10px ; */
+            margin-top: 50px ;
         }
         #popular .card{
             max-width: 400px ;
@@ -744,7 +748,7 @@
                 <div class="tagTxtBox_y">
                     <div class="tagTxt_y" id="tag1">
                         <div class="tagTxt1_y">
-                            <div class="detail_y"><?= $row['detailA'] ?></div>
+                            <div class="detail_y detailA_y"><?= $row['detailA'] ?></div>
                             <div class="detail_y"><?= $row['detailB'] ?></div>
                         </div>
                     </div>
@@ -812,6 +816,7 @@
         </section>
     </div>
     <?php include __DIR__.'/module_footer.php' ?>
+    <script src="js/animate-one.js"></script>
     <script>
         /*to top*/
         $(".toTop").click(function () {
@@ -823,7 +828,9 @@
         var nowSlide = 0; 
         $(".slidePage_y li").first().css("opacity", 1);
         $(".SlidePic_y li").first().addClass("imgBright");  
-        $(".box_y, .box_phone_y").addClass("ripple_y");
+        $(".box_y, .box_phone_y").addClass("ripple_y").one("webkitAnimationEnd oanimationend msAnimationEnd animationend", function(e) {
+                $(".box_y, .box_phone_y").removeClass("ripple_y");
+            });;
         $(".slidePage_y li").click(function () {
             // console.log($(this).index());
             $(".SlidePic_y img").first().removeClass("imgBright");
@@ -835,11 +842,14 @@
             $(".SlidePic_y").css("left", 0 - ($(".slidePage_y li").eq(nowSlide).index() * (300/3))+ "%");
             $(".SlidePic_y li").eq(nowSlide).addClass("imgBright").siblings().removeClass("imgBright");
             // $(".box_y").addClass("ripple_y");
-            $('.box_y, .box_phone_y').removeClass('ripple_y');
-                setTimeout(function () {
-                    $('.box_y, .box_phone_y').addClass('ripple_y');
-                }, 1);
-            
+            // $('.box_y, .box_phone_y').removeClass('ripple_y');
+            //     setTimeout(function () {
+            //         $('.box_y, .box_phone_y').addClass('ripple_y');
+            //     }, 1);
+            //  $(".box_y, .box_phone_y").addClass("ripple_y");
+           $(".box_y, .box_phone_y").addClass("ripple_y").one("webkitAnimationEnd oanimationend msAnimationEnd animationend", function(e) {
+                $(".box_y, .box_phone_y").removeClass("ripple_y");
+            });
         }
         $(".slideArrow_left_y").click(function () {
             nowSlide = nowSlide - 1; 
