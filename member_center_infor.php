@@ -295,7 +295,7 @@
                         <div class="noneSmall_y"></div>
                     </div>
                     <div class="memberInfor_y">
-                        <label for="birthday" class="memberLabel_y"><span class="yellow_star">*</span>生日: </label>
+                        <label for="birthday" class="memberLabel_y">&nbsp;生日: </label>
                         <input type="text" class="memberInput_y datepicker" name="birthday" id="birthday" value="<?= $_SESSION['user']['birthday'] ?>" placeholder="">
                         <div class="noneSmall_y"></div>                    
                     </div>
