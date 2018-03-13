@@ -100,9 +100,12 @@
     }
     /*--button--*/
     .btn_a {
-        display: block;
+        /* display: block; */
         margin: 10% 0;
         text-align: center;
+    }
+    .btn_a a {
+        margin:15px 20px;
     }
     /*--toTop--*/
     .toTop {
