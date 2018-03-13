@@ -250,6 +250,7 @@
         color:  #302f3a;
         font-size: 1rem;
         position: relative;
+        cursor:pointer;
     }
     .btn_a button:hover {
         color: #fff;
@@ -325,7 +326,7 @@
     }
     </style>
     <style>
-        @import url("css/member_center_phone.css");
+        @import url("css/cartConfirmList_phone.css");
     </style>
     <?php include __DIR__.'/module_nav.php' ?>
 <div id="container">
@@ -466,16 +467,15 @@
                 </tbody>
             </table>
         <div class="total_a" data-val="">共 X 件，總金額 NT$. 2400</div>
-        <div class="btn_a">
-            <button class="shop_a">繼續購物</button>
-            <button class="buy_a">立即購買</button>
-        </div>
-        <div class="toTop">
-            <div class="tr"></div>
-            <h5>TOP</h5>
-        </div>
-
     </section>
+    <div class="btn_a">
+        <button class="shop_a">繼續購物</button>
+        <button class="buy_a">立即購買</button>
+    </div>
+    <div class="toTop">
+        <div class="tr"></div>
+        <h5>TOP</h5>
+    </div>
 </div>
 <?php include __DIR__.'/module_footer.php' ?>
     <script>

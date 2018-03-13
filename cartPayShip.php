@@ -280,6 +280,7 @@
         color:  #302f3a;
         font-size: 1rem;
         position: relative;
+        cursor:pointer;
     }
     .btn_a .goCart_a {
         padding:10px 35px;  
@@ -502,15 +503,15 @@
         </div>
         
     </div> 
-        <div class="btn_a">
-            <button class="goCart_a disabled">回購物車</button>
-            <button class="next_a">下一步</button>
-        </div> 
-          <div class="toTop">
-            <div class="tr"></div>
-            <h5>TOP</h5>
-        </div>
     </section>
+    <div class="btn_a">
+        <button class="goCart_a disabled">回購物車</button>
+        <button class="next_a">下一步</button>
+    </div> 
+        <div class="toTop">
+        <div class="tr"></div>
+        <h5>TOP</h5>
+    </div>
 </div>
 <?php include __DIR__.'/module_footer.php' ?>
     <script>
