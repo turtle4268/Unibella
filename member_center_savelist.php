@@ -149,7 +149,17 @@
             position: relative;
             margin : 5% 0;
         }
-        .btn_a button {
+        .shop_a{
+            margin:15px 45px;
+            border-radius: 28px;
+            padding:10px 40px;
+            border: 2px solid #302f3a;
+            background: transparent;
+            color:  #302f3a;
+            font-size: 1rem;
+            position: relative;
+        }
+        .buy_a{
             margin:15px 45px;
             border-radius: 28px;
             padding:10px 40px;
@@ -291,7 +301,7 @@
                         <tr class="producCotent_a  producCotentL_a">
                             <td><a href="">加入購物車</a></td>
                         </tr>
-                         <tr class="producCotent_a  producCotentL_a">
+                         <tr class="producCotent_a  producCotentD_a">
                             <td><p>刪除<span></span></p></td>
                         </tr>
                     </tbody>
