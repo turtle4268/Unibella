@@ -1,4 +1,18 @@
 <?php require __DIR__. '/_db_connect.php'; ?>
+<?php 
+    if(!isset($_GET['sid'])) {
+        header("Location:product_list2.php");
+        exit;
+    }
+    $sid=intval($_GET['sid']);
+    // $sid=isset($_GET['sid'])?intval($_GET['sid']):5;
+
+    $sql=sprintf("SELECT * FROM `products` WHERE `sid`=$sid ");
+    $result=$mysqli->query($sql);
+    $row=$result->fetch_assoc();
+    $row['detailA']=nl2br($row['detailA']);
+    $row['detailB']=nl2br($row['detailB']);
+?>
 <?php include __DIR__.'/module_head.php' ?>
     <style>
         section{
@@ -61,10 +75,10 @@
         }
         .productInfor_y{
             /* flex: ; */
-            width: 20%;
+            width: 25%;
             background: #d8d8d8;
             color: #808080;
-            padding: 1% 0 2% 6%;
+            padding: 1% 0 2% 5%;
             margin-top: 2%;
             margin-right: 3%;
             text-align: center;
@@ -242,7 +256,7 @@
 			/* background: #000; */
             position: relative;
             /* padding: 3% 5%; */
-            margin: 0 6% 2% 0;
+            margin: 0 5% 2% 0;
             /* display: none; */
 		} 
 		.productSlide_y{			
@@ -378,8 +392,8 @@
     /*productPrice_y----------------------------------------------*/
         .productPrice_y{
             /* flex: ; */
-            width: 15%;
-            padding: 2% 10% 2% 0;
+            width: 25%;
+            padding: 2% 0 2% 0;
             background:#d8d8d8;
         }
         .price_y{
@@ -427,7 +441,7 @@
     /*tagTxtBox_y----------------------------------------------*/
         .tagTxtBox_y{
             width: 80%;
-            height: 50vh;
+            height: 450px;
             margin: 5% auto;
             overflow: hidden;
         }
@@ -642,20 +656,20 @@
             </div>
             <div class="productInforBox_y">
                 <div class="productInfor_y">
-                    <h2 class="productTxt_y">未知的冒險</h2>
+                    <h2 class="productTxt_y"><?= $row['umbrellaname'] ?></h2>
                     <br>
-                    <p>開啟旅程系列是unibella的自動傘系列之一，小巧輕便的雨傘具有方便的自動開合機制，讓美好的旅程更輕鬆愉快。</p>  
+                    <p><?= $row['introduction'] ?></p>  
                     <br> 
                     <div class="buyForm1_y">
                         <form action="">
                             <div class="qtyBox_y">
                                 <label for="" class="qtyLable_y">數量</label>
                                 <select class="qtySelect_y">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">5</option>            
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>            
                                 </select> 
                             </div> 
                             <br>
@@ -690,7 +704,7 @@
                     </ul>                  
                 </div> <!--productSlideBox_y-->
                 <div class="productPrice_y">
-                    <p class="price_y">NT. 2180</p>
+                    <p class="price_y">NT. <?= $row['price'] ?></p>
                     <br>
                     <button class="addBtn_y blueBtn_y">
                         <div class="addBtnPic_y"></div>
@@ -701,11 +715,11 @@
                             <div class="qtyBox_y">
                                 <label for="" class="qtyLable_y">數量</label>
                                 <select class="qtySelect_y">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">5</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
                                 </select>
                             </div>
                             <br>
@@ -730,8 +744,8 @@
                 <div class="tagTxtBox_y">
                     <div class="tagTxt_y" id="tag1">
                         <div class="tagTxt1_y">
-                            <div class="detail_y">品名&nbsp;:&nbsp;未知的冒險</div>
-                            <div class="detail_y">傘骨&nbsp;:&nbsp;7支傘骨<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;超堅固耐用鋼製+電鍍黑鋁骨<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;塑膠紋路防滑手把</div>
+                            <div class="detail_y"><?= $row['detailA'] ?></div>
+                            <div class="detail_y"><?= $row['detailB'] ?></div>
                         </div>
                     </div>
                     <div class="tagTxt_y" id="tag2">
@@ -861,7 +875,7 @@
         $(window).scroll(function(){
             var scrollNow=$(this).scrollTop();
             // console.log(scrollNow);
-            if (scrollNow < 240) {
+            if (scrollNow < 100) {
                 $("header").removeClass("hide black");
             } else {
                 if (scrollNow > scrolllast) {
@@ -872,6 +886,20 @@
             }
             scrolllast=scrollNow;
         });
+        /*add to cart*/
+        $("button.cartBtn_y").click(function(){
+            var card=$(this).closest(".card");
+            var combo=card.find("select");
+            var sid=card.data('sid');
+            var qty=combo.val();
+
+            //alert(sid+" : "+qty);
+
+            $.get('add_to_cart.php',{sid:sid,qty:qty},function(data){
+                console.log(data);
+                //alert("商品已加入購物車");
+                countItems(data);
+            },"json");
+        });
     </script>
-</body>
-</html>
+<?php include __DIR__.'/module_foot.php' ?>

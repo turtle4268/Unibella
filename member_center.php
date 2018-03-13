@@ -1,4 +1,11 @@
 <?php require __DIR__. '/_db_connect.php'; ?>
+<? 
+    if(!isset($_SESSION['user'])){
+        header('Location:member_login.php');
+        exit;
+    }
+
+?>
 <?php include __DIR__.'/module_head.php' ?>
     <style>
         header a{
@@ -82,8 +89,6 @@
         .li_span_y{
             color: #1f5572;
         }
-        /*fixAside---------*/
-        
         /*main_y-------------------------------------*/
         .main_y{
             text-align: center;
@@ -103,13 +108,13 @@
             width:32%;
             height: 30px; 
             text-align: left;
-            padding-top:2.5em;
+            padding-top:3em;
         }
         .r_td_y{
             width:68%;
             height: 30px;
             text-align: left;
-            padding-top:2.5em;
+            padding-top:3em;
             border-bottom: 1px solid #000;
         }
         .l_td1_y{
@@ -267,7 +272,7 @@
             <div class="main_y">
                 <div class="topMain_y">
                     <ul class="topMain_ul_y">
-                        <li class="topMain_li_y"><p>親愛的 <span class="li_span_y">XXX</span> 您好</p></li>
+                        <li class="topMain_li_y"><p>親愛的 <span class="li_span_y"><?= $_SESSION['user']['name'] ?></span> 您好</p></li>
                         <li class="topMain_li_y"><p>會員等級: <span class="li_span_y">一般會員</span></p></li>
                     </ul>
                 </div>
@@ -279,27 +284,40 @@
                     </tr>
                     <tr>
                         <td class="l_td1_y">電子郵件 </td>
-                        <td class="r_td1_y">111</td>
+                        <td class="r_td1_y"><?= $_SESSION['user']['email'] ?></td>
                     </tr>
                     <tr>
                         <td class="l_td_y">姓名 </td>
-                        <td class="r_td_y">222</td>
+                        <td class="r_td_y"><?= $_SESSION['user']['name'] ?></td>
                     </tr>
                     <tr>
                         <td class="l_td_y">性別 </td>
-                        <td class="r_td_y">333</td>
+                        <td class="r_td_y"><?php 
+                            switch ($_SESSION['user']['gender']) {
+                                case '1':
+                                    echo "男";
+                                    break;
+                                case '2':
+                                    echo "女";
+                                    break;
+
+                                default:
+                                    echo "";
+                                    break;
+                            }
+                         ?></td>
                     </tr>
                     <tr>
                         <td class="l_td_y">生日 </td>
-                        <td class="r_td_y">444</td>
+                        <td class="r_td_y"><?= $_SESSION['user']['birthday'] ?></td>
                     </tr>
                     <tr>
                         <td class="l_td_y">手機</td>
-                        <td class="r_td_y">555</td>
+                        <td class="r_td_y"><?= $_SESSION['user']['mobile'] ?></td>
                     </tr>
                     <tr>
                         <td class="l_td_y">地址</td>
-                        <td class="r_td_y">666</td>
+                        <td class="r_td_y"><?= $_SESSION['user']['address'] ?></td>
                     </tr>
                 </table>
                 <div class="active_y">
@@ -343,7 +361,7 @@
         $(window).scroll(function(){
             var scrollNow=$(this).scrollTop();
             // console.log(scrollNow);
-            if (scrollNow < 350) {
+            if (scrollNow < 240) {
                 $("header").removeClass("hide black");
             } else {
                 if (scrollNow > scrolllast) {

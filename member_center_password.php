@@ -71,6 +71,9 @@
         .l_p_ul_y{
             display: none;
         }
+        .topMain_y{
+            margin-left: 5%;
+        }
         .topMain_ul_y{
             display: flex;
         }
@@ -95,22 +98,24 @@
         }
         .form_password_y{
             width: 50%;
+            min-width:500px ;
             margin: 0 auto;
             padding-left: 5%; 
         }
         .passwordInfor_y{
-            display: flex;
+            /* display: flex;
             justify-content: space-between;
-            align-content: center;
-            margin-top:3em;
+            align-content: center; */
+            margin-top:2em;
         }
         .memberLabel1_y{
             color: #666;
             font-size: 16px;
             text-align: left;
-            flex: 1;
-            padding-right: 5%;
+            /* flex: 1; */
+            padding-right: 2%;
             margin-bottom: 3em;
+            width: 26%;
         }
         .memberInput1_y{
             /* width: 60%;
@@ -119,15 +124,36 @@
             color: #666;
             border: none;
             border-bottom: 1px solid #666;
-            flex: 3;
+            /* flex: 3; */
             margin-bottom: 3em;
+            width: 72%;
+        }
+        .p_y{
+            text-align:right;
+            margin-right: 15px;
+        }
+        .passwordLabel1_y{
+            color: #666;
+            font-size: 16px;
+            text-align: left;
+            /* flex: 1; */
+            width: 26%;
+        }
+        .passwordInput1_y{
+            background-color:transparent;
+            color: #666;
+            border: none;
+            border-bottom: 1px solid #666;
+            /* flex: 3; */
+            width:74%;
+            height: 30px;
         }
         .passwordLabel_y{
             color: #666;
             font-size: 16px;
             text-align: left;
             /* flex: 1; */
-            width: 22%;
+            width: 30%;
         }
         .passwordInput_y{
             background-color:transparent;
@@ -135,11 +161,11 @@
             border: none;
             border-bottom: 1px solid #666;
             /* flex: 3; */
-            width:78%;
+            width:70%;
             height: 30px;
         }
-        .passwordInput_y:focus{
-            outline:none;
+        input:focus{
+            outline:none!important;
         }
         /* .passwordBtn_y{
             background-color: transparent;
@@ -194,6 +220,17 @@
         button:focus {
             outline: none;
         }
+        /*small_warning--------------------*/
+        small.warning{
+            color:#ed1c24;
+            /* display: none; */
+        }
+        .noneSmall_y{
+            margin: 5px 0 0 135px;
+            width:300px;
+            height:14px;
+            text-align: left;
+        }
         /*-------toTop--------*/
         .toTop{
             color: #1F5572 ;
@@ -226,14 +263,6 @@
             50%  { opacity: .5; }
             100% { opacity: 1; top: -4px ;}
         }
-        /*navHide------*/
-        .hide {
-            transform: translateY(-100px);
-            transition: all .5s;
-        }
-        .bg {
-            background: rgba(255, 255, 255, .8);
-        }
     </style>
     <style>
         @import url("css/member_center_password_phone.css");
@@ -251,27 +280,33 @@
                 <form name="form_password" class="form_password_y" method="post" action="" onsubmit="">
                     <div class="passwordInfor_y">
                         <label for="email" class="memberLabel1_y">電子郵件 </label>
-                        <input type="text" class="memberInput1_y" name="email" id="email" value="" placeholder="" disabled="disabled">
+                        <input type="text" class="memberInput1_y" name="email" id="email" value="<?= $_SESSION['user']['email'] ?>" placeholder="" disabled="disabled">
                         <!-- <small id="emailWarning" class="form-text text-muted warning">請填寫正確的電郵</small>                                                                                                                             -->
                     </div>
-                    <p style="text-align:right">(*為必填)</p>       
+                    <p class="p_y">(*為必填)</p>       
                     <div class="passwordInfor_y">
-                        <label for="password" class="passwordLabel_y">
+                        <label for="oldpassword" class="passwordLabel1_y">
                             <span class="yellow_star">*</span>原始密碼:</label>
-                        <input type="password" class="passwordInput_y" name="password" id="password" value="" placeholder="請輸入密碼(6~12位字元)">
-                        <!-- <small id="passwordWarning" class="form-text text-muted warning">請輸入六個字元以上的密碼</small> -->        
+                        <input type="password" class="passwordInput1_y" name="oldpassword" id="oldpassword" value="" placeholder="請輸入密碼(6~12位字元)">
+                        <div class="noneSmall_y">
+                            <small id="passwordWarning" class="labelTowTow_y warning">請輸入6~12位字元之密碼</small>
+                        </div>        
                     </div>
                     <div class="passwordInfor_y">
                         <label for="password" class="passwordLabel_y">
                             <span class="yellow_star">*</span>輸入新密碼:</label>
                         <input type="password" class="passwordInput_y" name="password" id="password" value="" placeholder="請輸入密碼(6~12位字元)">
-                        <!-- <small id="passwordWarning" class="form-text text-muted warning">請輸入六個字元以上的密碼</small> -->     
+                        <div class="noneSmall_y">
+                            <small id="passwordWarning" class="labelTowTow_y warning">請輸入6~12位字元之密碼</small>
+                        </div>     
                     </div>
                     <div class="passwordInfor_y">
-                        <label for="password" class="passwordLabel_y">
+                        <label for="password_sure" class="passwordLabel_y">
                             <span class="yellow_star">*</span>新密碼確認:</label>
-                        <input type="password" class="passwordInput_y" name="password" id="password" value="" placeholder="請輸入密碼(6~12位字元)">
-                        <!-- <small id="passwordWarning" class="form-text text-muted warning">請輸入六個字元以上的密碼</small> -->                    
+                        <input type="password" class="passwordInput_y" name="password_sure" id="paspassword_suresword" value="" placeholder="請輸入密碼(6~12位字元)">
+                        <div class="noneSmall_y">
+                            <small id="password_sureWarning" class="labelTowFour_y warning">請再次確認密碼</small>
+                        </div>                    
                     </div>
                     <button type="submit" class="passwordBtn_y">確認送出</button>
                 </form>
@@ -295,7 +330,7 @@
         $(window).scroll(function(){
             var scrollNow=$(this).scrollTop();
             // console.log(scrollNow);
-            if (scrollNow < 350) {
+            if (scrollNow < 240) {
                 $("header").removeClass("hide black");
             } else {
                 if (scrollNow > scrolllast) {
@@ -312,5 +347,39 @@
             $(".fa-angle-down").toggleClass("rotate");
             $(".l_p_ul_y").slideToggle();
         });
+        /*editpassword form check*/
+        function loginCheck(){
+            var oldpassword = document.form_password.oldpassword.value;
+            var password = document.form_password.password.value;
+            var passSure = document.form_password.password_sure.value;
+            var isPaPass = true; 
+            if(oldpassword.length<6 || oldpassword.length>12){
+                isPaPass = false;
+                $('#oldpasswordWarning').show();
+            }
+            if(password.length<6 || password.length>12 || password==oldpassword){
+                isPaPass = false;
+                $('#passwordWarning').show();
+            }
+            if(!(password==passSure)){
+                isPaPass = false;
+                $('#password_sureWarning').show();
+            }
+            if(isPaPass){
+                $.post("edit_pass_api.php",$(form_password).serialize(),function(data){
+                    // console.log(data);
+                    switch (data) {
+                        case 1:
+                            alert("修改成功!");
+                            break;
+                    
+                        default:
+                            alert("修改失敗!");
+                            break;
+                    }
+                },"json");
+            }
+            return false;
+        }
     </script>
 <?php include __DIR__.'/module_foot.php' ?>

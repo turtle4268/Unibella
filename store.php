@@ -55,7 +55,8 @@
         	width: 69%;
         	height: 372px;
 			background: #f8cf4e;
-			margin: 56px 0;
+            margin: 56px 0;
+            position:relative;
         }
         .inforImg_y img{
         	margin: 5px auto;
@@ -99,6 +100,21 @@
         .inforP_y{
         	margin-top:1em;
         	margin-bottom:.5em;
+        }
+        /*-------map--------*/
+        .map_y{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            display:none;
+        }
+        .mapOpen_y{
+            width:69%;
+        }
+        .mapClose_y{
+            width:0;
         }
         /*-------toTop--------*/
         .toTop{
@@ -161,9 +177,14 @@
 	         			<p class="inforP_y">門市營業時間</p>
 	         			<p>週日～週四 11:00 - 22:00</p>
 	         			<p>週五、週六 11:00 - 22:30</p>
-	         		</div>
-	         	</div>     	
-             </div>  
+                     </div>
+                     <div class="map_y">
+                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.2696960638596!2d121.53978071492276!3d25.024919944809607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aa29379b8db9%3A0xd64e16f1fa2db70b!2zMTA25Y-w5YyX5biC5aSn5a6J5Y2A5ZKM5bmz5p2x6Lev5LqM5q61MTA26Jmf!5e0!3m2!1szh-TW!2stw!4v1520403990040" 
+                        width="600" height="372" frameborder="0" style="border:0" allowfullscreen></iframe>
+                     </div>
+                 </div> <!--inforTxtBox_y-->
+                      	
+             </div> <!--infor_y-->
         </div> <!--main_y-->
         <div class="toTop">
             <div class="tr"></div>
@@ -193,6 +214,11 @@
                 }
             }
             scrolllast=scrollNow;
+        });
+        /*map*/
+        $(".lineHover_y").click(function () {
+                $(".map_y").show();
+                $(".inforTxt_y").hide();
         });
     </script>
 </body>
