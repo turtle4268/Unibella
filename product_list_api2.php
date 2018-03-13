@@ -65,13 +65,13 @@
 
 
 <?php $i=floor($page/10); $tens=floor($t_pages/10); $ones=$t_pages%10; ?>
-        <?php if($i>0):?> 
-                <li class="pageitem">
+        <?php if($i>0):?>  
             <?php /*if($i>0) $i--;*/
                 $thispage=($i-1)*10+1;
                 $q_string['page']=$thispage;
             ?>
-                    <a href="?<?= http_build_query($q_string) ?>"><i class="fas fa-angle-double-left"></i></a>
+                <li class="pageitem" data-thispage="<?= $thispage ?>">
+                    <a ><i class="fas fa-angle-double-left"></i></a>
                 </li>
         <?php else: ?>
                 <li class="pageitem">
@@ -82,29 +82,51 @@
         <?php for($j=0;$j<$ones;$j++): 
             $thispage=$i*10+($j+1); 
             $q_string['page']=$thispage; ?>
-                <li class="pageitem">
-                    <a href="?<?= http_build_query($q_string) ?>" class=<?= $thispage==$realpage ? "act" : "" ?>><?= $thispage ?></a>
+                <li class="pageitem" data-thispage="<?= $thispage ?>">
+                    <a  class=<?= $thispage==$realpage ? "act" : "" ?>><?= $thispage ?></a>
                 </li>
         <?php endfor; ?>
     <?php else: ?>
         <?php for($j=0;$j<10;$j++): 
             $thispage=$i*10+($j+1); 
             $q_string['page']=$thispage; ?>
-                <li class="pageitem">
-                    <a href="?<?= http_build_query($q_string) ?>" class=<?= $thispage==$realpage ? "act" : "" ?>><?= $thispage ?></a>
+                <li class="pageitem" data-thispage="<?= $thispage ?>">
+                    <a  class=<?= $thispage==$realpage ? "act" : "" ?> ><?= $thispage ?></a>
                 </li>
         <?php endfor; ?>
         <?php endif; ?>
             <?php if($i<$tens):?>
-                <li class="pageitem"> 
+                 
             <?php /*if($i<$tens) $i++;*/
                 $thispage=($i+1)*10+1; 
                 $q_string['page']=$thispage;
-            ?>                
-                    <a href="?<?= http_build_query($q_string) ?>"><i class="fas fa-angle-double-right"></i></a>
+            ?> 
+                <li class="pageitem" data-thispage="<?= $thispage ?>">               
+                    <a ><i class="fas fa-angle-double-right"></i></a>
                 </li>
             <?php else: ?>
                 <li class="pageitem">
                     <a class="none"></a>
                 </li>
             <?php endif; ?>
+    <script>
+        // $(".pageitem")
+        $(".pageitem").on("click",function(){
+            var cate=ccate,
+                color=ccolor,
+                skeleton=cskeleton,
+                auto=cauto,
+                order=corder;
+            cpage=$(this).data("thispage");
+            console.log(cpage);
+            page=cpage;
+            $(".pageitem a").removeClass("act");
+            $(this).find("a").addClass("act");
+            checkdata2();
+            $.get("product_list_api2.php",{ cate:cate,color:color,skeleton:skeleton,auto:auto,order:order,page:page },function(data){
+                $(".pagelist").html(data);
+                // console.log(data);
+            });
+            // checkdata();
+        });
+    </script>

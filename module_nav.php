@@ -14,7 +14,7 @@
     <div class="close"></div>
     <ul class="n_ul">
         <li><a href="introduce.php">品牌介紹</a></li>
-        <li><a href="product_list2.php">產品</a></li>
+        <li><a href="product_list3.php">產品</a></li>
         <li><a href="new.php">最新消息</a></li>
         <li><a href="member_center.php">會員中心</a></li>
         <li><a href="store.php">門市資訊</a></li>
