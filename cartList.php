@@ -1,4 +1,17 @@
 <?php require __DIR__. '/_db_connect.php'; ?>
+<?php 
+    if(!empty($_SESSION['cart'])){
+        $keys=array_keys($_SESSION['cart']);
+        $sql=sprintf("SELECT * FROM products WHERE sid IN (%s)",implode(',',$keys));
+        $result=$mysqli->query($sql);
+
+        $cartdata=[];
+        while($row=$result->fetch_assoc()){
+            $row['qty']=$_SESSION['cart'][$row['sid']];
+            $cartdata[$row['sid']]=$row;
+        }
+    }
+?>
 <?php include __DIR__.'/module_head.php' ?>
 <style>
     section{
@@ -104,7 +117,7 @@
         margin-bottom: 5%;
         
     }
-    .btn_a button {
+    .btn_a a {
         margin:15px 45px;
         border-radius: 28px;
         padding:10px 40px;
@@ -115,7 +128,7 @@
         position: relative;
         cursor:pointer;
     }
-    .btn_a button:hover {
+    .btn_a a:hover {
         color: #fff;
         transition: color 200ms linear 200ms;
         -webkit-transition: color 200ms linear 200ms;
@@ -145,14 +158,14 @@
         border-radius: 28px;
         transition: all 200ms ease-out;
     }
-    .btn_a button:hover::before {
+    .btn_a a:hover::before {
         top: 0;
         left: 0;
     }
-    .btn_a button:active {
+    .btn_a a:active {
         transform: translateY(3px);
     }
-    .btn_a button:focus {
+    .btn_a a:focus {
         outline: none;
     }
     /*-------toTop--------*/
@@ -198,7 +211,9 @@
         <p>Be Your Unique Umbrella.</p>
     </div>
     <section class="sec1_a" >
-        
+    <?php if(empty($cartdata)): ?>
+        購物車裡沒有資料
+    <?php else: ?>
         <h1>購物車列表</h1>
         <table class="table_a">
             <thead class="thead-dark_a">
@@ -213,24 +228,17 @@
                 </tr>
               </thead>
             <tbody>
-                <tr>
-                  <td class="productCom_A"><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
-                  <td>我是商品</td>
-                  <td>1</td>
-                  <td>NT$.1850</td>
-                  <td>NT$.1850</td>
+            <?php foreach($_SESSION['cart'] as $sid =>$qty): ?>
+                <tr data-sid="<?= $sid ?>">
+                  <td class="productCom_A"><figure><img src="images/detail/<?= $cartdata[$sid]['umbrella_id'] ?>_1.png" alt=""></figure></td>
+                  <td><?= $cartdata[$sid]['umbrellaname'] ?></td>
+                  <td><?= $qty ?></td>
+                  <td>NT$.<?= $cartdata[$sid]['price'] ?></td>
+                  <td>NT$.<?= $cartdata[$sid]['price']*$qty ?></td>
                   <td></td>
                   <td><i class="far fa-trash-alt"></i></td>
                 </tr>
-                <tr>
-                  <td class="productCom_A"><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                  <td>@fat</td>
-                  <td>@fat</td>
-                  <td>@fat</td>
-                  <td><i class="far fa-trash-alt"></i></td>
-                </tr>
+            <?php endforeach; ?>
             </tbody>
         </table>
         <table class="tablePhone_a">
@@ -240,35 +248,41 @@
                     </tr>
                   </thead>
                 <tbody>
+                <?php foreach($_SESSION['cart'] as $sid =>$qty): ?>
                     <tr>
-                      <td><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
+                      <td><figure><img src="images/detail/<?= $cartdata[$sid]['umbrella_id'] ?>_1.png" alt=""></figure></td>
                     </tr>
                     <tr class="producCotent_a">
-                      <td><p>商品名稱<span>我是商品</span></p></td>
+                      <td><p>商品名稱<span><?= $cartdata[$sid]['umbrellaname'] ?></span></p></td>
                     </tr>
-                    <tr class="producCotent_a producCotentM_a">
-                        <td><p>數量<span>1</span></p></td>
+                    <tr class="producCotent_a producCotentM_a qty" data-qty="<?= $qty ?>">
+                        <td><p>數量<span>0</span></p></td>
                     </tr>
-                    <tr class="producCotent_a producCotentM_a">
-                        <td><p>單價<span>NT$.1850</span></p></td>
+                    <tr class="producCotent_a producCotentM_a price" data-price="<?= $cartdata[$sid]['price'] ?>">
+                        <td><p>單價<span>NT$.<a>0</a></span></p></td>
                     </tr>
-                    <tr class="producCotent_a producCotentM_a">
-                        <td><p>小計<span>NT$.1850</span></p></td>
+                    <tr class="producCotent_a producCotentM_a subtotal" data-subtotal="<?= $cartdata[$sid]['price']*$qty ?>">
+                        <td><p>小計<span>NT$.<a>0</a></span></p></td>
                     </tr>
                     <tr class="producCotent_a producCotentM_a">
                         <td><p>備註<span></span></p></td>
                     </tr>
                     <tr class="producCotent_a  producCotentL_a">
-                        <td><p>刪除<span></span></p></td>
+                        <td><p>刪除<span><i class="far fa-trash-alt"></i></span></p></td>
                     </tr>
-
+                <?php endforeach; ?>
                 </tbody>
         </table>
-        <div class="total_a" data-val="">共 X 件，總金額 NT$. 2400</div>
+        <div class="total_a" data-val="">共 <span class="tqty">X</span> 件，總金額 NT$. <span class="tprice">2400</span></div>
+    <?php endif; ?>
     </section>
     <div class="btn_a">
-        <button class="shop_a">繼續購物</button>
-        <button class="buy_a">立即購買</button>
+        <a class="shop_a" href="product_list3.php">繼續購物</a>
+        <?php if(isset($_SESSION['user'])): ?>
+        <a class="buy_a buynext" href="cartPayShip.php">立即購買</a><?/*href="cartPayShip.php"*/ ?>
+        <?php else: ?>
+        <a class="buy_a" href="member_login.php">登入會員</a>
+        <?php endif; ?>
     </div>
     <div class="toTop">
         <div class="tr"></div>
@@ -277,28 +291,57 @@
 </div>
 <?php include __DIR__.'/module_footer.php' ?>
     <script>
-    /*hideNav*/
-    var scrolllast;
-    $(window).scroll(function(){
-        var scrollNow=$(this).scrollTop();
-        // console.log(scrollNow);
-        if (scrollNow < 240) {
-            $("header").removeClass("hide black");
-        } else {
-            if (scrollNow > scrolllast) {
-                $("header").addClass("hide black");
+        /*hideNav*/
+        var scrolllast;
+        $(window).scroll(function(){
+            var scrollNow=$(this).scrollTop();
+            // console.log(scrollNow);
+            if (scrollNow < 240) {
+                $("header").removeClass("hide black");
             } else {
-                $("header").removeClass("hide");
+                if (scrollNow > scrolllast) {
+                    $("header").addClass("hide black");
+                } else {
+                    $("header").removeClass("hide");
+                }
             }
-        }
-        scrolllast=scrollNow;
-    });
-    /*to top*/
-    $(".toTop").click(function(){
-        $("html,body").animate({
-            scrollTop:0
-        },1000);
-    });
+            scrolllast=scrollNow;
+        });
+        /*to top*/
+        $(".toTop").click(function(){
+            $("html,body").animate({
+                scrollTop:0
+            },1000);
+        });
 
+        /*Count*/
+        var totalQty=0,totalPrice=0;
+        function count(){
+            $(".qty").each(function(){
+                var qty=$(this).data("qty");
+                $(this).find("span").text(qty);
+                totalQty+=qty;
+            });
+            $(".price").each(function(){
+                var price=$(this).data("price");
+                $(this).find("a").text(price);
+            });
+            $(".subtotal").each(function(){
+                var subtotal=$(this).data("subtotal");
+                $(this).find("a").text(subtotal);
+                totalPrice+=subtotal;
+            });
+            $(".tqty").text(totalQty);
+            $(".tprice").text(totalPrice);
+        }
+        count();
+        /*add price to session*/
+        $(".buynext").click(function(){
+            var tqty=totalQty,
+                tprice=totalPrice;
+            $.get("add_price.php",{tqty:totalQty,tprice:totalPrice},function(data){
+                console.log(data);
+            });
+        });
     </script> 
 <?php include __DIR__.'/module_foot.php' ?>

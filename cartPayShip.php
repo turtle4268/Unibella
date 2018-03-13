@@ -1,4 +1,9 @@
 <?php require __DIR__. '/_db_connect.php'; ?>
+<?php 
+    if(empty($_SESSION['cart'])){
+        header("Location:cartList.php");
+    }
+?>
 <?php include __DIR__.'/module_head.php' ?>
     <style>
     @keyframes blob {
@@ -272,7 +277,7 @@
         margin-top: 5%;
         position: relative;
     }
-    .btn_a button {
+    .btn_a a {
         margin:15px 45px;
         border-radius: 28px;
         border: 2px solid #302f3a;
@@ -288,7 +293,7 @@
     .btn_a .next_a {
         padding:10px 42px;
     }
-    .btn_a button:hover {
+    .btn_a a:hover {
         color: #fff;
         transition: color 200ms linear 200ms;
         -webkit-transition: color 200ms linear 200ms;
@@ -318,15 +323,15 @@
         border-radius: 28px;
         transition: all 200ms ease-out;
     }
-    .btn_a button:hover::before {
+    .btn_a a:hover::before {
         top: 0;
         left: 0;
     }
-    .btn_a button:active {
+    .btn_a a:active {
         transform: translateY(3px);
         outline: none;
     }
-    .btn_a button:focus {
+    .btn_a a:focus {
         outline: none;
     }
     /*-------toTop--------*/
@@ -399,7 +404,7 @@
                 </div>
             </div>
         </div>
-        <div class="total_a" data-val="">共 X 件，總金額 NT$. 2400</div>
+        <div class="total_a" data-val="">共 <?= $_SESSION['totalQty'] ?> 件，總金額 NT$. <?= $_SESSION['totalPrice'] ?></div>
         <table class="table_a">
             <thead class="thead-dark_a">
                 <tr>
@@ -428,7 +433,7 @@
                 <div class="chooseDes_a">
                     <span>付款方式</span>
                 </div>
-                <select name="" id="" class="payWay_a">
+                <select name="" id="payWay" class="payWay_a">
                     <option value="0" class="payWayO_a">--</option>
                     <option value="1" class="payWayO_a">ATM</option>
                     <option value="2" class="payWayO_a">信用卡付款</option>
@@ -443,9 +448,9 @@
                 <div class="chooseDes_a">
                     <span>運送方式</span>
                 </div>
-                <select name="" id="" class="shipWay_a">
-                    <option value="1" selected="">--</option>
-                    <option value="2">宅配</option>
+                <select name="" id="shipWay" class="shipWay_a">
+                    <option value="0" selected="">--</option>
+                    <option value="1">宅配</option>
                 </select>
             </div>
             <div class="choose_a">
@@ -468,7 +473,7 @@
                 <div class="chooseDes_a">
                     <span>應付金額</span>
                 </div>
-                <input type="text" class="text_a">
+                <input type="text" class="text_a price" data-price="<?= $_SESSION['totalPrice'] ?>">
             </div>
         </div>
     <div class="payNotive_a">
@@ -505,8 +510,8 @@
     </div> 
     </section>
     <div class="btn_a">
-        <button class="goCart_a disabled">回購物車</button>
-        <button class="next_a">下一步</button>
+        <a class="goCart_a disabled" href="cartList.php">回購物車</a>
+        <a class="next_a" href="cartShipdata.php">下一步</a>
     </div> 
         <div class="toTop">
         <div class="tr"></div>
@@ -515,69 +520,78 @@
 </div>
 <?php include __DIR__.'/module_footer.php' ?>
     <script>
-    /*hideNav*/
-    var scrolllast;
-    $(window).scroll(function(){
-        var scrollNow=$(this).scrollTop();
-        // console.log(scrollNow);
-        if (scrollNow < 240) {
-            $("header").removeClass("hide black");
-        } else {
-            if (scrollNow > scrolllast) {
-                $("header").addClass("hide black");
+        /*hideNav*/
+        var scrolllast;
+        $(window).scroll(function(){
+            var scrollNow=$(this).scrollTop();
+            // console.log(scrollNow);
+            if (scrollNow < 240) {
+                $("header").removeClass("hide black");
             } else {
-                $("header").removeClass("hide");
+                if (scrollNow > scrolllast) {
+                    $("header").addClass("hide black");
+                } else {
+                    $("header").removeClass("hide");
+                }
+            }
+            scrolllast=scrollNow;
+        });
+
+        // stepProcess
+        var stepContent = $(".step-content_a"),
+            nexBtn = $(".next_a"),
+            goCartBtn = $(".goCart_a");
+        var i = 0;
+        // Next btn click
+        $(nexBtn).click(function() {
+            if (i < stepContent.length) {
+                $(stepContent[i]).addClass("active")
+                .html('<i class="fa fa-check" aria-hidden="true"></i>');
+                $(goCartBtn).attr('disabled', false);
+                i = i + 1;
+            } else {
+                return false;
+            }
+        });
+        /*to top*/
+        $(".toTop").click(function(){
+            $("html,body").animate({
+                scrollTop:0
+            },1000);
+        });
+
+        //payWay shipWay 
+        $( ".payWay_a" ).change(function() {
+            console.log($(this).val());
+            var payWayVal=$(this).val();
+            var shipWayVal=$(" shipWay_a").index();
+            if(payWayVal==1){
+                $(".atm_a").addClass('show'); 
+                $(".visa_a").removeClass('show');
+                // $("body").find(".shipWayO_a").eq(1).css("display","block");
+            } else if(payWayVal==2){
+                $(".visa_a").addClass('show');
+                $(".atm_a").removeClass('show');
+                // $("body").find(".shipWayO_a").eq(1).css("display","block");
+            }else {
+                $(".visa_a").removeClass('show');
+                $(".seven11_a").removeClass('show');
+                $(".atm_a").removeClass('show');
+            }
+        });
+        /*hide next*/
+        function hidenext(){
+            var payway=$("#payWay").val(),shipway=$("#shipWay").val();
+            if(payway==0 || shipway==0) {
+                $(".next_a").hide();
+            }else{
+                $(".next_a").show();
             }
         }
-        scrolllast=scrollNow;
-    });
-
-    // stepProcess
-    var stepContent = $(".step-content_a"),
-    nexBtn = $(".next_a"),
-    goCartBtn = $(".goCart_a");
-    var i = 0;
-    // Next btn click
-    $(nexBtn).click(function() {
-        if (i < stepContent.length) {
-            $(stepContent[i]).addClass("active")
-            .html('<i class="fa fa-check" aria-hidden="true"></i>');
-            $(goCartBtn).attr('disabled', false);
-            i = i + 1;
-        } else {
-            return false;
-        }
-    });
-
-    /*to top*/
-    $(".toTop").click(function(){
-        $("html,body").animate({
-            scrollTop:0
-        },1000);
-    });
-
-    
-
-   //payWay shipWay 
-    $( ".payWay_a" ).change(function() {
-    console.log($(this).val());
-    payWayVal=$(this).val();
-    shipWayVal=$(" shipWay_a").index();
-    if(payWayVal==1){
-        $(".atm_a").addClass('show'); 
-        $(".visa_a").removeClass('show');
-        // $("body").find(".shipWayO_a").eq(1).css("display","block");
-    } else if(payWayVal==2){
-        $(".visa_a").addClass('show');
-        $(".atm_a").removeClass('show');
-        // $("body").find(".shipWayO_a").eq(1).css("display","block");
-    }else {
-        $(".visa_a").removeClass('show');
-        $(".seven11_a").removeClass('show');
-        $(".atm_a").removeClass('show');
-
-    }
-   });
+        $("select").change(function(){
+            hidenext();
+        });
+        hidenext();
 
     </script> 
 <?php include __DIR__.'/module_foot.php' ?>
