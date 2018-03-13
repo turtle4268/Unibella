@@ -230,7 +230,7 @@
     }
     </style>
     <style>
-        @import url("css/member_center_phone.css");
+        @import url("css/member_center_savelist_phone.css");
     </style>
      <?php include __DIR__.'/module_nav.php' ?>
     <div id="container" >
@@ -269,6 +269,67 @@
                             <td><button class="delete_f"><i class="far fa-trash-alt"></i></button></td>
                         </tr>
                     </tbody>
+                     <table class="tablePhone_a">
+                    <thead class="thead-dark_a">
+                        <tr>
+                        <th scope="col">商品圖片</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="phoneList_y">
+                        <td><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
+                        </tr>
+                        <tr class="producCotent_a">
+                        <td><p>商品名稱<span>我是商品</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>數量<span>1</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>單價<span>NT$.1850</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>小計<span>NT$.1850</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>狀態<span>出貨中</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a  producCotentL_a">
+                            <td><a href="">取消訂單</a></td>
+                        </tr>
+                    </tbody>
+                     <thead class="thead-dark_a">
+                        <tr>
+                        <th scope="col">商品圖片</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
+                        </tr>
+                        <tr class="producCotent_a">
+                        <td><p>商品名稱<span>我是商品</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>數量<span>1</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>單價<span>NT$.1850</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>小計<span>NT$.1850</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a producCotentM_a">
+                            <td><p>狀態<span>出貨中</span></p></td>
+                        </tr>
+                        <tr class="producCotent_a  producCotentL_a">
+                            <td><a href="">取消訂單</a></td>
+                        </tr>
+                        <tr class="total_y">
+                            <td><p>總金額 : <span></span></p></td>
+                        </tr>
+                    </tbody>
+                 </table>
                 </table> 
                 <div class="btn_a">
                     <button class="shop_a">繼續購物</button>
