@@ -230,7 +230,7 @@
         /*small_warning--------------------*/
         small.warning{
             color:#ed1c24;
-            /* display: none; */
+            display: none;
         }
         .noneSmall_y{
             margin: 5px 0 0 135px;
