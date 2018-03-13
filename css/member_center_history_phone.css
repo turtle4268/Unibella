@@ -142,8 +142,8 @@
             width: 75%;
             max-width: 75%;
         }
-         table thead tr th {
-            border-right: 1px solid #999;
+        table thead tr th {
+            border-right: 1px solid #666;
         }
         .table_history_y{
             display: none;
@@ -151,7 +151,15 @@
         .tablePhone_a {
             display: block;
             margin: 0 9%;
-            margin-top:30px;
+            margin-top:70px;
+            margin-bottom: 30px;
+        }
+        .phoneListDate_y td{
+            height: 50px;
+            border: 1px solid #666;
+        }
+        .tablePhone_a tr td{
+             border: 1px solid #666;
         }
         .tablePhone_a tbody tr td figure {
             position: relative;
