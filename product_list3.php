@@ -1,34 +1,4 @@
-<?php 
-    require __DIR__. '/_db_connect.php';
-    /*$page_name = 'product_list';
-
-    $q_string=[];
-    $per_page=12;
-    $realpage=isset($_GET['page'])?intval($_GET['page']):1;
-    $cate=isset($_GET['cate'])?intval($_GET['cate']):1;     //分類(預設雨傘:1 ,陽傘:2)
-    $page=$realpage-1;
-
-    $where=" WHERE `category_id`=$cate ";     //分類內清單
-    if(!empty($cate)){
-        $where.="AND `category_id`=$cate ";
-        $q_string['cate']=$cate ;   //丟分類項進去
-        //http_build_query($q_string)     產生cate=n&page=n的字串
-    }
-    $order=" `sid` ASC ";
-    $t_sql = "SELECT COUNT(1) FROM `products` $where";
-
-    $t_result = $mysqli->query($t_sql);
-    $t_rows = $t_result->fetch_row()[0];    //讀取筆數
-
-    $t_pages = ceil($t_rows/$per_page); //總頁數
-
-
-    $c_sql = sprintf("SELECT * FROM `products` $where ORDER BY $order LIMIT %s, %s", ($page)*$per_page, $per_page);
-    $c_result = $mysqli->query($c_sql);
-
-    /*$m_sql = "SELECT * FROM categories WHERE parent_sid=0 ORDER BY sid DESC";
-    $m_result = $mysqli->query($m_sql);  */   //分類清單*/
-?>
+<?php require __DIR__. '/_db_connect.php'; ?>
 <?php include __DIR__.'/module_head.php' ?>
     <style>
         /*Container-------------------------------------------------------------------*/
@@ -172,6 +142,7 @@
         }
         .list .card.has{
             background-color: #808080 ;
+            cursor: pointer ;
         }
         .card.has::before{
             width: 100%;
@@ -288,27 +259,28 @@
         </div>
         <div class="main">
             <aside class="select">
-                <div class="sel_um">
+            <div class="sel_um">
                     <div class="um rain act">
                         <a class="btn_um" data-cate="1">雨傘</a>
                         <div class="check">
                             <div class="label_group">
-                                <input type="checkbox" name="plain" id="plain" class="color" value="1"><label for="plain">素色</label>
+                                <label for="plain"><input type="checkbox" name="plain" id="plain" class="color" value="1">素色</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="pattern" id="pattern" class="color" value="2"><label for="pattern">花色</label>
+                                <label for="pattern"><input type="checkbox" name="pattern" id="pattern" class="color" value="2">花色</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="straight" id="straight" class="skeleton" value="1"><label for="straight">直傘</label>
+                            
+                                <label for="straight"><input type="checkbox" name="straight" id="straight" class="skeleton" value="1">直傘</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="folding" id="folding" class="skeleton" value="2"><label for="folding">折傘</label>
+                                <label for="folding"><input type="checkbox" name="folding" id="folding" class="skeleton" value="2">折傘</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="auto" id="auto" class="auto" value="2"><label for="auto">自動傘</label>
+                                <label for="auto"><input type="checkbox" name="auto" id="auto" class="auto" value="2">自動傘</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="auto" id="notauto" class="auto" value="1"><label for="auto">非自動</label>
+                                <label for="notauto"><input type="checkbox" name="notauto" id="notauto" class="auto" value="1">非自動</label>
                             </div>
                         </div>
                     </div>
@@ -316,16 +288,16 @@
                         <a class="btn_um" data-cate="2">陽傘</a>
                         <div class="check">
                             <div class="label_group">
-                                <input type="checkbox" name="plain" id="plain" class="color" value="1"><label for="plain">素色</label>
+                                <label for="plain"><input type="checkbox" name="plain" id="plain" class="color" value="1">素色</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="pattern" id="pattern" class="color" value="2"><label for="pattern">花色</label>
+                                <label for="pattern"><input type="checkbox" name="pattern" id="pattern" class="color" value="2">花色</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="straight" id="straight" class="skeleton" value="1"><label for="straight">直傘</label>
+                                <label for="straight"><input type="checkbox" name="straight" id="straight" class="skeleton" value="1">直傘</label>
                             </div>
                             <div class="label_group">
-                                <input type="checkbox" name="folding" id="folding" class="skeleton" value="2"><label for="folding">折傘</label>
+                                <label for="folding"><input type="checkbox" name="folding" id="folding" class="skeleton" value="2">折傘</label>
                             </div>
                         </div>
                     </div>
@@ -364,16 +336,18 @@
             cskeleton,
             cauto,
             corder;
-        checkdata();
+        /*rain or sun*/
         $(".btn_um").click(function(){
             ccate=$(this).data("cate");
             console.log(ccate);
             $(this).closest(".um").addClass("act").siblings().removeClass("act");
+            cpage=1;
             checkdata();
+            checkdata2();
         });
+        /*手機 radio*/
         $(".radio p").click(function(){
             $(this).closest(".radio").toggleClass("show");
-            checkdata();
         });
         /*hideNav*/
         var scrolllast;
@@ -397,6 +371,7 @@
                     scrollTop:0
                 },1000,);
         });
+        var cpage=1;
         /*Check*/
         $(".color").click(function(){
             ccolor="";
@@ -408,8 +383,8 @@
                 color="";
                 console.log(ccolor);
                 $(".color").removeAttr("disabled");
-            }
-            checkdata();
+            }cpage=1;
+            checkdata();checkdata2();
         });
         $(".skeleton").click(function(){
             var c=$(this).attr("name");
@@ -425,44 +400,71 @@
                 console.log(cskeleton);
                 $(".skeleton").removeAttr("disabled");
                 $("#auto").removeAttr("disabled");
-            }
-            checkdata();
+            }cpage=1;
+            checkdata();checkdata2();
         });
         $(".auto").click(function(){
+            var c=$(this).attr("name");
             cauto="";
             if($(this).prop("checked")){
-                cauto=$(this).attr("value");
-                console.log(cauto);
-                $("#straight").attr("disabled", true);
+                auto=$(this).attr("value");
+                console.log(auto);
+                $(".auto").not(this).attr("disabled", true);
+                if(c=="auto") {
+                    $("#straight").attr("disabled", true);
+                }
             }else if(!$("#folding").prop("checked")){
-                console.log(cauto);
+                console.log(auto);
+                $(".auto").removeAttr("disabled");
                 $("#straight").removeAttr("disabled");
-            }
-            checkdata();
+            }else{
+                console.log(auto);
+                $(".auto").removeAttr("disabled");
+                // $("#straight").removeAttr("disabled");
+            }cpage=1;
+            checkdata();checkdata2();
+        });
+        /*disable gray*/
+        $("input[type='checkbox']").click(function(){
+            $("label").css("color","#666");
+            $("input[disabled='disabled']").closest("label").css("color","#ccc");
         });
         $("input[name='Sort']").click(function(){
-            
             console.log($(this).data("order"));
             corder=$(this).data("order");
+            cpage=1;
             checkdata();
+            checkdata2();
         });
-        /*check data*/
+        
+        /**/
+        checkdata();
+        checkdata2();
+        /*check page*/
         function checkdata(){
             var cate=ccate,
                 color=ccolor,
                 skeleton=cskeleton,
                 auto=cauto,
-                order=corder;
-            console.log(order);
-            $.get("product_list_api2.php",{ cate:cate,color:color,skeleton:skeleton,auto:auto,order:order },function(data){
+                order=corder,
+                page=cpage;
+            $.get("product_list_api2.php",{ cate:cate,color:color,skeleton:skeleton,auto:auto,order:order,page:page },function(data){
                 $(".pagelist").html(data);
-                // console.log(data);
-            });
-            $.get("product_list_api.php",{ cate:cate,color:color,skeleton:skeleton,auto:auto,order:order },function(data){
-                $(".list").html(data);
-                // console.log(data);
-            });
-            
+            });     
         }
+        /*check data*/
+        function checkdata2(){
+            var cate=ccate,
+                color=ccolor,
+                skeleton=cskeleton,
+                auto=cauto,
+                order=corder;
+                page=cpage;
+            $.get("product_list_api.php",{ cate:cate,color:color,skeleton:skeleton,auto:auto,order:order,page:page },function(data){
+                $(".list").html(data);
+            }); 
+        }
+        
+        
     </script>
 <?php include __DIR__.'/module_foot.php' ?>

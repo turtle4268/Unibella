@@ -310,7 +310,7 @@
             <aside class="select">
                 <div class="sel_um">
                     <div class="um rain act">
-                        <a class="btn_um">雨傘</a>
+                        <a class="btn_um" data-cate="1">雨傘</a>
                         <div class="check">
                             <div class="label_group">
                                 <label for="plain"><input type="checkbox" name="plain" id="plain" class="color" value="1">素色</label>
@@ -334,7 +334,7 @@
                         </div>
                     </div>
                     <div class="um sun">
-                        <a class="btn_um">陽傘</a>
+                        <a class="btn_um" data-cate="2">陽傘</a>
                         <div class="check">
                             <div class="label_group">
                                 <label for="plain"><input type="checkbox" name="plain" id="plain" class="color" value="1">素色</label>

@@ -45,6 +45,7 @@
     $t_rows = $t_result->fetch_row()[0];    //讀取筆數
 
     $t_pages = ceil($t_rows/$per_page); //總頁數
+    // if($realpage>$t_pages) $realpage=1;
 
 
     $c_sql = sprintf("SELECT * FROM `products` $where ORDER BY $order LIMIT %s, %s", ($page)*$per_page, $per_page);
@@ -73,3 +74,10 @@
 <div class="card none"> </div>
 <?php endforeach; ?>
 
+<script>
+    /*link to detail*/
+    $(".has").on('click',function(){
+        var sid=$(this).data("sid");
+        location.href='product_detail.php?sid='+sid;
+    });
+</script>
