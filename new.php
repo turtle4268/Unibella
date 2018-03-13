@@ -170,7 +170,9 @@
         top: 20px;
         right: 20px;
         background: url(images/X.svg) center center no-repeat ;
-       
+    }
+    .newClose_a {
+        cursor:pointer;
     }
     .newP_a {
         position: absolute;

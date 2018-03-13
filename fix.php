@@ -23,102 +23,17 @@
             margin-left: -250px;
             letter-spacing: 5px;
         }
-
-        
-        /*parallax-cloud--------------------------------------------*/
-        /* .clouds1_f {
-            position: absolute;
-            left: 50%;
-            width: 100%;
-            margin-left: -50%;
-            top: 50vh;
-        }
-        .parallax_f {
-            position: fixed;
-            width: 100%;
-        }
-        #parallax1_f {
-            z-index: 5;
-        }
-        #parallax2_f {
-            z-index: 2
-        }
-        #parallax3_f {
-            z-index: 1;
-        }
-        #parallax4_f {
-            z-index: 3;
-        }
-        #parallax5_f {
-            z-index: 4;
-        }
-        #parallax6_f {
-            z-index: 6;
-        }
-        .cloud_f {
-            position: absolute;
-            display: block;
-            width: 450px;
-            height: 300px;
-        }
-        .cloud1_f {
-            background: url(images/cloud1.png) no-repeat;
-            left: -100px;
-        }
-        .cloud1-2_f {
-            left: 600px;
-        }
-        .cloud2_f {
-            background: url(images/cloud2.png) no-repeat;
-            left: 200px;
-        }
-        .cloud2-2_f {
-            left: 900px;
-        }
-        .cloud3_f {
-            background: url(images/cloud3.png) no-repeat;
-            left: 500px;
-        }
-        .cloud3-2_f {
-            left: 1200px;
-        }
-        .cloud4_f {
-            background: url(images/cloud4.png) no-repeat;
-            left: 700px;
-        }
-        .cloud4-2_f {
-            left: 1400px;
-        }
-        .cloud5_f {
-            background: url(images/cloud5.png) no-repeat;
-            left: 1000px;
-        }
-        .cloud5-2_f {
-            left: 20px;
-        }
-        .cloud6_f {
-            background: url(images/cloud6.png) no-repeat;
-            left: 1300px;
-        }
-        .cloud6-2_f {
-            left: 320px;
-        } */
         /*section--------------------------------------------*/
         .fix_a h1 {
             text-align:center;
             padding-top:50px;
         }
-        .return_a, .warranty_a {
+        .warranty_a {
             width:48%;
             margin:0 auto;
         }
         .warrantyCon_a {
             line-height: 36px;
-            text-align: justify;
-            padding: 50px 0 60px 0;
-        }
-        .returnCon_a{
-            line-height: 30px;
             text-align: justify;
             padding: 50px 0 60px 0;
         }
@@ -133,21 +48,108 @@
             padding:20px 0 20px 0px;
             list-style:disc;  
         }
-        .return_a span {
-            padding:10px 0 10px 0;
-        }
         .notice_a {
-            padding: 30px 0 60px 0;
-            width:48%;
+            /* padding: 30px 0 60px 0; */
+            width:100%;
             margin:0 auto;
+            max-width: 1440px;
         }
-        .notice_a ul {
-            padding-left: 20px;
+        .umbrellaCard_a {
+            position:relative;
+            padding: 5%;
+            background:red;
+            margin: 0 auto;
+            width: 60%;
+            margin-bottom: 45px;  
         }
-        .notice_a ul li {
-            padding:20px 0 20px 0px;
-            list-style:disc;   
+        .umbrellaImg_a {
+            position:absolute;
+            width: 300px;
+            height: 300px;
+            background-size: contain;
+            /* transition:all .4s; */
+            opacity:0;
+            transform:translateY(300px);
         }
+        .umbrellaShow_a {
+            opacity:1;
+            transform:translateY(0);
+        }
+        .umbrellaImg1_a {
+            background:url(images/ximage-large-umbrella-01.png,q1510051095.pagespeed.ic.A55E1PNYDs.webp) 50% 50% no-repeat;
+        }
+        .umbrellaImg2_a {
+            background:url(images/ximage-large-umbrella-02.png,q1510051359.pagespeed.ic.PoabIom_md.webp) 50% 50% no-repeat;
+        }
+        .umbrellaImg3_a {
+            background:url(images/ximage-large-umbrella-03.png,q1510051359.pagespeed.ic.prJKsotOEU.webp) 50% 50% no-repeat;
+        }
+        .umbrellaImg4_a {
+            background:url(images/ximage-large-umbrella-04.png,q1510051360.pagespeed.ic.YQy0awX6Us.webp) 50% 50% no-repeat;
+        }
+        .umbrellaImg5_a {
+            background:url(images/ximage-large-umbrella-05.png,q1510668587.pagespeed.ic.reu-1cxC6V.webp) 50% 50% no-repeat;
+        }
+        .umbrellaImgL_a {
+            left: 120px;
+        }
+        .umbrellaImgR_a {
+            right:120px;
+        }
+        .umbrellaSvg_a {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            overflow:hidden;
+        }
+        .umbrellaSvgR_a {
+            right: 80px;
+        }
+        .umbrellaSvgL_a {
+            left: 80px;
+        }
+        .umbrellaSvg_a img {
+            width: 100%;
+            height: 100%;
+        }
+        .umbrellaSvg1_a {
+            top: 40px;
+        }
+        .umbrellaSvg2_a {
+            top: 20px;
+        }
+        .umbrellaSvg3_a {
+            top: 20px;
+        }
+        .umbrellaSvg4_a {
+            top: 5px;
+        }
+        .umbrellaSvg5_a {
+            top: 15px;
+        }
+        .innerText_a {
+            width: 60%;
+            display: inline-block;
+            background:yellow;   
+        }
+        .innerTextL_a {
+            margin:0 6%; 
+        }
+        .innerTextR_a {
+            margin:0 35%; 
+            text-align:center;
+        }
+        .innerText_a h2 {
+            text-align:center;
+            margin-bottom: 19.8px;
+        }
+        .innerText_a p {
+            display: block;
+            margin:0 auto;
+            line-height:1.5;
+            padding-bottom: 10px;
+        }
+
 
 
     </style>
@@ -161,33 +163,6 @@
             <p>Be Your Unique Unbrella.</p>
         </div>
         <section class="fix_a">
-            <!-- 飄動的雲 -->
-            <!-- <div class="clouds1_f">
-                    <div id="parallax1_f" class="parallax_f">
-                        <div class="cloud1_f cloud_f"></div>
-                        <div class="cloud1_f cloud1-2_f cloud_f"></div>
-                    </div>
-                    <div id="parallax2_f" class="parallax_f">
-                        <div class="cloud2_f cloud_f"></div>
-                        <div class="cloud2_f cloud2-2_f cloud_f"></div>
-                    </div>
-                    <div id="parallax3_f" class="parallax_f">
-                        <div class="cloud3_f cloud_f"></div>
-                        <div class="cloud3_f cloud3-2_f cloud_f"></div>
-                    </div>
-                    <div id="parallax4_f" class="parallax_f">
-                        <div class="cloud4_f cloud_f"></div>
-                        <div class="cloud4_f cloud4-2_f cloud_f"></div>
-                    </div>
-                    <div id="parallax5_f" class="parallax_f">
-                        <div class="cloud5_f cloud_f"></div>
-                        <div class="cloud5_f cloud5-2_f cloud_f"></div>
-                    </div>
-                    <div id="parallax6_f" class="parallax_f">
-                        <div class="cloud6_f cloud_f"></div>
-                        <div class="cloud6_f cloud6-2_f cloud_f"></div>
-                    </div>
-            </div> -->
             <h1>保固維修</h1>
             <div class="warranty_a">
                 <p class="warrantyCon_a">感謝親愛的客戶購買Unibella的產品，雨傘為生活日常用品(消耗品)，
@@ -202,33 +177,50 @@
                     <li>非本公司之產品</li>
                 </ul>
             </div>
-            <div class="return_a">
-                <p class="returnCon_a">    
-                    <span>如果您購買的傘有損壞，我們提供以下服務:</span>
-                    <br>
-                    <br><span>1. 10天內無條件退換貨:</span>
-                    <br><span>限虛擬通路，10天內購買可直接退換貨。</span>
-                    <br>
-                    <br><span>2. 購買超過10天:</span>
-                    <br><span>依損壞狀況酌收工本費，您可選擇：</span>
-                    <br>
-                    <br><span>(1) 將商品連同工本費一同寄到我司(單程運費由買家支付)，</span>
-                    <span>維修期間為收到維修品後兩週內，我們修好會直接寄回您的原地址。</span>
-                    <br>
-                    <br><span>(2) 將維修品拿回原購買處，店家會通知我們收取維修品，並由店家代收工本費，</span>
-                    <span>維修期間為我們從店家收到維修品後兩週內，我們修好會送回原店家，</span>
-                    <span>並請店家通知您取貨。</span>
-                </p>
-            </div>
             <h1>注意事項</h1>
             <div class="notice_a">
-                <ul>
-                    <li>傘布若弄濕請晾乾後再收藏，避免金屬配件生鏽，如此可以延長雨傘使用壽命</li>
-                    <li>自傘袋內取出傘體時，輕甩傘體使傘布自然鬆開，以方便開傘動作</li>
-                    <li>收傘時請務必順著折痕整理，將傘布折疊整齊，以避免傘布遭傘骨夾壓而導致毀損</li>
-                    <li>欲將傘體收回傘套袋時，請逆時針方向輕轉入傘袋內</li>
-                </ul>
-
+                <div class="umbrellaImg_a umbrellaImgL_a umbrellaImg1_a"></div>
+                <div class="umbrellaCard_a">
+                    <div class="innerText_a innerTextL_a">
+                        <h2>步驟一</h2>
+                        <p>我們的雨傘的設計是為了防風雨。但是，他們不能避免強烈的陣風。避免在大風中使用您的雨傘，特別是海上和河流。</p>
+                    </div>
+                    <div class="umbrellaSvg_a umbrellaSvgR_a umbrellaSvg1_a"><img src="images/umbrella-care-1.svg" alt=""></div>
+                </div>
+                <div class="umbrellaImg_a umbrellaImgR_a umbrellaImg2_a"></div>
+                <div class="umbrellaCard_a">
+                    <div class="innerText_a innerTextR_a">
+                        <h2>步驟二</h2>
+                        <p>避免靠在你的雨傘上，把它當作手杖使用。</p>
+                    <div class="umbrellaSvg_a umbrellaSvgL_a umbrellaSvg2_a"><img src="images/umbrella-care-2.svg" alt=""></div>
+                    </div>
+                </div>
+                <div class="umbrellaImg_a umbrellaImgL_a umbrellaImg3_a"></div>
+                <div class="umbrellaCard_a">
+                    <div class="innerText_a innerTextL_a">
+                        <h2>步驟三</h2>
+                        <p>請將雨傘打開晾乾傘面能夠透氣，防止任何金屬部件的生鏽。</p>
+                    </div>
+                    <div class="umbrellaSvg_a umbrellaSvgR_a umbrellaSvg3_a"><img src="images/umbrella-care-3.svg" alt=""></div>
+                </div>
+                <div class="umbrellaImg_a umbrellaImgR_a umbrellaImg4_a"></div>
+                <div class="umbrellaCard_a">
+                    <div class="innerText_a innerTextR_a">
+                        <h2>步驟四</h2>
+                        <p>讓你的雨傘遠離陽光直射，以防止褪色</p>
+                        <div class="umbrellaSvg_a umbrellaSvgL_a umbrellaSvg4_a"><img src="images/umbrella-care-4.svg" alt=""></div>
+                    </div>
+                </div>
+                <div class="umbrellaImg_a umbrellaImgL_a umbrellaImg5_a"></div>
+                <div class="umbrellaCard_a">
+                    <div class="innerText_a innerTextL_a">
+                        <h2>步驟五</h2>
+                        <p>清潔只能用普通水，因為清潔劑會去除防水塗料。</p>
+                    </div>
+                    <div class="umbrellaSvg_a umbrellaSvgR_a umbrellaSvg5_a"><img src="images/umbrella-care-7.svg" alt=""></div>
+                </div>
+                
+               
             </div>    
         </section>
         <div class="gyn"></div>
@@ -253,19 +245,34 @@
             scrolllast=scrollNow;
         });
         var scrollHeaderLast;
-        $(window).scroll(function(){
+       
+
+
+       /*notice*/
+        $(document).ready(function() {
+    
+            /* Every time the window is scrolled ... */
+            $(window).scroll( function(){
             
-            //第一層雲
-            var scrollC1 = $(window).scrollTop();
-            $(".clouds1_f #parallax1_f").css('top', (50 - (scrollC1 * .45)) + 'vh');
-            $(".clouds1_f #parallax2_f").css('top', (50 - (scrollC1 * .35)) + 'vh');
-            $(".clouds1_f #parallax3_f").css('top', (50 - (scrollC1 * .3)) + 'vh');
-            $(".clouds1_f #parallax4_f").css('top', (50 - (scrollC1 * .25)) + 'vh');
-            $(".clouds1_f #parallax5_f").css('top', (50 - (scrollC1 * .5)) + 'vh');
-            $(".clouds1_f #parallax6_f").css('top', (50 - (scrollC1 * .4)) + 'vh');
+                /* Check the location of each desired element */
+                $('.umbrellaImg_a').each( function(i){
+                    
+                    var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+                    var bottom_of_window = $(window).scrollTop() + $(window).height();
+                    
+                    /* If the object is completely visible in the window, fade it it */
+                    if( bottom_of_window > bottom_of_object ){
+                        
+                        $(this).animate({'opacity':'1'},500);
+                        $(this).addClass("umbrellaShow");
+                            
+                    }
+                    
+                }); 
+            
+            });
+            
         });
-
-
 
     </script>
 <?php include __DIR__.'/module_foot.php' ?>
