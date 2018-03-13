@@ -256,6 +256,7 @@
         color:  #302f3a;
         font-size: 1rem;
         position: relative;
+        cursor:pointer;
     }
     .btn_a button:hover {
         color: #fff;
@@ -331,7 +332,7 @@
     }   
     </style>
     <style>
-        @import url("css/cartList_phone.css");
+        @import url("css/cartShipdata_phone.css");
     </style>
     <?php include __DIR__.'/module_nav.php' ?>
 <div id="container">
@@ -447,16 +448,16 @@
                 </tr>
             </tbody>
         </table>
-        <div class="btn_a">
-            <button class="goCart_a disabled">上一步</button>
-            <button class="next_a">下一步</button>
-            
-        </div>
-        <div class="toTop">
-            <div class="tr"></div>
-            <h5>TOP</h5>
-        </div>
     </section>
+    <div class="btn_a">
+        <button class="goCart_a disabled">上一步</button>
+        <button class="next_a">下一步</button>
+        
+    </div>
+    <div class="toTop">
+        <div class="tr"></div>
+        <h5>TOP</h5>
+    </div>
 </div>
 <?php include __DIR__.'/module_footer.php' ?> 
     <script>

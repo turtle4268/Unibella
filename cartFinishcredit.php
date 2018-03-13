@@ -294,6 +294,7 @@
         }
         .des_a {
             font-size: 18px;
+            color:#666;
         }
         .desUp_a {
             padding-bottom: 15px;
@@ -362,6 +363,7 @@
             color:  #302f3a;
             font-size: 1rem;
             position: relative;
+            cursor:pointer;
         }
         .btn_a button:hover {
             color: #fff;
@@ -408,9 +410,11 @@
             color: #1F5572 ;
             position: relative ;
             top: -15px ;
-            margin-left: 94% ;
-            margin-bottom: 15px ;
+            /* margin-left: 94% ; */
+            margin: 0  auto 15px ;
             cursor: pointer ;
+            width:40px;
+            height:30px;
         }
         .toTop .tr{
             width: 20px;

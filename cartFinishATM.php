@@ -390,6 +390,7 @@
             color:  #302f3a;
             font-size: 1rem;
             position: relative;
+            cursor:pointer;
         }
         .btn_a button:hover {
             color: #fff;
