@@ -123,6 +123,7 @@
             outline: none;
         }
         .buyBtn_y{
+            display:block;
             width: 260px;
             background-color: #f8cf4e;
             font-size: 20px;
@@ -144,7 +145,9 @@
             filter: drop-shadow(0 0 1px #0000004d) ;
         }
         .cartBtn_y{
+            display:block;
             width: 260px;
+            height: 55px;
             background-color: transparent;
             font-size: 1.5em;
             color: #1f5572;
@@ -160,7 +163,7 @@
             border: 2px solid #1f5572;        
         }
         .blueBtn_y p{
-            display:block;
+            /* display:block; */
             text-align:center;
             font-size: 18px;
             font-weight: bold;
@@ -201,7 +204,9 @@
             }
         }
         .addBtn_y{
+            display:block;
             width:230px;
+            height: 55px;
             background-color: transparent;
             color: #1f5572;
             border: 2px solid #1f5572;
@@ -220,7 +225,7 @@
             display: block;
             width:25px;
             height: 25px;
-            margin: 0 15px 0 30px;
+            margin: 0 15px 0 23px;
             background-color: #1f5572 ;
             -webkit-mask-repeat: no-repeat ;
             -webkit-mask-position: center ;
@@ -677,11 +682,11 @@
                                 </select> 
                             </div> 
                             <br>
-                            <button class="buyBtn_y">立即購買</button>
-                            <button class="cartBtn_y blueBtn_y">
+                            <a class="buyBtn_y">立即購買</a>
+                            <a class="cartBtn_y blueBtn_y">
                                 <div class="cartBtnPic_y"></div>
                                 <p>加入購物車</p>
-                            </button>
+                            </a>
                         </form>
                     </div>
                 </div>
@@ -710,10 +715,10 @@
                 <div class="productPrice_y">
                     <p class="price_y">NT. <?= $row['price'] ?></p>
                     <br>
-                    <button class="addBtn_y blueBtn_y">
+                    <a class="addBtn_y blueBtn_y">
                         <div class="addBtnPic_y"></div>
                         <p>加入收藏</p>
-                    </button>
+                    </a>
                     <div class="buyForm2_y">
                         <form action="">
                             <div class="qtyBox_y">
@@ -727,11 +732,11 @@
                                 </select>
                             </div>
                             <br>
-                            <button class="buyBtn_y">立即購買</button>
-                            <button class="cartBtn_y blueBtn_y">
+                            <a class="buyBtn_y">立即購買</a>
+                            <a class="cartBtn_y blueBtn_y">
                                 <div class="cartBtnPic_y"></div>
                                 <p>加入購物車</p>
-                            </button>
+                            </a>
                         </form>
                     </div>
                 </div>
