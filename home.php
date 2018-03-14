@@ -443,6 +443,7 @@
         }
         .product img{
             transform: rotate(-20deg) ;
+            filter: drop-shadow(0 0 8px #0000004d) ;
         }
         .product:before{
             position: absolute ;

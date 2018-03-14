@@ -9,6 +9,8 @@ if(isset($_POST['email_login'])) {
     $email_login=$_POST['email_login'];
     $pass_login = sha1($_POST['password_login']); //破壞性加密
 
+    $remember=isset($_POST['remember'])?$_POST['remember']:"";
+
     $sql = sprintf("SELECT `id`, `email`, `name`, `gender`, `mobile`, `birthday`, `address` FROM `members` 
         WHERE `email`='%s' AND `password`='%s'",
         $mysqli->escape_string($email_login),
@@ -23,11 +25,17 @@ if(isset($_POST['email_login'])) {
         $row = $result->fetch_assoc();
 
         $_SESSION['user'] = $row; // 登入記錄
+        if($remember==1){
+            $_SESSION['remember']=$_SESSION['user']['email'];
+        }else{
+            unset($_SESSION['remember']);
+        }
+        
         
     }
 
 }
-
+// echo $msg_code;
 echo json_encode($msg_code, JSON_UNESCAPED_UNICODE);
 
 

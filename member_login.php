@@ -532,7 +532,7 @@
                             <form name="form_login" method="post" action="" onsubmit="return loginCheck()">
                                 <div class="loginInfor_y">
                                     <label for="email_login" class="loginLabel_y">Email:</label>
-                                    <input type="text" class="loginInput_y" name="email_login" id="email_login" value="" placeholder="" width:100px;>
+                                    <input type="text" class="loginInput_y" name="email_login" id="email_login" value="<?= isset($_SESSION['remember'])?$_SESSION['remember']:'' ?>" placeholder="" width:100px;>
                                     <!-- <small id="emailWarning" class="form-text text-muted warning">請填寫正確的電郵</small>
                                                                                  -->
                                 </div>
@@ -545,8 +545,8 @@
                                 <div class="rememberBox_y">
                                     <div class="check">
                                         <label class="checktext" for="remember">記住我</label>
-                                        <label for="remember" class="box remember">
-                                            <input type="checkbox" class="rememberCheckbox_y" name="remember" id="remember" value=""/>
+                                        <label for="remember" class="box remember <?= isset($_SESSION['remember'])?'checked':'' ?>">
+                                            <input type="checkbox" class="rememberCheckbox_y" name="remember" id="remember" value="<?= isset($_SESSION['remember'])?'1':'' ?>" <?= isset($_SESSION['remember'])?'checked="checked"':'' ?>/>
                                         </label>
                                         
                                     </div>
@@ -638,7 +638,7 @@
                 }
             }
             scrolllast=scrollNow;
-        });
+        }); 
         /*Checkbox*/
         $(".box").click(function(){
             var checkbox=$(this).find("input[type='checkbox']");
@@ -647,7 +647,6 @@
             }else{
                 $(this).addClass("checked");
             }
-            
         });
         /*register form check*/
         function registerCheck(){
@@ -713,11 +712,21 @@
             return false;
 
         }
+        /*remember*/
+        $("#remember").click(function(){
+            if($(this).prop("checked")){
+                $(this).val("1");
+            }else{
+                $(this).val("");
+            }
+            // console.log($(this).val());
+        });
         /*login form check*/
         function loginCheck(){
             var pattern = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
             var email_login = document.form_login.email_login.value;
             var password_login = document.form_login.password_login.value;
+            var remember=document.form_login.remember.value;
             var isLoPass = true;
             var ss=2 ;
             if(! pattern.test(email_login)){
@@ -729,7 +738,7 @@
             
             if(isLoPass){
                 $.post("login_api.php",$(form_login).serialize(),function(data){
-                    // console.log(data);
+                    console.log(data);
                     switch (data) {
                         case 1:
                         ss=<?= isset($_SESSION['user'])?1:0 ?>;
@@ -752,6 +761,7 @@
             }
             return false;
         }
+        
     </script>
 </body>
 </html>
