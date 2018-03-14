@@ -71,7 +71,11 @@
             width: 60%;
             margin-bottom: 30px;  
             height:300px;
+            /* background: #ccc; */
+            display: flex;
+            align-items: center;
         }
+        
         .umbrellaImg_a {
             position:absolute;
             width: 300px;
@@ -118,19 +122,19 @@
             height: 100%;
         }
         .umbrellaSvg1_a {
-            top: 40px;
+            top: 50px;
         }
         .umbrellaSvg2_a {
-            top: 20px;
+            top: 50px;
         }
         .umbrellaSvg3_a {
-            top: 20px;
+            top: 50px;
         }
         .umbrellaSvg4_a {
-            top: 5px;
+            top: 35px;
         }
         .umbrellaSvg5_a {
-            top: 15px;
+            top: 50px;
         }
         .innerText_a {
             width: 60%;
