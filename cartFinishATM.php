@@ -12,7 +12,7 @@
     $user_id=$_SESSION['user']['id'];
     $total_amount=0;
     $keys=array_keys($_SESSION['cart']);
-    $sql=sprintf("SELECT * FROM products WHERE sid IN (%s)",implode(',',$keys));
+    $sql=sprintf("SELECT * FROM `products` WHERE `sid` IN (%s)",implode(',',$keys));
     $result=$mysqli->query($sql);
     $cartdata=[];
     while($row=$result->fetch_assoc()){
@@ -41,10 +41,12 @@
             $cartdata[$p_sid]['qty']
         );
         $d_stmt->execute();
+        // echo $p_sid;
     }
     $d_stmt->close();
-    
-    unset($_SESSION['cart']);unset($_SESSION['totalQty']); unset($_SESSION['totalPrice']);        //清除購物車內容
+    // print_r(implode(',',$keys));
+    unset($_SESSION['cart']);
+    unset($_SESSION['totalQty']); unset($_SESSION['totalPrice']);        //清除購物車內容
 
 ?>
 <?php include __DIR__.'/module_head.php' ?>
@@ -351,7 +353,7 @@
                         <td > 
                             <p>
                                 銀行  玉山銀行 <br>
-                                銀行代號  800 <br>
+                                銀行代號  808 <br>
                                 帳戶  01000230156874
                             </p>
                         </td>

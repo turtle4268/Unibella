@@ -25,7 +25,7 @@
     // while($row=$d_result->fetch_assoc()){
     //     $data[]=$row;
     // }
-
+    $user=$_SESSION['user']['id'];
     $sql = "SELECT
         o.*,
         d.`product_sid`,
@@ -39,7 +39,7 @@
             ON o.sid=d.order_sid
         JOIN `products` p
             ON p.sid=d.product_sid
-        WHERE o.order_date>'$t' AND o.`member_sid`=". $_SESSION['user']['id'];
+        WHERE o.order_date>'$t' AND o.`member_sid`= $user ORDER BY order_date DESC";
 
         $oresult=$mysqli->query($sql);
         $history=array();
@@ -260,8 +260,8 @@
                     </ul>
                     </form>
                 </div>
-                <pre> </pre>
-     <?php /*           
+                <pre><?php /*print_r($history);*/ ?> </pre>
+                
         <?php foreach($history as $value): ?>
                 <table class="table_history_y">
                     <caption>訂單編號:<?= $value['sid'] ?></caption>
@@ -278,14 +278,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                <?php foreach($history['data'][0] as $data): ?>
+                <?php foreach($value['data'] as $data): ?>
                         <tr class="buyList_y">
                             <td><?= $data['order_date'] ?></td>
-                            <td class="history_pic_f"><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></td>
+                            <td class="history_pic_f"><img src="images/detail/<?= $data['umbrella_id'] ?>_1.png" alt=""></td>
                             <td><?= $data['umbrellaname'] ?></td>
                             <td><?= $data['quantity'] ?></td>
                             <td>NT$.<?= $data['price'] ?></td>
-                            <td>NT$.<?= $data['order_date'] ?></td>
+                            <td>NT$.<?= $data['price']*$data['quantity'] ?></td>
                             <td>出貨中</td>
                             <td><a href="">取消訂單</a></td>
                         </tr>
@@ -297,7 +297,7 @@
                     </tbody>
                 </table>
         <?php endforeach; ?>
-                <table class="table_history_y">
+   <?php /*             <table class="table_history_y">
                     <caption>訂單編號:20180102</caption>
                     <thead class="thead-dark_a">
                         <tr>
@@ -478,6 +478,5 @@
             $(".l_p_ul_y").slideToggle();
         });
 
-        console.log(<?php print_r($history) ?>);
     </script>
 <?php include __DIR__.'/module_foot.php' ?>
