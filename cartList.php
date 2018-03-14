@@ -11,6 +11,7 @@
             $cartdata[$row['sid']]=$row;
         }
     }
+    unset($_SESSION['totalQty']); unset($_SESSION['totalPrice']); 
 ?>
 <?php include __DIR__.'/module_head.php' ?>
 <style>
