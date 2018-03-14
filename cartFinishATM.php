@@ -1,4 +1,52 @@
 <?php require __DIR__. '/_db_connect.php'; ?>
+<?php 
+    if(!isset($_SESSION['user'])){
+        header('Location: home.php');
+        exit;
+    }
+    if(!isset($_SESSION['cart'])){
+        header('Location: product_list3.php');
+        exit;
+    }
+
+    $user_id=$_SESSION['user']['id'];
+    $total_amount=0;
+    $keys=array_keys($_SESSION['cart']);
+    $sql=sprintf("SELECT * FROM products WHERE sid IN (%s)",implode(',',$keys));
+    $result=$mysqli->query($sql);
+    $cartdata=[];
+    while($row=$result->fetch_assoc()){
+        $row['qty']=$_SESSION['cart'][$row['sid']];
+        $cartdata[$row['sid']]=$row;
+        // $total_amount+=$row['qty'] * $row['price'];
+    }
+    $total_amount=$_SESSION['totalPrice'];
+
+    $osql="INSERT INTO `orders`(`member_sid`, `amount`, `order_date`) VALUES (?, ?, NOW())";
+    $stmt=$mysqli->prepare($osql);
+    $stmt->bind_param('ii',$user_id,$total_amount);
+    $stmt->execute();
+
+    $oder_sid=$stmt->insert_id;     //order primary key
+    $stmt->close();
+
+    $d_sql="INSERT INTO `order_details`(`order_sid`, `product_sid`, `price`, `quantity`) VALUES (?, ?, ?, ?)";
+    $d_stmt=$mysqli->prepare($d_sql);
+
+    foreach($keys as $p_sid){       //每筆訂單的商品項目
+        $d_stmt->bind_param('iiii',
+            $oder_sid,
+            $p_sid,
+            $cartdata[$p_sid]['price'],
+            $cartdata[$p_sid]['qty']
+        );
+        $d_stmt->execute();
+    }
+    $d_stmt->close();
+    
+    unset($_SESSION['cart']);unset($_SESSION['totalQty']); unset($_SESSION['totalPrice']);        //清除購物車內容
+
+?>
 <?php include __DIR__.'/module_head.php' ?>
     <style>
         section{
