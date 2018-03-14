@@ -56,5 +56,10 @@
         right: 0;
         left: 0;
     }
+    /*toTop*/
+    .toTop{
+        top: -15px ;
+        margin-left: 0 ;
+    }
     
 }

@@ -152,11 +152,38 @@
             margin:0 auto;
             line-height:1.5;
             text-align:center;
-            /* padding-bottom: 10px; */
         }
-
-
-
+        /*toTop*/
+        .toTop{
+            color: #1F5572 ;
+            position: relative ;
+            top: -15px ;
+            margin-left: 94% ;
+            cursor: pointer ;
+            text-align: center ;
+        }
+        .toTop .tr{
+            width: 20px;
+            height: 20px;
+            margin: 5px auto;
+            position: relative ;
+            left: -2px ;
+            transform: rotate(180deg) ;
+            -webkit-mask-image: url(images/icon_scroll.svg) ;
+            background-color:#1F5572;
+            animation: scroll_top .5s linear infinite;
+            animation-direction: alternate;
+            animation-delay: .1s;
+        }
+        .toTop h5{
+            font-size: 16px ;
+            color: #1F5572 ;
+        }
+        @keyframes scroll_top {
+            0%   { opacity: .2; top: 2px; }
+            50%  { opacity: .5; }
+            100% { opacity: 1; top: -4px ;}
+        }
     </style>
     <style>
         @import url("css/fix_phone.css");
@@ -168,7 +195,6 @@
             <p>Be Your Unique Unbrella.</p>
         </div>
         <section class="fix_a">
-            
             <div class="warranty_a">
             <h1>保固維修</h1>
                 <p class="warrantyCon_a">感謝親愛的客戶購買Unibella的產品，雨傘為生活日常用品(消耗品)，
@@ -229,12 +255,13 @@
                     </div>
                     <div class="umbrellaSvg_a umbrellaSvgR_a umbrellaSvg5_a"><img src="images/umbrella-care-7.svg" alt=""></div>
                 </div>
-                
-               
             </div>    
         </section>
-        <div class="gyn"></div>
-
+        <div class="toTop">
+            <div class="tr"></div>
+            <h5>TOP</h5>
+        </div>
+    </div>
 
     <?php include __DIR__.'/module_footer.php' ?>
     <script>
@@ -281,7 +308,13 @@
                 }
             });
         });
-
+        
+        /*to top*/
+        $(".toTop").click(function(){
+            $("html,body").animate({
+                    scrollTop:0
+                },1000,);
+        });
 
     </script>
 <?php include __DIR__.'/module_foot.php' ?>
