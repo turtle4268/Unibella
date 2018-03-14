@@ -914,6 +914,22 @@
             }
             scrolllast=scrollNow;
         });
+        /*buy now*/
+        $(".buyBtn_y").click(function(){
+            var card=$(this).closest(".productInforBox_y");
+            var sid=card.data('sid');
+            var form=$(this).closest("form");
+            var combo=form.find("select");  
+            var qty=combo.val();
+
+            // alert(sid+" : "+qty);
+
+            $.get('add_to_cart.php',{sid:sid,qty:qty},function(data){
+                console.log(data);
+                location.href="cartList.php";
+                // countItems(data);
+            },"json");
+        });
         /*add to cart*/
         $(".cartBtn_y").click(function(){
             var card=$(this).closest(".productInforBox_y");
