@@ -353,8 +353,9 @@
             justify-content: center;
             position: relative;
             margin-bottom: 5%;
+            text-align:center;
         }
-        .btn_a button {
+        .btn_a a {
             margin:15px 45px;
             border-radius: 28px;
             padding:10px 40px;
@@ -365,7 +366,7 @@
             position: relative;
             cursor:pointer;
         }
-        .btn_a button:hover {
+        .btn_a a:hover {
             color: #fff;
             transition: color 200ms linear 200ms;
             -webkit-transition: color 200ms linear 200ms;
@@ -395,14 +396,14 @@
             border-radius: 28px;
             transition: all 200ms ease-out;
         }
-        .btn_a button:hover::before {
+        .btn_a a:hover::before {
             top: 0;
             left: 0;
         }
-        .btn_a button:active {
+        .btn_a a:active {
             transform: translateY(3px);
         }
-        .btn_a button:focus {
+        .btn_a a:focus {
             outline: none;
         }
         /*-------toTop--------*/
@@ -515,8 +516,8 @@
             </div>
 
             <div class="btn_a">
-                <button class="shop_a">回首頁</button>
-                <button class="buy_a">回商品頁</button>
+                <a class="shop_a">回首頁</a>
+                <a class="buy_a">回商品頁</a>
             </div>
             <div class="toTop">
                 <div class="tr"></div>
