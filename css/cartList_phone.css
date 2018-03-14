@@ -77,7 +77,48 @@
     .tablePhone_a tbody .producCotentM_a td p span {
         margin-left: 35%;
     }
-  
+    /*None--------------------------------------------------------------------*/
+    /*內容--------------*/
+    .credit_f h6{
+        margin-top: 30px;
+    }
+    .credit_f .pulse_f{
+        font-weight: 400;
+        font-size: 20px;
+        width: 60%;
+        padding: 90px 0;
+    }
+    /*active-----------------------------------------------------*/
+    .active_f {
+        width:100%;
+    }
+    .small_pic_f{
+        display: none;
+    }
+    .active_f ul {
+        flex-wrap: nowrap;
+        justify-content: space-between;   
+    }
+    .active_f ul li {
+        width: 183px;
+        height: 183px;
+        margin-right: 0;
+        position: relative;
+    }
+    .active_f ul li .square_f blue{
+        margin-right: 10px;
+    }
+    .square_f p {
+        font-size: 20px;
+    }
+    .square_f .p2 {
+        margin-top:-32px;
+        margin-left:-70px;
+    }
+    .square_f .p4 {
+        margin-top:-16px;
+        margin-left:-80px;
+    }
     /*--button--*/
     .btn_a {
         /* display: block; */
