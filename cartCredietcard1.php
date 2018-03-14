@@ -183,7 +183,7 @@
                 <tbody>
                     <tr>
                         <td class="small_f">金額</td>
-                        <td>NT.7400</td>
+                        <td>NT.<?= $_SESSION['totalPrice'] ?></td>
                     </tr>
                     <tr>
                         <td class="small_f">信用卡卡號</td>
@@ -226,7 +226,7 @@
                     </tr>
                     <tr>
                         <td class="card_f">
-                            <input type="text">-<input type="text">-<input type="text">-<input type="text">
+                            <input type="text" class="">-<input type="text">-<input type="text">-<input type="text">
                         </td>
                     </tr>
                     <tr>
@@ -254,7 +254,7 @@
         </div>
         <div class="toTop">
             <div class="tr"></div>
-            <h5>TOP</h5
+            <h5>TOP</h5>
         </div>
     </div>
     <?php include __DIR__.'/module_footer.php' ?>
@@ -264,7 +264,7 @@
         $(window).scroll(function(){
             var scrollNow=$(this).scrollTop();
             // console.log(scrollNow);
-            if (scrollNow < 240) {
+            if (scrollNow < 200) {
                 $("header").removeClass("hide black");
             } else {
                 if (scrollNow > scrolllast) {
@@ -281,5 +281,10 @@
                 scrollTop:0
             },1000);
         });
+        /*check data */
+        $(".buy_a").click(function(){
+            
+        });
+
     </script>
 <?php include __DIR__.'/module_foot.php' ?>

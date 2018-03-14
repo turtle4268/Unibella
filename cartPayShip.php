@@ -585,7 +585,6 @@
         /*price*/
         var total=0;
         function checkprice(){
-            var total=0;
             var price=parseInt($(".price").data("price"));
             var ship=parseInt($("#shipWay").val());
             var discount=parseFloat($(".discount").val());
@@ -610,23 +609,28 @@
             hidenext();
         });
         hidenext();
-
+        /*pre page*/
+        $(".goCart_a").click(function(){
+            
+            location.href="cartList.php";
+        });
         /*next page */
         $(".next_a").click(function(){
             var nextstep=$("#payWay").val();
-            var tqty=<?= $_SESSION['totalQty'] ?>,
-                tprice=total;
+            var tqty=<?= $_SESSION['totalQty'] ?>;
+            tprice=total;
+            console.log(tprice);
             switch (nextstep) {
                 case "1":
-                    // $.get("add_price.php",{tqty:tqty,tprice:tprice},function(data){
-                    //     console.log(data);
-                    // });
+                    $.get("add_price.php",{tqty:tqty,tprice:tprice},function(data){
+                        // console.log(data);
+                    });
                     location.href="cartFinishATM.php";
                     break;
                 case "2":
-                    // $.get("add_price.php",{tqty:tqty,tprice:tprice},function(data){
-                    //     console.log(data);
-                    // });
+                    $.get("add_price.php",{tqty:tqty,tprice:tprice},function(data){
+                        // console.log(data);
+                    });
                     location.href="cartCredietcard1.php"
                     break;
             
