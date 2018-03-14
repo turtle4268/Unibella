@@ -186,7 +186,7 @@
                 <tbody>
                     <tr>
                         <td class="small_f">金額</td>
-                        <td>NT.7400</td>
+                        <td>NT.<?= $_SESSION['totalPrice'] ?></td>
                     </tr>
                     <tr>
                         <td class="small_f">信用卡卡號</td>
@@ -267,7 +267,7 @@
         $(window).scroll(function(){
             var scrollNow=$(this).scrollTop();
             // console.log(scrollNow);
-            if (scrollNow < 240) {
+            if (scrollNow < 200) {
                 $("header").removeClass("hide black");
             } else {
                 if (scrollNow > scrolllast) {
@@ -284,5 +284,7 @@
                 scrollTop:0
             },1000);
         });
+        /*check data */
+        
     </script>
 <?php include __DIR__.'/module_foot.php' ?>
