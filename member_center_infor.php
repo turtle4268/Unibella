@@ -157,7 +157,7 @@
             width:80%;
             height: 30px;
         }
-        input:focus{
+        :focus{
             outline:none!important;
         }
         /* .memberBtn_y{
@@ -257,6 +257,15 @@
             50%  { opacity: .5; }
             100% { opacity: 1; top: -4px ;}
         }
+        /*datepicker--------------------*/
+        input[type=date]::-webkit-inner-spin-button { 
+            visibility: hidden; 
+        }
+        input[type=date]::-webkit-calendar-picker-indicator{
+            background:transparent;
+            width:7px;
+            height:7px;
+        }
     </style>
     <style>
         @import url("css/member_center_infor_phone.css");
@@ -296,7 +305,7 @@
                     </div>
                     <div class="memberInfor_y">
                         <label for="birthday" class="memberLabel_y">&nbsp;生日: </label>
-                        <input type="text" class="memberInput_y datepicker" name="birthday" id="birthday" value="<?= $_SESSION['user']['birthday'] ?>" placeholder="">
+                        <input type="date" class="memberInput_y datepicker" name="birthday" id="birthday" value="<?= $_SESSION['user']['birthday'] ?>" placeholder="">
                         <div class="noneSmall_y"></div>                    
                     </div>
                     <div class="memberInfor_y">
