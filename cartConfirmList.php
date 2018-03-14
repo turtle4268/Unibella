@@ -135,6 +135,7 @@
     }
     .table_a {
         margin-top: 60px;
+        border-right: 1px solid #fff;
     }
     table tbody tr td i.far {
         font-size: 20px;
@@ -143,16 +144,16 @@
         background: #666;
         color: #fff;
         padding: 6px 0;
-        border: 1px solid #999;
-        border-right: 1px solid #fff;
+        border: 1px solid #666;
+        
     }
     .delect_a {
-        border-right: 1px solid #999;
+        border-right: 1px solid #666;
     }
     .table_a tbody tr td {
         text-align: center;
         height: 200px;
-        border: 1px solid #999;
+        border: 1px solid #666;
         
     }
     .table_a tbody tr .productCom_A {
@@ -183,7 +184,7 @@
         border-collapse: collapse;
     }
     .table2_a tbody tr td {
-        border: 1px solid #999;
+        border: 1px solid #666;
         position: relative;
         height: 200px;
     }
@@ -394,7 +395,19 @@
                 </tr>
             </tbody>
         </table>
-        <table class="tablePhone_a">
+        <div class="tablePhone_a">
+            <div class="listTitle_a">商品圖片</div>
+            <div class="listImg_a"><img src="images/detail/AF001_2.png" alt=""></div>
+            <div class="listContent_a">
+                <p>商品名稱<span class="listProduct_a">我是商品</span></p>
+                <p>數量<span class="listCS_a">1</span></p>
+                <p>單價<span class="listCS_a">NT$.1850</span></p>
+                <p>小計<span class="listCS_a">NT$.1850</span></p>
+                <p>備註<span class="listCS_a"></span></p>
+                <p>刪除<span class="listCS_a"><i class="far fa-trash-alt delet"></i></span></p>
+            </div>
+        </div>
+        <!-- <table class="tablePhone_a">
                 <thead class="thead-dark_a">
                     <tr>
                       <th scope="col">商品圖片</th>
@@ -424,7 +437,7 @@
                     </tr>
 
                 </tbody>
-        </table>
+        </table> -->
         <table class="table2_a">
             <thead>
                 <tr>

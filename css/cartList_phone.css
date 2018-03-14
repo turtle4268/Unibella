@@ -62,52 +62,6 @@
     .listContent_a p .listCS_a {
         margin-left: 35%;
     }
-    /*--table--*/
-    /* table {
-        width: 75%;
-        max-width: 75%;
-    }
-    table thead tr th {
-        border-right: 1px solid #999;
-    }
-  
-    
-    .tablePhone_a tbody tr td figure {
-        position: relative;
-        width: 300px;
-        height: 300px;
-        overflow: hidden;
-
-    }
-    .tablePhone_a tbody tr td figure img {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-    }
-    .tablePhone_a tbody .producCotent_a {
-        height: 50px;
-    }
-    .tablePhone_a tbody .producCotent_a td {
-        border-top: none;
-        border-bottom: none;
-        height: 50px;
-        text-align: left;
-    }
-    .tablePhone_a tbody .producCotentL_a  {
-        border-bottom: 1px solid #666;
-    }
-    .tablePhone_a tbody .producCotent_a td p {
-        width: 70%;
-        margin-left: 15%;
-    }
-    .tablePhone_a tbody .producCotent_a td p span {
-        margin-left: 18%;
-    }
-    .tablePhone_a tbody .producCotentM_a td p span {
-        margin-left: 35%;
-    } */
     /*None--------------------------------------------------------------------*/
     /*內容--------------*/
     .credit_f h6{
