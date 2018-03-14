@@ -4,6 +4,57 @@
         header('Location:member_login.php');
         exit;
     }
+    $t=date("Y-m-d H:i:s",time()-60*60*24*7);
+    $t2=date("Y-m-d H:i:s",time()-60*60*24*30);
+    $t2=date("Y-m-d H:i:s",time()-60*60*24*90);
+    $t2=date("Y-m-d H:i:s",time()-60*60*24*180);
+
+    // $o_sql="SELECT * FROM `orders` WHERE `member_sid`={$_SESSION['user']['id']} AND order_date > '$t' ORDER BY `order_date` DESC";
+    // $o_result=$mysqli->query($o_sql);
+
+    // $o_data=[];
+    // $o_keys=[];
+    // while($r=$o_result->fetch_assoc()){
+    //     $o_data[]=$r;
+    //     $o_keys[]=$r['sid'];
+    // }
+    // $d_sql=sprintf("SELECT `order_details`.*, `products`.`umbrellaname`, `products`.`umbrella_id`, `products`.`price` 
+    //                 FROM `order_details` JOIN `products` ON `order_details`.product_sid=`products`.sid WHERE `order_details`.`order_sid` in (%s)", implode(',', $o_keys));
+    // $d_result=$mysqli->query($d_sql);
+    // $data=array();
+    // while($row=$d_result->fetch_assoc()){
+    //     $data[]=$row;
+    // }
+
+    $sql = "SELECT
+        o.*,
+        d.`product_sid`,
+        d.`price`,
+        d.`quantity`,
+        p.`umbrellaname`,
+        p.`umbrella_id`
+
+        FROM `orders` o
+        JOIN `order_details` d
+            ON o.sid=d.order_sid
+        JOIN `products` p
+            ON p.sid=d.product_sid
+        WHERE o.order_date>'$t' AND o.`member_sid`=". $_SESSION['user']['id'];
+
+        $oresult=$mysqli->query($sql);
+        $history=array();
+        while($row=$oresult->fetch_assoc()){
+            if(! isset($history[$row['sid']])) {
+                $history[$row['sid']] = array(
+                        'sid' => $row['sid'],
+                        'amount' => $row['amount'],
+                        'order_date' => $row['order_date'],
+                        'data' => array()
+                );
+            }
+            $history[$row['sid']]['data'][] = $row;
+        }
+
 
 ?>
 <?php include __DIR__.'/module_head.php' ?>
@@ -209,8 +260,11 @@
                     </ul>
                     </form>
                 </div>
+                <pre> </pre>
+     <?php /*           
+        <?php foreach($history as $value): ?>
                 <table class="table_history_y">
-                    <caption>訂單編號:20180101</caption>
+                    <caption>訂單編號:<?= $value['sid'] ?></caption>
                     <thead class="thead-dark_a">
                         <tr>
                             <th scope="col">日期</th>
@@ -224,32 +278,25 @@
                         </tr>
                     </thead>
                     <tbody>
+                <?php foreach($history['data'][0] as $data): ?>
                         <tr class="buyList_y">
-                            <td>2018/02/15</td>
+                            <td><?= $data['order_date'] ?></td>
                             <td class="history_pic_f"><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></td>
-                            <td>我是商品</td>
-                            <td>1</td>
-                            <td>NT$.1000</td>
-                            <td>NT$.2000</td>
+                            <td><?= $data['umbrellaname'] ?></td>
+                            <td><?= $data['quantity'] ?></td>
+                            <td>NT$.<?= $data['price'] ?></td>
+                            <td>NT$.<?= $data['order_date'] ?></td>
                             <td>出貨中</td>
                             <td><a href="">取消訂單</a></td>
                         </tr>
-                        <tr class="buyList_y">
-                            <td>2018/02/15</td>
-                            <td class="history_pic_f"><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></td>
-                            <td>我是商品</td>
-                            <td>1</td>
-                            <td>NT$.1000</td>
-                            <td>NT$.2000</td>
-                            <td>出貨中</td>
-                            <td><a href="">取消訂單</a></td>
-                        </tr>
+                <?php endforeach; ?>
                         <tr class="total_y">
                             <td colspan="5"></td>
-                            <td colspan="3">總金額 : </td>
+                            <td colspan="3">總金額 :<?= $value['amount'] ?> </td>
                         </tr>
                     </tbody>
                 </table>
+        <?php endforeach; ?>
                 <table class="table_history_y">
                     <caption>訂單編號:20180102</caption>
                     <thead class="thead-dark_a">
@@ -391,7 +438,7 @@
                             <td><p>總金額 : <span></span></p></td>
                         </tr>
                     </tbody>
-                </table>
+                </table> */?>
                 
             </div> <!--main_y-->
         </div> <!--mainBox_y-->
@@ -430,5 +477,7 @@
             $(".fa-angle-down").toggleClass("rotate");
             $(".l_p_ul_y").slideToggle();
         });
+
+        console.log(<?php print_r($history) ?>);
     </script>
 <?php include __DIR__.'/module_foot.php' ?>
