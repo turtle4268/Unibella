@@ -130,8 +130,7 @@
     }
     /*--toTop--*/
     .toTop {
-        width: 40px;
-        height: 25px;
-        margin: 20px auto;
+        top: 0 ;
+        margin-left: 0 ;
     }
 }
