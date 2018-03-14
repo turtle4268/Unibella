@@ -25,22 +25,53 @@
     .total_a {
         padding:50px;
     }
+    /*--phone table--*/
+    .table_a {
+        display: none;
+    }
+    .tablePhone_a {
+        display: block;
+        margin: 20px auto 0 auto;
+        width: 75%;
+        max-width: 75%;
+        color:#666;
+
+    }
+    .listImg_a, .listContent_a {
+        border: 1px solid #666;
+    }
+    .listContent_a {
+        border-top: none;
+    }
+    .listTitle_a {
+        border: 1px solid #666;
+        background: #666;
+        color:#fff;
+        text-align: center;
+    }
+    .listContent_a p {
+        width: 70%;
+        margin-left: 15%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+    }
+    .listContent_a p .listProduct_a {
+        margin-left: 18%;
+    }
+    .listContent_a p .listCS_a {
+        margin-left: 35%;
+    }
     /*--table--*/
-    table {
+    /* table {
         width: 75%;
         max-width: 75%;
     }
     table thead tr th {
         border-right: 1px solid #999;
     }
-    .table_a {
-        display: none;
-    }
-    .tablePhone_a {
-        display: block;
-        margin: 0 9%;
-        margin-top:30px;
-    }
+  
+    
     .tablePhone_a tbody tr td figure {
         position: relative;
         width: 300px;
@@ -76,7 +107,7 @@
     }
     .tablePhone_a tbody .producCotentM_a td p span {
         margin-left: 35%;
-    }
+    } */
     /*None--------------------------------------------------------------------*/
     /*內容--------------*/
     .credit_f h6{
@@ -121,12 +152,11 @@
     }
     /*--button--*/
     .btn_a {
-        /* display: block; */
+        flex-direction: column;
+        width: 230px;
+        margin: 0 auto;
+        padding-bottom: 20px;
         text-align: center;
-        margin: 10% 0;
-    }
-    .btn_a a {
-        margin:15px 20px;
     }
     /*--toTop--*/
     .toTop {

@@ -281,6 +281,7 @@
     .btn_a a {
         margin:15px 45px;
         border-radius: 28px;
+        padding:10px 30px;
         border: 2px solid #302f3a;
         background: transparent;
         color:  #302f3a;
@@ -288,12 +289,12 @@
         position: relative;
         cursor:pointer;
     }
-    .btn_a .goCart_a {
-        padding:10px 35px;  
+    /* .btn_a .goCart_a {
+        padding:10px 30px;  
     }
     .btn_a .next_a {
         padding:10px 42px;
-    }
+    } */
     .btn_a a:hover {
         color: #fff;
         transition: color 200ms linear 200ms;

@@ -123,7 +123,7 @@
     .btn_a a {
         margin:15px 45px;
         border-radius: 28px;
-        padding:10px 40px;
+        padding:10px 30px;
         border: 2px solid #302f3a;
         background: transparent;
         color:  #302f3a;
@@ -379,7 +379,21 @@
             <?php endforeach; ?>
             </tbody>
         </table>
-        <table class="tablePhone_a">
+        
+        <div class="tablePhone_a">
+            <div class="listTitle_a">商品圖片</div>
+            <div class="listImg_a"><img src="images/detail/AF001_2.png" alt=""></div>
+            <div class="listContent_a">
+                <p>商品名稱<span class="listProduct_a">我是商品</span></p>
+                <p>數量<span class="listCS_a">1</span></p>
+                <p>單價<span class="listCS_a">NT$.1850</span></p>
+                <p>小計<span class="listCS_a">NT$.1850</span></p>
+                <p>備註<span class="listCS_a"></span></p>
+                <p>刪除<span class="listCS_a"><i class="far fa-trash-alt delet" data-sid="<?= $sid ?>"></i></span></p>
+            </div>
+        </div>
+        
+    <?php /*     <table class="tablePhone_a">
                 <thead class="thead-dark_a">
                     <tr>
                       <th scope="col">商品圖片</th>
@@ -408,9 +422,9 @@
                     <tr class="producCotent_a  producCotentL_a">
                         <td><p>刪除<span><i class="far fa-trash-alt delet" data-sid="<?= $sid ?>"></i></span></p></td>
                     </tr>
-                <?php endforeach; ?>
+                <?php endforeach; ?> 
                 </tbody>
-        </table>
+        </table> */ ?>
         <div class="total_a" data-val="">共 <span class="tqty">X</span> 件，總金額 NT$. <span class="tprice">2400</span></div>
         <?php endif; ?>
     </section>
@@ -423,7 +437,7 @@
     <div class="btn_a">
         <a class="shop_a" href="product_list3.php">繼續購物</a>
         <?php if(isset($_SESSION['user'])): ?>
-        <a class="buy_a buynext" href="cartPayShip.php">立即購買</a><?/*href="cartPayShip.php"*/ ?>
+        <a class="buy_a buynext" href="cartPayShip.php">立即購買</a>
         <?php else: ?>
         <a class="buy_a" href="member_login.php">登入會員</a>
         <?php endif; ?>
