@@ -180,6 +180,37 @@
     .usCotent_a:hover {
         border:3px solid #f3d573; 
     }
+    /*toTop*/
+    .toTop{
+            color: #1F5572 ;
+            position: relative ;
+            top: -15px ;
+            margin-left: 94% ;
+            cursor: pointer ;
+            text-align: center ;
+        }
+        .toTop .tr{
+            width: 20px;
+            height: 20px;
+            margin: 5px auto;
+            position: relative ;
+            left: -2px ;
+            transform: rotate(180deg) ;
+            -webkit-mask-image: url(images/icon_scroll.svg) ;
+            background-color:#1F5572;
+            animation: scroll_top .5s linear infinite;
+            animation-direction: alternate;
+            animation-delay: .1s;
+        }
+        .toTop h5{
+            font-size: 16px ;
+            color: #1F5572 ;
+        }
+        @keyframes scroll_top {
+            0%   { opacity: .2; top: 2px; }
+            50%  { opacity: .5; }
+            100% { opacity: 1; top: -4px ;}
+        }
     </style>
     <style>
         @import url("css/contact_phone.css");
@@ -248,6 +279,10 @@
                 </div>
             </div>
         </div>
+        <div class="toTop">
+            <div class="tr"></div>
+            <h5>TOP</h5>
+        </div>
     </div>        
     <?php include __DIR__.'/module_footer.php' ?>
     <script>
@@ -267,9 +302,13 @@
             }
             scrolllast=scrollNow;
         });
-        $('.usContent_a').mouseenter(function(){
-            $(this).addClass("active");
-        })
+
+        /*to top*/
+        $(".toTop").click(function(){
+            $("html,body").animate({
+                    scrollTop:0
+                },1000,);
+        });
 
     
     </script> 

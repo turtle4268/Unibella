@@ -11,6 +11,7 @@
             $cartdata[$row['sid']]=$row;
         }
     }
+    unset($_SESSION['totalQty']); unset($_SESSION['totalPrice']); 
 ?>
 <?php include __DIR__.'/module_head.php' ?>
 <style>
@@ -490,7 +491,7 @@
         $(".buynext").click(function(){
             var tqty=totalQty,
                 tprice=totalPrice;
-            $.get("add_price.php",{tqty:totalQty,tprice:totalPrice},function(data){
+            $.get("add_price.php",{tqty:tqty,tprice:tprice},function(data){
                 console.log(data);
             });
         });

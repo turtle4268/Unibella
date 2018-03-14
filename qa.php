@@ -52,7 +52,7 @@
         margin: 0 auto;
         margin-top: 4%;
         text-align: justify;
-        margin-bottom: 15%;
+        margin-bottom: 8%;
 
     }
     .qaContent_a h3 {
@@ -106,6 +106,37 @@
     .space_a {
         padding: 25px;
         display: block;
+    }
+    /*toTop*/
+    .toTop{
+        color: #1F5572 ;
+        position: relative ;
+        top: -15px ;
+        margin-left: 94% ;
+        cursor: pointer ;
+        text-align: center ;
+    }
+    .toTop .tr{
+        width: 20px;
+        height: 20px;
+        margin: 5px auto;
+        position: relative ;
+        left: -2px ;
+        transform: rotate(180deg) ;
+        -webkit-mask-image: url(images/icon_scroll.svg) ;
+        background-color:#1F5572;
+        animation: scroll_top .5s linear infinite;
+        animation-direction: alternate;
+        animation-delay: .1s;
+    }
+    .toTop h5{
+        font-size: 16px ;
+        color: #1F5572 ;
+    }
+    @keyframes scroll_top {
+        0%   { opacity: .2; top: 2px; }
+        50%  { opacity: .5; }
+        100% { opacity: 1; top: -4px ;}
     }
     </style>
     <style>
@@ -269,15 +300,16 @@
                         <br>並於收到商品後10天內至官網申請。
                         <br>
                         <br> 若申請退貨後五個工作天內未收到物流人員取件通知請來信或來電詢問。
-
                         </p>
-                        
                     </li>
                 </ul>
                 <span class="space_a"></span>
-
             </div>
         </section>
+        <div class="toTop">
+            <div class="tr"></div>
+            <h5>TOP</h5>
+        </div>
     </div>
     <?php include __DIR__.'/module_footer.php' ?>
     <script>
@@ -309,6 +341,13 @@
             $(".qaContent_a .questionT_a").not(this).removeClass("qaChange");
            
         })
+
+        /*to top*/
+        $(".toTop").click(function(){
+            $("html,body").animate({
+                    scrollTop:0
+                },1000,);
+        });
         
             
   

@@ -135,7 +135,7 @@
     }
     .step-content_a i {
         position: absolute;
-        left: 0;
+        left: 3px;
         right: 0;
         top: 50%;
         line-height: 0;
@@ -367,7 +367,7 @@
                 </div>
             </div>
         </div>
-        <div class="total_a" data-val="">共 X 件，總金額 NT$. 2400</div>
+        <div class="total_a" data-val="">共 <?= $_SESSION['totalQty'] ?> 件，總金額 NT$. <?= $_SESSION['totalPrice'] ?></div>
         <table class="table_a">
                 <thead class="thead-dark_a">
                     <tr>
@@ -466,7 +466,7 @@
     $(window).scroll(function(){
         var scrollNow=$(this).scrollTop();
         // console.log(scrollNow);
-        if (scrollNow < 240) {
+        if (scrollNow < 200) {
             $("header").removeClass("hide black");
         } else {
             if (scrollNow > scrolllast) {

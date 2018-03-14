@@ -30,4 +30,12 @@
     .space_a {
         padding: 15px;
     }
+    .questionT_a span {
+        display: none;
+    }
+    /*toTop*/
+    .toTop{
+        top: -15px ;
+        margin-left: 0 ;
+    }
 }
