@@ -17,8 +17,8 @@
     .headerBg_a img {
         width: 300%;
     }
-    .return_a, .warranty_a {
-        width: 75%;
+    .warranty_a {
+        width: 70%;
     }
     .notice_a {
         width: 75%;
@@ -26,8 +26,35 @@
     .fix_a h1 {
         padding-top: 30px;
     }
-
-    
-  
+    .umbrellaCard_a {
+        width:100%;
+        margin-bottom: 10px;
+        height:auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .umbrellaImg_a {
+        display: none;
+    }
+    .innerText_a {
+        width: 100%;
+    }
+    .innerTextL_a {
+        margin: 0 ;
+    }
+    .innerTextR_a {
+        margin: 0 ;
+    }
+    .innerText_a p {
+        text-align: center;
+        margin: 0 auto;
+    }
+    .umbrellaSvg_a {
+        position: relative;
+        margin: 10px auto;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
     
 }

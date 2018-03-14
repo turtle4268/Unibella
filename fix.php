@@ -31,6 +31,14 @@
         .warranty_a {
             width:48%;
             margin:0 auto;
+            padding-bottom: 7%;
+            opacity:0;
+            transform: translateY(250px);
+        }
+        .textShow {
+            opacity:1;
+            transform: translateY(0);
+            transition:1s;
         }
         .warrantyCon_a {
             line-height: 36px;
@@ -53,14 +61,15 @@
             width:100%;
             margin:0 auto;
             max-width: 1440px;
+            margin-bottom: 10%;
+            margin-top: 15px;
         }
         .umbrellaCard_a {
             position:relative;
             padding: 5%;
-            background:red;
             margin: 0 auto;
             width: 60%;
-            margin-bottom: 45px;  
+            margin-bottom: 30px;  
             height:300px;
         }
         .umbrellaImg_a {
@@ -68,7 +77,6 @@
             width: 300px;
             height: 300px;
             background-size: contain;
-            /* transform:translateY(100px); */
             top:100px;
         }
 
@@ -88,10 +96,10 @@
             background:url(images/ximage-large-umbrella-05.png,q1510668587.pagespeed.ic.reu-1cxC6V.webp) 50% 50% no-repeat;
         }
         .umbrellaImgL_a {
-            left: -180px;
+            left: -120px;
         }
         .umbrellaImgR_a {
-            right:-180px;
+            right:-100px;
         }
         .umbrellaSvg_a {
             position: absolute;
@@ -100,10 +108,10 @@
             overflow:hidden;
         }
         .umbrellaSvgR_a {
-            right: 80px;
+            right: -45px;
         }
         .umbrellaSvgL_a {
-            left: 80px;
+            left: -25px;
         }
         .umbrellaSvg_a img {
             width: 100%;
@@ -126,14 +134,13 @@
         }
         .innerText_a {
             width: 60%;
-            display: inline-block;
-            background:yellow;   
+            display: inline-block;  
         }
         .innerTextL_a {
-            margin:0 6%; 
+            margin:0 21%; 
         }
         .innerTextR_a {
-            margin:0 35%; 
+            margin:0 20%; 
             text-align:center;
         }
         .innerText_a h2 {
@@ -144,6 +151,7 @@
             display: block;
             margin:0 auto;
             line-height:1.5;
+            text-align:center;
             /* padding-bottom: 10px; */
         }
 
@@ -160,8 +168,9 @@
             <p>Be Your Unique Unbrella.</p>
         </div>
         <section class="fix_a">
-            <h1>保固維修</h1>
+            
             <div class="warranty_a">
+            <h1>保固維修</h1>
                 <p class="warrantyCon_a">感謝親愛的客戶購買Unibella的產品，雨傘為生活日常用品(消耗品)，
                 因個人使用習慣不同或正常零件的耗損而導致產品的損壞，為了讓消費者了解我們維修保固的標準，
                 故提供以下的維修判定以供參考！</p>
@@ -253,13 +262,18 @@
         var setArea=$(".umbrellaCard_a"),
             showHeight=50;
             $(".umbrellaImg_a").css({opacity:"0"});
-           
             $(window).on('scroll', function(){
+                var scrollSec1T = $(this).scrollTop();
+                    console.log(scrollSec1T);
+                if (scrollSec1T > 100) {
+                    $(".warranty_a").addClass("textShow");
+                } else {
+                    $(".warranty_a").removeClass("textShow");
+                };
             setArea.each(function(){
                 var setThis=$(this),
                     areaTop=setThis.offset().top,
                     umbrellaImg = $(this).attr("data-img");
-                    console.log(areaTop);
                 if($(window).scrollTop()>(areaTop+showHeight)-$(window).height()){
                     $("#" + umbrellaImg).stop().animate({opacity:"1",top:"0"},400);
                 } else {
