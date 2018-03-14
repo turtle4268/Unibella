@@ -38,6 +38,7 @@
         	position: relative;
         	display: flex;
         	justify-content:space-between;
+            overflow:hidden;
         }        
         .inforImg_y{
         	/*position: absolute;
@@ -115,22 +116,30 @@
             z-index:3;
             top:0;
             bottom:0;
-            left:0;
+            left:90%;
             right:0;
-            transform: translateX(-100%);
-            transition: all 10s; 
-            display:none;
-            opacity:0;      
+            /* transform: translateX(-100%); */
+            transition: all .5s; 
+            /* display:none; */
+            opacity:0;
         } 
         .mapi_y{
             margin: 20px 0 20px -30px;    
         } 
-        .mapOpen_y{
-            transform: translateX(0);
-            transition: all 10s; 
+        /* .mapOpen_y{
+            animation: mapMove 1s linear;
+            transition: all 1s; 
             display:block;
             opacity:1;
         }
+        @keyframes mapMove{
+            0%{
+                transform: translateX(0);
+            }
+            100%{
+                transform: translateX(-100%);
+            }
+        } */
         .mapClose_y{
             width:0;
         }
@@ -153,11 +162,14 @@
             left:0;
             right:0; */
             z-index: 2;
-        	width: 100%;
+        	width: 406px;
+            height:232px;
             /* transform: translateX(-100%); */
-            transition: all 10s;
+            transition: all 1s;
             color:#fff; 
             flex: 1;
+            margin-bottom: 5px;
+}
         }
         .mapTextA_y{
             position:absolute;
@@ -281,8 +293,18 @@
         /*map*/
         $(".lineHover_y").click(function () {
             // console.log($(".map_y"));
-            $(".map_y").addClass("mapOpen_y");
+            // $(".map_y").addClass("mapOpen_y");
+            $(".map_y").animate({
+                "left": 0,
+                "opacity": 1
+                },800) 
         });
+        // $(".close_y").click(function () {
+        //     $(".map_y").animate({
+        //         "left": 90%,
+        //         "opacity": 0
+        //         },500) 
+        // });
     </script>
 </body>
 </html>
