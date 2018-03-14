@@ -12,6 +12,10 @@
     $row=$result->fetch_assoc();
     $row['detailA']=nl2br($row['detailA']);
     $row['detailB']=nl2br($row['detailB']);
+
+    $rsql=sprintf("SELECT * FROM `products` WHERE 1 ORDER BY RAND() LIMIT 3 ");
+    $rresult=$mysqli->query($rsql);
+    
 ?>
 <?php include __DIR__.'/module_head.php' ?>
     <style>
@@ -561,6 +565,7 @@
             display: inline-block ;
             margin: 0 2% ;
             color: #000 ;
+            cursor: pointer ;
         }
         .card .product{
             width: 95% ;
@@ -573,6 +578,7 @@
             transform: rotate(-20deg) ;
             width: 100% ;     /*y改*/
             height: 100% ;     /*y改*/
+            filter: drop-shadow(0 0 8px #0000004d) ;
         }
         .product:before{
             position: absolute ;
@@ -587,10 +593,21 @@
         }
         .card .name{
             color: #808080 ;
-            border-bottom: 1px solid #808080 ;
-            width: 76px ;
+            text-align: center ;
+            /* width: 76px ; */
             margin: 20px auto ;
             line-height: 24px ;
+            position: relative ;
+        }
+        .card .name:before{ 
+            position :absolute ;
+            content: "" ;
+            width: 80px ;
+            height: 100% ;
+            margin: 0 auto ;
+            left: 50% ;
+            margin-left: -40px ;
+            border-bottom: 1px solid #808080 ;
         }
         .card .price{
             font-size: 18px ;
@@ -766,8 +783,8 @@
                         </div>
                     </div>
                     <div class="tagTxt_y" id="tag2">
-                            <div class="sizePic_y"><img src="images/size_fold_pic.svg" alt=""></div>
-                            <div class="sizeWord_y"><img src="images/size_fold_word.svg" alt=""></div>
+                            <div class="sizePic_y"><img src="images/<?= $row['function_id']=="1"?"size_stick_pic_t":"size_fold_pic" ?>.svg" alt=""></div>
+                            <div class="sizeWord_y"><img src="images/<?= $row['function_id']=="1"?"size_stick_word":"size_fold_word" ?>.svg" alt=""></div>
                     </div>
                     <div class="tagTxt_y" id="tag3">
                         <ul class="feature_y">
@@ -776,10 +793,10 @@
                                 <p>傘定位系統</p>
                             </li>
                             <li>
-                                <img src="images/icon_location.svg" alt="">
+                                <img src="images/icon_light.svg" alt="">
                                 <p>傘定位系統</p>
                             <li class="phone_none_y">
-                                <img src="images/icon_location.svg" alt="">
+                                <img src="images/icon_<?= $row['category_id']=="1"?"wind":"UV" ?>.svg" alt="">
                                 <p>傘定位系統</p>
                             </li>
                         </ul>
@@ -800,27 +817,15 @@
             </div>
             <!-- <h4>你可能會喜歡</h4> -->
             <div class="cards">
-                <div class="card">
+        <?php  while($rrow=$rresult->fetch_assoc()):?>
+                <div class="card" data-sid="<?= $rrow['sid'] ?>">
                     <div class="product">
-                        <img src="images/home_umbrella_b.png" alt="">
+                        <img src="images/detail/<?= $rrow['umbrella_id'] ?>_1.png" alt="">
                     </div>
-                    <p class="name">夏日風情</p>
-                    <p class="price">NT. 1980</p>
+                    <p class="name"><?= $rrow['umbrellaname'] ?></p>
+                    <p class="price">NT. <?= $rrow['price'] ?></p>
                 </div>
-                <div class="card">
-                    <div class="product">
-                        <img src="images/home_umbrella_b.png" alt="">
-                    </div>
-                    <p class="name">夏日風情</p>
-                    <p class="price">NT. 1980</p>
-                </div>
-                <div class="card">
-                    <div class="product">
-                        <img src="images/home_umbrella_b.png" alt="">
-                    </div>
-                    <p class="name">夏日風情</p>
-                    <p class="price">NT. 1980</p>
-                </div>
+        <?php endwhile; ?>       
             </div>
             <div class="toTop">
                 <div class="tr"></div>
@@ -937,6 +942,12 @@
                 location.href=location.href;
                 // countItems(data);
             },"json");
+        });
+        /*to product*/
+        $(".card").click(function(){
+            var sid=$(this).data("sid");
+            console.log(sid);
+            location.href="product_detail.php?sid="+sid;
         });
     </script>
 <?php include __DIR__.'/module_foot.php' ?>
