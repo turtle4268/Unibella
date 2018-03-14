@@ -490,7 +490,7 @@
         $(".buynext").click(function(){
             var tqty=totalQty,
                 tprice=totalPrice;
-            $.get("add_price.php",{tqty:totalQty,tprice:totalPrice},function(data){
+            $.get("add_price.php",{tqty:tqty,tprice:tprice},function(data){
                 console.log(data);
             });
         });
