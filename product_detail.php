@@ -951,13 +951,29 @@
             var card=$(this).closest(".productInforBox_y");
             var sid=card.data('sid');
             // alert(sid+" : "+qty);
+            if(!<?= isset($_SESSION['user'])?'1':'0' ?>){
+                alert("請先登入會員");
+            }else{
+                // alert("商品已加入收藏");
+                $.get('add_to_love.php',{sid:sid},function(data){
+                    console.log(data);
+                    // alert("商品已加入收藏");
+                    
+                    switch (data) {
+                        case 1:
+                            alert("商品已加入收藏");
+                            location.href=location.href;
+                            break;
+                    
+                        default:
+                            alert("收藏失敗!");
+                            break;
+                    }
+                    // countItems(data);
+                },"json");
+            }
 
-            $.get('add_to_love.php',{sid:sid},function(data){
-                console.log(data);
-                alert("商品已加入收藏");
-                location.href=location.href;
-                // countItems(data);
-            },"json");
+            
         });
         /*to product*/
         $(".card").click(function(){

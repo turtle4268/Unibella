@@ -1,218 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Unibella</title>
-    <link href="fontawesome/css/fontawesome-all.css" rel="stylesheet">
+<?php require __DIR__. '/_db_connect.php'; ?>
+<?php include __DIR__.'/module_head.php' ?>
     <style>
-    /*
-        blue:#1F5572
-        yellow:#F8CF4E
-        black: #4d4d4d
-        logo-font:Nyala
-    */
-        *{
-            margin: 0 ;
-            padding: 0 ;
-            list-style-type: none ;
-            text-decoration-line: none ;
-            font-family: "微軟正黑體" ;
-            font-weight: normal ;
-            letter-spacing: 3px ;
-        }
         section{
-            width: 100vw ;
-            max-width: 100% ;
-            /* height: 100vh ; */
-            /* background-color: #1F5572 ; */
-        }
-     /*Header--------------------------------------------------------*/
-        header{
-            position: fixed ;
-            z-index: 5 ;
-            width: 100% ;
-            display: flex ;
-            justify-content: space-between ;
-            color: #FFF ;
-            padding: 0 40px ;
-            padding-top: 28px ;
-            box-sizing: border-box ;
-            height: 80px;
-            transition: all .5s;
-        }
-        .hide {
-            transform: translateY(-100px);
-            transition: all .5s;
-        }
-        .bg {
-            background: rgba(255, 255, 255, .8);
-        }
-        header h1 {
-            -webkit-mask-image: url(images/logo_new.svg);
-            -webkit-mask-repeat: no-repeat;
-            -webkit-mask-position: center;
-            width: 145px;
-            height: 45px;
-            background-color: #fff;
-            margin-top: -12px;
-        }
-        .phone_hide_f{
-            background-color: #666 !important;
-        }
-        .h_ul li{
-            display: inline-block ;
-            padding: 0 15px ;
-        }
-        .h_ul li a{
-            display: block ;
-            width: 25px ;
-            height: 25px ;
-            cursor: pointer ;
-            background-color: #FFF ;
-            -webkit-mask-repeat: no-repeat ;
-            -webkit-mask-position: center ;
-        }
-        .member{
-            -webkit-mask-image: url(images/icon_MEMBER.svg) ;
-        }
-        .cart{
-            -webkit-mask-image: url(images/icon_CART.svg) ;
-        }
-        .hamburger{
-            -webkit-mask-image: url(images/icon_MENU.svg) ;
-        }
-    /*Footer-------------------------------------------------------------*/
-        footer{
-            background-color: #CCC ;
-            color: #FFF ;
-        }
-        .f_content{
-            display: flex ;
-            padding: 40px ;
-        }
-        .f_quarter{
-            width: 25% ;
-            display: flex ;
-            justify-content: center ;
-            align-items: center ;
-            border-right: 1px solid #FFF ;
-            flex: 1 ;
-            font-size: 16px ;
-        }
-        .f_quarter h2{
-            font-family: "Nyala" ;
-            font-size: 32px ;
-        }
-        .f_quarter.between{
-            justify-content: space-around ;
-        }
-        .f_quarter.border_none{
-            border: none ;
-            flex: 1.5 ;
-            flex-wrap: wrap ;
-        }
-        .f_quarter.border_none .mail{
-            width: 265px ;
-            height: 30px ;
-            border: 2px solid #FFF ;
-            border-radius: 28px ;
-            margin: 16px 0 ;
-            display: flex ;
-            justify-content: center ;
-            align-items: center ;
-        }
-        .mail .einput{
-            width: 210px ;
-            height: 24px ;
-            margin-left: 5px ;
-            font-size: 16px ;
-            letter-spacing: normal ;
-            border: none ;
-            background: #CCC ;
-        }
-        .mail .einput:focus{
-            color: #FFF ;
-            outline: none ;
-        }
-        .mail .eput{
-            display: inline-block ;
-            padding: 0 5px ;
-        }
-        .mail .eput i{
-            font-size: 26px ;
-        }
-        .f_quarter a{
-            display: block ;
-            color: #FFF ;
-            padding: 9px 0px ;
-        }
-        .f_quarter a.aicon{
-            display: inline-block ;
-            margin: 20px ;
-        }
-        .f_quarter a.aicon i{
-            font-size: 28px ;
-        }
-        .f_quarter a.fb{
-            margin-left: 0 ;
-        }
-        .f_quarter a.fb i{
-            font-size: 24px ;
-        }
-        .foot{
-            text-align: center ;
-            font-size: 12px ;
-            background-color: #999 ;
-            padding: 12px ;
-            border-top: 1px solid #FFF ;
-        }
-    /*Nav--------------------------------------------------------------*/
-        nav{
-            position: fixed ;
-            z-index: 10 ;
-            display: flex ;
-            width: 20% ;
-            height: 100vh ;
-            top: 0 ;
-            right: 0 ;
-            text-align: center ;
-            background-color: #ffffffcc ;
-            transition: 1s ;
-        }
-        nav.navhide{
-            right: -20% ;
-        }
-        nav .close{
-            width: 25px ;
-            height: 25px ;
-            position: absolute ;
-            top: 40px ;
-            right: 40px ;
-            cursor: pointer ;
-            background: url(images/X.svg) center center no-repeat ;
-        }
-        .n_ul{
-            width: 100% ;
-            margin: 0 auto ;
-            align-self: center ;
-        }
-        .n_ul li{
-            display: flex ;
-            align-content: center ;
-            margin: 4px 0 ; 
-        }
-        .n_ul li a{
-            display: block ;
-            width: 100% ;
-            padding: 12px ;
-            color: #666 ;
-            font-size: 18px ;
-            transition: 0.4s ;
-        }
-        .n_ul li a:hover{
-            background-color: #CCC;
+            height: auto ;
         }
         /*Container-------------------------------------------------------------------*/
         .headerBg_f{
@@ -353,9 +143,8 @@
             justify-content: center;
             position: relative;
             margin-bottom: 5%;
-            text-align:center;
         }
-        .btn_a a {
+        .btn_a button {
             margin:15px 45px;
             border-radius: 28px;
             padding:10px 40px;
@@ -366,7 +155,7 @@
             position: relative;
             cursor:pointer;
         }
-        .btn_a a:hover {
+        .btn_a button:hover {
             color: #fff;
             transition: color 200ms linear 200ms;
             -webkit-transition: color 200ms linear 200ms;
@@ -396,14 +185,14 @@
             border-radius: 28px;
             transition: all 200ms ease-out;
         }
-        .btn_a a:hover::before {
+        .btn_a button:hover::before {
             top: 0;
             left: 0;
         }
-        .btn_a a:active {
+        .btn_a button:active {
             transform: translateY(3px);
         }
-        .btn_a a:focus {
+        .btn_a button:focus {
             outline: none;
         }
         /*-------toTop--------*/
@@ -411,8 +200,8 @@
             color: #1F5572 ;
             position: relative ;
             top: -15px ;
-            /* margin-left: 94% ; */
-            margin: 0  auto 15px ;
+            margin-left: 94% ;
+            margin-bottom: 15px ;
             cursor: pointer ;
             width:40px;
             height:30px;
@@ -441,42 +230,10 @@
             100% { opacity: 1; top: -4px ;}
         }
     </style>
-    <link rel="stylesheet" href="css/cartFinishCredit_phone.css">
-</head>
-<body>
-    <header>
-        <h1></h1>
-        <ul class="h_ul">
-            <li><a class="member"></a></li>
-            <li><a class="cart"></a></li>
-            <li><a class="hamburger"></a></li>
-        </ul>
-    </header>
-    <nav class="navhide">
-        <div class="close"></div>
-        <ul class="n_ul">
-            <li><a href="">品牌介紹</a></li>
-            <li><a href="">專利技術</a></li>
-            <li><a href="">產品</a></li>
-            <li><a href="">最新消息</a></li>
-            <li><a href="">顧客服務</a></li>
-            <li><a href="">會員中心</a></li>
-            <li><a href="">聯絡我們</a></li>
-            <li><a href="">相關連結</a></li>
-            <li><a href="">Q&amp;A</a></li>
-        </ul>
-    </nav>
-    <aside class="l_aside">
-
-    </aside>
-    <aside class="r_aside">
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </aside>
+    <style>
+        @import url("css/cartFinishCredit_phone.css");
+    </style>
+<?php include __DIR__.'/module_nav.php' ?>
     <div id="container">
         <div class="headerBg_f">
             <img src="images/banner_CART.jpg" alt="">
@@ -514,85 +271,33 @@
                 <img src="images/cart_check.svg" alt="">
                 <p>感謝您的購買</p>
             </div>
-
-            <div class="btn_a">
-                <a class="shop_a">回首頁</a>
-                <a class="buy_a">回商品頁</a>
-            </div>
-            <div class="toTop">
-                <div class="tr"></div>
-                <h5>TOP</h5>
-            </div>
         </section>
-    </div>
-
-    <footer>
-        <div class="f_content">
-            <div class="f_quarter"><h2>Unibella</h2></div>
-            <div class="f_quarter between">
-                <ul>
-                    <li><a href="">品牌介紹</a></li>
-                    <li><a href="">產品</a></li>
-                    <li><a href="">最新消息</a></li>
-                    <li><a href="">顧客服務</a></li>
-                </ul>
-                <ul>
-                    <li><a href="">會員中心</a></li>
-                    <li><a href="">聯絡我們</a></li>
-                    <li><a href="">相關連結</a></li>
-                    <li><a href="">Q&amp;A</a></li>
-                </ul>
-            </div>
-            <div class="f_quarter">
-                <div>
-                    <p>社群</p>
-                    <a href="" class="aicon fb"><i class="fab fa-facebook-f"></i></a>
-                    <a href="" class="aicon"><i class="fab fa-instagram"></i></a>
-                    <a href="" class="aicon"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="f_quarter border_none">
-                <div>
-                    <p>取得最新消息</p>
-                    <div class="mail">
-                        <input type="text" name="" class="einput">
-                        <a href="" class="eput"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-  
-            </div>
+        <div class="btn_a">
+            <button class="shop_a">回首頁</button>
+            <button class="buy_a">回商品頁</button>
         </div>
-        <div class="foot">COPYRIGHT &COPY; Unibella ALL RIGHTS RESERVED</div>
-    </footer>
-
-    <script src="http://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
+        <div class="toTop">
+            <div class="tr"></div>
+            <h5>TOP</h5>
+        </div>
+    </div>
+    <?php include __DIR__.'/module_footer.php' ?>
     <script>
-        $(".hamburger").click(function(){
-            $("nav").removeClass("navhide");
-        });
-        $(".close").click(function(){
-            $("nav").addClass("navhide");
-        });
-        
-        var scrollHeaderLast;
+        /*hideNav*/
+        var scrolllast;
         $(window).scroll(function(){
-             //header
-             var scrollHeader = $(this).scrollTop();
-            if (scrollHeader < 200) {
-                $("header").removeClass("hide, bg")
-                $("header h1, .h_ul li a").removeClass("phone_hide_f")
+            var scrollNow=$(this).scrollTop();
+            // console.log(scrollNow);
+            if (scrollNow < 240) {
+                $("header").removeClass("hide black");
             } else {
-                if (scrollHeader > scrollHeaderLast) {
-                    $("header").addClass("hide").removeClass("bg")
-                    $("header h1, .h_ul li a").addClass("phone_hide_f")
+                if (scrollNow > scrolllast) {
+                    $("header").addClass("hide black");
                 } else {
-                    $("header").removeClass("hide").addClass("bg")
-                };
-            };
-            scrollHeaderLast = scrollHeader;
-            console.log(scrollHeader);
+                    $("header").removeClass("hide");
+                }
+            }
+            scrolllast=scrollNow;
         });
          /*to top*/
          $(".toTop").click(function(){

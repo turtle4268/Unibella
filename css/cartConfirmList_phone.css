@@ -79,16 +79,11 @@
         padding:30px;
     }
     /*--table--*/
-    table {
-        width: 81%;
-        max-width: 81%;
-    }
-    table thead tr th {
+    
+    /* table thead tr th {
         border-right: 1px solid #999;
     }
-    .table_a {
-        display: none;
-    }
+    
     .tablePhone_a {
         display: block;
         margin: 0 9%;
@@ -132,13 +127,54 @@
     }
     .tablePhone_a tbody .producCotentM_a td p span {
         margin-left: 35%;
+    } */
+    /*--phone table--*/
+    table {
+        width: 81%;
+        max-width: 81%;
     }
-    
+    .table_a {
+        display: none;
+    }
+    .tablePhone_a {
+        display: block;
+        margin: 20px auto 0 auto;
+        width: 81%;
+        max-width: 81%;
+        color:#666;
+
+    }
+    .listImg_a, .listContent_a {
+        border: 1px solid #666;
+    }
+    .listContent_a {
+        border-top: none;
+    }
+    .listTitle_a {
+        border: 1px solid #666;
+        background: #666;
+        color:#fff;
+        text-align: center;
+        padding: 6px 0;
+    }
+    .listContent_a p {
+        width: 70%;
+        margin-left: 15%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+    }
+    .listContent_a p .listProduct_a {
+        margin-left: 18%;
+    }
+    .listContent_a p .listCS_a {
+        margin-left: 35%;
+    }
     /*--table2--*/
     .table2_a {
         width: 81%;
         max-width: 81%;
-        margin-left: 34px;
+        margin-left: 36px;
     }
     .table2_a .formContent_a {
         left: 13%;
