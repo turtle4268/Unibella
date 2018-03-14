@@ -142,7 +142,7 @@
     }
     .step-content_a i {
         position: absolute;
-        left: 0;
+        left: 3px;
         right: 0;
         top: 50%;
         line-height: 0;
@@ -190,6 +190,7 @@
     }
     .formText {
         height: 25px;   
+        color: #ccc ;
     }
     /*form2*/
     .table2_a {
@@ -414,16 +415,14 @@
             <tbody>
                 <tr>
                     <td>
-                        <input class="formRadios_a" type="radio" name="Radios" id="Radios1" value="option1">
-                        <select name="" class="formSelect_a">
-                            <option value="">xx1系列89折</option>
-                            <option value="">xx2系列9折</option>
-                            <option value="">xx3系列89折</option>
-                            <option value="">xx4系列89折</option>
+                        <input class="formRadios_a" type="radio" name="Radios" id="Radios1" value="option1" checked="checked">
+                        <select name="" class="formSelect_a discount">
+                            <option value="0">--</option>
+                            <option value="0.15" selected="selected">梅雨季全館85折</option>
                         </select>
                         <br>
-                        <input class="formRadios_a" type="radio" name="Radios" id="Radios2" value="option2">
-                        <input type="text" class="formText" placeholder="請輸入折扣碼">
+                        <input class="formRadios_a" type="radio" name="Radios" id="Radios2" value="option2" disabled="disabled">
+                        <input type="text" class="formText" placeholder="請輸入折扣碼"  disabled="disabled">
                     </td>
                 </tr>
             </tbody>
@@ -441,6 +440,17 @@
             </div>
             <div class="choose_a">
                 <div class="chooseDes_a">
+                    <span>-</span>
+                </div>
+            </div>
+            <div class="choose_a">
+                <div class="chooseDes_a">
+                    <span>折抵優惠</span>
+                </div>
+                <input type="text" class="text_a distext" disabled="disabled">
+            </div>
+            <div class="choose_a">
+                <div class="chooseDes_a">
                     <span>+</span>
                 </div>
             </div>
@@ -450,19 +460,8 @@
                 </div>
                 <select name="" id="shipWay" class="shipWay_a">
                     <option value="0" selected="">--</option>
-                    <option value="1">宅配</option>
+                    <option value="70">宅配 70元</option>
                 </select>
-            </div>
-            <div class="choose_a">
-                <div class="chooseDes_a">
-                    <span>-</span>
-                </div>
-            </div>
-            <div class="choose_a">
-                <div class="chooseDes_a">
-                    <span>折抵優惠</span>
-                </div>
-                <input type="text" class="text_a">
             </div>
             <div class="choose_a">
                 <div class="chooseDes_a">
@@ -510,8 +509,8 @@
     </div> 
     </section>
     <div class="btn_a">
-        <a class="goCart_a disabled" href="cartList.php">回購物車</a>
-        <a class="next_a" href="cartShipdata.php">下一步</a>
+        <a class="goCart_a" href="cartList.php">回購物車</a>
+        <a class="next_a">下一步</a>
     </div> 
         <div class="toTop">
         <div class="tr"></div>
@@ -538,21 +537,22 @@
         });
 
         // stepProcess
-        var stepContent = $(".step-content_a"),
-            nexBtn = $(".next_a"),
-            goCartBtn = $(".goCart_a");
-        var i = 0;
+        // var stepContent = $(".step-content_a"),
+        //     nexBtn = $(".next_a"),
+        //     goCartBtn = $(".goCart_a");
+        // var i = 0;
         // Next btn click
-        $(nexBtn).click(function() {
-            if (i < stepContent.length) {
-                $(stepContent[i]).addClass("active")
-                .html('<i class="fa fa-check" aria-hidden="true"></i>');
-                $(goCartBtn).attr('disabled', false);
-                i = i + 1;
-            } else {
-                return false;
-            }
-        });
+        // $(nexBtn).click(function() {
+        //     if (i < stepContent.length) {
+        //         $(stepContent[i]).addClass("active")
+        //         .html('<i class="fa fa-check" aria-hidden="true"></i>');
+        //         $(goCartBtn).attr('disabled', false);
+        //         i = i + 1;
+        //     } else {
+        //         return false;
+        //     }
+        // });
+
         /*to top*/
         $(".toTop").click(function(){
             $("html,body").animate({
@@ -579,9 +579,24 @@
                 $(".atm_a").removeClass('show');
             }
         });
+        $("#shipWay").change(function(){
+            checkprice();
+        });
         /*price*/
-        var price=$(".price").data("price");
-        $(".price").val(price);
+        var total=0;
+        function checkprice(){
+            var total=0;
+            var price=parseInt($(".price").data("price"));
+            var ship=parseInt($("#shipWay").val());
+            var discount=parseFloat($(".discount").val());
+            discount=price*discount;
+            total=price-discount+ship;
+            $(".distext").val(discount);
+            $(".price").val(total);
+            console.log(total);
+        }
+        checkprice();
+
         /*hide next*/
         function hidenext(){
             var payway=$("#payWay").val(),shipway=$("#shipWay").val();
@@ -595,6 +610,30 @@
             hidenext();
         });
         hidenext();
+
+        /*next page */
+        $(".next_a").click(function(){
+            var nextstep=$("#payWay").val();
+            var tqty=<?= $_SESSION['totalQty'] ?>,
+                tprice=total;
+            switch (nextstep) {
+                case "1":
+                    // $.get("add_price.php",{tqty:tqty,tprice:tprice},function(data){
+                    //     console.log(data);
+                    // });
+                    location.href="cartFinishATM.php";
+                    break;
+                case "2":
+                    // $.get("add_price.php",{tqty:tqty,tprice:tprice},function(data){
+                    //     console.log(data);
+                    // });
+                    location.href="cartCredietcard1.php"
+                    break;
+            
+                default:
+                    break;
+            }
+        });
 
     </script> 
 <?php include __DIR__.'/module_foot.php' ?>
