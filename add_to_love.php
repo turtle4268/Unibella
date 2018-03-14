@@ -1,23 +1,33 @@
 <?php
+require __DIR__. '/_db_connect.php';
 
-// 加入商品, 移除商品, 查詢內容
-// sid, qty
-
-session_start();
-
-if(! isset($_SESSION['love'])){
-    $_SESSION['love'] = array();
+if(!isset($_SESSION['user'])){
+    exit;
 }
 
-if(isset($_GET['sid'])) {
-    // 檢查商品的資料表有沒有這個商品
+if(isset($_GET['sid'])){
+    $member_sid=$_SESSION['user']['id'];
+    $product_sid=$_GET['sid'];
 
-    $sid = intval($_GET['sid']); //商品的 sid
+    $sql="INSERT INTO `loves`(
+        `member_sid`, `product_sid`, 
+        `create_at`
+        ) VALUES (
+        ?, ?,
+        NOW())";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param('ss',
+            $member_sid, $product_sid      
+    );
+    $stmt->execute();
 
-    $_SESSION['love'][$sid] = 1;
+    $msg_code = $stmt->affected_rows;
+    if($msg_code){
+        $_SESSION['love'][$product_sid] = 1;
+    }
 }
 
-echo json_encode($_SESSION['love']);
+echo json_encode($msg_code, JSON_UNESCAPED_UNICODE);
 
 
 
