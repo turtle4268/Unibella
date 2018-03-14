@@ -229,7 +229,7 @@
                     </tr>
                     <tr>
                         <td class="card_f">
-                            <input type="text">-<input type="text">-<input type="text">-<input type="text">
+                            <input type="text" class="">-<input type="text">-<input type="text">-<input type="text">
                         </td>
                     </tr>
                     <tr>
@@ -257,7 +257,7 @@
         </div>
         <div class="toTop">
             <div class="tr"></div>
-            <h5>TOP</h5
+            <h5>TOP</h5>
         </div>
     </div>
     <?php include __DIR__.'/module_footer.php' ?>
@@ -285,6 +285,9 @@
             },1000);
         });
         /*check data */
-        
+        $(".buy_a").click(function(){
+            
+        });
+
     </script>
 <?php include __DIR__.'/module_foot.php' ?>
