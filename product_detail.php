@@ -133,7 +133,7 @@
             font-size: 20px;
             letter-spacing: 5px;
             color: #fff;
-            text-shadow: 0 0 1px #0000005d;
+            text-shadow: 1px 1px 2px #0000005d;
             border: 2px solid #f8cf4e;
             border-radius: 50px;
             padding: 10px 30px;
@@ -274,7 +274,7 @@
 			/* background: #000; */
             position: relative;
             /* padding: 3% 5%; */
-            margin: 0 5% 2% 0;
+            margin: 0 5% 3% 0;
             /* display: none; */
 		} 
 		.productSlide_y{			
@@ -790,14 +790,14 @@
                         <ul class="feature_y">
                             <li>
                                 <img src="images/icon_location.svg" alt="">
-                                <p>傘定位系統</p>
+                                <p>定位系統</p>
                             </li>
                             <li>
                                 <img src="images/icon_light.svg" alt="">
-                                <p>傘定位系統</p>
+                                <p>極輕</p>
                             <li class="phone_none_y">
                                 <img src="images/icon_<?= $row['category_id']=="1"?"wind":"UV" ?>.svg" alt="">
-                                <p>傘定位系統</p>
+                                <p><?= $row['category_id']=="1"?"超強抗風":"專業抗UV" ?></p>
                             </li>
                         </ul>
                     </div>
