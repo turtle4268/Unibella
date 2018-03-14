@@ -102,7 +102,7 @@
     .delet{
         cursor: pointer ;
     }
-    .tablePhone_a {
+    div.tablePhone_a {
         display:none;
     }
     .total_a {
@@ -367,64 +367,33 @@
               </thead>
             <tbody>
             <?php foreach($_SESSION['cart'] as $sid =>$qty): ?>
-                <tr>
+                <tr class="tablePhone_a" data-sid="<?= $sid ?>">
                   <td class="productCom_A"><figure><img src="images/detail/<?= $cartdata[$sid]['umbrella_id'] ?>_1.png" alt=""></figure></td>
                   <td><?= $cartdata[$sid]['umbrellaname'] ?></td>
                   <td><?= $qty ?></td>
                   <td>NT$.<?= $cartdata[$sid]['price'] ?></td>
                   <td>NT$.<?= $cartdata[$sid]['price']*$qty ?></td>
                   <td></td>
-                  <td><i class="far fa-trash-alt delet" data-sid="<?= $sid ?>"></i></td>
+                  <td><i class="far fa-trash-alt delet"></i></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
         </table>
-        
-        <div class="tablePhone_a">
+    <?php foreach($_SESSION['cart'] as $sid =>$qty): ?>    
+        <div class="tablePhone_a" data-sid="<?= $sid ?>">
             <div class="listTitle_a">商品圖片</div>
-            <div class="listImg_a"><img src="images/detail/AF001_2.png" alt=""></div>
+            <div class="listImg_a"><img src="images/detail/<?= $cartdata[$sid]['umbrella_id'] ?>_1.png" alt=""></div>
             <div class="listContent_a">
-                <p>商品名稱<span class="listProduct_a">我是商品</span></p>
-                <p>數量<span class="listCS_a">1</span></p>
-                <p>單價<span class="listCS_a">NT$.1850</span></p>
-                <p>小計<span class="listCS_a">NT$.1850</span></p>
+                <p>商品名稱<span class="listProduct_a"><?= $cartdata[$sid]['umbrellaname'] ?></span></p>
+                <p>數量<span class="listCS_a qty" data-qty="<?= $qty ?>">0</span></p>
+                <p>單價<span class="listCS_a price" data-price="<?= $cartdata[$sid]['price'] ?>">NT$.<i>0</i></span></p>
+                <p>小計<span class="listCS_a subtotal" data-subtotal="<?= $cartdata[$sid]['price']*$qty ?>">NT$.<i>0</i></span></p>
                 <p>備註<span class="listCS_a"></span></p>
-                <p>刪除<span class="listCS_a"><i class="far fa-trash-alt delet" data-sid="<?= $sid ?>"></i></span></p>
+                <p>刪除<span class="listCS_a"><i class="far fa-trash-alt delet"></i></span></p>
             </div>
         </div>
+    <?php endforeach; ?>
         
-    <?php /*     <table class="tablePhone_a">
-                <thead class="thead-dark_a">
-                    <tr>
-                      <th scope="col">商品圖片</th>
-                    </tr>
-                  </thead>
-                <tbody>
-                <?php foreach($_SESSION['cart'] as $sid =>$qty): ?>
-                    <tr>
-                      <td><figure><img src="images/detail/<?= $cartdata[$sid]['umbrella_id'] ?>_1.png" alt=""></figure></td>
-                    </tr>
-                    <tr class="producCotent_a">
-                      <td><p>商品名稱<span><?= $cartdata[$sid]['umbrellaname'] ?></span></p></td>
-                    </tr>
-                    <tr class="producCotent_a producCotentM_a qty" data-qty="<?= $qty ?>">
-                        <td><p>數量<span>0</span></p></td>
-                    </tr>
-                    <tr class="producCotent_a producCotentM_a price" data-price="<?= $cartdata[$sid]['price'] ?>">
-                        <td><p>單價<span>NT$.<a>0</a></span></p></td>
-                    </tr>
-                    <tr class="producCotent_a producCotentM_a subtotal" data-subtotal="<?= $cartdata[$sid]['price']*$qty ?>">
-                        <td><p>小計<span>NT$.<a>0</a></span></p></td>
-                    </tr>
-                    <tr class="producCotent_a producCotentM_a">
-                        <td><p>備註<span></span></p></td>
-                    </tr>
-                    <tr class="producCotent_a  producCotentL_a">
-                        <td><p>刪除<span><i class="far fa-trash-alt delet" data-sid="<?= $sid ?>"></i></span></p></td>
-                    </tr>
-                <?php endforeach; ?> 
-                </tbody>
-        </table> */ ?>
         <div class="total_a" data-val="">共 <span class="tqty">X</span> 件，總金額 NT$. <span class="tprice">2400</span></div>
         <?php endif; ?>
     </section>
@@ -474,20 +443,21 @@
         });
 
         /*Count*/
-        var totalQty=0,totalPrice=0;
+        var totalQty,totalPrice;
         function count(){
+            totalQty=0,totalPrice=0;
             $(".qty").each(function(){
                 var qty=$(this).data("qty");
-                $(this).find("span").text(qty);
+                $(this).text(qty);
                 totalQty+=qty;
             });
             $(".price").each(function(){
                 var price=$(this).data("price");
-                $(this).find("a").text(price);
+                $(this).find("i").text(price);
             });
             $(".subtotal").each(function(){
                 var subtotal=$(this).data("subtotal");
-                $(this).find("a").text(subtotal);
+                $(this).find("i").text(subtotal);
                 totalPrice+=subtotal;
             });
             $(".tqty").text(totalQty);
@@ -496,8 +466,14 @@
         count();
         /*delet*/
         $(".delet").click(function(){
-            var sid=$(this).data("sid");
+            var card=$(this).closest(".tablePhone_a");
+            var sid=card.data("sid");
+            
             $.get("add_to_cart.php",{sid:sid},function(data){
+                $(".tablePhone_a").each(function(){
+                    if($(this).data("sid")==sid) $(this).remove();
+                });
+                card
                 count();
             },'json');
         });
