@@ -950,7 +950,7 @@
         $(".addBtn_y").click(function(){
             var card=$(this).closest(".productInforBox_y");
             var sid=card.data('sid');
-            // alert(sid+" : "+qty);
+            console.log(sid);
             if(!<?= isset($_SESSION['user'])?'1':'0' ?>){
                 alert("請先登入會員");
             }else{
@@ -964,9 +964,13 @@
                             alert("商品已加入收藏");
                             location.href=location.href;
                             break;
+                        case 2:
+                            alert("已取消收藏");
+                            location.href=location.href;
+                            break;
                     
                         default:
-                            alert("收藏失敗!");
+                            alert("ERROR!");
                             break;
                     }
                     // countItems(data);
