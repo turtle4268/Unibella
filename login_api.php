@@ -26,15 +26,15 @@ if(isset($_POST['email_login'])) {
         $row = $result->fetch_assoc();
         $_SESSION['user'] = $row; // 登入記錄
         if($remember==1){
-            $_SESSION['remember']=$_SESSION['user']['email'];
-            $lovesql="SELECT * FROM `loves` WHERE `member_sid`={$_SESSION['user']['id']} ORDER BY `create_at` DESC";
-            $loveresult = $mysqli->query($lovesql);
-            while($loverow=$loveresult->fetch_assoc()){
-                $_SESSION['love'][$loverow['product_sid']] = 1;
-            }
+            $_SESSION['remember']=$_SESSION['user']['email'];   //記住我
         }else{
             unset($_SESSION['remember']);
         }   
+        $lovesql="SELECT * FROM `loves` WHERE `member_sid`={$_SESSION['user']['id']} ORDER BY `create_at` DESC";
+        $loveresult = $mysqli->query($lovesql);
+        while($loverow=$loveresult->fetch_assoc()){
+            $_SESSION['love'][$loverow['product_sid']] = 1;
+        }
     }
 
 }

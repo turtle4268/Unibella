@@ -47,20 +47,23 @@
             width: 100%;
             position: absolute;
             bottom: 0 ;
+            display: none;
         }
     /*productInfor_y---------------------------------------------*/
          .productInforBox_y{
             width: 100%;
-            height: 150vh;
+            height: 1200px;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
+            /* background:transparent; */
         }
         .productInfor_y{
-            width: 80%;
+            width: 330px;
+            height: 140px;
             background: #d8d8d8;
-            margin: -50px auto;
+            margin-top: -50px;
             text-align: center;
             order: 1;
         }
@@ -84,6 +87,9 @@
             text-align: center;   
             margin-top: 1.5em;     
         }
+        .qtySelect_y{
+            padding: 0 0 0 26%;        
+        }
         .buyBtn_y{
             width: 230px;
             padding: 10px 25px;
@@ -99,7 +105,8 @@
         }
     /*productSlideBox_y-----------------------------------------*/
         .productSlideBox_y{        
-			width: 88%;
+            width: 330px;
+            height:340px;
             position: relative;
             margin: 0 auto;
             order: 0;
@@ -115,18 +122,26 @@
 		}
     /*productPrice_y----------------------------------------------*/
         .productPrice_y{
-            width: 80%;
+            width: 330px;
+            height:550px;
             padding: 0;
             margin: -30px auto 0 auto;
             order: 2;
             order: 2;
             text-align: center;
+            background:transparent;
         }
     /*section2---productTag_y---------------------------------------------------------------*/
         .productTag_y{
             width: 100%;
             height: 100%;
             margin: 0;
+              padding-top: 10%;
+        }
+        .tagFourBox_y{
+            width: 100%;
+            height: 2567px;
+            margin: 80px auto 0 auto;
         }
         .tagFour_y{
             display: flex;
@@ -165,12 +180,13 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 0;
+            margin-top: 15px;
         }
         .detail_y{
             font-size:16px;
             color:#666;
             margin-bottom: 25px;
+            line-height:26px;
         }
         .detailA_y{
             margin-right: 54px;

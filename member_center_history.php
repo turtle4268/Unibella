@@ -9,22 +9,7 @@
     $t2=date("Y-m-d H:i:s",time()-60*60*24*90);
     $t2=date("Y-m-d H:i:s",time()-60*60*24*180);
 
-    // $o_sql="SELECT * FROM `orders` WHERE `member_sid`={$_SESSION['user']['id']} AND order_date > '$t' ORDER BY `order_date` DESC";
-    // $o_result=$mysqli->query($o_sql);
-
-    // $o_data=[];
-    // $o_keys=[];
-    // while($r=$o_result->fetch_assoc()){
-    //     $o_data[]=$r;
-    //     $o_keys[]=$r['sid'];
-    // }
-    // $d_sql=sprintf("SELECT `order_details`.*, `products`.`umbrellaname`, `products`.`umbrella_id`, `products`.`price` 
-    //                 FROM `order_details` JOIN `products` ON `order_details`.product_sid=`products`.sid WHERE `order_details`.`order_sid` in (%s)", implode(',', $o_keys));
-    // $d_result=$mysqli->query($d_sql);
-    // $data=array();
-    // while($row=$d_result->fetch_assoc()){
-    //     $data[]=$row;
-    // }
+  
     $user=$_SESSION['user']['id'];
     $sql = "SELECT
         o.*,
@@ -204,6 +189,102 @@
         .tablePhone_a {
             display:none;
         }
+        /*active_y-------------------------------------*/
+        .active_y{
+            margin-top: 15%;
+            margin-bottom: 10%;
+        }
+        .active_a {
+            width:100%;
+            margin: 0 auto;
+            /* padding-top: 50px; */
+        }
+        .active_a ul {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;   
+        }
+        .active_a ul li {
+            width: 300px;
+            height: 300px;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+            transition: all 1s ease-in-out; 
+        }
+        .square_a {
+            background: #000000;
+        }
+        .active_a ul li a {
+            width: 300px;
+            height: 300px;
+            display: block;
+            z-index: 2;
+            
+        }
+        .active_a ul .square_a img {
+            max-width: 100%;
+            position: relative;
+            opacity: 0.4;
+            transition: all .5s ease-in-out; 
+        }
+        .square_a p {
+            font-size: 24px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            color: #fff;
+            transition: all .5s ease-in-out; 
+
+        }
+        .square_a .p2 {
+            margin-top:-32px;
+            margin-left:-94px;
+        }
+        .square_a .p4 {
+            margin-top:-16px;
+            margin-left:-94px;
+        }
+        .square_a .p6 {
+            margin-top:-16px;
+            margin-left:-81px;
+        }
+        .active_a ul .square_a:before {
+            width: 145%;
+            height: 145%;
+            top: 0;
+            left: 0;
+            content: '';
+            background: #161414;
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+            transform: rotate(110deg) translateY(-31%) translateX(-3.3%);
+        }
+        /* .active_a ul .square_a.red {
+            background: #581a14;
+        } */
+        .active_a ul .square_a:hover:before,
+        .active_a ul .square_a.hover:before {
+            transform: rotate(110deg) translateY(-150%);
+        }
+        .active_a ul .square_a:hover img{
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .active_a ul .square_a:hover p,
+        .active_a ul .square_a.hover p {
+            transform:translate(-160%,0);
+        }
+        .active_a ul .blue {
+            background: #b1aeae;
+        }
+        .active_a ul .orange {
+            background:#e0a340;
+        }
         /*-------toTop--------*//*f加*/
         .toTop{
             color: #1F5572 ;
@@ -260,8 +341,30 @@
                     </ul>
                     </form>
                 </div>
-                <pre><?php /*print_r($history);*/ ?> </pre>
-                
+    <?php if(empty($history)): ?>
+                <h3>您目前尚無訂購紀錄。</h3>
+                <div class="active_y">
+                    <h2>最新活動</h2>
+                    <div class="active_a">
+                        <ul>
+                            <li class="square_a blue">
+                                <img class="images" src="images/news_squre2_light.jpg" alt="">
+                                <p class="p2">梅雨季
+                                    <br>全館雨傘85折</p>
+                                <a href=""></a>
+                            </li>
+                            <li>
+                                <img src="images/member_square2.jpg" alt="">
+                            </li>
+                            <li class="square_a orange">
+                                <img class="images" src="images/news_squre4_light.jpg" alt="">
+                                <p class="p4">自動傘新品上架</p>
+                                <a href=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+    <?php else: ?>            
         <?php foreach($history as $value): ?>
                 <table class="table_history_y">
                     <caption>訂單編號:<?= $value['sid'] ?></caption>
@@ -296,38 +399,9 @@
                         </tr>
                     </tbody>
                 </table>
-        <?php endforeach; ?>
-   <?php /*             <table class="table_history_y">
-                    <caption>訂單編號:20180102</caption>
-                    <thead class="thead-dark_a">
-                        <tr>
-                            <th scope="col">日期</th>
-                            <th scope="col">商品圖片</th>
-                            <th scope="col">商品名稱</th>
-                            <th scope="col">數量</th>
-                            <th scope="col">單價</th>
-                            <th scope="col">小計</th>
-                            <th scope="col">狀態</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="buyList_y">
-                            <td>2018/01/16</td>
-                            <td class="history_pic_f"><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></td>
-                            <td>我是商品</td>
-                            <td>3</td>
-                            <td>NT$.1200</td>
-                            <td>NT$.3600</td>
-                            <td>已取貨</td>
-                        </tr>
-                        <tr class="total_y">
-                            <td colspan="5"></td>
-                            <td colspan="2">總金額 : </td>
-                        </tr>
-                    </tbody>
-                </table>
+
                 <table class="tablePhone_a">
-                    <caption>訂單編號:20180215</caption>
+                    <caption>訂單編號:<?= $value['sid'] ?></caption>
                     <thead class="thead-dark_a">
                         <tr>
                         <th scope="col">日期</th>
@@ -335,9 +409,10 @@
                     </thead>
                     <tbody>
                         <tr class="phoneListDate_y">
-                        <td>2018/02/15</td>
+                        <td><?= $data['order_date'] ?></td>
                         </tr>
                     </tbody>
+                <?php foreach($value['data'] as $data): ?>
                     <thead class="thead-dark_a">
                         <tr>
                         <th scope="col">商品圖片</th>
@@ -345,19 +420,19 @@
                     </thead>
                     <tbody>
                         <tr class="phoneList_y">
-                        <td><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
+                        <td><figure><img src="images/detail/<?= $data['umbrella_id'] ?>_1.png" alt=""></figure></td>
                         </tr>
                         <tr class="producCotent_a">
-                        <td><p>商品名稱<span>我是商品</span></p></td>
+                        <td><p>商品名稱<span><?= $data['umbrellaname'] ?></span></p></td>
                         </tr>
                         <tr class="producCotent_a producCotentM_a">
-                            <td><p>數量<span>1</span></p></td>
+                            <td><p>數量<span><?= $data['quantity'] ?></span></p></td>
                         </tr>
                         <tr class="producCotent_a producCotentM_a">
-                            <td><p>單價<span>NT$.1850</span></p></td>
+                            <td><p>單價<span>NT$.<?= $data['price'] ?></span></p></td>
                         </tr>
                         <tr class="producCotent_a producCotentM_a">
-                            <td><p>小計<span>NT$.1850</span></p></td>
+                            <td><p>小計<span>NT$.<?= $data['price']*$data['quantity'] ?></span></p></td>
                         </tr>
                         <tr class="producCotent_a producCotentM_a">
                             <td><p>狀態<span>出貨中</span></p></td>
@@ -366,79 +441,18 @@
                             <td><a href="">取消訂單</a></td>
                         </tr>
                     </tbody>
-                     <thead class="thead-dark_a">
-                        <tr>
-                        <th scope="col">商品圖片</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
-                        </tr>
-                        <tr class="producCotent_a">
-                        <td><p>商品名稱<span>我是商品</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>數量<span>1</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>單價<span>NT$.1850</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>小計<span>NT$.1850</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>狀態<span>出貨中</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a  producCotentL_a">
-                            <td><a href="">取消訂單</a></td>
-                        </tr>
+                <?php endforeach; ?>
+                     
                         <tr class="total_y">
-                            <td><p>總金額 : <span></span></p></td>
+                            <td><p>總金額 : <span><?= $value['amount'] ?></span></p></td>
                         </tr>
                     </tbody>
                  </table>
-                 <table class="tablePhone_a">
-                    <caption>訂單編號:20180116</caption>
-                    <thead class="thead-dark_a">
-                        <tr>
-                        <th scope="col">日期</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="phoneListDate_y">
-                        <td>2018/02/15</td>
-                        </tr>
-                    </tbody>
-                    <thead class="thead-dark_a">
-                        <tr>
-                        <th scope="col">商品圖片</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
-                        </tr>
-                        <tr class="producCotent_a">
-                        <td><p>商品名稱<span>我是商品</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>數量<span>1</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>單價<span>NT$.1850</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>小計<span>NT$.1850</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>狀態<span>已取貨</span></p></td>
-                        </tr>
-                        <tr class="total_y">
-                            <td><p>總金額 : <span></span></p></td>
-                        </tr>
-                    </tbody>
-                </table> */?>
+        <?php endforeach; ?>
+    <?php endif; ?>
+       
+               
+
                 
             </div> <!--main_y-->
         </div> <!--mainBox_y-->

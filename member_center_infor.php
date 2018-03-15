@@ -124,6 +124,9 @@
             margin-bottom: 3em;
             width: 26%;
         }
+        input{
+            font-size:16px;
+        }
         .memberInput1_y{
             /* width: 60%;
             height: 30px; */
@@ -156,6 +159,7 @@
             /* flex: 3; */
             width:80%;
             height: 30px;
+            font-size:16px;
         }
         :focus{
             outline:none!important;

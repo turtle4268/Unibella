@@ -1,4 +1,17 @@
 <?php require __DIR__. '/_db_connect.php'; ?>
+<?php 
+    if(!empty($_SESSION['cart'])){
+        $keys=array_keys($_SESSION['cart']);
+        $sql=sprintf("SELECT * FROM products WHERE sid IN (%s)",implode(',',$keys));
+        $result=$mysqli->query($sql);
+
+        $cartdata=[];
+        while($row=$result->fetch_assoc()){
+            $row['qty']=$_SESSION['cart'][$row['sid']];
+            $cartdata[$row['sid']]=$row;
+        }
+    }
+?>
 <?php include __DIR__.'/module_head.php' ?>
     <style>
     section{
@@ -68,6 +81,10 @@
     }
     .step_a:first-child .step-content_a {
         top:2px;
+        background:#f8d360;
+    }
+    .step_a:nth-child(2) .step-content_a {
+        background:#f8d360;
     }
     .step_a:nth-child(3) .step-content_a {
         top:1px;
@@ -116,7 +133,7 @@
     }
     .step-content_a i {
         position: absolute;
-        left: 0;
+        left: 3px;
         right: 0;
         top: 50%;
         line-height: 0;
@@ -135,7 +152,12 @@
     }
     .table_a {
         margin-top: 60px;
+    }
+    .table_a thead tr th {
         border-right: 1px solid #fff;
+    }
+    .table_a thead tr th.lastTh_a {
+        border-right: 1px solid #666;
     }
     table tbody tr td i.far {
         font-size: 20px;
@@ -145,8 +167,8 @@
         color: #fff;
         padding: 6px 0;
         border: 1px solid #666;
-        
     }
+    
     .delect_a {
         border-right: 1px solid #666;
     }
@@ -235,6 +257,7 @@
         left: 34%;
         top: 56%;
     }
+    
     /*按鈕*/
     .btn_a {
         display: flex;
@@ -341,10 +364,10 @@
                 <div class="des_a desUp_a">
                     <span>選擇付款方式</span>
                 </div>
-                <span class="step-content_a step1-content_a "></span> 
+                <span class="step-content_a step1-content_a "><i class="fa fa-check"></i></span> 
             </div>
             <div class="step_a">
-                <span class="step-content_a stepDown-content_a"></span>
+                <span class="step-content_a stepDown-content_a step2-content_a"><i class="fa fa-check"></i></span>
                 <div class="des_a desDown_a">
                     <span>填寫運送資料</span>
                 </div>
@@ -370,43 +393,38 @@
                   <th scope="col">數量</th>
                   <th scope="col">單價</th>
                   <th scope="col">小計</th>
-                  <th scope="col">備註</th>
-                  <th class="delect_a" scope="col">刪除</th>
+                  <th class="lastTh_a" scope="col">備註</th>
+                  <!-- <th class="delect_a" scope="col">刪除</th> -->
                 </tr>
               </thead>
             <tbody>
+            <?php foreach($_SESSION['cart'] as $sid =>$qty): ?>
                 <tr>
-                  <td class="productCom_A"><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
-                  <td>1111</td>
-                  <td>111</td>
-                  <td>111</td>
-                  <td>111</td>
-                  <td>111</td>
-                  <td><i class="far fa-trash-alt"></i></td>
+                  <td class="productCom_A"><figure><img src="images/detail/<?= $cartdata[$sid]['umbrella_id'] ?>_1.png" alt=""></figure></td>
+                  <td><?= $cartdata[$sid]['umbrellaname'] ?></td>
+                  <td><?= $qty ?></td>
+                  <td>NT$.<?= $cartdata[$sid]['price'] ?></td>
+                  <td>NT$.<?= $cartdata[$sid]['price']*$qty ?></td>
+                  <td>85折</td>
+                  <!-- <td><i class="far fa-trash-alt"></i></td> -->
                 </tr>
-                <tr>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                  <td>@fat</td>
-                  <td>@fat</td>
-                  <td>@fat</td>
-                  <td><i class="far fa-trash-alt"></i></td>
-                </tr>
+            <?php endforeach; ?>
             </tbody>
         </table>
-        <div class="tablePhone_a">
+    <?php foreach($_SESSION['cart'] as $sid =>$qty): ?>    
+        <div class="tablePhone_a" data-sid="<?= $sid ?>">
             <div class="listTitle_a">商品圖片</div>
-            <div class="listImg_a"><img src="images/detail/AF001_2.png" alt=""></div>
+            <div class="listImg_a"><img src="images/detail/<?= $cartdata[$sid]['umbrella_id'] ?>_1.png" alt=""></div>
             <div class="listContent_a">
-                <p>商品名稱<span class="listProduct_a">我是商品</span></p>
-                <p>數量<span class="listCS_a">1</span></p>
-                <p>單價<span class="listCS_a">NT$.1850</span></p>
-                <p>小計<span class="listCS_a">NT$.1850</span></p>
-                <p>備註<span class="listCS_a"></span></p>
-                <p>刪除<span class="listCS_a"><i class="far fa-trash-alt delet"></i></span></p>
+                <p>商品名稱<span class="listProduct_a"><?= $cartdata[$sid]['umbrellaname'] ?></span></p>
+                <p>數量<span class="listCS_a qty" data-qty=""><?= $qty ?></span></p>
+                <p>單價<span class="listCS_a price" data-price="">NT$.<i><?= $cartdata[$sid]['price'] ?></i></span></p>
+                <p>小計<span class="listCS_a subtotal" data-subtotal="">NT$.<i><?= $cartdata[$sid]['price']*$qty ?></i></span></p>
+                <p>備註<span class="listCS_a">85折</span></p>
+                <!-- <p>刪除<span class="listCS_a"><i class="far fa-trash-alt delet"></i></span></p> -->
             </div>
         </div>
+    <?php endforeach; ?>
         <!-- <table class="tablePhone_a">
                 <thead class="thead-dark_a">
                     <tr>
@@ -448,14 +466,11 @@
                 <tr>
                     <td>
                         <p class="formContent_a">付款方式
-                            <span>7-11貨到付款</span>
+                            <span>ATM付款</span>
                         </p>
                         <p class="formContent2_a">應付金額
-                            <span>2400</span>
-                        </p> 
-                        <p class="formContent3_a">超商門市
-                            <span>大安門市</span>
-                        </p>    
+                            <span>NT$.<?= $_SESSION['totalPrice'][1] ?></span>
+                        </p>     
                     </td>
                 </tr>
             </tbody>
@@ -470,20 +485,20 @@
                     <tr>
                         <td>
                             <p class="formContent_a">訂購人姓名
-                                <span>王大明</span>
+                                <span><?= $_SESSION['repepole'] ?></span>
                             </p>
                             <p class="formContent2_a">訂購人手機
-                                <span>0916335177</span>
+                                <span><?= $_SESSION['rephone'] ?></span>
                             </p>     
                         </td>
                     </tr>
                 </tbody>
             </table>
-        <div class="total_a" data-val="">共 X 件，總金額 NT$. 2400</div>
+        <div class="total_a" data-val="">共 <?= $_SESSION['totalQty'] ?> 件，總金額 NT$. <?= $_SESSION['totalPrice'][1] ?></div>
     </section>
     <div class="btn_a">
-        <a class="shop_a">繼續購物</a>
-        <a class="buy_a">回首頁</a>
+        <a class="shop_a" href="cartShipdata.php">上一步</a>
+        <a class="buy_a" href="cartFinishATM.php">下一步</a>
     </div>
     <div class="toTop">
         <div class="tr"></div>
@@ -497,7 +512,7 @@
     $(window).scroll(function(){
         var scrollNow=$(this).scrollTop();
         // console.log(scrollNow);
-        if (scrollNow < 240) {
+        if (scrollNow < 200) {
             $("header").removeClass("hide black");
         } else {
             if (scrollNow > scrolllast) {
