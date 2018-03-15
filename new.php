@@ -96,7 +96,7 @@
     }
     .square_a .p4 {
         margin-top:-16px;
-        margin-left:-94px;
+        margin-left:-150px;
     }
     .square_a .p6 {
         margin-top:-16px;
@@ -186,6 +186,9 @@
     }
     .newPShow_a {
         opacity:1; 
+    }
+    .newP2_a p{
+        text-align:center;
     }
     .textShow_a {
         transform: translateX(0);
@@ -334,14 +337,14 @@
                     <li class="square_a blue" >
                             <a href="#">
                             <img class="images" src="images/news_squre2_light.jpg" alt="">
-                            <p class="p2">梅雨季<br>全館雨傘88折</p>
+                            <p class="p2">梅雨季<br>全館雨傘85折</p>
                             </a>   
                     </li>
                     <li class="squarePhone_a"><img src="images/news_square3.jpg" alt=""></li>
                     <li class="square_a orange">
-                            <a href="#">
+                            <a href="activity1.php">
                             <img class="images" src="images/news_squre4_light.jpg" alt="">
-                            <p class="p4">自動傘新品上架</p>
+                            <p class="p4">Unibella X Flabjacks聯名新款</p>
                             </a>
                     </li>
                     <li class="squarePhone_a"><img src="images/news_square5.jpg" alt=""></li>
@@ -373,8 +376,8 @@
                 </div>
                 <div class="blue_a timeline">
                     <ul class="newLink_a">
-                        <li data-img="img1"><a>2018.02.05 Unibella教你玩轉雨傘成為雨天焦點</a></li>
-                        <li data-img="img4"><a>2017.11.16 Unibella 97公克羽量級折傘</a></li>
+                        <li data-img="img4"><a>2018.04.01 Unibella X Flabjacks聯名新款</a></li>
+                        <li data-img="img1"><a>2017.11.16 Unibella教你玩轉雨傘成為雨天焦點</a></li>
                         <li data-img="img6"><a>2017.03.05 Unibella x 北藝風特展商品開始預購</a></li>
                         <li data-img="img7"><a>2016.11.16 智能雨傘正夯，讓你與傘不散</a></li>
                         <li data-img="img5"><a>2015.07.05 Unibella：製造持久耐用的雨傘</a></li>
@@ -392,19 +395,13 @@
                     Unibella彩色傘搭配建議：當傘颜色已足夠鮮明時，服飾元素就盡可能極簡，避免將自己扮成調色盤，盡量選擇黑色和白色来與之搭配。<br><br>
                     纯黑傘：經典百搭永不出錯黑色的傘也被眾女星所喜爱，不僅低調，實用指數也是百分百，90后童星Dakota Fanning经典黑白配現身街頭，黑色的傘與長靴和手袋相呼應。</p>
                 </div>
-                <div class="newP_a" id="text2">
+                <div class="newP_a newP2_a" id="text2">
                     <p> 
-                    對於Unibella而言，成功地將您的產品推向市場要比推出正確的產品設計困難得多。
-                    為了研發能長久使用的產品我們避免慣性妥協，特別是製造商經常與客戶達成最低價格的合作，
-                    工廠將尋求節省資金和提高效率的方法。他們可能會改變供應商在材料上的細微差別，
-                    或抵制生產中的太多質量的檢查。您可能會收到請求，忽略產品的某種美感以簡化裝配。
-                    這些妥協可能看起來很小，但總體上它們會對產品產生重大影響。
-                    當你被要求妥協時，必須堅持材料的真實性，並尋找方法來改善您的產品組裝方式，
-                    同時不犧牲那些重要且通常很小的設計細節。 
-                    在生產開始時實施質量控制計劃，而不是結束，
-                    許多公司等到生產完成後才進行質量檢查，確保在庫存出貨之前一切正常。
-                    這是一個大錯誤，生產完成後，幾乎無法解決任何產品問題。
-                    一旦零件和材料到達，與您的製造商一起在流程開始時做好質量檢查。 
+                    Unibella對Ton可謂一見鍾情，我們偶遇在上海嘉里中心，專注繪畫的Ton ，散發一股特立獨行又認真的魅力。<br><br> 
+                    她的卡通形象：呆萌的Flabjacks更是直觀地傳達給人“開心”的情緒，
+                    這就是Unibella一直想告訴給人們的“當你遇到一點壞天氣的時候，當你遇到不快的時候，
+                    如何樂觀面對和打敗它們”。 <br><br>
+                    "Everything is Okay" 一款設計師聯名合作傘便就此誕生。
                     </p>
                 </div>
                 <div class="newP_a" id="text3">
