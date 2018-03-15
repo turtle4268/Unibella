@@ -472,10 +472,14 @@
             $.get("add_to_cart.php",{sid:sid},function(data){
                 $(".tablePhone_a").each(function(){
                     if($(this).data("sid")==sid) $(this).remove();
+                    
                 });
-                card
+                <?php if(empty($_SESSION['cart'])): ?>
+                        location.href=location.href;
+                    <?php endif; ?>
                 count();
             },'json');
+            
         });
         /*add price to session*/
         $(".buynext").click(function(){
