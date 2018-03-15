@@ -120,7 +120,7 @@
             border-bottom: 1px solid #666;
             width:200px;
             height: 30px; 
-            padding: 0 0 0 29%; 
+            padding: 0 0 0 28%; 
             cursor: pointer;       
         }
         Select:focus{
@@ -424,6 +424,7 @@
             width: 70%;
             height: 100%;
             margin: 5% auto 0 auto;
+                
         }
         .tagFour_y{
             display: flex;

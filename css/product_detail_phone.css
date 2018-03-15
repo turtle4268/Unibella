@@ -52,7 +52,7 @@
     /*productInfor_y---------------------------------------------*/
          .productInforBox_y{
             width: 100%;
-            height: 1120px;
+            height: 1200px;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -61,7 +61,7 @@
         }
         .productInfor_y{
             width: 330px;
-            height: 165px;
+            height: 140px;
             background: #d8d8d8;
             margin-top: -50px;
             text-align: center;
@@ -87,6 +87,9 @@
             text-align: center;   
             margin-top: 1.5em;     
         }
+        .qtySelect_y{
+            padding: 0 0 0 26%;        
+        }
         .buyBtn_y{
             width: 230px;
             padding: 10px 25px;
@@ -103,7 +106,7 @@
     /*productSlideBox_y-----------------------------------------*/
         .productSlideBox_y{        
             width: 330px;
-            height:350px;
+            height:340px;
             position: relative;
             margin: 0 auto;
             order: 0;
@@ -120,7 +123,7 @@
     /*productPrice_y----------------------------------------------*/
         .productPrice_y{
             width: 330px;
-            height:480px;
+            height:550px;
             padding: 0;
             margin: -30px auto 0 auto;
             order: 2;
@@ -133,11 +136,12 @@
             width: 100%;
             height: 100%;
             margin: 0;
+              padding-top: 10%;
         }
         .tagFourBox_y{
-            width: 375px;
+            width: 100%;
             height: 2567px;
-            margin: 150px auto 0 auto;
+            margin: 80px auto 0 auto;
         }
         .tagFour_y{
             display: flex;
