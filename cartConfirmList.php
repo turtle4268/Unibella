@@ -152,7 +152,12 @@
     }
     .table_a {
         margin-top: 60px;
+    }
+    .table_a thead tr th {
         border-right: 1px solid #fff;
+    }
+    .table_a thead tr th.lastTh_a {
+        border-right: 1px solid #666;
     }
     table tbody tr td i.far {
         font-size: 20px;
@@ -162,8 +167,8 @@
         color: #fff;
         padding: 6px 0;
         border: 1px solid #666;
-        
     }
+    
     .delect_a {
         border-right: 1px solid #666;
     }
@@ -388,7 +393,7 @@
                   <th scope="col">數量</th>
                   <th scope="col">單價</th>
                   <th scope="col">小計</th>
-                  <th scope="col">備註</th>
+                  <th class="lastTh_a" scope="col">備註</th>
                   <!-- <th class="delect_a" scope="col">刪除</th> -->
                 </tr>
               </thead>
