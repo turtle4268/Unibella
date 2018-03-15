@@ -242,6 +242,7 @@
             height: max-content ;
             margin: 0 auto ;
             line-height: 32px ;
+            text-align: justify;
         }
         .intro_r{
             left: 8% ;
@@ -758,8 +759,7 @@
                         <h2>Be Your Unique Unbrella.</h2>
                     </div>
                     <div class="intro intro_r fadeOut">
-                        <p>青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝
-                        相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝</p>
+                        <p>Unibella的雨傘使用FRP玻璃纖維骨架，具高韌性彈力佳、不易折斷抗風性佳，並使用防潑水傘布，讓雨水不會附著在傘面上，雨傘更快乾，不臭不發霉。</p>
                     </div>
                     <div class="back_r back">BACK</div>
                 </div>
@@ -788,8 +788,7 @@
                         <h2>Be Your Unique Unbrella.</h2>
                     </div>
                     <div class="intro intro_l fadeOut">
-                        <p>青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝
-                        相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝</p>
+                        <p>傘面使用高密度防潑水PG傘布，屬於一級防紫外線的傘布， 不易磨損、柔軟舒適、清洗方便、 傘布較厚，防紫外線效果極佳。</p>
                     </div>
                     <div class="back_l back">BACK</div>
                 </div>
@@ -831,7 +830,8 @@
             </div>
             <div class="content">
                 <h3>定位系統</h3>
-                <p>青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今江東逝水，白髮漁樵江渚上，古今</p>
+                <p>Unibella智慧雨傘，透過雨傘內部的接收器與手機連線， 當使用者離開雨傘的區域範圍（30/50 公尺）時，手機端會通知您忘記將雨傘帶走。
+                同時也會記錄最後遺失的位置，讓您不再為遺失傘而煩惱。</p>
             </div>
         </section>
         <section class="" id="light">
@@ -843,7 +843,7 @@
              
             <div class="content">
                 <h3>極輕</h3>
-                <p>青山依舊在，幾度夕陽紅。慣看秋月春風。一壺濁酒喜相逢，浪花淘盡英雄。是非成敗轉頭空，滾滾長江東逝水，白髮漁樵江渚上，古今江東逝水，白髮漁樵江渚上，古今</p>
+                <p>傘骨採用FRP玻璃纖維製作，除了抗風性佳， 更減輕雨傘重量，不論放在背包或拿在手上都不會過度負擔。</p>
             </div>
         </section>
         <section id="popular">
