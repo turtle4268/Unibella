@@ -95,16 +95,15 @@
         text-align: center;
         font-size: 24pt;
     }
-    .usFormCon_a select {
+    /* .usFormCon_a select {
         width: 67%;
-        /* height: 30px; */
         color:#666666;
         border:none;
         border-bottom: 1px solid #666;
         font-size: 16px;
         margin-top: 15px;
         margin-bottom: 15px;
-    }
+    } */
     .usFormCon_a textarea {
         width: 90%;
         color:#666666;
@@ -112,20 +111,75 @@
         margin-top: 20px;
     }
     .usFormCon_a input {
-        width: 66%;
+        /* width: 66%; */
         /* height: 30px; */
-        border:none;
+        /* border:none;
         border-bottom: 1px solid #666;
         font-size: 16px;
-        margin-top: 15px;
+        margin-top: 15px; */
     }
     .usFormCon_a select:focus, .usFormCon_a input:focus {
         outline:none;
-        border-bottom: 1px solid#302f3a;
+        /* border-bottom: 1px solid#302f3a; */
     }
     .usFormCon_a textarea:focus {
         outline:none;  
     }
+    /*--input--*/
+    :focus{
+        outline: none;
+    }
+    .usFormCon_a input[type="text"]{
+        font: 15px/24px 'Muli', sans-serif; 
+        color: #333; 
+        width: 100%; 
+        box-sizing: border-box; 
+        letter-spacing: 1px;
+    }
+    .usFormCon_a label {
+        float: left;
+        font-size: 18px;
+        padding: 5px 0;
+    }
+    
+    .usFormCon_a .col-3{
+        float: left; 
+        width: 61%; 
+        margin:0 3% 40px 3%; 
+        position: relative;
+
+    }
+    .text_a{
+        border: 0; 
+        padding: 5px 0 5px; 
+        border: 1px solid transparent; 
+        border-bottom-color: #000; 
+        transition: 0.4s;
+        position: relative;
+    }
+    .text_a:focus{
+        padding: 5px 10px 5px; 
+        transition: 0.4s;
+    }
+
+    .text_a ~ .focus-border{
+        position: absolute; 
+        height: 0; 
+        bottom: 0; left: 0; 
+        width: 100%; 
+        transition: 0.4s; 
+        z-index: -1;
+    }
+    .text_a:focus ~ .focus-border{
+        transition: 0.4s; 
+        height: 34px; 
+        border: 2px solid #3399FF; 
+        z-index: 1;
+    }
+    .usFormCon_a select {
+        width: 100%;
+    }
+    /*--button--*/
     button {
         width: 25%;
         height: 30px;
@@ -255,11 +309,15 @@
                             <h3>我想發問</h3>
                             <br>
                             <label for="">電子郵件</label>
-                            <input type="text">
+                            <div class="col-3">
+                                <input class="text_a" type="text">
+                                <span class="focus-border"></span>
+                            </div>
                             <br>
                             <br>
                             <label for="">問題類型</label>
-                            <select class="form-control form-control-lg">
+                            <div class="col-3">
+                            <select class="text_a" size=1 STYLE="font-size:16px">
                                     <option>請選擇</option>
                                     <option>關於訂購</option>
                                     <option>關於配送</option>
@@ -267,6 +325,8 @@
                                     <option>電子發票相關</option>
                                     <option>其它</option>
                             </select>
+                            <span class="focus-border"></span>
+                            </div>
                             <br>
                             <br>
                             <label for="">問題說明</label><br>
