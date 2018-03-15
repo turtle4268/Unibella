@@ -367,7 +367,7 @@
                 </div>
             </div>
         </div>
-        <div class="total_a" data-val="">共 <?= $_SESSION['totalQty'] ?> 件，總金額 NT$. <?= $_SESSION['totalPrice'] ?></div>
+        <div class="total_a" data-val="">共 <?= $_SESSION['totalQty'] ?> 件，總金額 NT$. <?= $_SESSION['totalPrice'][1] ?></div>
         <table class="table_a">
                 <thead class="thead-dark_a">
                     <tr>
@@ -381,7 +381,7 @@
                             <span>7-11貨到付款</span>
                         </p>
                         <p class="formContent2_a">應付金額
-                            <span>2400</span>
+                            <span><?= $_SESSION['totalPrice'][1] ?></span>
                         </p>     
                         </td>
                     </tr>
@@ -450,8 +450,8 @@
         </table>
     </section>
     <div class="btn_a">
-        <a class="goCart_a disabled">上一步</a>
-        <a class="next_a">下一步</a>
+        <a class="goCart_a" href="cartPayShip.php">上一步</a>
+        <a class="next_a" href="cartConfirmList.php">下一步</a>
         
     </div>
     <div class="toTop">
