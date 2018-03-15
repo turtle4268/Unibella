@@ -293,8 +293,8 @@
                         <div class="listContent_a">
                             <p>商品名稱<span class="listProduct_a"><?= $value['umbrellaname'] ?></span></p>
                             <p>單價<span class="listCS_a price">NT$.<?= $value['price'] ?></span></p>
-                            <p>加入購物車<span class="listCS_a"></span></p>
-                            <p>刪除<span class="listCS_a"><i class="far fa-trash-alt delet"></i></span></p>
+                            <p class="listContentAD_a"><a>加入購物車</a></p>
+                            <p class="listContentAD_a"><a>刪除</a></p>
                         </div>
                     </div>
                 <?php endforeach; ?>

@@ -242,9 +242,13 @@
         .listContent_a p .listCS_a {
             margin-left: 30%;
         }
+        .listContent_a .listContentAD_a {
+            justify-content: center;
+            margin-left: 0;
+        }
         .listCS_a i{
             font-style: normal ;
-    }
+        }
         .producCotentL_a a {
             width: 24%;
             margin-left: 0;
