@@ -87,6 +87,7 @@
     }
     .step_a:first-child .step-content_a {
         top:2px;
+        background:#f8d360;
     }
     .step_a:nth-child(3) .step-content_a {
         top:1px;
@@ -195,6 +196,9 @@
         height: 25px;   
     }
     /*----表格2-------*/
+    .table2_a {
+        margin-top: 0;
+    }
     .table2_a tbody tr td {
         height: 50px;
     }
@@ -237,6 +241,15 @@
     .formRadios_a {
         width: 18px;
         margin: 25px 20px;
+    }
+    /*----theSame-------*/
+    .theSame_a {
+        padding:10px 0;
+        width:55%;
+        margin:10px auto 0 auto;
+    }
+    .theSame_a label {
+        margin-left:5px;
     }
     
     /*----按鈕-------*/
@@ -346,7 +359,7 @@
                 <div class="des_a desUp_a">
                     <span>選擇付款方式</span>
                 </div>
-                <span class="step-content_a step1-content_a "></span> 
+                <span class="step-content_a step1-content_a "><i class="fa fa-check"></i></span> 
             </div>
             <div class="step_a">
                 <span class="step-content_a stepDown-content_a"></span>
@@ -387,6 +400,7 @@
                     </tr>
                 </tbody>
         </table>
+        <div class="theSame_a"><input type="checkbox"><label for="">同會員資料</label></div>
         <table class="table2_a">
             <thead class="thead-dark_a">
                 <tr>
@@ -418,16 +432,8 @@
                     <td class="address-td_a">
                         <p class="address_a">
                             <span>地址</span>
-                            <select name="" id="">
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                            </select>
-                            <select name="" id="">
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                            </select>
+                            <input type="text">
+                            <input type="text">
                             <input type="text">                           
                         </p>
                         <p class="notice_a">注意事項
