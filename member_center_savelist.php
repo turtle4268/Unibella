@@ -4,6 +4,14 @@
         header('Location:member_login.php');
         exit;
     }
+    $user=$_SESSION['user']['id'];
+    $sql="SELECT * FROM `loves` l JOIN `products` p ON p.sid=l.product_sid WHERE `member_sid`={$_SESSION['user']['id']} ORDER BY `create_at` DESC";
+    $result=$mysqli->query($sql);
+
+    $loves=array();
+    while($row=$result->fetch_assoc()){
+        $loves[]=$row;
+    }
 
 ?>
 <?php include __DIR__.'/module_head.php' ?>
@@ -122,7 +130,7 @@
         tbody tr td i.far {
             font-size: 20px;
         }
-        .tablePhone_a {
+        div.tablePhone_a {
             display:none;
         }
         /*tbody button樣式修改*/
@@ -267,66 +275,30 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="save_pic_f"><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></td>
-                            <td>我是商品</td>
-                            <td>NT$.1850</td>
+                <?php foreach($loves as $value): ?>
+                        <tr class="card" data-sid="<?= $value['product_sid'] ?>">
+                            <td class="save_pic_f"><img src="images/detail/<?= $value['umbrella_id'] ?>_1.png" alt=""></td>
+                            <td><?= $value['umbrellaname'] ?></td>
+                            <td>NT$.<?= $value['price'] ?></td>
                             <td><button class="addcart_f">加入購物車</button></td>
                             <td><button class="delete_f"><i class="far fa-trash-alt"></i></button></td>
                         </tr>
-                        <tr>
-                            <td class="save_pic_f"><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></td>
-                            <td>我是商品</td>
-                            <td>NT$.1850</td>
-                            <td><button class="addcart_f">加入購物車</button></td>
-                            <td><button class="delete_f"><i class="far fa-trash-alt"></i></button></td>
-                        </tr>
+                <?php endforeach; ?>
                     </tbody>
                     <table class="tablePhone_a">
-                    <thead class="thead-dark_a">
-                        <tr>
-                        <th scope="col">商品圖片</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="phoneList_y">
-                        <td><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
-                        </tr>
-                        <tr class="producCotent_a">
-                        <td><p>商品名稱<span>我是商品</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>單價<span>NT$.1850</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a  producCotentL_a">
-                            <td><a href="">加入購物車</a></td>
-                        </tr>
-                         <tr class="producCotent_a  producCotentD_a">
-                            <td><p>刪除<span></span></p></td>
-                        </tr>
-                    </tbody>
-                     <thead class="thead-dark_a">
-                        <tr>
-                        <th scope="col">商品圖片</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="phoneList_y">
-                        <td><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
-                        </tr>
-                        <tr class="producCotent_a">
-                        <td><p>商品名稱<span>我是商品</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>單價<span>NT$.1850</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a  producCotentL_a">
-                            <td><a href="">加入購物車</a></td>
-                        </tr>
-                         <tr class="producCotent_a  producCotentD_a">
-                            <td><p>刪除<span></span></p></td>
-                        </tr>
-                    </tbody>
+                <?php foreach($loves as $value): ?>
+                    <div class="tablePhone_a card" data-sid="<?= $value['product_sid'] ?>">
+                        <div class="listTitle_a">商品圖片</div>
+                        <div class="listImg_a"><img src="images/detail/<?= $value['umbrella_id'] ?>_1.png" alt=""></div>
+                        <div class="listContent_a">
+                            <p>商品名稱<span class="listProduct_a"><?= $value['umbrellaname'] ?></span></p>
+                            <p>單價<span class="listCS_a price">NT$.<?= $value['price'] ?></span></p>
+                            <p>加入購物車<span class="listCS_a"></span></p>
+                            <p>刪除<span class="listCS_a"><i class="far fa-trash-alt delet"></i></span></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+                     
                  </table>
                 </table> 
                 <div class="btn_a">
