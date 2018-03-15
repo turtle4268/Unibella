@@ -175,6 +175,7 @@
             text-align: center ;
             position: relative ;
             color: #FFF ;
+            cursor: pointer ;
         }
         .rain{
             background-color: #1F5572 ;
