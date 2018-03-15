@@ -101,6 +101,9 @@
             /* flex: 2; */
             margin-right:5px;
         }
+        input{
+            font-size:16px;
+        }
         .loginInput_y{
             background-color:transparent;
             color: #1f5572;
@@ -112,7 +115,7 @@
         }
         .loginPass_y{
             width: 220px;
-    }
+        }
         input:focus{
             outline:none!important;
         }
@@ -306,6 +309,7 @@
             border-bottom: 1px solid #f8cf4e;
             width:84%;
             height: 30px; 
+            font-size:16px;
         }
         .f_registerBtn_y{
             background-color: transparent;

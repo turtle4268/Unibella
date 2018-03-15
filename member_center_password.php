@@ -109,6 +109,9 @@
             margin: 0 auto;
             padding-left: 5%; 
         }
+        input{
+            font-size:16px;
+        }
         .passwordInfor_y{
             /* display: flex;
             justify-content: space-between;
