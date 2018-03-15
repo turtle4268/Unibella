@@ -1,4 +1,8 @@
 <?php require __DIR__. '/_db_connect.php'; ?>
+<?php 
+    unset($_SESSION['repepole']);
+    unset($_SESSION['rephone']);
+?>
 <?php include __DIR__.'/module_head.php' ?>
     <style>
     section{
@@ -391,7 +395,7 @@
                     <tr>
                         <td>
                         <p class="formContent_a">付款方式
-                            <span>7-11貨到付款</span>
+                            <span>ATM付款</span>
                         </p>
                         <p class="formContent2_a">應付金額
                             <span><?= $_SESSION['totalPrice'][1] ?></span>
@@ -400,7 +404,7 @@
                     </tr>
                 </tbody>
         </table>
-        <div class="theSame_a"><input type="checkbox"><label for="">同會員資料</label></div>
+        <div class="theSame_a"><input type="checkbox" class="same"><label for="">同會員資料</label></div>
         <table class="table2_a">
             <thead class="thead-dark_a">
                 <tr>
@@ -410,15 +414,15 @@
             <tbody>
                 <tr>
                     <td>
-                        <p>帳號
-                            <span>121345</span>
+                        <p>姓名
+                            <input type="text" id="name" value="">
                         </p>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p>手機
-                            <input type="text">
+                            <input type="text" id="phone" value="">
                         </p>
                     </td>
                 </tr>
@@ -432,9 +436,7 @@
                     <td class="address-td_a">
                         <p class="address_a">
                             <span>地址</span>
-                            <input type="text">
-                            <input type="text">
-                            <input type="text">                           
+                            <input type="text" id="address" value="">                           
                         </p>
                         <p class="notice_a">注意事項
                         <br>外島、離島地區無宅配服務，將會以郵局包裹或 7-11 到貨方式寄送
@@ -444,11 +446,11 @@
                     <td class="invoice-td_a">
                         <p>發票</p>
                         <div class="invoiceRadios_a">
-                            <input class="formRadios_a" type="radio" name="Radios" id="Radios1" value="option1">捐贈發票
+                            <input class="formRadios_a" type="radio" name="Radios" id="Radios1" value="1">捐贈發票
                             <br>
-                            <input class="formRadios_a" type="radio" name="Radios" id="Radios2" value="option2">電子發票
+                            <input class="formRadios_a" type="radio" name="Radios" id="Radios2" value="2">電子發票
                             <br>
-                            <input class="formRadios_a" type="radio" name="Radios" id="Radios3" value="option3">三聯式發票
+                            <input class="formRadios_a" type="radio" name="Radios" id="Radios3" value="3">三聯式發票
                         </div>
                     </td>
                 </tr>
@@ -457,7 +459,7 @@
     </section>
     <div class="btn_a">
         <a class="goCart_a" href="cartPayShip.php">上一步</a>
-        <a class="next_a" href="cartConfirmList.php">下一步</a>
+        <a class="next_a" >下一步</a>
         
     </div>
     <div class="toTop">
@@ -485,11 +487,11 @@
     });
 
     // stepProcess
-    var stepContent = $(".step-content_a"),
+    /* var stepContent = $(".step-content_a"),
     nexBtn = $(".next_a"),
     goCartBtn = $(".goCart_a");
     var i = 0;
-    // Next btn click
+    Next btn click
     $(nexBtn).click(function() {
         if (i < stepContent.length) {
             $(stepContent[i]).addClass("active")
@@ -500,7 +502,7 @@
             return false;
         }
     });
-    // Prev btn click
+    Prev btn click
     $(goCartBtn).click(function() {
         if (i < 1) {
             $(goCartBtn).attr('disabled', 'disabled');
@@ -511,12 +513,43 @@
             $(stepContent[i]).removeClass("active");
             }
         }
-    });
+    });*/
     /*to top*/
     $(".toTop").click(function(){
         $("html,body").animate({
             scrollTop:0
         },1000);
+    });
+    
+    /*同會員資料 */
+    $(".same").click(function(){
+        if($(this).prop("checked")){  
+            $("#name").val("<?= $_SESSION['user']['name'] ?>");
+            $("#phone").val("<?= $_SESSION['user']['mobile'] ?>");
+            $("#address").val("<?= $_SESSION['user']['address'] ?>");
+        }else{
+            $("#name").val("");
+            $("#phone").val("");
+            $("#address").val("");
+        }
+    });
+    /*Next*/
+    $(".next_a").click(function(){
+        var name=$("#name").val(),
+            phone=$("#phone").val(),
+            address=$("#address").val(),
+            radio=$(".formRadios_a").val();
+        if(name=="" || phone=="" || address=="" || radio==""){
+            alert("請填入收件資料");
+        }else{
+            var repepole=name,
+                rephone=phone;
+            $.get("add_recipient.php",{repepole:repepole,rephone:rephone},function(data){
+                console.log(data);
+                location.href="cartConfirmList.php";
+            });
+            
+        }
     });
    
     </script> 

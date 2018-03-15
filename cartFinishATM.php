@@ -47,7 +47,7 @@
     // print_r(implode(',',$keys));
     unset($_SESSION['cart']);
     unset($_SESSION['totalQty']); unset($_SESSION['totalPrice']);        //清除購物車內容
-
+    unset($_SESSION['repepole']); unset($_SESSION['rephone']);
 ?>
 <?php include __DIR__.'/module_head.php' ?>
     <style>
@@ -375,8 +375,8 @@
             
         </section>
         <div class="btn_a">
-                <a class="shop_a">回首頁</a>
-                <a class="buy_a">回商品頁</a>
+                <a class="shop_a" href="home.php">回首頁</a>
+                <a class="buy_a" href="product_list3.php">回商品頁</a>
         </div>
         <div class="toTop">
             <div class="tr"></div>

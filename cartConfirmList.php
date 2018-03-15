@@ -152,7 +152,12 @@
     }
     .table_a {
         margin-top: 60px;
+    }
+    .table_a thead tr th {
         border-right: 1px solid #fff;
+    }
+    .table_a thead tr th.lastTh_a {
+        border-right: 1px solid #666;
     }
     table tbody tr td i.far {
         font-size: 20px;
@@ -162,8 +167,8 @@
         color: #fff;
         padding: 6px 0;
         border: 1px solid #666;
-        
     }
+    
     .delect_a {
         border-right: 1px solid #666;
     }
@@ -252,6 +257,7 @@
         left: 34%;
         top: 56%;
     }
+    
     /*按鈕*/
     .btn_a {
         display: flex;
@@ -387,7 +393,7 @@
                   <th scope="col">數量</th>
                   <th scope="col">單價</th>
                   <th scope="col">小計</th>
-                  <th scope="col">備註</th>
+                  <th class="lastTh_a" scope="col">備註</th>
                   <!-- <th class="delect_a" scope="col">刪除</th> -->
                 </tr>
               </thead>
@@ -411,9 +417,9 @@
             <div class="listImg_a"><img src="images/detail/<?= $cartdata[$sid]['umbrella_id'] ?>_1.png" alt=""></div>
             <div class="listContent_a">
                 <p>商品名稱<span class="listProduct_a"><?= $cartdata[$sid]['umbrellaname'] ?></span></p>
-                <p>數量<span class="listCS_a qty" data-qty="<?= $qty ?>">0</span></p>
-                <p>單價<span class="listCS_a price" data-price="<?= $cartdata[$sid]['price'] ?>">NT$.<i>0</i></span></p>
-                <p>小計<span class="listCS_a subtotal" data-subtotal="<?= $cartdata[$sid]['price']*$qty ?>">NT$.<i>0</i></span></p>
+                <p>數量<span class="listCS_a qty" data-qty=""><?= $qty ?></span></p>
+                <p>單價<span class="listCS_a price" data-price="">NT$.<i><?= $cartdata[$sid]['price'] ?></i></span></p>
+                <p>小計<span class="listCS_a subtotal" data-subtotal="">NT$.<i><?= $cartdata[$sid]['price']*$qty ?></i></span></p>
                 <p>備註<span class="listCS_a">85折</span></p>
                 <!-- <p>刪除<span class="listCS_a"><i class="far fa-trash-alt delet"></i></span></p> -->
             </div>
@@ -463,11 +469,8 @@
                             <span>ATM付款</span>
                         </p>
                         <p class="formContent2_a">應付金額
-                            <span><?= $_SESSION['totalPrice'][1] ?></span>
-                        </p> 
-                        <p class="formContent3_a">超商門市
-                            <span>大安門市</span>
-                        </p>    
+                            <span>NT$.<?= $_SESSION['totalPrice'][1] ?></span>
+                        </p>     
                     </td>
                 </tr>
             </tbody>
@@ -482,10 +485,10 @@
                     <tr>
                         <td>
                             <p class="formContent_a">訂購人姓名
-                                <span>王大明</span>
+                                <span><?= $_SESSION['repepole'] ?></span>
                             </p>
                             <p class="formContent2_a">訂購人手機
-                                <span>0916335177</span>
+                                <span><?= $_SESSION['rephone'] ?></span>
                             </p>     
                         </td>
                     </tr>

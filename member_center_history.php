@@ -189,6 +189,102 @@
         .tablePhone_a {
             display:none;
         }
+        /*active_y-------------------------------------*/
+        .active_y{
+            margin-top: 15%;
+            margin-bottom: 10%;
+        }
+        .active_a {
+            width:100%;
+            margin: 0 auto;
+            /* padding-top: 50px; */
+        }
+        .active_a ul {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;   
+        }
+        .active_a ul li {
+            width: 300px;
+            height: 300px;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+            transition: all 1s ease-in-out; 
+        }
+        .square_a {
+            background: #000000;
+        }
+        .active_a ul li a {
+            width: 300px;
+            height: 300px;
+            display: block;
+            z-index: 2;
+            
+        }
+        .active_a ul .square_a img {
+            max-width: 100%;
+            position: relative;
+            opacity: 0.4;
+            transition: all .5s ease-in-out; 
+        }
+        .square_a p {
+            font-size: 24px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            color: #fff;
+            transition: all .5s ease-in-out; 
+
+        }
+        .square_a .p2 {
+            margin-top:-32px;
+            margin-left:-94px;
+        }
+        .square_a .p4 {
+            margin-top:-16px;
+            margin-left:-94px;
+        }
+        .square_a .p6 {
+            margin-top:-16px;
+            margin-left:-81px;
+        }
+        .active_a ul .square_a:before {
+            width: 145%;
+            height: 145%;
+            top: 0;
+            left: 0;
+            content: '';
+            background: #161414;
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+            transform: rotate(110deg) translateY(-31%) translateX(-3.3%);
+        }
+        /* .active_a ul .square_a.red {
+            background: #581a14;
+        } */
+        .active_a ul .square_a:hover:before,
+        .active_a ul .square_a.hover:before {
+            transform: rotate(110deg) translateY(-150%);
+        }
+        .active_a ul .square_a:hover img{
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .active_a ul .square_a:hover p,
+        .active_a ul .square_a.hover p {
+            transform:translate(-160%,0);
+        }
+        .active_a ul .blue {
+            background: #b1aeae;
+        }
+        .active_a ul .orange {
+            background:#e0a340;
+        }
         /*-------toTop--------*//*f加*/
         .toTop{
             color: #1F5572 ;
@@ -245,8 +341,30 @@
                     </ul>
                     </form>
                 </div>
-                <pre><?php /*print_r($history);*/ ?> </pre>
-                
+    <?php if(empty($history)): ?>
+                <h3>您目前尚無訂購紀錄。</h3>
+                <div class="active_y">
+                    <h2>最新活動</h2>
+                    <div class="active_a">
+                        <ul>
+                            <li class="square_a blue">
+                                <img class="images" src="images/news_squre2_light.jpg" alt="">
+                                <p class="p2">梅雨季
+                                    <br>全館雨傘85折</p>
+                                <a href=""></a>
+                            </li>
+                            <li>
+                                <img src="images/member_square2.jpg" alt="">
+                            </li>
+                            <li class="square_a orange">
+                                <img class="images" src="images/news_squre4_light.jpg" alt="">
+                                <p class="p4">自動傘新品上架</p>
+                                <a href=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+    <?php else: ?>            
         <?php foreach($history as $value): ?>
                 <table class="table_history_y">
                     <caption>訂單編號:<?= $value['sid'] ?></caption>
@@ -291,7 +409,7 @@
                     </thead>
                     <tbody>
                         <tr class="phoneListDate_y">
-                        <td>2018/02/15</td>
+                        <td><?= $data['order_date'] ?></td>
                         </tr>
                     </tbody>
                 <?php foreach($value['data'] as $data): ?>
@@ -331,6 +449,7 @@
                     </tbody>
                  </table>
         <?php endforeach; ?>
+    <?php endif; ?>
        
                
 
