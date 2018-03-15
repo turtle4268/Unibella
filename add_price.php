@@ -10,7 +10,8 @@ session_start();
 // }
 
 if(isset($_GET['tqty'])) $_SESSION['totalQty']=$_GET['tqty'];
-if(isset($_GET['tprice'])) $_SESSION['totalPrice']=$_GET['tprice'];
+if(isset($_GET['tprice'])) $_SESSION['totalPrice'][]=$_GET['tprice'];
+
 
 echo json_encode($_SESSION['totalQty'],$_SESSION['totalPrice']);
 

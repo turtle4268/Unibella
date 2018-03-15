@@ -395,7 +395,7 @@
     <?php endforeach; ?>
         
         <div class="total_a" data-val="">共 <span class="tqty">X</span> 件，總金額 NT$. <span class="tprice">2400</span></div>
-        <?php endif; ?>
+<?php endif; ?>
     </section>
 <?php if(empty($cartdata)): ?>
     <div class="btn_a">

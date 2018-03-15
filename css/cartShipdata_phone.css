@@ -127,6 +127,16 @@
         height: 10px;
         width: 61px;
     }
+    /*--theSame--*/
+    .theSame_a {
+        width: 80%;
+    }
+    .theSame_a input {
+        height: auto;
+        width: auto;
+        margin-left: 0;
+    }
+    
     /*--button--*/
     .btn_a {
         /* display: block; */

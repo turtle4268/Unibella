@@ -9,22 +9,7 @@
     $t2=date("Y-m-d H:i:s",time()-60*60*24*90);
     $t2=date("Y-m-d H:i:s",time()-60*60*24*180);
 
-    // $o_sql="SELECT * FROM `orders` WHERE `member_sid`={$_SESSION['user']['id']} AND order_date > '$t' ORDER BY `order_date` DESC";
-    // $o_result=$mysqli->query($o_sql);
-
-    // $o_data=[];
-    // $o_keys=[];
-    // while($r=$o_result->fetch_assoc()){
-    //     $o_data[]=$r;
-    //     $o_keys[]=$r['sid'];
-    // }
-    // $d_sql=sprintf("SELECT `order_details`.*, `products`.`umbrellaname`, `products`.`umbrella_id`, `products`.`price` 
-    //                 FROM `order_details` JOIN `products` ON `order_details`.product_sid=`products`.sid WHERE `order_details`.`order_sid` in (%s)", implode(',', $o_keys));
-    // $d_result=$mysqli->query($d_sql);
-    // $data=array();
-    // while($row=$d_result->fetch_assoc()){
-    //     $data[]=$row;
-    // }
+  
     $user=$_SESSION['user']['id'];
     $sql = "SELECT
         o.*,
@@ -296,38 +281,9 @@
                         </tr>
                     </tbody>
                 </table>
-        <?php endforeach; ?>
-   <?php /*             <table class="table_history_y">
-                    <caption>訂單編號:20180102</caption>
-                    <thead class="thead-dark_a">
-                        <tr>
-                            <th scope="col">日期</th>
-                            <th scope="col">商品圖片</th>
-                            <th scope="col">商品名稱</th>
-                            <th scope="col">數量</th>
-                            <th scope="col">單價</th>
-                            <th scope="col">小計</th>
-                            <th scope="col">狀態</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="buyList_y">
-                            <td>2018/01/16</td>
-                            <td class="history_pic_f"><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></td>
-                            <td>我是商品</td>
-                            <td>3</td>
-                            <td>NT$.1200</td>
-                            <td>NT$.3600</td>
-                            <td>已取貨</td>
-                        </tr>
-                        <tr class="total_y">
-                            <td colspan="5"></td>
-                            <td colspan="2">總金額 : </td>
-                        </tr>
-                    </tbody>
-                </table>
+
                 <table class="tablePhone_a">
-                    <caption>訂單編號:20180215</caption>
+                    <caption>訂單編號:<?= $value['sid'] ?></caption>
                     <thead class="thead-dark_a">
                         <tr>
                         <th scope="col">日期</th>
@@ -338,6 +294,7 @@
                         <td>2018/02/15</td>
                         </tr>
                     </tbody>
+                <?php foreach($value['data'] as $data): ?>
                     <thead class="thead-dark_a">
                         <tr>
                         <th scope="col">商品圖片</th>
@@ -345,19 +302,19 @@
                     </thead>
                     <tbody>
                         <tr class="phoneList_y">
-                        <td><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
+                        <td><figure><img src="images/detail/<?= $data['umbrella_id'] ?>_1.png" alt=""></figure></td>
                         </tr>
                         <tr class="producCotent_a">
-                        <td><p>商品名稱<span>我是商品</span></p></td>
+                        <td><p>商品名稱<span><?= $data['umbrellaname'] ?></span></p></td>
                         </tr>
                         <tr class="producCotent_a producCotentM_a">
-                            <td><p>數量<span>1</span></p></td>
+                            <td><p>數量<span><?= $data['quantity'] ?></span></p></td>
                         </tr>
                         <tr class="producCotent_a producCotentM_a">
-                            <td><p>單價<span>NT$.1850</span></p></td>
+                            <td><p>單價<span>NT$.<?= $data['price'] ?></span></p></td>
                         </tr>
                         <tr class="producCotent_a producCotentM_a">
-                            <td><p>小計<span>NT$.1850</span></p></td>
+                            <td><p>小計<span>NT$.<?= $data['price']*$data['quantity'] ?></span></p></td>
                         </tr>
                         <tr class="producCotent_a producCotentM_a">
                             <td><p>狀態<span>出貨中</span></p></td>
@@ -366,79 +323,17 @@
                             <td><a href="">取消訂單</a></td>
                         </tr>
                     </tbody>
-                     <thead class="thead-dark_a">
-                        <tr>
-                        <th scope="col">商品圖片</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
-                        </tr>
-                        <tr class="producCotent_a">
-                        <td><p>商品名稱<span>我是商品</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>數量<span>1</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>單價<span>NT$.1850</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>小計<span>NT$.1850</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>狀態<span>出貨中</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a  producCotentL_a">
-                            <td><a href="">取消訂單</a></td>
-                        </tr>
+                <?php endforeach; ?>
+                     
                         <tr class="total_y">
-                            <td><p>總金額 : <span></span></p></td>
+                            <td><p>總金額 : <span><?= $value['amount'] ?></span></p></td>
                         </tr>
                     </tbody>
                  </table>
-                 <table class="tablePhone_a">
-                    <caption>訂單編號:20180116</caption>
-                    <thead class="thead-dark_a">
-                        <tr>
-                        <th scope="col">日期</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="phoneListDate_y">
-                        <td>2018/02/15</td>
-                        </tr>
-                    </tbody>
-                    <thead class="thead-dark_a">
-                        <tr>
-                        <th scope="col">商品圖片</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td><figure><img src="images/Parasoltranslucent-skyblue-umbrella_800.png" alt=""></figure></td>
-                        </tr>
-                        <tr class="producCotent_a">
-                        <td><p>商品名稱<span>我是商品</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>數量<span>1</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>單價<span>NT$.1850</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>小計<span>NT$.1850</span></p></td>
-                        </tr>
-                        <tr class="producCotent_a producCotentM_a">
-                            <td><p>狀態<span>已取貨</span></p></td>
-                        </tr>
-                        <tr class="total_y">
-                            <td><p>總金額 : <span></span></p></td>
-                        </tr>
-                    </tbody>
-                </table> */?>
+        <?php endforeach; ?>
+       
+               
+
                 
             </div> <!--main_y-->
         </div> <!--mainBox_y-->

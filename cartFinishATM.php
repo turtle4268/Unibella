@@ -20,7 +20,7 @@
         $cartdata[$row['sid']]=$row;
         // $total_amount+=$row['qty'] * $row['price'];
     }
-    $total_amount=$_SESSION['totalPrice'];
+    $total_amount=$_SESSION['totalPrice'][1];
 
     $osql="INSERT INTO `orders`(`member_sid`, `amount`, `order_date`) VALUES (?, ?, NOW())";
     $stmt=$mysqli->prepare($osql);
@@ -103,9 +103,17 @@
         }
         .step_a:first-child .step-content_a {
             top:2px;
+            background:#f8d360;
+        }
+        .step_a:nth-child(2) .step-content_a {
+            background:#f8d360;
         }
         .step_a:nth-child(3) .step-content_a {
             top:1px;
+            background:#f8d360;
+        }
+        .step_a:nth-child(4) .step-content_a {
+            background:#f8d360;
         }
         .step-content_a::after {
             content: "";
@@ -321,10 +329,10 @@
                     <div class="des_a desUp_a">
                         <span>選擇付款方式</span>
                     </div>
-                    <span class="step-content_a step1-content_a "></span> 
+                    <span class="step-content_a step1-content_a "><i class="fa fa-check"></i></span> 
                 </div>
                 <div class="step_a">
-                    <span class="step-content_a stepDown-content_a"></span>
+                    <span class="step-content_a stepDown-content_a"><i class="fa fa-check"></i></span>
                     <div class="des_a desDown_a">
                         <span>填寫運送資料</span>
                     </div>
@@ -333,10 +341,10 @@
                     <div class="des_a  desUp_a">
                         <span>確認購物清單</span>
                     </div>
-                    <span class="step-content_a"></span>
+                    <span class="step-content_a"><i class="fa fa-check"></i></span>
                 </div>
                 <div class="step_a">
-                    <span class="step-content_a stepDown-content_a"></span>
+                    <span class="step-content_a stepDown-content_a"><i class="fa fa-check"></i></span>
                     <div class="des_a desDown_a">
                         <span>購物完成</span>
                     </div>
