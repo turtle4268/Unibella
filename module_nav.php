@@ -12,7 +12,7 @@
 <?php else: ?>
         <li><a class="member" href="member_login.php"></a></li>
 <?php endif; ?>
-        <li><a class="cart" href="cartList.php"></a></li>
+        <li><a class="cart" href="cartList.php"></a><span class="itemCount">99</span></li>
         <li><a class="hamburger"></a></li>
     </ul>
 </header>
@@ -44,4 +44,32 @@
     $("#close-panel_f").click(function(){
         $(this).closest("#lightbox_f").hide();
     });
+    /*count item cart*/
+    var itemCount=$(".itemCount");
+    itemCount.hide();
+    var countItems=function(obj){
+        itemCount.hide();
+        var sum=0;
+        for(var s in obj){
+            sum+= obj[s];
+        }
+        itemCount.text(sum);
+        itemCount.fadeIn();
+        if(sum==0) {
+            itemCount.hide();
+        }
+    };
+    /*love count */
+    // var countLoves=function(obj){
+    //     var sum=0;
+    //     for(var s in obj){
+    //         sum+= obj[s];
+    //     }
+    //     console.log(sum);
+    //     return sum;
+
+    // };
+    $.get('add_to_cart.php',function(data){
+        countItems(data);
+    },'json');
 </script>

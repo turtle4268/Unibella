@@ -471,12 +471,10 @@
             
             $.get("add_to_cart.php",{sid:sid},function(data){
                 $(".tablePhone_a").each(function(){
+                    countItems(data);
+                    if(itemCount.text()) location.href=location.href;
                     if($(this).data("sid")==sid) $(this).remove();
-                    
                 });
-                <?php if(empty($_SESSION['cart'])): ?>
-                        location.href=location.href;
-                    <?php endif; ?>
                 count();
             },'json');
             
@@ -486,7 +484,7 @@
             var tqty=totalQty,
                 tprice=totalPrice;
             $.get("add_price.php",{tqty:tqty,tprice:tprice},function(data){
-                console.log(data);
+                // console.log(data);
             });
         });
     </script> 

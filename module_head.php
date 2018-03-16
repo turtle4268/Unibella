@@ -62,7 +62,9 @@
         }
         .h_ul li{
             display: inline-block ;
-            padding: 0 15px ;
+            position: relative ;
+            /* padding: 0 15px ; */
+            margin: 0 15px ;
         }
         .h_ul li a{
             display: block ;
@@ -83,6 +85,20 @@
         }
         .hamburger{
             -webkit-mask-image: url(images/icon_MENU.svg) ;
+        }
+        .itemCount{
+            display: block ;
+            position: absolute ;
+            left: -1px ;
+            bottom: -4px ;
+            width:18px ;
+            height: 18px ;
+            border-radius: 50% ;
+            background-color: #1F5572 ;
+            color: #FFF ;
+            font-size: 10px ;
+            text-align: center ;
+            letter-spacing: 1px ;
         }
         header.hide{
             top: -100px ;
