@@ -691,7 +691,9 @@
             }
             if(! agree.prop("checked")){
                 isRePass = false;
-                alert('條款 未同意');
+                // alert('條款 未同意');
+                $("#lightbox_f").find("#lightbox-panel_f p").text("請確認相關條款");
+                $("#lightbox_f").show();
             }
             if(isRePass){
                 $(".f_registerBtn_y").hide();
@@ -699,16 +701,22 @@
                     console.log(data);
                     switch (data) {
                         case 1:
-                            alert("註冊成功! 請登入會員");
+                            // alert("註冊成功! 請登入會員");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("註冊成功! 請登入會員");
+                            $("#lightbox_f").show();
                             $('.f_register_y input').val('');
                             break;
 
                         case -1:
-                            alert("註冊失敗! email已被註冊");
+                            // alert("註冊失敗! email已被註冊");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("註冊失敗!此email已被註冊");
+                            $("#lightbox_f").show();
                             break;
                     
                         default:
-                            alert("註冊失敗! 請稍後再試");
+                            // alert("註冊失敗! 請稍後再試");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("註冊失敗! 請稍後再試");
+                            $("#lightbox_f").show();
                             break;
                     }
                 },"json")
@@ -739,15 +747,20 @@
             if(password_login.length<6 || password_login.length>12){
                 isLoPass = false;
             }
+            if(email_login=="" || password_login==""){
+                isLoPass = false;
+                $("#lightbox_f").find("#lightbox-panel_f p").text("請填入帳號密碼");
+                $("#lightbox_f").show();
+            }
             
             if(isLoPass){
                 $.post("login_api.php",$(form_login).serialize(),function(data){
                     console.log(data);
                     switch (data) {
                         case 1:
-                        ss=<?= isset($_SESSION['user'])?1:0 ?>;
-                        console.log(ss);
-                            alert("登入成功!");
+                            // alert("登入成功!");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("登入成功");
+                            $("#lightbox_f").show();
                             setTimeout(function(){
                                 <?php if(empty($_SESSION['come_from'])): ?>
                                 location.href='home.php';
@@ -758,7 +771,8 @@
                             break;
                     
                         default:
-                            alert("登入失敗!");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("帳號密碼錯誤");
+                            $("#lightbox_f").show();
                             break;
                     }
                 },"json");

@@ -895,7 +895,7 @@
                 nowSlide = 3 - 1; 
             } 
             moveSlide(nowSlide);
-            console.log(nowSlide);
+            // console.log(nowSlide);
         });
         $(".slideArrow_right_y").click(function () {
             nowSlide = nowSlide + 1; 
@@ -903,7 +903,7 @@
                 nowSlide = 0; 
             }
             moveSlide(nowSlide);
-            console.log(nowSlide);
+            // console.log(nowSlide);
         });
         /*tags*/
         $(".tagTxt_y").hide();
@@ -962,7 +962,9 @@
 
             $.get('add_to_cart.php',{sid:sid,qty:qty},function(data){
                 console.log(data);
-                alert("商品已加入購物車");
+                // alert("商品已加入購物車");
+                $("#lightbox_f").find("#lightbox-panel_f p").text("商品已加入購物車");
+                $("#lightbox_f").show();
                 // countItems(data);
             },"json");
         });
@@ -972,7 +974,9 @@
             var sid=card.data('sid');
             console.log(sid);
             if(!<?= isset($_SESSION['user'])?'1':'0' ?>){
-                alert("請先登入會員");
+                // alert("請先登入會員");
+                $("#lightbox_f").find("#lightbox-panel_f p").text("請先登入會員");
+                $("#lightbox_f").show();
             }else{
                 // alert("商品已加入收藏");
                 $.get('add_to_love.php',{sid:sid},function(data){
@@ -981,16 +985,22 @@
                     
                     switch (data) {
                         case 1:
-                            alert("商品已加入收藏");
+                            // alert("商品已加入收藏");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("商品已加入收藏");
+                            $("#lightbox_f").show();
                             location.href=location.href;
                             break;
                         case 2:
-                            alert("已取消收藏");
+                            // alert("已取消收藏");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("已取消收藏");
+                            $("#lightbox_f").show();
                             location.href=location.href;
                             break;
                     
                         default:
-                            alert("ERROR!");
+                            // alert("ERROR!");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("發生錯誤，請稍後在試");
+                            $("#lightbox_f").show();
                             break;
                     }
                     // countItems(data);
