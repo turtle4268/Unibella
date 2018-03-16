@@ -120,7 +120,7 @@
         margin-bottom: 5%;
         
     }
-    .btn_a a {
+    .btn_a a, .btn_a a:link {
         margin:15px 45px;
         border-radius: 28px;
         padding:10px 30px;
@@ -171,7 +171,7 @@
     .btn_a a:focus {
         outline: none;
     }
-    /*-------toTop--------*/
+    /* -------toTop--------
     .toTop{
         color: #1F5572 ;
         position: relative ;
@@ -179,6 +179,8 @@
         margin-left: 94% ;
         margin-bottom: 15px ;
         cursor: pointer ;
+        width: 40px ;
+        
     }
     .toTop .tr{
         width: 20px;
@@ -202,7 +204,7 @@
         0%   { opacity: .2; top: 2px; }
         50%  { opacity: .5; }
         100% { opacity: 1; top: -4px ;}
-    }
+    } */
     /*active-----------------------------------------------------*/
     .active_f {
             width:70%;

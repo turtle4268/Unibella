@@ -12,7 +12,7 @@
 <?php else: ?>
         <li><a class="member" href="member_login.php"></a></li>
 <?php endif; ?>
-        <li><a class="cart" href="cartList.php"></a><span class="itemCount">99</span></li>
+        <li><a class="cart" href="cartList.php"></a><span class="itemCount">0</span></li>
         <li><a class="hamburger"></a></li>
     </ul>
 </header>
