@@ -153,7 +153,7 @@
         border: 0; 
         padding: 5px 0 5px; 
         border: 1px solid transparent; 
-        border-bottom-color: #000; 
+        border-bottom-color: #666; 
         transition: 0.4s;
         position: relative;
     }
@@ -173,7 +173,7 @@
     .text_a:focus ~ .focus-border{
         transition: 0.4s; 
         height: 34px; 
-        border: 2px solid #3399FF; 
+        border: 1px solid #666; 
         z-index: 1;
     }
     .usFormCon_a select {
