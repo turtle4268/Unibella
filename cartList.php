@@ -110,15 +110,13 @@
         border: none;
         margin:0 auto;
         text-align: center; 
-        color: #C1272D;
-        
+        color: #C1272D; 
     }
     .btn_a {
         display: flex;
         justify-content: center;
         position: relative;
-        margin-bottom: 5%;
-        
+        margin-bottom: 5%;  
     }
     .btn_a a, .btn_a a:link {
         margin:15px 45px;
@@ -170,6 +168,30 @@
     }
     .btn_a a:focus {
         outline: none;
+    }
+    .textqtyne{
+        display: inline-block ;
+        width: 24px ;
+        border-bottom: 1px solid #666 ; 
+    }
+    .changeQty{
+        display: inline-block ;
+        font-weight: bold ;
+        width: 15px ;
+        height: 15px ;
+        background-color: #666 ;
+        position: relative ;
+        top: 1px ;
+        -webkit-mask-repeat: no-repeat ;
+        -webkit-mask-position: center ;
+    }
+    .minus{
+        margin-right: 2px ;
+        -webkit-mask-image:url(images/minus.svg);
+    }
+    .plus{
+        margin-left: 2px ;
+        -webkit-mask-image:url(images/pluse_2.svg);
     }
     /* -------toTop--------
     .toTop{
@@ -372,7 +394,11 @@
                 <tr class="tablePhone_a" data-sid="<?= $sid ?>">
                   <td class="productCom_A"><figure><img src="images/detail/<?= $cartdata[$sid]['umbrella_id'] ?>_1.png" alt=""></figure></td>
                   <td><?= $cartdata[$sid]['umbrellaname'] ?></td>
-                  <td><?= $qty ?></td>
+                  <td>
+                      <a class="changeQty minus"></a>
+                      <div class="textqty"><?= $qty ?></div>
+                      <a class="changeQty plus"></a>
+                  </td>
                   <td>NT$.<?= $cartdata[$sid]['price'] ?></td>
                   <td>NT$.<?= $cartdata[$sid]['price']*$qty ?></td>
                   <td></td>
@@ -387,7 +413,13 @@
             <div class="listImg_a"><img src="images/detail/<?= $cartdata[$sid]['umbrella_id'] ?>_1.png" alt=""></div>
             <div class="listContent_a">
                 <p>商品名稱<span class="listProduct_a"><?= $cartdata[$sid]['umbrellaname'] ?></span></p>
-                <p>數量<span class="listCS_a qty" data-qty="<?= $qty ?>">0</span></p>
+                <p>數量
+                    <span class="listCS_a qty" data-qty="<?= $qty ?>">
+                        <a class="changeQty minus"></a>
+                        <div class="textqty"><?= $qty ?></div>
+                        <a class="changeQty plus"></a>
+                    </span>
+                </p>
                 <p>單價<span class="listCS_a price" data-price="<?= $cartdata[$sid]['price'] ?>">NT$.<i>0</i></span></p>
                 <p>小計<span class="listCS_a subtotal" data-subtotal="<?= $cartdata[$sid]['price']*$qty ?>">NT$.<i>0</i></span></p>
                 <p>備註<span class="listCS_a"></span></p>
@@ -450,7 +482,7 @@
             totalQty=0,totalPrice=0;
             $(".qty").each(function(){
                 var qty=$(this).data("qty");
-                $(this).text(qty);
+                // $(this).text(qty);
                 totalQty+=qty;
             });
             $(".price").each(function(){
