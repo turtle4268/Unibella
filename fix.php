@@ -2,6 +2,7 @@
     <style>
         section{
             height: auto ;
+            color:#666;
         }
         /*Container-------------------------------------------------------------------*/
         .headerBg_a{
@@ -10,6 +11,7 @@
             align-items: center;
             object-fit: fill;
             position: relative;
+            overflow: hidden;
         }
         .headerBg_a img{
             width: 100%;
@@ -218,7 +220,7 @@
                 <div class="umbrellaCard_a" data-img="img1">
                     <div class="umbrellaImg_a umbrellaImgL_a umbrellaImg1_a" id="img1"></div>
                     <div class="innerText_a innerTextL_a">
-                        <h2>步驟一</h2>
+                        <h2>項目一</h2>
                         <p>我們的雨傘的設計是為了防風雨，但是，他們不能避免強烈的陣風，避免在大風中使用您的雨傘，特別是海上和河流。</p>
                     </div>
                     <div class="umbrellaSvg_a umbrellaSvgR_a umbrellaSvg1_a"><img src="images/umbrella-care-1.svg" alt=""></div>
@@ -227,7 +229,7 @@
                 <div class="umbrellaCard_a" data-img="img2">
                     <div class="umbrellaImg_a umbrellaImgR_a umbrellaImg2_a" id="img2"></div>
                     <div class="innerText_a innerTextR_a">
-                        <h2>步驟二</h2>
+                        <h2>項目二</h2>
                         <p>避免靠在你的雨傘上，把它當作手杖使用。</p>
                     <div class="umbrellaSvg_a umbrellaSvgL_a umbrellaSvg2_a"><img src="images/umbrella-care-2.svg" alt=""></div>
                     </div>
@@ -236,7 +238,7 @@
                 <div class="umbrellaCard_a" data-img="img3">
                     <div class="umbrellaImg_a umbrellaImgL_a umbrellaImg3_a" id="img3"></div>
                     <div class="innerText_a innerTextL_a">
-                        <h2>步驟三</h2>
+                        <h2>項目三</h2>
                         <p>請將雨傘打開晾乾傘面能夠透氣，防止任何金屬部件的生鏽。</p>
                     </div>
                     <div class="umbrellaSvg_a umbrellaSvgR_a umbrellaSvg3_a"><img src="images/umbrella-care-3.svg" alt=""></div>
@@ -245,7 +247,7 @@
                 <div class="umbrellaCard_a" data-img="img4">
                     <div class="umbrellaImg_a umbrellaImgR_a umbrellaImg4_a" id="img4"></div>
                     <div class="innerText_a innerTextR_a">
-                        <h2>步驟四</h2>
+                        <h2>項目四</h2>
                         <p>讓你的雨傘遠離陽光直射，以防止褪色</p>
                         <div class="umbrellaSvg_a umbrellaSvgL_a umbrellaSvg4_a"><img src="images/umbrella-care-4.svg" alt=""></div>
                     </div>
@@ -254,7 +256,7 @@
                 <div class="umbrellaCard_a" data-img="img5">
                     <div class="umbrellaImg_a umbrellaImgL_a umbrellaImg5_a" id="img5"></div>
                     <div class="innerText_a innerTextL_a">
-                        <h2>步驟五</h2>
+                        <h2>項目五</h2>
                         <p>清潔只能用普通水，因為清潔劑會去除防水塗料。</p>
                     </div>
                     <div class="umbrellaSvg_a umbrellaSvgR_a umbrellaSvg5_a"><img src="images/umbrella-care-7.svg" alt=""></div>
@@ -296,7 +298,7 @@
             $(window).on('scroll', function(){
                 var scrollSec1T = $(this).scrollTop();
                     console.log(scrollSec1T);
-                if (scrollSec1T > 100) {
+                if (scrollSec1T > 50) {
                     $(".warranty_a").addClass("textShow");
                 } else {
                     $(".warranty_a").removeClass("textShow");
