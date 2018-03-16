@@ -1,4 +1,54 @@
 <?php require __DIR__. '/_db_connect.php'; ?>
+<?php 
+    if(!isset($_SESSION['user'])){
+        header('Location: home.php');
+        exit;
+    }
+    if(!isset($_SESSION['cart'])){
+        header('Location: product_list3.php');
+        exit;
+    }
+
+    $user_id=$_SESSION['user']['id'];
+    $total_amount=0;
+    $keys=array_keys($_SESSION['cart']);
+    $sql=sprintf("SELECT * FROM `products` WHERE `sid` IN (%s)",implode(',',$keys));
+    $result=$mysqli->query($sql);
+    $cartdata=[];
+    while($row=$result->fetch_assoc()){
+        $row['qty']=$_SESSION['cart'][$row['sid']];
+        $cartdata[$row['sid']]=$row;
+        // $total_amount+=$row['qty'] * $row['price'];
+    }
+    $total_amount=$_SESSION['totalPrice'][1];
+
+    $osql="INSERT INTO `orders`(`member_sid`, `amount`, `order_date`) VALUES (?, ?, NOW())";
+    $stmt=$mysqli->prepare($osql);
+    $stmt->bind_param('ii',$user_id,$total_amount);
+    $stmt->execute();
+
+    $oder_sid=$stmt->insert_id;     //order primary key
+    $stmt->close();
+
+    $d_sql="INSERT INTO `order_details`(`order_sid`, `product_sid`, `price`, `quantity`) VALUES (?, ?, ?, ?)";
+    $d_stmt=$mysqli->prepare($d_sql);
+
+    foreach($keys as $p_sid){       //每筆訂單的商品項目
+        $d_stmt->bind_param('iiii',
+            $oder_sid,
+            $p_sid,
+            $cartdata[$p_sid]['price'],
+            $cartdata[$p_sid]['qty']
+        );
+        $d_stmt->execute();
+        // echo $p_sid;
+    }
+    $d_stmt->close();
+    // print_r(implode(',',$keys));
+    unset($_SESSION['cart']);
+    unset($_SESSION['totalQty']); unset($_SESSION['totalPrice']);        //清除購物車內容
+    unset($_SESSION['repepole']); unset($_SESSION['rephone']);
+?>
 <?php include __DIR__.'/module_head.php' ?>
     <style>
         section{
@@ -53,9 +103,17 @@
         }
         .step_a:first-child .step-content_a {
             top:2px;
+            background:#f8d360;
+        }
+        .step_a:nth-child(2) .step-content_a {
+            background:#f8d360;
         }
         .step_a:nth-child(3) .step-content_a {
             top:1px;
+            background:#f8d360;
+        }
+        .step_a:nth-child(4) .step-content_a {
+            background:#f8d360;
         }
         .step-content_a::after {
             content: "";
@@ -271,10 +329,10 @@
                     <div class="des_a desUp_a">
                         <span>選擇付款方式</span>
                     </div>
-                    <span class="step-content_a step1-content_a "></span> 
+                    <span class="step-content_a step1-content_a "><i class="fa fa-check"></i></span> 
                 </div>
                 <div class="step_a">
-                    <span class="step-content_a stepDown-content_a"></span>
+                    <span class="step-content_a stepDown-content_a"><i class="fa fa-check"></i></span>
                     <div class="des_a desDown_a">
                         <span>填寫運送資料</span>
                     </div>
@@ -283,10 +341,10 @@
                     <div class="des_a  desUp_a">
                         <span>確認購物清單</span>
                     </div>
-                    <span class="step-content_a"></span>
+                    <span class="step-content_a"><i class="fa fa-check"></i></span>
                 </div>
                 <div class="step_a">
-                    <span class="step-content_a stepDown-content_a"></span>
+                    <span class="step-content_a stepDown-content_a"><i class="fa fa-check"></i></span>
                     <div class="des_a desDown_a">
                         <span>購物完成</span>
                     </div>
@@ -303,7 +361,7 @@
                         <td > 
                             <p>
                                 銀行  玉山銀行 <br>
-                                銀行代號  800 <br>
+                                銀行代號  808 <br>
                                 帳戶  01000230156874
                             </p>
                         </td>
@@ -317,8 +375,8 @@
             
         </section>
         <div class="btn_a">
-                <a class="shop_a">回首頁</a>
-                <a class="buy_a">回商品頁</a>
+                <a class="shop_a" href="home.php">回首頁</a>
+                <a class="buy_a" href="product_list3.php">回商品頁</a>
         </div>
         <div class="toTop">
             <div class="tr"></div>

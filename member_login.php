@@ -1,6 +1,6 @@
 <?php require __DIR__. '/_db_connect.php'; ?>
 <?php 
-    $_SESSION['come_from'] = $_SERVER['HTTP_REFERER'];
+    // $_SESSION['come_from'] = $_SERVER['HTTP_REFERER'];
 ?>
 <?php include __DIR__.'/module_head.php' ?>
     <style>
@@ -93,13 +93,17 @@
         }
         .loginTitle_y{
             color: #1f5572;
-            margin-bottom: 3em;
+            margin-bottom: 2em;
         }
         .loginLabel_y{
             color: #1f5572;
             font-size: 16px;
             /* flex: 2; */
-            margin-right:5px;
+            /* margin-right:5px; */
+            margin-left:10px;
+        }
+        input{
+            font-size:16px;
         }
         .loginInput_y{
             background-color:transparent;
@@ -111,8 +115,8 @@
              width: 200px;
         }
         .loginPass_y{
-            width: 220px;
-    }
+            width: 100%;
+        }
         input:focus{
             outline:none!important;
         }
@@ -123,7 +127,7 @@
             border: 2px solid #1f5572;
             border-radius: 50px;
             padding: 3px 90px;
-            margin-top: 1.5em;
+            margin-top: 2em;
         }
         .loginBtn_y:hover, .registerPBtn_y:hover{
             background-color: #1f5572;
@@ -134,7 +138,7 @@
              /* display: flex;
              justify-content: space-between;
              align-items: center; */
-             margin: 40px 20px; 
+             margin:0 10px; 
              text-align: left;
         }
         .registerP_Title_y{
@@ -306,6 +310,7 @@
             border-bottom: 1px solid #f8cf4e;
             width:84%;
             height: 30px; 
+            font-size:16px;
         }
         .f_registerBtn_y{
             background-color: transparent;
@@ -419,6 +424,47 @@
         .check .box.checked{
             -webkit-mask-image: url(images/member_checked_yellow.svg) ;
         }
+        /*--border--*/
+        :focus{
+        outline: none;
+        }
+        .col-3{
+            width: 65%; 
+            position: relative;
+        } 
+        input[type="text"]{
+            font: 15px/24px "Lato", Arial, sans-serif; 
+            color: #333; 
+            box-sizing: border-box; 
+            letter-spacing: 1px;
+        }
+        .effect-1 {
+            border: 0; 
+            border-bottom: 1px solid #aaa;
+        }
+        .effect-1 ~ .focus-border{
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            width: 0; 
+            height: 1px; 
+            background-color: #1f5572; 
+            transition: 0.4s;
+        }
+        .effect-1:focus ~ .focus-border{
+            width: 100%; 
+            transition: 0.4s;
+        }
+        .labelOut_a {
+            display:flex;
+            margin: 27px 0 43px 0;
+        }
+        .col2-3 {
+            width:71%;
+        }
+        .form_login {
+            margin-top:20px;
+        }
     </style>
     <style>
         @import url("css/member_login_phone.css");
@@ -530,17 +576,21 @@
                         <div class="login2_y">
                             <h2 class="loginTitle_y">會員登入</h2>
                             <form name="form_login" method="post" action="" onsubmit="return loginCheck()">
-                                <div class="loginInfor_y">
+                                <div class="labelOut_a">
                                     <label for="email_login" class="loginLabel_y">Email:</label>
-                                    <input type="text" class="loginInput_y" name="email_login" id="email_login" value="<?= isset($_SESSION['remember'])?$_SESSION['remember']:'' ?>" placeholder="" width:100px;>
-                                    <!-- <small id="emailWarning" class="form-text text-muted warning">請填寫正確的電郵</small>
-                                                                                 -->
+                                    <div class="loginInfor_y col-3">
+                                        <input type="text" class="loginInput_y effect-1" name="email_login" id="email_login" value="<?= isset($_SESSION['remember'])?$_SESSION['remember']:'' ?>" placeholder="" width:100px;>
+                                        <span class="focus-border"></span>
+                                            <!-- <small id="emailWarning" class="form-text text-muted warning">請填寫正確的電郵</small>-->
+                                    </div>
                                 </div>
-                                <div class="loginInfor_y">
+                                <div class="labelOut_a">
                                     <label for="password_login" class="loginLabel_y">密碼:</label>
-                                    <input type="password" class="loginInput_y loginPass_y" name="password_login" id="password_login" value="" placeholder="">
-                                    <!-- <small id="passwordWarning" class="form-text text-muted warning">請輸入六個字元以上的密碼</small> -->
-                    
+                                    <div class="loginInfor_y col-3 col2-3">
+                                        <input type="password" class="loginInput_y loginPass_y  effect-1" name="password_login" id="password_login" value="" placeholder="">
+                                        <span class="focus-border"></span>
+                                        <!-- <small id="passwordWarning" class="form-text text-muted warning">請輸入六個字元以上的密碼</small> -->
+                                    </div>
                                 </div>
                                 <div class="rememberBox_y">
                                     <div class="check">
@@ -687,7 +737,9 @@
             }
             if(! agree.prop("checked")){
                 isRePass = false;
-                alert('條款 未同意');
+                // alert('條款 未同意');
+                $("#lightbox_f").find("#lightbox-panel_f p").text("請確認相關條款");
+                $("#lightbox_f").show();
             }
             if(isRePass){
                 $(".f_registerBtn_y").hide();
@@ -695,16 +747,22 @@
                     console.log(data);
                     switch (data) {
                         case 1:
-                            alert("註冊成功! 請登入會員");
+                            // alert("註冊成功! 請登入會員");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("註冊成功! 請登入會員");
+                            $("#lightbox_f").show();
                             $('.f_register_y input').val('');
                             break;
 
                         case -1:
-                            alert("註冊失敗! email已被註冊");
+                            // alert("註冊失敗! email已被註冊");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("註冊失敗!此email已被註冊");
+                            $("#lightbox_f").show();
                             break;
                     
                         default:
-                            alert("註冊失敗! 請稍後再試");
+                            // alert("註冊失敗! 請稍後再試");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("註冊失敗! 請稍後再試");
+                            $("#lightbox_f").show();
                             break;
                     }
                 },"json")
@@ -735,15 +793,20 @@
             if(password_login.length<6 || password_login.length>12){
                 isLoPass = false;
             }
+            if(email_login=="" || password_login==""){
+                isLoPass = false;
+                $("#lightbox_f").find("#lightbox-panel_f p").text("請填入帳號密碼");
+                $("#lightbox_f").show();
+            }
             
             if(isLoPass){
                 $.post("login_api.php",$(form_login).serialize(),function(data){
                     console.log(data);
                     switch (data) {
                         case 1:
-                        ss=<?= isset($_SESSION['user'])?1:0 ?>;
-                        console.log(ss);
-                            alert("登入成功!");
+                            // alert("登入成功!");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("登入成功");
+                            $("#lightbox_f").show();
                             setTimeout(function(){
                                 <?php if(empty($_SESSION['come_from'])): ?>
                                 location.href='home.php';
@@ -754,7 +817,8 @@
                             break;
                     
                         default:
-                            alert("登入失敗!");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("帳號密碼錯誤");
+                            $("#lightbox_f").show();
                             break;
                     }
                 },"json");

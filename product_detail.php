@@ -98,7 +98,7 @@
         .productInfor_y p{
             text-align:justify;
             line-height: 1.8em;
-            font-weight: bold;
+            /* font-weight: bold; */
             letter-spacing: 5px;
         }
         /*button--------*/
@@ -120,7 +120,7 @@
             border-bottom: 1px solid #666;
             width:200px;
             height: 30px; 
-            padding: 0 0 0 29%; 
+            padding: 0 0 0 28%; 
             cursor: pointer;       
         }
         Select:focus{
@@ -137,7 +137,7 @@
             border: 2px solid #f8cf4e;
             border-radius: 50px;
             padding: 10px 30px;
-            margin-top: 1em;
+            margin:1em auto 0 auto;
             cursor: pointer;
             filter: drop-shadow(0 0 1px #0000004d) ;
             transition: 0.8s ; 
@@ -158,7 +158,7 @@
             border: 2px solid #1f5572;
             border-radius: 50px;
             padding: 10px 30px;
-            margin-top: 1em;
+            margin:1em auto 0 auto;
             transition: 0.5s ;
         }
         .cartBtn_y:hover{
@@ -424,6 +424,7 @@
             width: 70%;
             height: 100%;
             margin: 5% auto 0 auto;
+                
         }
         .tagFour_y{
             display: flex;
@@ -806,8 +807,27 @@
                     </div>
                 </div> <!--tagTxtBox_y-->
                 <div class="caution_y">
-                    <h3>注意事項</h3>
-                    <p>保養說明保養說明，保養說明保養說明保養說明，保養說明保養說明，保養說明，保養說明保養說明，保養說明保養說明，保養說明保養說明保養說明，保養說明保養說明，保養說明，保養說明保養說明，保養說明保養說明，保養說明保養說明保養說明，保養說明保養說明，保養說明，保養說明保養說明，保養說明保養說明，保養說明保養說明保養說明，保養說明保養說明，保養說明，保養說明保養說明，保養說明保養說明，保養說明保養說明保養說明，保養說明保養說明，保養說明，保養說明保養說明，保養說明保養說明保養說明，保養說明保養說明，保養說明保養說明保養說明，保養說明保養說明，保養說明保養說明保養說明，保養說明保養說明，保養說明保養說明保養說明</p>
+                    <h3>其他事項說明</h3>
+                    <p>商品保證<br>
+                        我們所提供為高品質全新產品，並提供終身保固：<br>
+                        Unibella雨傘內部上方，貼有雷射防偽貼紙做辨識，只要憑雨傘裡的雷射貼紙即可享有終身免費維修服務(特殊情形無法免費維修，詳情請參閱顧客服務頁面)<br>
+                        <br>
+                        購買說明<br>
+                        1. 提供簡單又安全的購物環境，簡易的操作流程可以充分享受網路購物樂趣<br>
+                        2. 支援手機瀏覽網頁並可以直接下單購買<br>
+                        ①選擇商品&nbsp;②點選「加到購物車」前往結帳&nbsp;③登入/註冊會員④&nbsp;輸入帳號密碼&nbsp;⑤確認金額及送貨資訊&nbsp;⑥完成購物<br>
+                        <br>
+                        運送說明<br>
+                        目前提供「貨運宅配」（若外島地區無宅配服務將會以郵局或超商取貨方式寄送)<br>
+                        (詳細運送相關事宜請參閱Q&amp;A頁面)<br>
+                        <br>
+                        售後服務<br>
+                        如您收到商品，請依正常程序儘速檢查商品，若商品發生新品瑕疵之情形，請直接聯絡我們，我們將提供退換貨或免費維修服務，也可至門市送修，Unibella提供完善的售後諮詢及服務<br>
+                        （欲前往門市送修可先致電確認時間及相關流程）<br>
+                        <br>
+                        關於退換貨<br>
+                        請您於收到貨後10天鑑賞期內連絡我們，我們將盡速為您辦理(退換貨的商品必須保留完整包裝，將於５個工作天內處理申請，請您耐心等候)<br>
+                    </p>
                 </div>
             </div> <!--tagFourBox_y-->
         </section>
@@ -875,7 +895,7 @@
                 nowSlide = 3 - 1; 
             } 
             moveSlide(nowSlide);
-            console.log(nowSlide);
+            // console.log(nowSlide);
         });
         $(".slideArrow_right_y").click(function () {
             nowSlide = nowSlide + 1; 
@@ -883,7 +903,7 @@
                 nowSlide = 0; 
             }
             moveSlide(nowSlide);
-            console.log(nowSlide);
+            // console.log(nowSlide);
         });
         /*tags*/
         $(".tagTxt_y").hide();
@@ -942,31 +962,44 @@
 
             $.get('add_to_cart.php',{sid:sid,qty:qty},function(data){
                 console.log(data);
-                alert("商品已加入購物車");
-                // countItems(data);
+                // alert("商品已加入購物車");
+                $("#lightbox_f").find("#lightbox-panel_f p").text("商品已加入購物車");
+                $("#lightbox_f").show();
+                countItems(data);
             },"json");
         });
         /*add to love*/
         $(".addBtn_y").click(function(){
             var card=$(this).closest(".productInforBox_y");
             var sid=card.data('sid');
-            // alert(sid+" : "+qty);
+            // console.log(sid);
             if(!<?= isset($_SESSION['user'])?'1':'0' ?>){
-                alert("請先登入會員");
+                // alert("請先登入會員");
+                $("#lightbox_f").find("#lightbox-panel_f p").text("請先登入會員");
+                $("#lightbox_f").show();
             }else{
                 // alert("商品已加入收藏");
                 $.get('add_to_love.php',{sid:sid},function(data){
                     console.log(data);
                     // alert("商品已加入收藏");
-                    
-                    switch (data) {
+                    switch (data['msg']) {
                         case 1:
-                            alert("商品已加入收藏");
+                            // alert("商品已加入收藏");
+                            // $("#lightbox_f").find("#lightbox-panel_f p").text("商品已加入收藏");
+                            // $("#lightbox_f").show();
+                            location.href=location.href;
+                            break;
+                        case 2:
+                            // alert("已取消收藏");
+                            // $("#lightbox_f").find("#lightbox-panel_f p").text("已取消收藏");
+                            // $("#lightbox_f").show();
                             location.href=location.href;
                             break;
                     
                         default:
-                            alert("收藏失敗!");
+                            // alert("ERROR!");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("發生錯誤，請稍後在試");
+                            $("#lightbox_f").show();
                             break;
                     }
                     // countItems(data);

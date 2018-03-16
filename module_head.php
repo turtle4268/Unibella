@@ -62,7 +62,9 @@
         }
         .h_ul li{
             display: inline-block ;
-            padding: 0 15px ;
+            position: relative ;
+            /* padding: 0 15px ; */
+            margin: 0 15px ;
         }
         .h_ul li a{
             display: block ;
@@ -83,6 +85,20 @@
         }
         .hamburger{
             -webkit-mask-image: url(images/icon_MENU.svg) ;
+        }
+        .itemCount{
+            display: block ;
+            position: absolute ;
+            left: -1px ;
+            bottom: -4px ;
+            width:18px ;
+            height: 18px ;
+            border-radius: 50% ;
+            background-color: #1F5572 ;
+            color: #FFF ;
+            font-size: 10px ;
+            text-align: center ;
+            letter-spacing: 1px ;
         }
         header.hide{
             top: -100px ;
@@ -240,7 +256,82 @@
         .n_ul li a:hover::before{
             width: 100% ;
         }
+        /*lightbox---------------------------------------*/
+        #lightbox_f {
+            display:none;
+            background: #ffffff90;
+            position:fixed;
+            top:0px;
+            left:0px;
+            min-width:100%;
+            min-height:100%;
+            z-index:15;
+        }
+        #lightbox-panel_f p{
+            color:#1F5572;
+            text-align:center;
+            font-weight:bold;
+            margin :50px 0 30px;
+        }
+        #lightbox-panel_f a{
+            text-decoration: none;
+            color: #fff;
+            background:#1F5572;
+            padding:10px 20px;
+            box-sizing:content-box;
+            border-radius:30px;
+            display:block;
+            width:100px;
+            margin: 0 auto;
+            text-align:center;
+            }
         
+        #lightbox-panel_f {
+            /* display:none; */
+            position:fixed;
+            top:50%;
+            left:50%;
+            margin-left:-200px;
+            margin-top:-100px;
+            width:400px;
+            height:200px;
+            background:#FFFFFF;
+            z-index:16;
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, .3) ;
+        }
+        /*-------toTop--------*/
+        .toTop{
+            color: #1F5572 ;
+            position: relative ;
+            top: -15px ;
+            margin-left: 94% ;
+            margin-bottom: 15px ;
+            cursor: pointer ;
+            width: 40px ;
+        }
+        .toTop .tr{
+            width: 20px;
+            height: 20px;
+            margin: 5px auto;
+            position: relative ;
+            left: -2px ;
+            transform: rotate(180deg) ;
+            -webkit-mask-image: url(images/icon_scroll.svg) ;
+            background-color:#1F5572;
+            animation: scroll_top .5s linear infinite;
+            animation-direction: alternate;
+            animation-delay: .1s;
+        }
+        .toTop h5{
+            font-size: 16px ;
+            color: #1F5572 ;
+            text-align: center;
+        }
+        @keyframes scroll_top {
+            0%   { opacity: .2; top: 2px; }
+            50%  { opacity: .5; }
+            100% { opacity: 1; top: -4px ;}
+        }
     </style>
 </head>
 <body>

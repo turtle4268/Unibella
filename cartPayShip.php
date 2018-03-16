@@ -406,7 +406,7 @@
                 </div>
             </div>
         </div>
-        <div class="total_a" data-val="">共 <?= $_SESSION['totalQty'] ?> 件，總金額 NT$. <?= $_SESSION['totalPrice'] ?></div>
+        <div class="total_a" data-val="">共 <?= $_SESSION['totalQty'] ?> 件，總金額 NT$. <?= $_SESSION['totalPrice'][0] ?></div>
         <table class="table_a">
             <thead class="thead-dark_a">
                 <tr>
@@ -473,7 +473,7 @@
                 <div class="chooseDes_a">
                     <span>應付金額</span>
                 </div>
-                <input type="text" class="text_a price" data-price="<?= $_SESSION['totalPrice'] ?>" disabled="disabled">
+                <input type="text" class="text_a price" data-price="<?= $_SESSION['totalPrice'][0] ?>" disabled="disabled">
             </div>
         </div>
     <div class="payNotive_a">
@@ -589,7 +589,7 @@
             var price=parseInt($(".price").data("price"));
             var ship=parseInt($("#shipWay").val());
             var discount=parseFloat($(".discount").val());
-            discount=price*discount;
+            discount=parseInt(price*discount);
             total=price-discount+ship;
             $(".distext").val(discount);
             $(".price").val(total);
@@ -610,11 +610,7 @@
             hidenext();
         });
         hidenext();
-        /*pre page*/
-        $(".goCart_a").click(function(){
-            
-            location.href="cartList.php";
-        });
+
         /*next page */
         $(".next_a").click(function(){
             var nextstep=$("#payWay").val();
@@ -626,7 +622,7 @@
                     $.get("add_price.php",{tqty:tqty,tprice:tprice},function(data){
                         // console.log(data);
                     });
-                    location.href="cartFinishATM.php";
+                    location.href="cartShipdata.php";
                     break;
                 case "2":
                     $.get("add_price.php",{tqty:tqty,tprice:tprice},function(data){

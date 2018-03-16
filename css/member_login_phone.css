@@ -59,10 +59,6 @@
         border: 2px solid #1f5572;        
     }
     .loginInfor_y{
-        /* display: flex;
-        justify-content: space-between;
-        align-items: center; */
-        margin: 50px 50px;
         text-align: left;
     }
     .registerP_Title_y{
@@ -309,4 +305,24 @@
     .back_r{
         right: -36% ;
     }
+    /*--border--*/
+    .labelOut_a{
+        margin: 27px 50px 50px 40px;
+    }
+    .effect-1 {
+        border: 0; 
+        border-bottom: 1px solid #aaa;
+        width: 100%;
+    }
+    .effect-1:focus ~ .focus-border{
+        width: 100%; 
+        transition: 0.4s;
+    }
+    .col-3{
+        width: 63%; 
+    }
+    .col2-3 {
+        width:69%;
+    }
+    
 }

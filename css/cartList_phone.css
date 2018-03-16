@@ -29,7 +29,7 @@
     .table_a {
         display: none;
     }
-    .tablePhone_a {
+    div.tablePhone_a {
         display: block;
         margin: 20px auto 0 auto;
         width: 75%;
@@ -50,17 +50,20 @@
         text-align: center;
     }
     .listContent_a p {
-        width: 70%;
-        margin-left: 15%;
+        width: 90%;
+        margin-left: 10%;
         height: 50px;
         display: flex;
         align-items: center;
     }
     .listContent_a p .listProduct_a {
-        margin-left: 18%;
+        margin-left: 15%;
     }
     .listContent_a p .listCS_a {
-        margin-left: 35%;
+        margin-left: 30%;
+    }
+    .listCS_a i{
+        font-style: normal ;
     }
     /*None--------------------------------------------------------------------*/
     /*內容--------------*/
@@ -112,9 +115,5 @@
         padding-bottom: 20px;
         text-align: center;
     }
-    /*--toTop--*/
-    .toTop {
-        top: 0 ;
-        margin-left: 0 ;
-    }
+    
 }

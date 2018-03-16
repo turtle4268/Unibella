@@ -9,7 +9,7 @@
         left: 0 ;
     }
     .h_ul li{
-        padding: 0 8px ;
+        margin: 0 8px ;
     }
     /*Footer---------------------------------------------------------------------*/
     .f_content{
@@ -57,5 +57,12 @@
     }
     nav.navhide{
         right: -100% ;
+    }
+    /*--toTop--*/
+    .toTop {
+        top: 0 ;
+        margin-left: 0 ;
+        margin: 0 auto ;
+        margin-bottom: 15px ;
     }
 }

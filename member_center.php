@@ -115,7 +115,7 @@
             height: 30px;
             text-align: left;
             padding-top:3em;
-            border-bottom: 1px solid #000;
+            /* border-bottom: 1px solid #000; */
         }
         .l_td1_y{
             width:20%;
@@ -126,7 +126,7 @@
             width:80%;
             height: 30px;
             text-align: left;
-            border-bottom: 1px solid #000;
+            /* border-bottom: 1px solid #000; */
         }
         /*active_y-------------------------------------*/
         .active_y{

@@ -71,7 +71,11 @@
             width: 60%;
             margin-bottom: 30px;  
             height:300px;
+            /* background: #ccc; */
+            display: flex;
+            align-items: center;
         }
+        
         .umbrellaImg_a {
             position:absolute;
             width: 300px;
@@ -118,19 +122,19 @@
             height: 100%;
         }
         .umbrellaSvg1_a {
-            top: 40px;
+            top: 50px;
         }
         .umbrellaSvg2_a {
-            top: 20px;
+            top: 50px;
         }
         .umbrellaSvg3_a {
-            top: 20px;
+            top: 50px;
         }
         .umbrellaSvg4_a {
-            top: 5px;
+            top: 35px;
         }
         .umbrellaSvg5_a {
-            top: 15px;
+            top: 50px;
         }
         .innerText_a {
             width: 60%;
@@ -197,7 +201,7 @@
         <section class="fix_a">
             <div class="warranty_a">
             <h1>保固維修</h1>
-                <p class="warrantyCon_a">感謝親愛的客戶購買Unibella的產品，雨傘為生活日常用品(消耗品)，
+                <p class="warrantyCon_a">感謝親愛的客戶購買Unibella的產品，雨傘為生活日常用品，
                 因個人使用習慣不同或正常零件的耗損而導致產品的損壞，為了讓消費者了解我們維修保固的標準，
                 故提供以下的維修判定以供參考！</p>
                 <span>下列情況下，我們無法為您處理維修品，敬請見諒，謝謝！</span>
@@ -215,7 +219,7 @@
                     <div class="umbrellaImg_a umbrellaImgL_a umbrellaImg1_a" id="img1"></div>
                     <div class="innerText_a innerTextL_a">
                         <h2>步驟一</h2>
-                        <p>我們的雨傘的設計是為了防風雨。但是，他們不能避免強烈的陣風。避免在大風中使用您的雨傘，特別是海上和河流。</p>
+                        <p>我們的雨傘的設計是為了防風雨，但是，他們不能避免強烈的陣風，避免在大風中使用您的雨傘，特別是海上和河流。</p>
                     </div>
                     <div class="umbrellaSvg_a umbrellaSvgR_a umbrellaSvg1_a"><img src="images/umbrella-care-1.svg" alt=""></div>
                 </div>

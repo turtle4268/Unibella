@@ -149,7 +149,7 @@
             height: 30px;
             text-align: left;
             padding-top:0;
-            border-bottom: 1px solid #000;
+            /* border-bottom: 1px solid #000; */
         }
         /*active-----------------------------------------------------*/
         .active_f {
@@ -183,8 +183,8 @@
             margin-left:-80px;
         }
          /*toTop*/
-        .toTop{
+        /* .toTop{
             top: 0 ;
             margin-left: 0 ;
-    }
+    } */
 }

@@ -124,6 +124,9 @@
             margin-bottom: 3em;
             width: 26%;
         }
+        input{
+            font-size:16px;
+        }
         .memberInput1_y{
             /* width: 60%;
             height: 30px; */
@@ -156,6 +159,7 @@
             /* flex: 3; */
             width:80%;
             height: 30px;
+            font-size:16px;
         }
         :focus{
             outline:none!important;
@@ -389,11 +393,15 @@
                     console.log(data);
                     switch (data) {
                         case 1:
-                            alert("會員資料修改成功");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("會員資料修改成功");
+                            $("#lightbox_f").show();
+                            // alert("會員資料修改成功");
                             break;
 
                         default:
-                            alert("修改失敗或資料未變更");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("修改失敗或資料未變更");
+                            $("#lightbox_f").show();
+                            // alert("修改失敗或資料未變更");
                             break;
                     }
                 },"json")

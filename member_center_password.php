@@ -109,6 +109,9 @@
             margin: 0 auto;
             padding-left: 5%; 
         }
+        input{
+            font-size:16px;
+        }
         .passwordInfor_y{
             /* display: flex;
             justify-content: space-between;
@@ -382,12 +385,16 @@
                     // console.log(data);
                     switch (data) {
                         case 1:
-                            alert("修改成功!");
+                            // alert("修改成功!");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("修改成功");
+                            $("#lightbox_f").show();
                             $("input").val("");
                             break;
                     
                         default:
-                            alert("修改失敗!");
+                            // alert("修改失敗!");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("修改失敗");
+                            $("#lightbox_f").show();
                             break;
                     }
                 },"json");
