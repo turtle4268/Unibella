@@ -47,13 +47,12 @@
         margin-top: 45%;
     }
     .step-content_a::after {
-        width: 54px;
-        margin-top: 10px;
-        margin-left: 27px;
+        width: 58px;
+        margin-left: 22px;
     }
     .step_a:last-child .step-content_a::after {
         width: 30px;
-        visibility: hidden;
+        display: none;
     }
     .step_a:first-child .step-content_a {
         top:-1px;
@@ -62,7 +61,7 @@
         top:0;
     }
     .step1-content_a::before {
-        visibility: hidden;
+        display:none;
     }
     .step1-content_a::after {
         margin-top:8px;
@@ -71,8 +70,8 @@
         top:46px;
     }
     .step-content_a i {
-        left: 2px;
-        font-size: 16px;
+        left: 1px;
+        font-size: 12px;
     }
     /*--total--*/
     .total_a {
