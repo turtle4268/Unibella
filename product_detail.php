@@ -965,14 +965,14 @@
                 // alert("商品已加入購物車");
                 $("#lightbox_f").find("#lightbox-panel_f p").text("商品已加入購物車");
                 $("#lightbox_f").show();
-                // countItems(data);
+                countItems(data);
             },"json");
         });
         /*add to love*/
         $(".addBtn_y").click(function(){
             var card=$(this).closest(".productInforBox_y");
             var sid=card.data('sid');
-            console.log(sid);
+            // console.log(sid);
             if(!<?= isset($_SESSION['user'])?'1':'0' ?>){
                 // alert("請先登入會員");
                 $("#lightbox_f").find("#lightbox-panel_f p").text("請先登入會員");
@@ -982,18 +982,17 @@
                 $.get('add_to_love.php',{sid:sid},function(data){
                     console.log(data);
                     // alert("商品已加入收藏");
-                    
-                    switch (data) {
+                    switch (data['msg']) {
                         case 1:
                             // alert("商品已加入收藏");
-                            $("#lightbox_f").find("#lightbox-panel_f p").text("商品已加入收藏");
-                            $("#lightbox_f").show();
+                            // $("#lightbox_f").find("#lightbox-panel_f p").text("商品已加入收藏");
+                            // $("#lightbox_f").show();
                             location.href=location.href;
                             break;
                         case 2:
                             // alert("已取消收藏");
-                            $("#lightbox_f").find("#lightbox-panel_f p").text("已取消收藏");
-                            $("#lightbox_f").show();
+                            // $("#lightbox_f").find("#lightbox-panel_f p").text("已取消收藏");
+                            // $("#lightbox_f").show();
                             location.href=location.href;
                             break;
                     

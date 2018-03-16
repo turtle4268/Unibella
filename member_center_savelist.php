@@ -226,7 +226,7 @@
             outline: none;
         }
        /*-------toTop--------*/
-       .toTop{
+       /* .toTop{
             color: #1F5572 ;
             position: relative ;
             top: -15px ;
@@ -256,7 +256,7 @@
             0%   { opacity: .2; top: 2px; }
             50%  { opacity: .5; }
             100% { opacity: 1; top: -4px ;}
-        }
+        } */
         /*active-----------------------------------------------------*/
         .active_f {
             width:100%;
@@ -495,8 +495,10 @@
 
             $.get('add_to_cart.php',{sid:sid,qty:qty},function(data){
                 console.log(data);
-                alert("商品已加入購物車");
-                // countItems(data);
+                // alert("商品已加入購物車");
+                $("#lightbox_f").find("#lightbox-panel_f p").text("商品已加入購物車");
+                $("#lightbox_f").show();
+                countItems(data);
             },"json");
         });
         /*delet*/
@@ -506,12 +508,12 @@
             
             $.get('add_to_love.php',{sid:sid},function(data){
                 $(".card").each(function(){
-                    if($(this).data("sid")==sid) $(this).remove();
+                    // if($(this).data("sid")==sid) $(this).remove();
+                    // countLoves(data['love']);
+                    location.href=location.href;
                 });
             },'json');
-            <?php if(empty($loves)): ?>
-                location.href=location.href;
-            <?php endif; ?>
+
         });
     </script>
 <?php include __DIR__.'/module_foot.php' ?>
