@@ -184,11 +184,12 @@
             background: #FFF;
             cursor: pointer;
             color: #1F5572;
-            border-bottom: 1px solid #1F5572;
+            /* border-bottom: 1px solid #1F5572; */
         }
         .tablePhone_a {
             display:none;
         }
+        
         /*active_y-------------------------------------*/
         .active_y{
             margin-top: 15%;
@@ -438,7 +439,7 @@
                             <td><p>狀態<span>出貨中</span></p></td>
                         </tr>
                         <tr class="producCotent_a  producCotentL_a">
-                            <td><a href="">取消訂單</a></td>
+                            <td class="delect_a"><a href="">取消訂單</a></td>
                         </tr>
                     </tbody>
                 <?php endforeach; ?>
