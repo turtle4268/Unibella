@@ -408,7 +408,7 @@
     <div class="btn_a">
         <a class="shop_a" href="product_list3.php">繼續購物</a>
         <?php if(isset($_SESSION['user'])): ?>
-        <a class="buy_a buynext" href="cartPayShip.php">立即購買</a>
+        <a class="buy_a buynext">立即購買</a>
         <?php else: ?>
         <a class="buy_a" href="member_login.php">登入會員</a>
         <?php endif; ?>
@@ -474,7 +474,7 @@
             $.get("add_to_cart.php",{sid:sid},function(data){
                 $(".tablePhone_a").each(function(){
                     countItems(data);
-                    if(itemCount.text()) location.href=location.href;
+                    if(itemCount.text()==0) location.href=location.href;
                     if($(this).data("sid")==sid) $(this).remove();
                 });
                 count();
@@ -487,6 +487,7 @@
                 tprice=totalPrice;
             $.get("add_price.php",{tqty:tqty,tprice:tprice},function(data){
                 // console.log(data);
+                location.href="cartPayShip.php";
             });
         });
     </script> 
