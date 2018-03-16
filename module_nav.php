@@ -1,3 +1,9 @@
+<div id="lightbox_f">
+    <div id="lightbox-panel_f">
+        <p>帳號或密碼錯誤</p>
+        <a id="close-panel_f">我知道了</a>
+    </div>
+</div>
 <header>
     <h1><a href="home.php"></a></h1>
     <ul class="h_ul">
@@ -33,5 +39,9 @@
     });
     $Close.click(function(){
         $Nav.addClass("navhide");
+    });
+    /*Light box*/
+    $("#close-panel_f").click(function(){
+        $(this).closest("#lightbox_f").hide();
     });
 </script>

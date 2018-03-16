@@ -436,7 +436,7 @@
             text-align:center;
             }
         #lightbox_f {
-            /* display:none; */
+            display:none;
             background: rgba(255,255,255,0.7);
             position:absolute;
             top:0px;
@@ -606,13 +606,18 @@
                 </div>
             </div>
         </section>
-        <div id="lightbox-panel_f">
-            <p>帳號或密碼錯誤</p>
-            <a id="close-panel_f">我知道了</a>
+        
+        <div id="lightbox_f">
+            <div id="lightbox-panel_f">
+                <p>帳號或密碼錯誤</p>
+                <a id="close-panel_f">我知道了</a>
+            </div>
         </div>
-        <div id="lightbox_f"></div>
     </div>
     <script>
+    $("#close-panel_f").click(function(){
+        $(this).closest("#lightbox_f").hide();
+    });
         $(".full_register_y").hide();
         $(".h_registerBtn_y").click(function(){
             $(".half").addClass("halfTofull").siblings().addClass("halfTonull");
@@ -770,6 +775,11 @@
             if(password_login.length<6 || password_login.length>12){
                 isLoPass = false;
             }
+            if(email_login=="" || password_login==""){
+                isLoPass = false;
+                $("#lightbox_f").find("#lightbox-panel_f p").text("請填入帳號密碼");
+                $("#lightbox_f").show();
+            }
             
             if(isLoPass){
                 $.post("login_api.php",$(form_login).serialize(),function(data){
@@ -779,7 +789,9 @@
                         ss=<?= isset($_SESSION['user'])?1:0 ?>;
                         console.log(ss);
                         
-                            alert("登入成功!");
+                            // alert("登入成功!");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("登入成功");
+                            $("#lightbox_f").show();
                             setTimeout(function(){
                                 <?php if(empty($_SESSION['come_from'])): ?>
                                 location.href='home.php';
@@ -790,7 +802,8 @@
                             break;
                     
                         default:
-                            alert("登入失敗!");
+                            $("#lightbox_f").find("#lightbox-panel_f p").text("帳號密碼錯誤");
+                            $("#lightbox_f").show();
                             break;
                     }
                 },"json");

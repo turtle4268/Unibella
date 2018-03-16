@@ -240,7 +240,49 @@
         .n_ul li a:hover::before{
             width: 100% ;
         }
+        /*lightbox---------------------------------------*/
+        #lightbox_f {
+            display:none;
+            background: #ffffff90;
+            position:fixed;
+            top:0px;
+            left:0px;
+            min-width:100%;
+            min-height:100%;
+            z-index:15;
+        }
+        #lightbox-panel_f p{
+            color:#1F5572;
+            text-align:center;
+            font-weight:bold;
+            margin :50px 0 30px;
+        }
+        #lightbox-panel_f a{
+            text-decoration: none;
+            color: #fff;
+            background:#1F5572;
+            padding:10px 20px;
+            box-sizing:content-box;
+            border-radius:30px;
+            display:block;
+            width:100px;
+            margin: 0 auto;
+            text-align:center;
+            }
         
+        #lightbox-panel_f {
+            /* display:none; */
+            position:fixed;
+            top:50%;
+            left:50%;
+            margin-left:-200px;
+            margin-top:-100px;
+            width:400px;
+            height:200px;
+            background:#FFFFFF;
+            z-index:16;
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, .3) ;
+        }
     </style>
 </head>
 <body>
