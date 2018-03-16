@@ -507,10 +507,10 @@
             var sid=card.data("sid");
             
             $.get('add_to_love.php',{sid:sid},function(data){
+                countLoves(data['love']);
                 $(".card").each(function(){
-                    // if($(this).data("sid")==sid) $(this).remove();
-                    // countLoves(data['love']);
-                    location.href=location.href;
+                    if($(this).data("sid")==sid) $(this).remove();
+                    // location.href=location.href;
                 });
             },'json');
 

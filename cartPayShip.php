@@ -406,7 +406,7 @@
                 </div>
             </div>
         </div>
-        <div class="total_a" data-val="">共 <?= $_SESSION['totalQty'] ?> 件，總金額 NT$. <?= $_SESSION['totalPrice'][0] ?></div>
+        <div class="total_a" data-val="">共 <?= $_SESSION['totalQty'] ?> 件，總金額 NT$. <?= $_SESSION['totalPrice'] ?></div>
         <table class="table_a">
             <thead class="thead-dark_a">
                 <tr>
@@ -473,7 +473,7 @@
                 <div class="chooseDes_a">
                     <span>應付金額</span>
                 </div>
-                <input type="text" class="text_a price" data-price="<?= $_SESSION['totalPrice'][0] ?>" disabled="disabled">
+                <input type="text" class="text_a price" data-price="<?= $_SESSION['totalPrice'] ?>" disabled="disabled">
             </div>
         </div>
     <div class="payNotive_a">
@@ -593,7 +593,7 @@
             total=price-discount+ship;
             $(".distext").val(discount);
             $(".price").val(total);
-            console.log(total);
+            // console.log(total);
         }
         checkprice();
 
@@ -614,21 +614,22 @@
         /*next page */
         $(".next_a").click(function(){
             var nextstep=$("#payWay").val();
-            var tqty=<?= $_SESSION['totalQty'] ?>;
+            var ship=parseInt($("#shipWay").val());
+            var discount=parseFloat($(".discount").val());
             tprice=total;
             console.log(tprice);
             switch (nextstep) {
                 case "1":
-                    $.get("add_price.php",{tqty:tqty,tprice:tprice},function(data){
+                    $.get("add_count_price.php",{discount:discount,ship:ship},function(data){
                         // console.log(data);
+                        location.href="cartShipdata.php";
                     });
-                    location.href="cartShipdata.php";
                     break;
                 case "2":
-                    $.get("add_price.php",{tqty:tqty,tprice:tprice},function(data){
+                    $.get("add_count_price.php",{discount:discount,ship:ship},function(data){
                         // console.log(data);
+                        location.href="cartCredietcard1.php"
                     });
-                    location.href="cartCredietcard1.php"
                     break;
             
                 default:
