@@ -33,6 +33,10 @@
     var $Nav=$("nav"),
         $Hamburger=$(".hamburger"),
         $Close=$(".close");
+    /**/
+    $(".itemCount").click(function(){
+        location.href="cartList.php";
+    });
     /*Hamburger*/
     $Hamburger.click(function(){
         $Nav.removeClass("navhide");
@@ -60,15 +64,18 @@
         }
     };
     /*love count */
-    // var countLoves=function(obj){
-    //     var sum=0;
-    //     for(var s in obj){
-    //         sum+= obj[s];
-    //     }
-    //     console.log(sum);
-    //     return sum;
-
-    // };
+    var countLoves=function(obj){
+        var sum=0;
+        var num=1;
+        for(var s in obj){
+            sum+= obj[s];
+        }
+        
+        num=sum;
+        console.log(obj);
+        console.log(num,sum);
+        if(num==0) location.href=location.href;
+    };
     $.get('add_to_cart.php',function(data){
         countItems(data);
     },'json');

@@ -126,10 +126,21 @@
                 transform:translateY(0);
             }
         }
+        .toppic_left_word_f{
+            opacity:0;
+        }
+        .toppic_left_word_active_f{
+            animation-name: rightBottom;
+            animation-duration: 1s;
+            animation-delay:.5s;
+            opacity:0;
+            animation-fill-mode:forwards;
+        }
         /*--------------------------------------------*/
         .section2{
             display:flex;
             align-items:center;
+            opacity:0;
         }
         .section2 p{
             padding:0 100px;
@@ -140,10 +151,12 @@
         .section3{
             display:flex;
             justify-content:space-between;
+            opacity:0;
         }
         .section4{
             width:65%;
             margin : 0 auto;
+            opacity:0;
         }
         .section4 h2{
             font-weight:bold;
@@ -157,12 +170,16 @@
         }
         .section5{
             display:flex;
+            opacity:0;
+        }
+        .section6{
+            opacity:0;  
         }
         .section6 h2{
             font-weight:bold;
             text-align:center;
             line-height:48px;
-            margin:20px 0 80px; 
+            margin:0 0 60px; 
         }
     </style>
     <style>
@@ -173,7 +190,7 @@
         <section class="toppic_f">
             <div class="toppic_left_f">
                 <img src="images/aHR0cDovL3d3dy5tb2xzc2kuY29tL3FmeS1jb250ZW50L3VwbG9hZHMvMjAxNy8wMS9kMzAwZjUxNGQ4N2I2MzVkMDk3YWE2N2UyNjYxYzQ5Yy5qcGc_p_p100_p_3D.jpg" alt="">
-                <div class="toppic_left_word_f umbrellaCard_a">
+                <div class="toppic_left_word_f">
                     <h2>Unibella X Flabjacks聯名新款 | Everything is Okay</h2>
                     <p>新年伊始，人們再次開始清算理想，盤算未來。
                     居住的城市總有霧霾，嚮往的旅行沒有足夠的假期，房貸車貸還沒還清，想跳槽卻沒有勇氣……想想生活總有這樣那樣的不如意，情緒常常陰雲密布容易“下雨” …… 
@@ -222,7 +239,7 @@
             </h2>
         </section>
     </div>    
-    <?php include __DIR__.'/module_footer.php' ?>
+    <!-- <?php include __DIR__.'/module_footer.php' ?> -->
     <script>
         /*hideNav*/
         var scrolllast;
@@ -240,22 +257,35 @@
                 }
             }
             scrolllast=scrollNow;
-        });
-        var scrollHeaderLast;
 
-
-        var setArea=$(".umbrellaCard_a"),
-            showHeight=50;
-        setArea.each(function(){
-            var setThis=$(this),
-                areaTop=setThis.offset().top,
-                umbrellaImg = $(this).attr("data-img");
-            if($(window).scrollTop()>(areaTop+showHeight)-$(window).height()){
-                $("#" + umbrellaImg).stop().animate({opacity:"1",top:"0"},400);
+            if (scrollNow > 500) {
+                $(".toppic_left_word_f").addClass("toppic_left_word_active_f");
             } else {
-                $("#" + umbrellaImg).stop().animate({opacity:"0",top:"100px"},400);
+                $(".toppic_left_word_f").removeClass("toppic_left_word_active_f");   
+            };
+
+            if (scrollNow > 900) {
+                $(".section2").addClass("toppic_left_word_active_f");
+            } else {
+                $(".section2").removeClass("toppic_left_word_active_f");   
+            }
+            if (scrollNow > 1500) {
+                $(".section3").addClass("toppic_left_word_active_f");
+            } else {
+                $(".section3").removeClass("toppic_left_word_active_f");   
+            }
+            if (scrollNow > 2100) {
+                $(".section4").addClass("toppic_left_word_active_f");
+            } else {
+                $(".section4").removeClass("toppic_left_word_active_f");   
+            }
+            if (scrollNow > 2700) {
+                $(".section5, .section6").addClass("toppic_left_word_active_f");
+            } else {
+                $(".section5, .section6").removeClass("toppic_left_word_active_f");   
             }
         });
+        var scrollHeaderLast;
         
     </script>
 <?php include __DIR__.'/module_foot.php' ?>
