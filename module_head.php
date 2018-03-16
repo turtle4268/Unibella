@@ -98,7 +98,9 @@
             color: #FFF ;
             font-size: 10px ;
             text-align: center ;
+            line-height: 18px ;
             letter-spacing: 1px ;
+            cursor: pointer ;
         }
         header.hide{
             top: -100px ;
