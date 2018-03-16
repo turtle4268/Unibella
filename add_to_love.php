@@ -9,7 +9,7 @@ if(isset($_GET['sid'])){
     
     $member_sid=$_SESSION['user']['id'];
     $product_sid=$_GET['sid'];
-    $result=0;
+    $result=array();
     if(!isset($_SESSION['love'][$product_sid])){
         $sql="INSERT INTO `loves`(
             `member_sid`, `product_sid`, 
@@ -26,7 +26,7 @@ if(isset($_GET['sid'])){
         $msg_code = $stmt->affected_rows;
         if($msg_code){
             $_SESSION['love'][$product_sid] = 1;
-            $result=1;
+            $result['msg']=1;
         }
         $stmt->close();
     }else{
@@ -40,12 +40,12 @@ if(isset($_GET['sid'])){
         $dmsg_code = $dstmt->affected_rows;
         if($dmsg_code){
             unset($_SESSION['love'][$product_sid]);
-            $result=2;
+            $result['msg']=2;
         }
         $dstmt->close();
     }
 
-    // echo $result;
+    $result['love'][]=$_SESSION['love'];
 }
 
 echo json_encode($result, JSON_UNESCAPED_UNICODE);

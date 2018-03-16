@@ -495,8 +495,10 @@
 
             $.get('add_to_cart.php',{sid:sid,qty:qty},function(data){
                 console.log(data);
-                alert("商品已加入購物車");
-                // countItems(data);
+                // alert("商品已加入購物車");
+                $("#lightbox_f").find("#lightbox-panel_f p").text("商品已加入購物車");
+                $("#lightbox_f").show();
+                countItems(data);
             },"json");
         });
         /*delet*/
@@ -506,12 +508,12 @@
             
             $.get('add_to_love.php',{sid:sid},function(data){
                 $(".card").each(function(){
-                    if($(this).data("sid")==sid) $(this).remove();
+                    // if($(this).data("sid")==sid) $(this).remove();
+                    // countLoves(data['love']);
+                    location.href=location.href;
                 });
             },'json');
-            <?php if(empty($loves)): ?>
-                location.href=location.href;
-            <?php endif; ?>
+
         });
     </script>
 <?php include __DIR__.'/module_foot.php' ?>
