@@ -186,7 +186,7 @@
         -webkit-mask-position: center ;
     }
     .minus{
-        margin-right: 2px ;
+        margin-right: 7px ;
         -webkit-mask-image:url(images/minus.svg);
     }
     .plus{
@@ -338,6 +338,11 @@
             z-index: 2;
             animation: pulse .7s infinite alternate;
         }
+        .textqty {
+            display:inline-block;
+            border-bottom:1px solid #666;
+            font-style:normal;
+        }
         @keyframes pulse{
             0%{
                 transform: scale(1);
@@ -345,6 +350,7 @@
             100%{
                 transform: scale(1.1);
             }
+        
         }
     </style>
     <style>
@@ -396,7 +402,7 @@
                   <td><?= $cartdata[$sid]['umbrellaname'] ?></td>
                   <td>
                       <a class="changeQty minus"></a>
-                      <div class="textqty"><?= $qty ?></div>
+                      <i class="textqty"><?= $qty ?></i>
                       <a class="changeQty plus"></a>
                   </td>
                   <td>NT$.<?= $cartdata[$sid]['price'] ?></td>
@@ -416,7 +422,7 @@
                 <p>數量
                     <span class="listCS_a qty" data-qty="<?= $qty ?>">
                         <a class="changeQty minus"></a>
-                        <div class="textqty"><?= $qty ?></div>
+                        <i class="textqty"><?= $qty ?></i>
                         <a class="changeQty plus"></a>
                     </span>
                 </p>
