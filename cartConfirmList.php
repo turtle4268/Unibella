@@ -469,7 +469,7 @@
                             <span>ATM付款</span>
                         </p>
                         <p class="formContent2_a">應付金額
-                            <span>NT$.<?= $_SESSION['totalPrice'][1] ?></span>
+                            <span>NT$.<?= $_SESSION['newprice'] ?></span>
                         </p>     
                     </td>
                 </tr>
@@ -494,7 +494,7 @@
                     </tr>
                 </tbody>
             </table>
-        <div class="total_a" data-val="">共 <?= $_SESSION['totalQty'] ?> 件，總金額 NT$. <?= $_SESSION['totalPrice'][1] ?></div>
+        <div class="total_a" data-val="">共 <?= $_SESSION['totalQty'] ?> 件，總金額 NT$. <?= $_SESSION['newprice'] ?></div>
     </section>
     <div class="btn_a">
         <a class="shop_a" href="cartShipdata.php">上一步</a>
