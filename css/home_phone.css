@@ -118,8 +118,9 @@
      }
      .toTop{
          margin-top: 10px ;
-         position: static ;
-     }
+         margin-bottom: 0px ;
+        /*  position: static ;*/
+     } 
      /*太陽------------------------------*/
      .sun svg{
         position: absolute;

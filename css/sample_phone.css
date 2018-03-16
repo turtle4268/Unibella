@@ -58,4 +58,11 @@
     nav.navhide{
         right: -100% ;
     }
+    /*--toTop--*/
+    .toTop {
+        top: 0 ;
+        margin-left: 0 ;
+        margin: 0 auto ;
+        margin-bottom: 15px ;
+    }
 }

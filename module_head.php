@@ -299,6 +299,39 @@
             z-index:16;
             box-shadow: 1px 1px 10px rgba(0, 0, 0, .3) ;
         }
+        /*-------toTop--------*/
+        .toTop{
+            color: #1F5572 ;
+            position: relative ;
+            top: -15px ;
+            margin-left: 94% ;
+            margin-bottom: 15px ;
+            cursor: pointer ;
+            width: 40px ;
+        }
+        .toTop .tr{
+            width: 20px;
+            height: 20px;
+            margin: 5px auto;
+            position: relative ;
+            left: -2px ;
+            transform: rotate(180deg) ;
+            -webkit-mask-image: url(images/icon_scroll.svg) ;
+            background-color:#1F5572;
+            animation: scroll_top .5s linear infinite;
+            animation-direction: alternate;
+            animation-delay: .1s;
+        }
+        .toTop h5{
+            font-size: 16px ;
+            color: #1F5572 ;
+            text-align: center;
+        }
+        @keyframes scroll_top {
+            0%   { opacity: .2; top: 2px; }
+            50%  { opacity: .5; }
+            100% { opacity: 1; top: -4px ;}
+        }
     </style>
 </head>
 <body>

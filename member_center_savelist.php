@@ -226,7 +226,7 @@
             outline: none;
         }
        /*-------toTop--------*/
-       .toTop{
+       /* .toTop{
             color: #1F5572 ;
             position: relative ;
             top: -15px ;
@@ -256,7 +256,7 @@
             0%   { opacity: .2; top: 2px; }
             50%  { opacity: .5; }
             100% { opacity: 1; top: -4px ;}
-        }
+        } */
         /*active-----------------------------------------------------*/
         .active_f {
             width:100%;
