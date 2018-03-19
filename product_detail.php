@@ -977,6 +977,9 @@
                 // alert("請先登入會員");
                 $("#lightbox_f").find("#lightbox-panel_f p").text("請先登入會員");
                 $("#lightbox_f").show();
+                $("#close-panel_f").click(function(){
+                    location.href="member_login.php";
+                });
             }else{
                 // alert("商品已加入收藏");
                 $.get('add_to_love.php',{sid:sid},function(data){
