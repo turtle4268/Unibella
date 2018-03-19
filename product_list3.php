@@ -248,7 +248,7 @@
         <div class="banner">
             <img src="images/banner_LIST.jpg" alt="" class="bn_bg">
             <div class="bn">
-                <h2>Be Your Unique Unbrella.</h2>
+                <h2>Be Your Unique Umbrella.</h2>
                 <div class="b_umbrella">
                     <img src="images/home_umbrella_b.png" alt="">
                 </div>
