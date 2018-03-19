@@ -198,7 +198,7 @@
     <div id="container">
         <div class="headerBg_a">
             <img src="images/banner_FIX.jpg" alt="">
-            <p>Be Your Unique Unbrella.</p>
+            <p>Be Your Unique Umbrella.</p>
         </div>
         <section class="fix_a">
             <div class="warranty_a">
