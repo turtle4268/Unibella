@@ -20,7 +20,7 @@
         $cartdata[$row['sid']]=$row;
         // $total_amount+=$row['qty'] * $row['price'];
     }
-    $total_amount=$_SESSION['totalPrice'][1];
+    $total_amount=$_SESSION['newprice'];
 
     $osql="INSERT INTO `orders`(`member_sid`, `amount`, `order_date`) VALUES (?, ?, NOW())";
     $stmt=$mysqli->prepare($osql);
