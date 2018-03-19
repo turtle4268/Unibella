@@ -286,6 +286,33 @@
         .active_a ul .orange {
             background:#e0a340;
         }
+        h6{
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #666;
+            margin-top: 50px;
+        }
+        .pulse_f{
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            width: 50%;
+            margin: 0 auto;
+            color:#C1272D;
+            padding: 100px 0;
+            z-index: 2;
+            animation: pulse .7s infinite alternate;
+        }
+        @keyframes pulse{
+            0%{
+                transform: scale(1);
+            }
+            100%{
+                transform: scale(1.1);
+            }
+        
+        }
         /*-------toTop--------*//*f加*/
         .toTop{
             color: #1F5572 ;
@@ -343,7 +370,7 @@
                     </form>
                 </div>
     <?php if(empty($history)): ?>
-                <h3>您目前尚無訂購紀錄。</h3>
+                <p class="pulse_f">您目前尚無訂購紀錄。</p>
                 <div class="active_y">
                     <h2>最新活動</h2>
                     <div class="active_a">
@@ -392,8 +419,8 @@
                             <td><?= $data['quantity'] ?></td>
                             <td>NT$.<?= $data['price'] ?></td>
                             <td>NT$.<?= $data['price']*$data['quantity'] ?></td>
-                            <td>出貨中</td>
-                            <td><a href="">已收到訂單</a></td>
+                            <td>已收到訂單</td>
+                            <td><a href="">取消訂單</a></td>
                         </tr>
                 <?php endforeach; ?>
                         <tr class="total_y">

@@ -157,8 +157,8 @@
             background: #000000;
         }
         .active_f ul li a {
-            width: 300px;
-            height: 300px;
+            width: 100%;
+            height: 100%;
             display: block;
             z-index: 2;
             
@@ -325,18 +325,20 @@
                     <div class="active_f">
                         <ul>
                             <li class="square_f blue">
-                                <img class="images" src="images/news_squre2_light.jpg" alt="">
-                                <p class="p2">梅雨季
-                                    <br>全館雨傘88折</p>
-                                <a href=""></a>
+                                <a href="product_list3.php">
+                                    <img class="images" src="images/news_squre2_light.jpg" alt="">
+                                    <p class="p2">梅雨季
+                                        <br>全館雨傘85折</p>
+                                </a>
                             </li>
                             <li class="small_pic_f">
                                 <img src="images/member_square2.jpg" alt="">
                             </li>
                             <li class="square_f orange">
-                                <img class="images" src="images/news_squre4_light.jpg" alt="">
-                                <p class="p4">自動傘新品上架</p>
-                                <a href=""></a>
+                                <a href="activity2.php">
+                                    <img class="images" src="images/news_squre4_light.jpg" alt="">
+                                    <p class="p4">陽傘新色上架</p>
+                                </a>
                             </li>
                         </ul>
                     </div>
