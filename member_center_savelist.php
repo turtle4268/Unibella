@@ -282,8 +282,8 @@
             background: #000000;
         }
         .active_f ul li a {
-            width: 300px;
-            height: 300px;
+            width: 100%;
+            height: 100%;
             display: block;
             z-index: 2;
             
