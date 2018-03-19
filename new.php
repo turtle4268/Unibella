@@ -350,7 +350,7 @@
                     </li>
                     <li class="squarePhone_a"><img src="images/news_square5.jpg" alt=""></li>
                     <li class="square_a orange">
-                            <a href="#">
+                            <a href="activity2.php">
                             <img class="images" src="images/news_squre6_light.jpg" alt="">
                             <p class="p6">陽傘新色上架</p>
                             </a>

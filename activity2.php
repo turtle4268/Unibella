@@ -103,7 +103,7 @@
         }
         .main_y{
             text-align:center;
-            padding:85px 0;
+            padding:85px 0 0 0;
         }
         .mainTxt_y{
             font-size:18px;
