@@ -391,7 +391,7 @@
                             <td>NT$.<?= $data['price'] ?></td>
                             <td>NT$.<?= $data['price']*$data['quantity'] ?></td>
                             <td>出貨中</td>
-                            <td><a href="">取消訂單</a></td>
+                            <td><a href="">已收到訂單</a></td>
                         </tr>
                 <?php endforeach; ?>
                         <tr class="total_y">
@@ -436,7 +436,7 @@
                             <td><p>小計<span>NT$.<?= $data['price']*$data['quantity'] ?></span></p></td>
                         </tr>
                         <tr class="producCotent_a producCotentM_a">
-                            <td><p>狀態<span>出貨中</span></p></td>
+                            <td><p>狀態<span>已收到訂單</span></p></td>
                         </tr>
                         <tr class="producCotent_a  producCotentL_a">
                             <td class="delect_a"><a href="">取消訂單</a></td>
