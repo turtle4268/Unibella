@@ -198,9 +198,12 @@
         .tablePhone_a tbody .producCotentM_a td p span {
             margin-left: 35%;
         }
+        .tablePhone_a tbody tr td.delect_a {
+            text-align:center;
+        }
         .producCotentL_a a {
             width: 24%;
-            margin-left: 15%;
+            margin-left: 0;
             text-decoration: none;
             color: #1F5572;
         }/*active-----------------------------------------------------*/
