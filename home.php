@@ -941,7 +941,7 @@
                 }else{
                     removeBlack();
                 }
-                if (scrollNow<=65) {  //在80以內不會縮回
+                if (scrollNow<=65) {  //在65以內不會縮回
                     $Header.removeClass("hide");
                 } else {
                     if (scrollNow>scrolllast) {

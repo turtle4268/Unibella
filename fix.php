@@ -276,7 +276,7 @@
         $(window).scroll(function(){
             var scrollNow=$(this).scrollTop();
             // console.log(scrollNow);
-            if (scrollNow < 350) {
+            if (scrollNow < 200) {
                 $("header").removeClass("hide black");
             } else {
                 if (scrollNow > scrolllast) {

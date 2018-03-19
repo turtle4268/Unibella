@@ -336,7 +336,7 @@
                 <ul>
                     <li class="squarePhone_a"><img src="images/news_square1.jpg" alt=""></li>
                     <li class="square_a blue" >
-                            <a href="#">
+                            <a href="product_list3.php">
                             <img class="images" src="images/news_squre2_light.jpg" alt="">
                             <p class="p2">梅雨季<br>全館雨傘85折</p>
                             </a>   
@@ -434,7 +434,7 @@
         $(window).scroll(function(){
             var scrollNow=$(this).scrollTop();
             // console.log(scrollNow);
-            if (scrollNow < 350) {
+            if (scrollNow < 200) {
                 $("header").removeClass("hide black");
             } else {
                 if (scrollNow > scrolllast) {
