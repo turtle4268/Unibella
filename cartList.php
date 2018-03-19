@@ -529,7 +529,11 @@
             var card=$(this).closest(".card");
             var sid=card.data("sid");
             if($(this).hasClass("minus")){
-                nowqty--;
+                if(nowqty>1){
+                    nowqty--;
+                }else{
+                    nowqty=1;
+                }
             }else{
                 nowqty++;
             }
