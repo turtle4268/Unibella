@@ -352,15 +352,15 @@
                                 <img class="images" src="images/news_squre2_light.jpg" alt="">
                                 <p class="p2">梅雨季
                                     <br>全館雨傘85折</p>
-                                <a href=""></a>
+                                <a href="product_list3.php"></a>
                             </li>
                             <li>
                                 <img src="images/member_square2.jpg" alt="">
                             </li>
                             <li class="square_a orange">
                                 <img class="images" src="images/news_squre4_light.jpg" alt="">
-                                <p class="p4">自動傘新品上架</p>
-                                <a href=""></a>
+                                <p class="p4">陽傘新色上架</p>
+                                <a href="activity2.php"></a>
                             </li>
                         </ul>
                     </div>
@@ -475,7 +475,7 @@
         $(window).scroll(function(){
             var scrollNow=$(this).scrollTop();
             // console.log(scrollNow);
-            if (scrollNow < 350) {
+            if (scrollNow < 200) {
                 $("header").removeClass("hide black");
             } else {
                 if (scrollNow > scrolllast) {

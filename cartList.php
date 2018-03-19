@@ -375,7 +375,7 @@
                 <ul>
                     <li class="square_f blue" >
                             <img class="images" src="images/news_squre2_light.jpg" alt="">
-                            <p class="p2">梅雨季<br>全館雨傘88折</p>
+                            <p class="p2">梅雨季<br>全館雨傘85折</p>
                             <a href=""></a>   
                     </li>
                     <li class="small_pic_f"><img src="images/member_square2.jpg" alt=""></li>
@@ -468,7 +468,7 @@
         $(window).scroll(function(){
             var scrollNow=$(this).scrollTop();
             // console.log(scrollNow);
-            if (scrollNow < 240) {
+            if (scrollNow < 200) {
                 $("header").removeClass("hide black");
             } else {
                 if (scrollNow > scrolllast) {
@@ -529,7 +529,11 @@
             var card=$(this).closest(".card");
             var sid=card.data("sid");
             if($(this).hasClass("minus")){
-                nowqty--;
+                if(nowqty>1){
+                    nowqty--;
+                }else{
+                    nowqty=1;
+                }
             }else{
                 nowqty++;
             }
