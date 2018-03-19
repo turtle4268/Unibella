@@ -288,16 +288,16 @@
                         <a class="btn_um" data-cate="2">陽傘</a>
                         <div class="check">
                             <div class="label_group">
-                                <label for="plain"><input type="checkbox" name="plain" id="plain" class="color" value="1">素色</label>
+                                <label for="plain2"><input type="checkbox" name="plain" id="plain2" class="color" value="1">素色</label>
                             </div>
                             <div class="label_group">
-                                <label for="pattern"><input type="checkbox" name="pattern" id="pattern" class="color" value="2">花色</label>
+                                <label for="pattern2"><input type="checkbox" name="pattern" id="pattern2" class="color" value="2">花色</label>
                             </div>
                             <div class="label_group">
-                                <label for="straight"><input type="checkbox" name="straight" id="straight" class="skeleton" value="1">直傘</label>
+                                <label for="straight2"><input type="checkbox" name="straight" id="straight2" class="skeleton" value="1">直傘</label>
                             </div>
                             <div class="label_group">
-                                <label for="folding"><input type="checkbox" name="folding" id="folding" class="skeleton" value="2">折傘</label>
+                                <label for="folding2"><input type="checkbox" name="folding" id="folding2" class="skeleton" value="2">折傘</label>
                             </div>
                         </div>
                     </div>
@@ -373,7 +373,7 @@
         });
         var cpage=1;
         /*Check*/
-        $("input:checked").prop("checked",false);
+        $("input:checkbox").prop("checked",false);
         $(".color").click(function(){
             ccolor="";
             if($(this).prop("checked")){
@@ -430,6 +430,7 @@
             $("label").css("color","#666");
             $("input[disabled='disabled']").closest("label").css("color","#ccc");
         });
+        /*Sort */
         $("input[name='Sort']").click(function(){
             console.log($(this).data("order"));
             corder=$(this).data("order");
