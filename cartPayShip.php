@@ -598,26 +598,32 @@
         checkprice();
 
         /*hide next*/
-        function hidenext(){
-            var payway=$("#payWay").val(),shipway=$("#shipWay").val();
-            if(payway==0 || shipway==0) {
-                $(".next_a").hide();
-            }else{
-                $(".next_a").show();
-            }
-        }
-        $("select").change(function(){
-            hidenext();
-        });
-        hidenext();
+        // function hidenext(){
+        //     var payway=$("#payWay").val(),shipway=$("#shipWay").val();
+        //     if(payway==0 || shipway==0) {
+        //         $(".next_a").hide();
+        //     }else{
+        //         $(".next_a").show();
+        //     }
+        // }
+        // $("select").change(function(){
+        //     hidenext();
+        // });
+        // hidenext();
 
         /*next page */
         $(".next_a").click(function(){
             var nextstep=$("#payWay").val();
             var ship=parseInt($("#shipWay").val());
             var discount=parseFloat($(".discount").val());
+            var payway=$("#payWay").val(),
+                shipway=$("#shipWay").val();
             tprice=total;
             console.log(tprice);
+            if(payway==0 || shipway==0){
+                $("#lightbox_f").find("#lightbox-panel_f p").text("請選擇付款跟運送方式");
+                $("#lightbox_f").show();
+            }
             switch (nextstep) {
                 case "1":
                     $.get("add_count_price.php",{discount:discount,ship:ship},function(data){
