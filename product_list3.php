@@ -373,6 +373,7 @@
         });
         var cpage=1;
         /*Check*/
+        $("input:checked").prop("checked",false);
         $(".color").click(function(){
             ccolor="";
             if($(this).prop("checked")){
