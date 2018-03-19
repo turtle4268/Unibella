@@ -465,6 +465,9 @@
         .form_login {
             margin-top:20px;
         }
+        .registerInput_y, .registerInput1111_y, .registerInput22_y, .registerInput2222_y{
+            color:#f8cf4e !important;
+        }
     </style>
     <style>
         @import url("css/member_login_phone.css");
