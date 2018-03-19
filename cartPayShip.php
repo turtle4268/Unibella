@@ -460,7 +460,7 @@
                     <span>運送方式</span>
                 </div>
                 <select name="" id="shipWay" class="shipWay_a">
-                    <option value="0" selected="">--</option>
+                    <option value="0">--</option>
                     <option value="70">宅配 70元</option>
                 </select>
             </div>
@@ -565,7 +565,7 @@
         $( ".payWay_a" ).change(function() {
             console.log($(this).val());
             var payWayVal=$(this).val();
-            var shipWayVal=$(" shipWay_a").index();
+            var shipWayVal=$(".shipWay_a").index();
             if(payWayVal==1){
                 $(".atm_a").addClass('show'); 
                 $(".visa_a").removeClass('show');
@@ -620,27 +620,29 @@
                 shipway=$("#shipWay").val();
             tprice=total;
             console.log(tprice);
-            if(payway==0 || shipway==0){
+            if((payway==0) || (shipway==0)){
                 $("#lightbox_f").find("#lightbox-panel_f p").text("請選擇付款跟運送方式");
                 $("#lightbox_f").show();
+            }else{
+                switch (nextstep) {
+                    case "1":
+                        $.get("add_count_price.php",{discount:discount,ship:ship},function(data){
+                            // console.log(data);
+                            location.href="cartShipdata.php";
+                        });
+                        break;
+                    case "2":
+                        $.get("add_count_price.php",{discount:discount,ship:ship},function(data){
+                            // console.log(data);
+                            location.href="cartCredietcard1.php"
+                        });
+                        break;
+                
+                    default:
+                        break;
+                }
             }
-            switch (nextstep) {
-                case "1":
-                    $.get("add_count_price.php",{discount:discount,ship:ship},function(data){
-                        // console.log(data);
-                        location.href="cartShipdata.php";
-                    });
-                    break;
-                case "2":
-                    $.get("add_count_price.php",{discount:discount,ship:ship},function(data){
-                        // console.log(data);
-                        location.href="cartCredietcard1.php"
-                    });
-                    break;
             
-                default:
-                    break;
-            }
         });
 
     </script> 

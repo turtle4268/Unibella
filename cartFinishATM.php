@@ -375,7 +375,7 @@
             
         </section>
         <div class="btn_a">
-                <a class="shop_a" href="home.php">回首頁</a>
+                <a class="shop_a" href="member_center.php">會員中心</a>
                 <a class="buy_a" href="product_list3.php">回商品頁</a>
         </div>
         <div class="toTop">
