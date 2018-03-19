@@ -170,9 +170,6 @@
             height: 100%;
             object-fit: contain;
         }
-        .dateW_y{
-            width:135px;
-        }
         .total_y td{
             text-align: center;
             border: 1px solid #666;/*f改*/
@@ -416,7 +413,7 @@
                     <tbody>
                 <?php foreach($value['data'] as $data): ?>
                         <tr class="buyList_y">
-                            <td class="dateW_y"><?= $data['order_date'] ?></td>
+                            <td><?= $data['order_date'] ?></td>
                             <td class="history_pic_f"><img src="images/detail/<?= $data['umbrella_id'] ?>_1.png" alt=""></td>
                             <td><?= $data['umbrellaname'] ?></td>
                             <td><?= $data['quantity'] ?></td>
