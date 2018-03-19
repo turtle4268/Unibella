@@ -1,6 +1,6 @@
 <?php require __DIR__. '/_db_connect.php'; ?>
 <?php 
-    // $_SESSION['come_from'] = $_SERVER['HTTP_REFERER'];
+    $_SESSION['come_from'] = $_SERVER['HTTP_REFERER'];
 ?>
 <?php include __DIR__.'/module_head.php' ?>
     <style>

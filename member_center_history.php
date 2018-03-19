@@ -222,8 +222,8 @@
             background: #000000;
         }
         .active_a ul li a {
-            width: 300px;
-            height: 300px;
+            width: 100%;
+            height: 100%;
             display: block;
             z-index: 2;
             
@@ -289,6 +289,33 @@
         .active_a ul .orange {
             background:#e0a340;
         }
+        h6{
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #666;
+            margin-top: 50px;
+        }
+        .pulse_f{
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            width: 50%;
+            margin: 0 auto;
+            color:#C1272D;
+            padding: 100px 0;
+            z-index: 2;
+            animation: pulse .7s infinite alternate;
+        }
+        @keyframes pulse{
+            0%{
+                transform: scale(1);
+            }
+            100%{
+                transform: scale(1.1);
+            }
+        
+        }
         /*-------toTop--------*//*f加*/
         .toTop{
             color: #1F5572 ;
@@ -346,24 +373,26 @@
                     </form>
                 </div>
     <?php if(empty($history)): ?>
-                <h3>您目前尚無訂購紀錄。</h3>
+                <p class="pulse_f">您目前尚無訂購紀錄。</p>
                 <div class="active_y">
                     <h2>最新活動</h2>
                     <div class="active_a">
                         <ul>
                             <li class="square_a blue">
-                                <img class="images" src="images/news_squre2_light.jpg" alt="">
-                                <p class="p2">梅雨季
+                                <a href="product_list3.php">
+                                    <img class="images" src="images/news_squre2_light.jpg" alt="">
+                                    <p class="p2">梅雨季
                                     <br>全館雨傘85折</p>
-                                <a href="product_list3.php"></a>
+                                </a>
                             </li>
                             <li>
                                 <img src="images/member_square2.jpg" alt="">
                             </li>
                             <li class="square_a orange">
-                                <img class="images" src="images/news_squre4_light.jpg" alt="">
-                                <p class="p4">陽傘新色上架</p>
-                                <a href="activity2.php"></a>
+                                <a href="activity2.php">
+                                    <img class="images" src="images/news_squre4_light.jpg" alt="">
+                                    <p class="p4">陽傘新色上架</p>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -393,8 +422,8 @@
                             <td><?= $data['quantity'] ?></td>
                             <td>NT$.<?= $data['price'] ?></td>
                             <td>NT$.<?= $data['price']*$data['quantity'] ?></td>
-                            <td>出貨中</td>
-                            <td><a href="">已收到訂單</a></td>
+                            <td>已收到訂單</td>
+                            <td><a href="">取消訂單</a></td>
                         </tr>
                 <?php endforeach; ?>
                         <tr class="total_y">
