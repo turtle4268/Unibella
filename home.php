@@ -757,7 +757,7 @@
 
                     <div class="umbrella">
                         <img src="images/home_umbrella_y.png" alt="">
-                        <h2>Be Your Unique Unbrella.</h2>
+                        <h2>Be Your Unique Umbrella.</h2>
                     </div>
                     <div class="intro intro_r fadeOut">
                         <p>Unibella的雨傘使用FRP玻璃纖維骨架，具高韌性彈力佳、不易折斷抗風性佳，並使用防潑水傘布，讓雨水不會附著在傘面上，雨傘更快乾，不臭不發霉。</p>
@@ -786,7 +786,7 @@
 
                     <div class="umbrella">
                         <img src="images/home_umbrella_b.png" alt="">
-                        <h2>Be Your Unique Unbrella.</h2>
+                        <h2>Be Your Unique Umbrella.</h2>
                     </div>
                     <div class="intro intro_l fadeOut">
                         <p>傘面使用高密度防潑水PG傘布，屬於一級防紫外線的傘布， 不易磨損、柔軟舒適、清洗方便、 傘布較厚，防紫外線效果極佳。</p>
@@ -941,7 +941,7 @@
                 }else{
                     removeBlack();
                 }
-                if (scrollNow<=65) {  //在80以內不會縮回
+                if (scrollNow<=65) {  //在65以內不會縮回
                     $Header.removeClass("hide");
                 } else {
                     if (scrollNow>scrolllast) {

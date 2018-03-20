@@ -539,8 +539,10 @@
             phone=$("#phone").val(),
             address=$("#address").val(),
             radio=$(".formRadios_a").val();
-        if(name=="" || phone=="" || address=="" || radio==""){
-            alert("請填入收件資料");
+        if((name=="") || (phone=="") || (address=="") || (radio=="")){
+            // alert("請填入收件資料");
+            $("#lightbox_f").find("#lightbox-panel_f p").text("請填入收件資料");
+            $("#lightbox_f").show();
         }else{
             var repepole=name,
                 rephone=phone;

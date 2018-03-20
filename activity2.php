@@ -10,7 +10,10 @@
         /*Container-------------------------------------------------------------------*/
         /*section1---------------------------------*/
         .section1_y{
-            background:url("images/activity2_bg.jpg")no-repeat center center;
+            background:url("images/activity2_bg.jpg");
+            background-repeat: no-repeat;
+            background-position: center center;;
+            background-size:cover;
             width:100vw;
             height:100vh;
             position:relative;
@@ -93,13 +96,14 @@
         /*section2---------------------------------*/ 
         .section2_y{
             background:url("images/activity2_bg2.jpg")no-repeat center center;
+            background-size:cover;
             width:100vw;
             height:100vh;
             position:relative;     
         }
         .main_y{
             text-align:center;
-            padding:50px 0;
+            padding:85px 0 0 0;
         }
         .mainTxt_y{
             font-size:18px;
@@ -109,7 +113,7 @@
             display: flex ;
             flex-wrap: wrap ;
             justify-content: center ;
-            padding:50px 0;
+            padding:70px 0;
         }
         .popular h4{
             font-size: 24px ;
@@ -201,9 +205,9 @@
         </section>
         <section class="section2_y">
             <div class="main_y">
-                <p class="mainTxt_y">延長傘的使用壽命，讓它能永久陪伴您</p>
+                <P class="mainTxt_y">專克強風暴雨的傘為您撐腰&nbsp;X&nbsp;專攻烈陽的傘為您撐起防護罩</P> 
                 <br>
-                <P class="mainTxt_y">專克強風暴雨的傘為您撐腰&nbsp;X&nbsp;專攻烈陽的傘為您撐起防護罩</P>
+                <p class="mainTxt_y">延長傘的使用壽命，讓它能永久陪伴您</p>
                 <div class="popular">
                     <div class="cards">
                         <div class="card" data-sid="158">

@@ -18,6 +18,9 @@
     section{
         height: auto ;
     }
+    i{
+        font-style: normal ;
+    }
     /*container-------------------------------------------------------------*/
     #container {
         width: 100%;  
@@ -252,8 +255,8 @@
             background: #000000;
         }
         .active_f ul li a {
-            width: 300px;
-            height: 300px;
+            width: 100%;
+            height: 100%;
             display: block;
             z-index: 2;
             
@@ -340,6 +343,7 @@
         }
         .textqty {
             display:inline-block;
+            width: 24px ;
             border-bottom:1px solid #666;
             font-style:normal;
         }
@@ -370,15 +374,17 @@
             <div class="active_f">
                 <ul>
                     <li class="square_f blue" >
+                        <a href="product_list3.php">
                             <img class="images" src="images/news_squre2_light.jpg" alt="">
-                            <p class="p2">梅雨季<br>全館雨傘88折</p>
-                            <a href=""></a>   
+                            <p class="p2">梅雨季<br>全館雨傘85折</p>
+                        </a>   
                     </li>
                     <li class="small_pic_f"><img src="images/member_square2.jpg" alt=""></li>
                     <li class="square_f orange">
+                        <a href="activity2.php">
                             <img class="images" src="images/news_squre4_light.jpg" alt="">
-                            <p class="p4">自動傘新品上架</p>
-                            <a href=""></a>
+                            <p class="p4">陽傘新色上架</p>
+                        </a>
                     </li>
                 </ul>
             </div> 
@@ -397,16 +403,16 @@
               </thead>
             <tbody>
             <?php foreach($_SESSION['cart'] as $sid =>$qty): ?>
-                <tr class="tablePhone_a" data-sid="<?= $sid ?>">
+                <tr class="card" data-sid="<?= $sid ?>">
                   <td class="productCom_A"><figure><img src="images/detail/<?= $cartdata[$sid]['umbrella_id'] ?>_1.png" alt=""></figure></td>
                   <td><?= $cartdata[$sid]['umbrellaname'] ?></td>
-                  <td>
+                  <td class="qty" data-qty="<?= $qty ?>">
                       <a class="changeQty minus"></a>
-                      <i class="textqty"><?= $qty ?></i>
+                      <i class="textqty">0</i>
                       <a class="changeQty plus"></a>
                   </td>
-                  <td>NT$.<?= $cartdata[$sid]['price'] ?></td>
-                  <td>NT$.<?= $cartdata[$sid]['price']*$qty ?></td>
+                  <td class="price" data-price="<?= $cartdata[$sid]['price'] ?>">NT$.<i>0</i></td>
+                  <td class="subtotal" data-subtotal="<?= $cartdata[$sid]['price']*$qty ?>">NT$.<i>0</i></td>
                   <td></td>
                   <td><i class="far fa-trash-alt delet"></i></td>
                 </tr>
@@ -414,7 +420,7 @@
             </tbody>
         </table>
     <?php foreach($_SESSION['cart'] as $sid =>$qty): ?>    
-        <div class="tablePhone_a" data-sid="<?= $sid ?>">
+        <div class="tablePhone_a card" data-sid="<?= $sid ?>">
             <div class="listTitle_a">商品圖片</div>
             <div class="listImg_a"><img src="images/detail/<?= $cartdata[$sid]['umbrella_id'] ?>_1.png" alt=""></div>
             <div class="listContent_a">
@@ -422,7 +428,7 @@
                 <p>數量
                     <span class="listCS_a qty" data-qty="<?= $qty ?>">
                         <a class="changeQty minus"></a>
-                        <i class="textqty"><?= $qty ?></i>
+                        <i class="textqty">0</i>
                         <a class="changeQty plus"></a>
                     </span>
                 </p>
@@ -464,7 +470,7 @@
         $(window).scroll(function(){
             var scrollNow=$(this).scrollTop();
             // console.log(scrollNow);
-            if (scrollNow < 240) {
+            if (scrollNow < 200) {
                 $("header").removeClass("hide black");
             } else {
                 if (scrollNow > scrolllast) {
@@ -482,13 +488,13 @@
             },1000);
         });
 
-        /*Count*/
+        /*Count1*/
         var totalQty,totalPrice;
         function count(){
             totalQty=0,totalPrice=0;
             $(".qty").each(function(){
                 var qty=$(this).data("qty");
-                // $(this).text(qty);
+                $(this).find("i").text(qty);
                 totalQty+=qty;
             });
             $(".price").each(function(){
@@ -500,17 +506,62 @@
                 $(this).find("i").text(subtotal);
                 totalPrice+=subtotal;
             });
-            $(".tqty").text(totalQty);
-            $(".tprice").text(totalPrice);
+            $(".tqty").text(totalQty/2);
+            $(".tprice").text(totalPrice/2);
         }
         count();
+        /*Count2 */
+        function count2(){
+            totalQty=0,totalPrice=0;
+            $(".card").each(function(){
+                var qty=parseInt($(this).find(".textqty").text());
+                var price=$(this).find(".price").data("price");
+                var subtotal=qty*price;
+                $(this).find(".subtotal i").text(subtotal);
+                totalQty+=qty;
+                totalPrice+=subtotal;
+            });
+            $(".tqty").text(totalQty/2);
+            $(".tprice").text(totalPrice/2);
+        }
+        /*Change qty */
+        $(".changeQty").click(function(){
+            var textqty=$(this).closest(".qty").find(".textqty");
+            var nowqty=parseInt(textqty.text());
+            var card=$(this).closest(".card");
+            var sid=card.data("sid");
+            if($(this).hasClass("minus")){
+                if(nowqty>1){
+                    nowqty--;
+                }else{
+                    nowqty=1;
+                }
+            }else{
+                nowqty++;
+            }
+            console.log(nowqty);
+            $(".card").each(function(){
+                if($(this).data("sid")==sid) $(this).find(".textqty").text(nowqty);
+            });
+            
+            var qty=nowqty;
+
+            $.get('add_to_cart.php',{sid:sid,qty:qty},function(data){
+                // console.log(data);
+                // alert("商品已加入購物車");
+                // $("#lightbox_f").find("#lightbox-panel_f p").text("商品已加入購物車");
+                // $("#lightbox_f").show();
+                countItems(data);
+            },"json");
+            count2();
+        });
         /*delet*/
         $(".delet").click(function(){
-            var card=$(this).closest(".tablePhone_a");
+            var card=$(this).closest(".card");
             var sid=card.data("sid");
             
             $.get("add_to_cart.php",{sid:sid},function(data){
-                $(".tablePhone_a").each(function(){
+                $(".card").each(function(){
                     countItems(data);
                     if(itemCount.text()==0) location.href=location.href;
                     if($(this).data("sid")==sid) $(this).remove();
@@ -521,8 +572,8 @@
         });
         /*add price to session*/
         $(".buynext").click(function(){
-            var tqty=totalQty,
-                tprice=totalPrice;
+            var tqty=$(".tqty").text(),
+                tprice=$(".tprice").text();
             $.get("add_price.php",{tqty:tqty,tprice:tprice},function(data){
                 // console.log(data);
                 location.href="cartPayShip.php";

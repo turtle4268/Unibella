@@ -45,6 +45,10 @@
         opacity: 1;
         filter:brightness(.5);
     }
+    .square_a .p4 {
+        margin-top:-32px;
+        margin-left:-122px;
+    }
     /*--sec2New--*/
     
     .new_a {

@@ -13,7 +13,7 @@ $discount=(isset($_GET['discount'])) ? floatval($_GET['discount']) : 1;
 $_SESSION['discount']=$_GET['discount'];
 $ship=(isset($_GET['ship'])) ? intval($_GET['ship']) : 0;
 $oldprice=intval($_SESSION['totalPrice']);
-$newprice=$oldprice*(1-$discount)+$ship;
+$newprice=ceil($oldprice*(1-$discount)+$ship);
 
 $_SESSION['newprice']=$newprice;
 

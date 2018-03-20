@@ -1,6 +1,6 @@
 <?php require __DIR__. '/_db_connect.php'; ?>
 <?php 
-    // $_SESSION['come_from'] = $_SERVER['HTTP_REFERER'];
+    $_SESSION['come_from'] = $_SERVER['HTTP_REFERER'];
 ?>
 <?php include __DIR__.'/module_head.php' ?>
     <style>
@@ -464,6 +464,9 @@
         }
         .form_login {
             margin-top:20px;
+        }
+        .registerInput_y, .registerInput1111_y, .registerInput22_y, .registerInput2222_y{
+            color:#f8cf4e !important;
         }
     </style>
     <style>

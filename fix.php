@@ -198,7 +198,7 @@
     <div id="container">
         <div class="headerBg_a">
             <img src="images/banner_FIX.jpg" alt="">
-            <p>Be Your Unique Unbrella.</p>
+            <p>Be Your Unique Umbrella.</p>
         </div>
         <section class="fix_a">
             <div class="warranty_a">
@@ -276,7 +276,7 @@
         $(window).scroll(function(){
             var scrollNow=$(this).scrollTop();
             // console.log(scrollNow);
-            if (scrollNow < 350) {
+            if (scrollNow < 200) {
                 $("header").removeClass("hide black");
             } else {
                 if (scrollNow > scrolllast) {

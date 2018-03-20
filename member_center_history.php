@@ -219,8 +219,8 @@
             background: #000000;
         }
         .active_a ul li a {
-            width: 300px;
-            height: 300px;
+            width: 100%;
+            height: 100%;
             display: block;
             z-index: 2;
             
@@ -286,6 +286,33 @@
         .active_a ul .orange {
             background:#e0a340;
         }
+        h6{
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #666;
+            margin-top: 50px;
+        }
+        .pulse_f{
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            width: 50%;
+            margin: 0 auto;
+            color:#C1272D;
+            padding: 100px 0;
+            z-index: 2;
+            animation: pulse .7s infinite alternate;
+        }
+        @keyframes pulse{
+            0%{
+                transform: scale(1);
+            }
+            100%{
+                transform: scale(1.1);
+            }
+        
+        }
         /*-------toTop--------*//*f加*/
         .toTop{
             color: #1F5572 ;
@@ -318,6 +345,9 @@
             50%  { opacity: .5; }
             100% { opacity: 1; top: -4px ;}
         }
+        .dateW_y{
+            width:135px;
+        }
     </style>
     <style>
         @import url("css/member_center_history_phone.css");
@@ -343,24 +373,26 @@
                     </form>
                 </div>
     <?php if(empty($history)): ?>
-                <h3>您目前尚無訂購紀錄。</h3>
+                <p class="pulse_f">您目前尚無訂購紀錄。</p>
                 <div class="active_y">
                     <h2>最新活動</h2>
                     <div class="active_a">
                         <ul>
                             <li class="square_a blue">
-                                <img class="images" src="images/news_squre2_light.jpg" alt="">
-                                <p class="p2">梅雨季
+                                <a href="product_list3.php">
+                                    <img class="images" src="images/news_squre2_light.jpg" alt="">
+                                    <p class="p2">梅雨季
                                     <br>全館雨傘85折</p>
-                                <a href=""></a>
+                                </a>
                             </li>
                             <li>
                                 <img src="images/member_square2.jpg" alt="">
                             </li>
                             <li class="square_a orange">
-                                <img class="images" src="images/news_squre4_light.jpg" alt="">
-                                <p class="p4">自動傘新品上架</p>
-                                <a href=""></a>
+                                <a href="activity2.php">
+                                    <img class="images" src="images/news_squre4_light.jpg" alt="">
+                                    <p class="p4">陽傘新色上架</p>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -384,13 +416,13 @@
                     <tbody>
                 <?php foreach($value['data'] as $data): ?>
                         <tr class="buyList_y">
-                            <td><?= $data['order_date'] ?></td>
+                            <td class="dateW_y"><?= $data['order_date'] ?></td>
                             <td class="history_pic_f"><img src="images/detail/<?= $data['umbrella_id'] ?>_1.png" alt=""></td>
                             <td><?= $data['umbrellaname'] ?></td>
                             <td><?= $data['quantity'] ?></td>
                             <td>NT$.<?= $data['price'] ?></td>
                             <td>NT$.<?= $data['price']*$data['quantity'] ?></td>
-                            <td>出貨中</td>
+                            <td>已收到訂單</td>
                             <td><a href="">取消訂單</a></td>
                         </tr>
                 <?php endforeach; ?>
@@ -436,7 +468,7 @@
                             <td><p>小計<span>NT$.<?= $data['price']*$data['quantity'] ?></span></p></td>
                         </tr>
                         <tr class="producCotent_a producCotentM_a">
-                            <td><p>狀態<span>出貨中</span></p></td>
+                            <td><p>狀態<span>已收到訂單</span></p></td>
                         </tr>
                         <tr class="producCotent_a  producCotentL_a">
                             <td class="delect_a"><a href="">取消訂單</a></td>
@@ -475,7 +507,7 @@
         $(window).scroll(function(){
             var scrollNow=$(this).scrollTop();
             // console.log(scrollNow);
-            if (scrollNow < 350) {
+            if (scrollNow < 200) {
                 $("header").removeClass("hide black");
             } else {
                 if (scrollNow > scrolllast) {
