@@ -487,8 +487,8 @@
                 scrollTop:0
             },1000);
         });
-
-        /*Count1   剛載入算數量並填入html */
+////////////////////////////////////////////把sid設為classname，不用each而用classname刪除更改
+        /*Count1*/
         var totalQty,totalPrice;
         function count(){
             totalQty=0,totalPrice=0;
@@ -510,7 +510,7 @@
             $(".tprice").text(totalPrice/2);
         }
         count();
-        /*Count2    更改數量 */
+        /*Count2 */
         function count2(){
             totalQty=0,totalPrice=0;
             $(".card").each(function(){
@@ -564,13 +564,13 @@
                 card.remove();
                 
                 if($(".card").length==0) location.href=location.href;
-                
+                /*
                 $(".card").each(function(){
                     countItems(data);
                     if(itemCount.text()==0) location.href=location.href;
                     if($(this).data("sid")==sid) $(this).remove();
                 });
-                
+                */
                 count2();
             },'json');
             
