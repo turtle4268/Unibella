@@ -52,10 +52,10 @@
         display: none;
     }
     .step_a:first-child .step-content_a {
-        top:-1px;
+        top:0px;
     }
     .step_a:nth-child(3) .step-content_a {
-        top:0;
+        top:1px;
     }
     .step1-content_a::before {
         display: none;
@@ -64,7 +64,7 @@
         margin-top:8px;
     }
     .stepDown-content_a {
-        top:46px;
+        top:43px;
     }
     .step-content_a i {
         left: 1px;
