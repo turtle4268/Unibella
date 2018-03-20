@@ -345,6 +345,9 @@
             50%  { opacity: .5; }
             100% { opacity: 1; top: -4px ;}
         }
+        .dateW_y{
+            width:135px;
+        }
     </style>
     <style>
         @import url("css/member_center_history_phone.css");
@@ -413,7 +416,7 @@
                     <tbody>
                 <?php foreach($value['data'] as $data): ?>
                         <tr class="buyList_y">
-                            <td><?= $data['order_date'] ?></td>
+                            <td class="dateW_y"><?= $data['order_date'] ?></td>
                             <td class="history_pic_f"><img src="images/detail/<?= $data['umbrella_id'] ?>_1.png" alt=""></td>
                             <td><?= $data['umbrellaname'] ?></td>
                             <td><?= $data['quantity'] ?></td>
