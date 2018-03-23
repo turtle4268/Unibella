@@ -446,11 +446,11 @@
                     <td class="invoice-td_a">
                         <p>發票</p>
                         <div class="invoiceRadios_a">
-                            <input class="formRadios_a" type="radio" name="Radios" id="Radios1" value="1">捐贈發票
+                            <input class="formRadios_a" type="radio" name="Radios" id="Radios1" value="1"><label for="Radios1">捐贈發票</label>
                             <br>
-                            <input class="formRadios_a" type="radio" name="Radios" id="Radios2" value="2">電子發票
+                            <input class="formRadios_a" type="radio" name="Radios" id="Radios2" value="2"><label for="Radios2">電子發票</label>
                             <br>
-                            <input class="formRadios_a" type="radio" name="Radios" id="Radios3" value="3">三聯式發票
+                            <input class="formRadios_a" type="radio" name="Radios" id="Radios3" value="3"><label for="Radios3">三聯式發票</label>
                         </div>
                     </td>
                 </tr>
@@ -538,8 +538,8 @@
         var name=$("#name").val(),
             phone=$("#phone").val(),
             address=$("#address").val(),
-            radio=$(".formRadios_a").val();
-        if((name=="") || (phone=="") || (address=="") || (radio=="")){
+            radio=$("input[name='Radios']:checked").val();
+        if((name=="") || (phone=="") || (address=="") || (radio==undefined)){
             // alert("請填入收件資料");
             $("#lightbox_f").find("#lightbox-panel_f p").text("請填入收件資料");
             $("#lightbox_f").show();
