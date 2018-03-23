@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    unset($_SESSION['seepass']);
+    session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en">
