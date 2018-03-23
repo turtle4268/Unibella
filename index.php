@@ -120,20 +120,16 @@
     });
     $(".sent").click(function(){
         var seepass=$("#seepass").val();
-        if(seepass=="guava"){
-            $.get("add_pass.php",{seepass:seepass},function(data){
-                // console.log(data);
-                if(data=="1"){
-                    // console.log("1");
-                    location.href="./home.php";
-                }else{
-                    // console.log("0");
-                }
-            });
-        }else{
-            $("#lightbox_f").find("#lightbox-panel_f p").text("密碼錯誤");
-            $("#lightbox_f").show();
-        }
+        
+        $.get("add_pass.php",{seepass:seepass},function(data){
+            // console.log(data);
+            if(data=="1"){
+                location.href="./home.php";
+            }else{
+                $("#lightbox_f").find("#lightbox-panel_f p").text("密碼錯誤");
+                $("#lightbox_f").show();
+            }
+        });
     
     });
 </script>
